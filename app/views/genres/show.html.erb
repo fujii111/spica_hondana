@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @genre.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @genre.description %>
+</p>
+
+<p>
+  <strong>Sort:</strong>
+  <%= @genre.sort %>
+</p>
+
+<p>
+  <strong>Delete flg:</strong>
+  <%= @genre.delete_flg %>
+</p>
+
+<%= link_to 'Edit', edit_genre_path(@genre) %> |
+<%= link_to 'Back', genres_path %>
