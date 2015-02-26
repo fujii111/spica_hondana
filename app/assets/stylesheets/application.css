@@ -1,3 +1,4 @@
+﻿@CHARSET "utf-8";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -11,3 +12,55 @@
  *= require_self
  *= require_tree .
  */
+
+* {
+	margin: 0;
+	padding: 0;
+	word-wrap: break-word;
+	font-family: "メイリオ", sans-serif;
+}
+
+body {
+	width: 960px;
+	margin: 0 auto;
+	background-image: url("/images/paper.png");
+}
+
+nav {
+	width: 960px;
+	height: 100px;
+}
+
+nav h1 {
+	float: left;
+	width: 260px;
+	height: 100px;
+}
+
+#navigation {
+	float: left;
+	margin: 0 auto;
+}
+
+#navigation a {
+	float: left;
+	width: 200px;
+	height: 30px;
+	margin: 7px 0;
+}
+
+#welcome {
+	float: right;
+	width: 280px;
+	height: 40px;
+	margin: 5px 10px;
+	text-align: right;
+}
+
+#menu {
+	clear: both;
+}
+
+section {
+	clear: both;
+}

@@ -1,14 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hondana</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+	<meta charset="utf-8">
+	<title>ホンダナ</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
+<article>
 
+<nav>
+	<div>
+		<h1>
+			<a href=""><%= image_tag 'title_ico.png', alt: 'トップページへ', class: 'button' %></a>
+		</h1>
+		<p id="navigation">
+			<a href=""><%= image_tag 'mypage_ico.png', alt: 'マイページへ', class: 'button' %></a>
+			<a href=""><%= image_tag 'this_is_ico.png', alt: 'このサイトについて', class: 'button' %></a>
+		</p>
+		<p id="welcome">
+			ようこそ <span class="bold">ふじい</span> さん
+			<br>
+			現在 <span class="bold">14</span> ブク | ログアウト
+		</p>
+	</div>
+	<div id="menu">
+		<p>
+			<a href="" class="button"><img src="/assets/profile_ico.png" alt="プロフィール"></a>
+		</p>
+		<p>
+			<a href="" class="button"><img src="/assets/exchange_all_ico.png" alt="交換一覧"></a>
+		</p>
+		<p>
+			<a href="" class="button"><img src="/assets/notice_ico.png" alt="会員向け告知"></a>
+		</p>
+	</div>
+</nav>
+<section>
 <%= yield %>
+</section>
+<aside>
+	<div>
+		<h1><img src="/assets/about_this_ico.png" alt="ホンダナについて"></h1>
+		<p>
+			<a href="">利用ガイド</a>
+		</p>
+		<p>
+			<a href="">料金</a>
+		</p>
+		<p>
+			<a href="">お問い合わせ</a>
+		</p>
+		<p>
+			<a href="">利用規約</a>
+		</p>
+	</div>
+	<div>
+		<h1><img src="/assets/about_us_ico.png" alt="私たちについて"></h1>
+		<p>
+			<a href="">会社概要</a>
+		</p>
+	</div>
+	<div>
+		<h1><img src="/assets/media_ico.png" alt="メディア"></h1>
+		<p>
+			<a href="" target="_blank">ブログ</a>
+		</p>
+		<p>
+			<a href="">メディア掲載情報</a>
+		</p>
+	</div>
+</aside>
 
+</article>
 </body>
 </html>
