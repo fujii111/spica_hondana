@@ -8,71 +8,52 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-<article>
-
-<nav>
-	<div>
-		<h1>
-			<a href=""><%= image_tag 'title_ico.png', alt: 'トップページへ', class: 'button' %></a>
-		</h1>
-		<p id="navigation">
-			<a href=""><%= image_tag 'mypage_ico.png', alt: 'マイページへ', class: 'button' %></a>
-			<a href=""><%= image_tag 'this_is_ico.png', alt: 'このサイトについて', class: 'button' %></a>
-		</p>
-		<p id="welcome">
-			ようこそ <span class="bold">ふじい</span> さん
-			<br>
-			現在 <span class="bold">14</span> ブク | ログアウト
-		</p>
+<div id="head">
+	<h1 id="head_image">
+		<a href=""><%= image_tag 'title_ico.png', alt: 'トップページへ', class: 'button' %></a>
+	</h1>
+	<div id="navigate">
+		<p class="box"><a href=""><%= image_tag 'mypage_ico.png', alt: 'マイページへ', class: 'button' %></a></p>
+		<p class="box"><a href=""><%= image_tag 'this_is_ico.png', alt: 'このサイトについて', class: 'button' %></a></p>
+		<div id="head_right">
+			<p>ようこそ ふじい さん</p>
+			<p>現在 14 ブク | <a href="">ログアウト</a></p>
+		</div>
+		<div id="search_bar">
+			<p>
+				<input type="text" id="search_box" name="search_box" placeholder="本の検索・登録・交換をする場合はこちらから">
+				<input type="button" id="search_btn" name="search_btn" class="search_btn" value="検索"  onClick="location.href='./search.html'">
+				<a href="">詳細検索</a>
+			</p>
+		</div>
 	</div>
-	<div id="menu">
-		<p>
-			<a href="" class="button"><img src="/assets/profile_ico.png" alt="プロフィール"></a>
-		</p>
-		<p>
-			<a href="" class="button"><img src="/assets/exchange_all_ico.png" alt="交換一覧"></a>
-		</p>
-		<p>
-			<a href="" class="button"><img src="/assets/notice_ico.png" alt="会員向け告知"></a>
-		</p>
-	</div>
-</nav>
-<section>
+</div>
+<div id="member_nav">
+	<p><a href=""><%= image_tag 'profile_ico.png', alt: 'プロフィール', class: 'button' %></a></p>
+	<p><a href=""><%= image_tag 'exchange_all_ico.png', alt: '交換一覧', class: 'button' %></a></p>
+	<p><a href=""><%= image_tag 'notice_ico_new.png', alt: '会員向け告知', class: 'button' %></a></p>
+</div>
+<div id="main">
 <%= yield %>
-</section>
-<aside>
-	<div>
-		<h1><img src="/assets/about_this_ico.png" alt="ホンダナについて"></h1>
-		<p>
-			<a href="">利用ガイド</a>
-		</p>
-		<p>
-			<a href="">料金</a>
-		</p>
-		<p>
-			<a href="">お問い合わせ</a>
-		</p>
-		<p>
-			<a href="">利用規約</a>
-		</p>
+</div>
+<div id="foot">
+	<div id="about_this">
+		<h1><%= image_tag 'about_this_ico.png', alt: 'ABOUT ホンダナ' %></h1>
+		<p><a href="../../../../information/guide/">利用ガイド</a></p>
+		<p><a href="../../../../information/fee/">料金</a></p>
+		<p><a href="../../../../support/inquiry/">お問い合わせ</a></p>
+		<p><a href="../../../../information/terms/">利用規約</a></p>
 	</div>
-	<div>
-		<h1><img src="/assets/about_us_ico.png" alt="私たちについて"></h1>
-		<p>
-			<a href="">会社概要</a>
-		</p>
+	<div id="about_us">
+		<h1><%= image_tag 'about_us_ico.png', alt: 'ABOUT US' %></h1>
+		<p><a href="../../../../information/outline/corporation/">会社概要</a></p>
 	</div>
-	<div>
-		<h1><img src="/assets/media_ico.png" alt="メディア"></h1>
-		<p>
-			<a href="" target="_blank">ブログ</a>
-		</p>
-		<p>
-			<a href="">メディア掲載情報</a>
-		</p>
+	<div id="media">
+		<h1><%= image_tag 'media_ico.png', alt: 'メディア' %></h1>
+		<p><a href="http://spica-travel.com/blog/" target="_blank">ブログ</a></p>
+		<p><a href="../../../../information/news/">メディア掲載情報</a></p>
 	</div>
-</aside>
-
-</article>
+	<p style="clear:both;"></p>
+</div>
 </body>
 </html>
