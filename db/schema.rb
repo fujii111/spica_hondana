@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224190117) do
+ActiveRecord::Schema.define(version: 20150226063106) do
 
   create_table "genres", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "sort"
     t.boolean  "delete_flg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notices", force: true do |t|
+    t.text     "content"
+    t.datetime "notice_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

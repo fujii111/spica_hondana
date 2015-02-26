@@ -1,4 +1,6 @@
 Hondana::Application.routes.draw do
+  resources :notices
+
   resources :genres
 
   # The priority is based upon order of creation: first created -> highest priority.
