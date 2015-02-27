@@ -11,12 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226063106) do
+ActiveRecord::Schema.define(version: 20150227092042) do
 
   create_table "genres", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "sort"
+    t.boolean  "delete_flg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "members", force: true do |t|
+    t.string   "login_id"
+    t.string   "password"
+    t.string   "reset_token"
+    t.datetime "reset_limit"
+    t.string   "name"
+    t.string   "kana"
+    t.string   "nickname"
+    t.date     "birthday"
+    t.string   "mail_address"
+    t.string   "address"
+    t.integer  "point"
+    t.string   "favorite_author1"
+    t.string   "favorite_author2"
+    t.string   "favorite_author3"
+    t.string   "favorite_author4"
+    t.string   "favorite_author5"
     t.boolean  "delete_flg"
     t.datetime "created_at"
     t.datetime "updated_at"

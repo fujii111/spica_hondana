@@ -1,4 +1,6 @@
 Hondana::Application.routes.draw do
+  resources :members
+
   resources :notices
 
   resources :genres

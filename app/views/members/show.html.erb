@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Login:</strong>
+  <%= @member.login_id %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @member.password %>
+</p>
+
+<p>
+  <strong>Reset token:</strong>
+  <%= @member.reset_token %>
+</p>
+
+<p>
+  <strong>Reset limit:</strong>
+  <%= @member.reset_limit %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @member.name %>
+</p>
+
+<p>
+  <strong>Kana:</strong>
+  <%= @member.kana %>
+</p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @member.nickname %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @member.birthday %>
+</p>
+
+<p>
+  <strong>Mail address:</strong>
+  <%= @member.mail_address %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @member.address %>
+</p>
+
+<p>
+  <strong>Point:</strong>
+  <%= @member.point %>
+</p>
+
+<p>
+  <strong>Favorite author1:</strong>
+  <%= @member.favorite_author1 %>
+</p>
+
+<p>
+  <strong>Favorite author2:</strong>
+  <%= @member.favorite_author2 %>
+</p>
+
+<p>
+  <strong>Favorite author3:</strong>
+  <%= @member.favorite_author3 %>
+</p>
+
+<p>
+  <strong>Favorite author4:</strong>
+  <%= @member.favorite_author4 %>
+</p>
+
+<p>
+  <strong>Favorite author5:</strong>
+  <%= @member.favorite_author5 %>
+</p>
+
+<p>
+  <strong>Delete flg:</strong>
+  <%= @member.delete_flg %>
+</p>
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>

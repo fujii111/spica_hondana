@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  login_id: MyString
+  password: MyString
+  reset_token: MyString
+  reset_limit: 2015-02-27 18:20:42
+  name: MyString
+  kana: MyString
+  nickname: MyString
+  birthday: 2015-02-27
+  mail_address: MyString
+  address: MyString
+  point: 1
+  favorite_author1: MyString
+  favorite_author2: MyString
+  favorite_author3: MyString
+  favorite_author4: MyString
+  favorite_author5: MyString
+  delete_flg: false
+
+two:
+  login_id: MyString
+  password: MyString
+  reset_token: MyString
+  reset_limit: 2015-02-27 18:20:42
+  name: MyString
+  kana: MyString
+  nickname: MyString
+  birthday: 2015-02-27
+  mail_address: MyString
+  address: MyString
+  point: 1
+  favorite_author1: MyString
+  favorite_author2: MyString
+  favorite_author3: MyString
+  favorite_author4: MyString
+  favorite_author5: MyString
+  delete_flg: false
