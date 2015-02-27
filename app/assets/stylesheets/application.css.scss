@@ -1,0 +1,116 @@
+﻿/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+* {
+	margin: 0;
+	padding: 0;
+	color: #503D2E;
+	font-size: 16px;
+	font-style: normal;
+	font-family: "メイリオ", sans-serif;
+	word-wrap: break-word;
+}
+
+body {
+	width: 960px;
+	margin: 0 auto;
+	background-color: #F7F5E8;
+	background-image: url("/images/paper.png");
+}
+
+a {
+	color: #503DEC;
+	&:hover {
+		opacity: 0.5;
+	}
+}
+
+.strong {
+	font-weight: bold;
+}
+
+#head {
+	width: 960px;
+	height: 100px;
+	margin: 10px 0;
+	h1 {
+		float: left;
+	}
+	#navigate {
+		float: left;
+		.button {
+			float: left;
+			width: 200px;
+			height: 30px;
+			margin: 7px 0;
+		}
+		#welcome {
+			float: right;
+			width: 280px;
+			height: 40px;
+			margin: 5px 10px;
+			text-align: right;
+		}
+	}
+	#search_bar {
+		clear: both;
+		padding: 10px 0 10px 8px;
+		width: 690px;
+		height: 40px;
+		#search_box {
+			width: 530px;
+			height: 30px;
+			padding-left: 2px;
+		}
+	}
+}
+
+#menu {
+	clear: both;
+	width: 960px;
+	height: 40px;
+	p {
+		float: left;
+	}
+}
+
+#footer {
+	clear: both;
+	width: 960px;
+	height: 160px;
+	background-image: url("/images/footer_bg.png");
+	div {
+		float: left;
+		width: 319px;
+		height: 150px;
+		padding: 5px 0px;
+		p {
+			text-indent: 1.5em;
+		}
+		a {
+			color: #FEFEEB;
+		}
+		&:not(:first-child) {
+			border-left: 1px solid #FEFEEB;
+		}
+	}
+}
+
+#main {
+	clear: both;
+	padding: 10px;
+	min-height: 390px;
+	height: auto !important;
+	height: 390px;
+}

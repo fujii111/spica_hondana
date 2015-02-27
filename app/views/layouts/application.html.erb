@@ -9,15 +9,15 @@
 </head>
 <body>
 <div id="head">
-	<h1 id="head_image">
-		<a href=""><%= image_tag 'title_ico.png', alt: 'トップページへ', class: 'button' %></a>
+	<h1>
+		<a href=""><%= image_tag 'title_ico.png', alt: 'トップページへ' %></a>
 	</h1>
 	<div id="navigate">
-		<p class="box"><a href=""><%= image_tag 'mypage_ico.png', alt: 'マイページへ', class: 'button' %></a></p>
-		<p class="box"><a href=""><%= image_tag 'this_is_ico.png', alt: 'このサイトについて', class: 'button' %></a></p>
-		<div id="head_right">
-			<p>ようこそ ふじい さん</p>
-			<p>現在 14 ブク | <a href="">ログアウト</a></p>
+		<p class="button"><a href=""><%= image_tag 'mypage_ico.png', alt: 'マイページへ' %></a></p>
+		<p class="button"><a href=""><%= image_tag 'this_is_ico.png', alt: 'このサイトについて' %></a></p>
+		<div id="welcome">
+			<p>ようこそ <span class="strong">ふじい</span> さん</p>
+			<p>現在 <span class="strong">14</span> ブク | <a href="">ログアウト</a></p>
 		</div>
 		<div id="search_bar">
 			<p>
@@ -28,32 +28,34 @@
 		</div>
 	</div>
 </div>
-<div id="member_nav">
+
+<div id="menu">
 	<p><a href=""><%= image_tag 'profile_ico.png', alt: 'プロフィール', class: 'button' %></a></p>
 	<p><a href=""><%= image_tag 'exchange_all_ico.png', alt: '交換一覧', class: 'button' %></a></p>
-	<p><a href=""><%= image_tag 'notice_ico_new.png', alt: '会員向け告知', class: 'button' %></a></p>
+	<p><a href=""><%= image_tag 'notice_ico.png', alt: '会員向け告知', class: 'button' %></a></p>
 </div>
+
 <div id="main">
 <%= yield %>
 </div>
-<div id="foot">
-	<div id="about_this">
+
+<div id="footer">
+	<div>
 		<h1><%= image_tag 'about_this_ico.png', alt: 'ABOUT ホンダナ' %></h1>
 		<p><a href="../../../../information/guide/">利用ガイド</a></p>
 		<p><a href="../../../../information/fee/">料金</a></p>
 		<p><a href="../../../../support/inquiry/">お問い合わせ</a></p>
 		<p><a href="../../../../information/terms/">利用規約</a></p>
 	</div>
-	<div id="about_us">
+	<div>
 		<h1><%= image_tag 'about_us_ico.png', alt: 'ABOUT US' %></h1>
 		<p><a href="../../../../information/outline/corporation/">会社概要</a></p>
 	</div>
-	<div id="media">
+	<div>
 		<h1><%= image_tag 'media_ico.png', alt: 'メディア' %></h1>
 		<p><a href="http://spica-travel.com/blog/" target="_blank">ブログ</a></p>
 		<p><a href="../../../../information/news/">メディア掲載情報</a></p>
 	</div>
-	<p style="clear:both;"></p>
 </div>
 </body>
 </html>
