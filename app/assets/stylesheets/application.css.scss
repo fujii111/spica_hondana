@@ -109,8 +109,25 @@ a {
 
 #main {
 	clear: both;
-	padding: 10px;
+	padding: 10px 2px 20px;
 	min-height: 390px;
 	height: auto !important;
 	height: 390px;
+	h1 {
+		border: 2px solid #CCCCCC;
+		border-left-width: 10px;
+		background-color: #EEEEEE;
+		padding: 5px;
+		font-size: 22px;
+	}
+	.field {
+		margin: 16px;
+		label {
+			font-weight: bold;
+		}
+		p {
+			margin: 4px;
+			margin-left: 40px;
+		}
+	}
 }
