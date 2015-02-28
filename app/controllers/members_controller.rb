@@ -1,14 +1,11 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
-
   # GET /members
-  # GET /members.json
   def index
-    @members = Member.all
+    @members = Member.where(delete_flg: false)
   end
 
   # GET /members/1
-  # GET /members/1.json
   def show
   end
 
@@ -22,53 +19,43 @@ class MembersController < ApplicationController
   end
 
   # POST /members
-  # POST /members.json
   def create
     @member = Member.new(member_params)
+    @member.point = 0
+    @member.delete_flg = false
 
-    respond_to do |format|
-      if @member.save
-        format.html { redirect_to @member, notice: 'Member was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @member }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @member.errors, status: :unprocessable_entity }
-      end
+    if @member.save
+      redirect_to @member, notice: '会員情報を登録しました。'
+    else
+      render action: 'new'
     end
   end
 
   # PATCH/PUT /members/1
-  # PATCH/PUT /members/1.json
   def update
-    respond_to do |format|
-      if @member.update(member_params)
-        format.html { redirect_to @member, notice: 'Member was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @member.errors, status: :unprocessable_entity }
-      end
+    if @member.update(member_params)
+      redirect_to @member, notice: 'プロフィールを変更しました。'
+    else
+      render action: 'edit'
     end
   end
 
   # DELETE /members/1
-  # DELETE /members/1.json
   def destroy
-    @member.destroy
-    respond_to do |format|
-      format.html { redirect_to members_url }
-      format.json { head :no_content }
-    end
+    @member.delete_flg = true
+    @member.save
+    redirect_to members_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_member
-      @member = Member.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def member_params
-      params.require(:member).permit(:login_id, :password, :reset_token, :reset_limit, :name, :kana, :nickname, :birthday, :mail_address, :address, :point, :favorite_author1, :favorite_author2, :favorite_author3, :favorite_author4, :favorite_author5, :delete_flg)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_member
+    @member = Member.find(params[:id], :conditions => {:delete_flg => false})
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def member_params
+    params.require(:member).permit(:login_id, :password, :password_confirmation, :name, :kana, :nickname, :birthday, :mail_address, :address, :favorite_author1, :favorite_author2, :favorite_author3, :favorite_author4, :favorite_author5)
+  end
 end

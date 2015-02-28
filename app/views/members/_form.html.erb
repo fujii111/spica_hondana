@@ -1,8 +1,7 @@
 <%= form_for(@member) do |f| %>
   <% if @member.errors.any? %>
     <div id="error_explanation">
-      <p><%= pluralize(@member.errors.count, "error") %> 件のエラーが発生しました。</p>
-
+      <p>入力エラーです。以下を確認してください(パスワードは再度入力してください)。</p>
       <ul>
       <% @member.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -12,42 +11,58 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :login_id, "ログインID", class: "required" %><br>
-    <p><%= f.text_field :login_id, size: 15, maxlength: 20 %> アルファベット・数字 20字以内</p>
-  </div>
-  <div class="field">
-    <%= f.label :password, "パスワード", class: "required" %><br>
+    <%= f.label :login_id, class: "required" %>
     <p>
-    	<%= f.password_field :password, size: 15, maxlength: 20 %> アルファベット・数字 8～20字<br>
-    	<%= f.password_field :re_password, size: 15, maxlength: 20 %> 確認のため再入力してください
+    	<%= f.text_field :login_id, size: 15, maxlength: 20 %> アルファベット・数字 4～20字
     </p>
   </div>
   <div class="field">
-    <%= f.label :nickname, "ニックネーム", class: "required" %><br>
-    <p><%= f.text_field :nickname, size: 15 %> サイト上で表示される名前です</p>
+    <%= f.label :password, class: "required" %>
+    <p>
+    	<%= f.password_field :password, size: 15, maxlength: 20 %> アルファベット・数字 8～20字
+    </p>
+    <p>
+    	<%= f.password_field :password_confirmation, size: 15, maxlength: 20 %> (確認入力)
+    </p>
   </div>
   <div class="field">
-    <%= f.label :name, "氏名", class: "required" %><br>
-    <p><%= f.text_field :name, size: 15 %> 本の送付先宛名になります</p>
+    <%= f.label :nickname, class: "required" %>
+    <p>
+    	<%= f.text_field :nickname, size: 15 %> サイト上で表示される名前です
+    </p>
   </div>
   <div class="field">
-    <%= f.label :kana, "氏名カナ" %><br>
-    <p><%= f.text_field :kana, size: 20 %></p>
+    <%= f.label :name, class: "required" %>
+    <p>
+    	<%= f.text_field :name, size: 15 %> 本の送付時に必要です
+    </p>
   </div>
   <div class="field">
-    <%= f.label :address, "住所", class: "required" %><br>
-    <p><%= f.text_field :address, size: 30 %> 本の送付先住所になります</p>
+    <%= f.label :kana %><br>
+    <p>
+    	<%= f.text_field :kana, size: 20 %>
+    </p>
   </div>
   <div class="field">
-    <%= f.label :mail_address, "メールアドレス", class: "required" %><br>
-    <p><%= f.text_field :mail_address %> パスワード再発行などの連絡先です</p>
+    <%= f.label :address, class: "required" %>
+    <p>
+    	<%= f.text_field :address, size: 30 %> 本の送付時に必要です
+    </p>
+  </div>
+  <div class="field">
+    <%= f.label :mail_address, size: 25, class: "required" %>
+    <p>
+    	<%= f.text_field :mail_address %> パスワード再発行などの連絡時に必要です
+    </p>
   </div>
   <div class="field">
     <%= f.label :birthday, "誕生日" %><br>
-    <p><%= f.date_select :birthday, use_month_numbers: true, start_year: 1920, end_year: Time.now.year, default: Date.new(1980, 1, 1) %></p>
+    <p>
+    	<%= f.date_select :birthday, use_month_numbers: true, start_year: 1920, end_year: Time.now.year, default: Date.new(1980, 1, 1) %>
+    </p>
   </div>
   <div class="field">
-    <%= f.label :favorite_author, "好きな作家" %><br>
+    <%= f.label :favorite_author, "好きな作家" %>
     <p>
 	    <%= f.text_field :favorite_author1, size: 10 %>
 	    <%= f.text_field :favorite_author2, size: 10 %>

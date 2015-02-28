@@ -143,16 +143,32 @@ input[type=submit]:hover {
 			margin: 4px;
 			margin-left: 40px;
 		}
+		.field_with_errors {
+			input, select, textarea {
+				background-color: #F3BEB9;
+			}
+		}
+	}
+	#error_explanation {
+		margin: 16px;
+		font-weight: bold;
+		ul {
+			list-style-type: none;
+			margin: 4px;
+			margin-left: 40px;
+			li {
+				color: #D54B1A;
+			}
+		}
 	}
 	table.list {
 		margin: 12px 0;
-		border: 1px solid #503D2E;
 		td, th {
-			border: 1px solid #503D2E;
+			border: 1px solid #CCCCCC;
 			padding: 2px;
 		}
 		th {
-			background-color: #CCCCCC;
+			background-color: #EEEEEE;
 		}
 	}
 	.required:after {
