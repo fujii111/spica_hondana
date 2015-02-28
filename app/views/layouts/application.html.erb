@@ -15,14 +15,15 @@
 	<div id="navigate">
 		<p class="button"><a href=""><%= image_tag 'mypage_ico.png', alt: 'マイページへ' %></a></p>
 		<p class="button"><a href=""><%= image_tag 'this_is_ico.png', alt: 'このサイトについて' %></a></p>
-		<div id="welcome">
-			<p>ようこそ <span class="strong">ふじい</span> さん</p>
-			<p>現在 <span class="strong">14</span> ブク | <a href="">ログアウト</a></p>
+		<div id="welcome" class="right">
+			<p><%= link_to "新規登録", new_member_path  %> | <a href="">ログイン</a></p>
+			<!-- p>ようこそ <span class="strong">ふじい</span> さん</p>
+			<p>現在 <span class="strong">14</span> ブク | <a href="">ログアウト</a></p -->
 		</div>
-		<div id="search_bar">
+		<div id="search" class="right">
 			<p>
-				<input type="text" id="search_box" name="search_box" placeholder="本の検索・登録・交換をする場合はこちらから">
-				<input type="button" id="search_btn" name="search_btn" class="search_btn" value="検索"  onClick="location.href='./search.html'">
+				<input type="text" id="search_box" name="search_box" placeholder="本の検索・登録・交換をする場合はこちらから" />
+				<input type="submit" id="search_btn" name="search_btn" class="search_btn" value="検索" />
 				<a href="">詳細検索</a>
 			</p>
 		</div>

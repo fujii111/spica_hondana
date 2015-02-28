@@ -36,6 +36,22 @@ a {
 	}
 }
 
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+input[type=submit]:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+.center {
+	text-align: center;
+}
+.right {
+	text-align: right;
+}
 .strong {
 	font-weight: bold;
 }
@@ -59,11 +75,10 @@ a {
 			float: right;
 			width: 280px;
 			height: 40px;
-			margin: 5px 10px;
-			text-align: right;
+			margin: 5px 0 5px 10px;
 		}
 	}
-	#search_bar {
+	#search {
 		clear: both;
 		padding: 10px 0 10px 8px;
 		width: 690px;
@@ -116,7 +131,6 @@ a {
 	h1 {
 		border: 2px solid #CCCCCC;
 		border-left-width: 10px;
-		background-color: #EEEEEE;
 		padding: 5px;
 		font-size: 22px;
 	}
@@ -129,5 +143,20 @@ a {
 			margin: 4px;
 			margin-left: 40px;
 		}
+	}
+	table.list {
+		margin: 12px 0;
+		border: 1px solid #503D2E;
+		td, th {
+			border: 1px solid #503D2E;
+			padding: 2px;
+		}
+		th {
+			background-color: #CCCCCC;
+		}
+	}
+	.required:after {
+		color: #D54B1A;
+		content: "【必須】";
 	}
 }

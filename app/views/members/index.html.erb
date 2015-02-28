@@ -1,28 +1,16 @@
-<h1>Listing members</h1>
+<h1>会員一覧</h1>
 
-<table>
+<table class="list">
   <thead>
     <tr>
-      <th>Login</th>
-      <th>Password</th>
-      <th>Reset token</th>
-      <th>Reset limit</th>
-      <th>Name</th>
-      <th>Kana</th>
-      <th>Nickname</th>
-      <th>Birthday</th>
-      <th>Mail address</th>
-      <th>Address</th>
-      <th>Point</th>
-      <th>Favorite author1</th>
-      <th>Favorite author2</th>
-      <th>Favorite author3</th>
-      <th>Favorite author4</th>
-      <th>Favorite author5</th>
-      <th>Delete flg</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>ログインID</th>
+      <th>ニックネーム</th>
+      <th>氏名</th>
+      <th>メールアドレス</th>
+      <th>ブク</th>
+      <th class="center">詳細</th>
+      <th class="center">編集</th>
+      <th class="center">削除</th>
     </tr>
   </thead>
 
@@ -30,30 +18,16 @@
     <% @members.each do |member| %>
       <tr>
         <td><%= member.login_id %></td>
-        <td><%= member.password %></td>
-        <td><%= member.reset_token %></td>
-        <td><%= member.reset_limit %></td>
-        <td><%= member.name %></td>
-        <td><%= member.kana %></td>
         <td><%= member.nickname %></td>
-        <td><%= member.birthday %></td>
+        <td><%= member.name %></td>
         <td><%= member.mail_address %></td>
-        <td><%= member.address %></td>
-        <td><%= member.point %></td>
-        <td><%= member.favorite_author1 %></td>
-        <td><%= member.favorite_author2 %></td>
-        <td><%= member.favorite_author3 %></td>
-        <td><%= member.favorite_author4 %></td>
-        <td><%= member.favorite_author5 %></td>
-        <td><%= member.delete_flg %></td>
-        <td><%= link_to 'Show', member %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="right"><%= member.point %></td>
+        <td class="center"><%= link_to '詳細', member %></td>
+        <td class="center"><%= link_to '編集', edit_member_path(member) %></td>
+        <td class="center"><%= link_to '削除', member, method: :delete, data: { confirm: '削除してよろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Member', new_member_path %>
+<%= link_to '新規登録', new_member_path %>
