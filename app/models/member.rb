@@ -15,6 +15,8 @@ class Member < ActiveRecord::Base
     presence: true
   validates :mail_address,
     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/ }
+  validates :agreement,
+    acceptance: true
 
   before_create do |member|
     member.password = Digest::MD5.hexdigest(member.password)

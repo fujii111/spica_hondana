@@ -70,6 +70,14 @@
     </p>
   </div>
   <div class="field">
+    <%= f.label :interests, "好きなジャンル" %>
+  </div>
+  <div class="field">
+    <%= f.check_box :agreement %>
+    <%= f.label :agreement, "利用規約に同意する" %>
+  </div>
+  <pre id="term"><%= File.read("./app/assets/term.txt", :encoding => Encoding::UTF_8) %></pre>
+  <div class="field">
     <%= f.submit value: "登録" %>
     <input type="reset" value="リセット" />
   </div>

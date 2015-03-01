@@ -29,7 +29,7 @@ ja:
     nickname: ニックネーム
     mail_address: メールアドレス
     address: 住所
-
+    agreement: 利用規約
   date:
     abbr_day_names:
     - 日
@@ -94,7 +94,7 @@ ja:
   errors:
     format: ! '%{attribute}%{message}'
     messages:
-      accepted: を受諾してください。
+      accepted: に同意してください。
       blank: を入力してください。
       present: は入力しないでください。
       confirmation: と%{attribute}の入力が一致しません。

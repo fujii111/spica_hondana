@@ -69,7 +69,7 @@ class MembersController < ApplicationController
     session[:id] = nil
     session[:nickname] = nil
     session[:point] = nil
-      # TODO
+    # TODO
     redirect_to root_path
   end
 
@@ -82,6 +82,6 @@ class MembersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def member_params
-    params.require(:member).permit(:login_id, :password, :password_confirmation, :name, :kana, :nickname, :birthday, :mail_address, :address, :favorite_author1, :favorite_author2, :favorite_author3, :favorite_author4, :favorite_author5)
+    params.require(:member).permit(:login_id, :password, :password_confirmation, :name, :kana, :nickname, :birthday, :mail_address, :address, :agreement, :favorite_author1, :favorite_author2, :favorite_author3, :favorite_author4, :favorite_author5)
   end
 end
