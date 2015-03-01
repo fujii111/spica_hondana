@@ -1,11 +1,10 @@
 Hondana::Application.routes.draw do
+  get "information/:action" => "information#:action", format: false
   get "members/login" => "members#login", format: false
   post "members/login" => "members#authenticate", format: false
   get "members/logout" => "members#logout", format: false
   resources :members, format: false
-
   resources :notices, format: false
-
   resources :genres, format: false
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -15,7 +15,7 @@
 	</h1>
 	<div id="navigate">
 		<p class="button"><a href=""><%= image_tag 'mypage_ico.png', alt: 'マイページへ' %></a></p>
-		<p class="button"><a href=""><%= image_tag 'this_is_ico.png', alt: 'このサイトについて' %></a></p>
+		<p class="button"><%= link_to (image_tag 'this_is_ico.png', alt: 'このサイトについて'), "/information/aboutthis"  %></p>
 		<div id="welcome" class="right">
 			<p>
 				<% if session[:id].blank? %>
@@ -49,19 +49,19 @@
 <div id="footer">
 	<div>
 		<h1><%= image_tag 'about_this_ico.png', alt: 'ABOUT ホンダナ' %></h1>
-		<p><a href="../../../../information/guide/">利用ガイド</a></p>
-		<p><a href="../../../../information/fee/">料金</a></p>
-		<p><a href="../../../../support/inquiry/">お問い合わせ</a></p>
-		<p><a href="../../../../information/terms/">利用規約</a></p>
+		<p><%= link_to "利用ガイド", "/information/guide"  %></p>
+		<p><%= link_to "料金", "/information/fee"  %></p>
+		<p><%= link_to "お問い合わせ", "/information/inquiry"  %></p>
+		<p><%= link_to "利用規約", "/information/term"  %></p>
 	</div>
 	<div>
 		<h1><%= image_tag 'about_us_ico.png', alt: 'ABOUT US' %></h1>
-		<p><a href="../../../../information/outline/corporation/">会社概要</a></p>
+		<p><%= link_to "会社概要", "/information/aboutus"  %></p>
 	</div>
 	<div>
 		<h1><%= image_tag 'media_ico.png', alt: 'メディア' %></h1>
 		<p><%= link_to "ブログ", "http://spica-travel.com/blog/", target: "blank" %></p>
-		<p><a href="../../../../information/news/">メディア掲載情報</a></p>
+		<p><%= link_to "メディア掲載情報", "/information/media"  %></p>
 	</div>
 </div>
 </body>
