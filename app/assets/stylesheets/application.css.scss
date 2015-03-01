@@ -141,9 +141,6 @@ input[type=submit]:hover {
 	}
 	.field {
 		margin: 16px;
-		label {
-			font-weight: bold;
-		}
 		p {
 			margin: 4px;
 			margin-left: 40px;
@@ -156,7 +153,6 @@ input[type=submit]:hover {
 	}
 	#error_explanation {
 		margin: 16px;
-		font-weight: bold;
 		ul {
 			list-style-type: none;
 			margin: 4px;

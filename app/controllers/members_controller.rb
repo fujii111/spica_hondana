@@ -69,6 +69,7 @@ class MembersController < ApplicationController
     session[:id] = nil
     session[:nickname] = nil
     session[:point] = nil
+      # TODO
     redirect_to root_path
   end
 
