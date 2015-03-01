@@ -78,7 +78,7 @@
   </div>
   <pre id="term"><%= File.read("./app/assets/term.txt", :encoding => Encoding::UTF_8) %></pre>
   <div class="field">
-    <%= f.submit value: "登録" %>
+    <%= f.submit value: "登録", disabled: "disabled" %>
     <input type="reset" value="リセット" />
   </div>
 <% end %>
