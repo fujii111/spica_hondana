@@ -139,6 +139,21 @@ input[type=submit]:hover {
 	p {
 		margin: 16px;
 	}
+	table.list {
+		width: 928px;
+		margin: 12px 16px;
+		td, th {
+			border: 1px solid #CCCCCC;
+			padding: 2px;
+		}
+		th {
+			background-color: #EEEEEE;
+		}
+	}
+	.required:after {
+		color: #D54B1A;
+		content: "【必須】";
+	}
 	.field {
 		margin: 16px;
 		p {
@@ -159,19 +174,11 @@ input[type=submit]:hover {
 			margin-left: 40px;
 		}
 	}
-	table.list {
+	#term {
 		width: 928px;
+		height: 390px;
 		margin: 12px 16px;
-		td, th {
-			border: 1px solid #CCCCCC;
-			padding: 2px;
-		}
-		th {
-			background-color: #EEEEEE;
-		}
-	}
-	.required:after {
-		color: #D54B1A;
-		content: "【必須】";
+		border: 1px solid #333333;
+		overflow: auto;
 	}
 }
