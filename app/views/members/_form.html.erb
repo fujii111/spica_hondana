@@ -4,7 +4,7 @@
       <p>入力エラーです。以下を確認してください(パスワードは再度入力してください)。</p>
       <ul>
       <% @member.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li class="warn"><%= msg %></li>
       <% end %>
       </ul>
     </div>

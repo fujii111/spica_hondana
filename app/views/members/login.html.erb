@@ -1,0 +1,26 @@
+<h1>ログイン</h1>
+  <% unless @notice.blank? %>
+    <div id="error_explanation">
+      <p class="warn"><%= @notice %></p>
+    </div>
+  <% end %>
+
+<%= form_tag({controller: :members, action: :authenticate}) do %>
+  <div class="field">
+    <%= label_tag :login_id, "ログインID" %>
+    <p>
+    	<%= text_field_tag :login_id, @login_id, size: "15", maxlength: "20" %>
+    </p>
+  </div>
+  <div class="field">
+    <%= label_tag :password, "パスワード" %>
+    <p>
+    	<%= password_field_tag :password, "", size: "15", maxlength: "20" %>
+    </p>
+  </div>
+  <div class="field">
+    <%= submit_tag "ログイン" %>
+  </div>
+<% end %>
+
+<p><a href="">ログインIDやパスワードを忘れたとき</a><br><%= link_to "新規会員登録", new_member_path  %></p>

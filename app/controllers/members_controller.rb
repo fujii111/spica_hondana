@@ -47,6 +47,31 @@ class MembersController < ApplicationController
     redirect_to members_url
   end
 
+  # POST /members/login
+  def authenticate
+    @login_id = params[:login_id]
+    password = Digest::MD5.hexdigest(params[:password])
+    member = Member.find_by(login_id: @login_id, password: password, delete_flg: false)
+    if member.blank?
+      @notice = "ログインIDまたはパスワードに誤りがあります。"
+      render action: "login"
+    else
+      session[:id] = member.id
+      session[:nickname] = member.nickname
+      session[:point] = member.point
+      # TODO
+      redirect_to root_path
+    end
+  end
+
+  # GET /members/logout
+  def logout
+    session[:id] = nil
+    session[:nickname] = nil
+    session[:point] = nil
+    redirect_to root_path
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

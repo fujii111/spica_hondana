@@ -7,18 +7,24 @@
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 </head>
+
 <body>
 <div id="head">
 	<h1>
-		<a href=""><%= image_tag 'title_ico.png', alt: 'トップページへ' %></a>
+		<%= link_to (image_tag 'title_ico.png', alt: 'トップページへ'), root_path  %>
 	</h1>
 	<div id="navigate">
 		<p class="button"><a href=""><%= image_tag 'mypage_ico.png', alt: 'マイページへ' %></a></p>
 		<p class="button"><a href=""><%= image_tag 'this_is_ico.png', alt: 'このサイトについて' %></a></p>
 		<div id="welcome" class="right">
-			<p><%= link_to "新規登録", new_member_path  %> | <a href="">ログイン</a></p>
-			<!-- p>ようこそ <span class="strong">ふじい</span> さん</p>
-			<p>現在 <span class="strong">14</span> ブク | <a href="">ログアウト</a></p -->
+			<p>
+				<% if session[:id].blank? %>
+					<%= link_to "新規会員登録", new_member_path  %> | <%= link_to "ログイン", members_login_path  %>
+				<% else %>
+					<p>ようこそ <span class="strong"><%= session[:nickname] %></span> さん</p>
+					<p>現在 <span class="strong"><%= session[:point] %></span> ブク | <%= link_to "ログアウト", members_logout_path  %></p>
+				<% end %>
+			</p>
 		</div>
 		<div id="search" class="right">
 			<p>
