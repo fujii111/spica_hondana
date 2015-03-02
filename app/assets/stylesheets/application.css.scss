@@ -151,6 +151,9 @@ table {
 	}
 	.field {
 		margin: 16px;
+		label {
+      font-weight: bold;
+		}
 		p {
 			margin: 4px;
 			margin-left: 40px;
@@ -162,11 +165,11 @@ table {
 		}
 	}
 	#error_explanation {
-		margin: 16px;
 		ul {
 			list-style-type: none;
 			margin: 4px;
-			margin-left: 40px;
+			margin-left: 56px;
+			font-weight: bold;
 		}
 	}
 	#term {
