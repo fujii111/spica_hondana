@@ -152,7 +152,7 @@ table {
 	.field {
 		margin: 16px;
 		label {
-      font-weight: bold;
+			font-weight: bold;
 		}
 		p {
 			margin: 4px;
@@ -165,6 +165,7 @@ table {
 		}
 	}
 	#error_explanation {
+		font-weight: bold;
 		ul {
 			list-style-type: none;
 			margin: 4px;

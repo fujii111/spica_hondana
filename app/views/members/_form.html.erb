@@ -1,7 +1,7 @@
-<%= form_for(@member) do |f| %>
+<%= form_for(@member, url: {action: "confirm"} ) do |f| %>
   <% if @member.errors.any? %>
     <div id="error_explanation">
-      <p>入力エラーです。以下を確認してください(パスワードは再度入力してください)。</p>
+      <p>入力エラーです。以下を確認してください(パスワードは再入力してください)。</p>
       <ul>
       <% @member.errors.full_messages.each do |msg| %>
         <li class="warn"><%= msg %></li>
@@ -50,9 +50,9 @@
     </p>
   </div>
   <div class="field">
-    <%= f.label :mail_address, size: 25, class: "required" %>
+    <%= f.label :mail_address, class: "required" %>
     <p>
-    	<%= f.text_field :mail_address %> パスワード再発行などの連絡時に必要です
+    	<%= f.text_field :mail_address, size: 25 %> パスワード再発行などの連絡時に必要です
     </p>
   </div>
   <div class="field">
@@ -79,7 +79,7 @@
   <pre id="term"><%= File.read("./app/assets/term.txt", :encoding => Encoding::UTF_8) %></pre>
   <div class="field">
     <!-- %= f.submit value: "登録", disabled: "disabled" %-->
-    <%= f.submit value: "登録" %>
-    <input type="reset" value="リセット" />
+    <%= f.submit value: "登録確認" %>
+    <!-- input type="reset" value="リセット" / -->
   </div>
 <% end %>

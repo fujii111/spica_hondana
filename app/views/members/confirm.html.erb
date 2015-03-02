@@ -1,0 +1,71 @@
+<h1>新規会員登録確認</h1>
+
+<p>以下の内容で登録します。よろしければ登録ボタンを押してください。</p>
+
+  <div class="field">
+    <label>ログインID</label>
+    <p>
+    	<%= @member.login_id %>
+    </p>
+  </div>
+  <div class="field">
+    <label>パスワード</label>
+    <p>
+    	[表示しません]
+    </p>
+  </div>
+  <div class="field">
+    <label>ニックネーム</label>
+    <p>
+    	<%= @member.nickname %>
+    </p>
+  </div>
+  <div class="field">
+    <label>氏名</label>
+    <p>
+    	<%= @member.name %>
+    </p>
+  </div>
+  <div class="field">
+    <label>氏名カナ</label>
+    <p>
+    	<%= @member.kana %>
+    </p>
+  </div>
+  <div class="field">
+    <label>住所</label>
+    <p>
+    	<%= @member.address %>
+    </p>
+  </div>
+  <div class="field">
+    <label>メールアドレス</label>
+    <p>
+    	<%= @member.mail_address %>
+    </p>
+  </div>
+  <div class="field">
+    <label>誕生日</label>
+    <p>
+    	<%= @member.birthday %>
+    </p>
+  </div>
+  <div class="field">
+    <label>好きな作家</label>
+    <p>
+    	<%= @member.favorite_author1 %>
+    	<%= @member.favorite_author2 %>
+    	<%= @member.favorite_author3 %>
+    </p>
+  </div>
+  <div class="field">
+    <label>好きなジャンル</label>
+    <p>
+    </p>
+  </div>
+<%= form_tag({controller: :members, action: :create}) do %>
+  <div class="field">
+    <%= submit_tag "登録" %>
+  </div>
+<% end %>
+<p><%= link_to "入力をやり直す", new_member_path  %></p>

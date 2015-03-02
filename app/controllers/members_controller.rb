@@ -11,19 +11,33 @@ class MembersController < ApplicationController
 
   # GET /members/new
   def new
-    @member = Member.new
+    if session[:member].blank?
+      @member = Member.new
+    else
+      @member = Member.new(session[:member])
+    end
   end
 
   # GET /members/1/edit
   def edit
   end
 
+  # POST /members/confirm
+  def confirm
+    @member = Member.new(member_params)
+    if @member.valid?
+      session[:member] = member_params
+      render action: 'confirm'
+    else
+      render action: 'new'
+    end
+  end
+
   # POST /members
   def create
-    @member = Member.new(member_params)
+    @member = Member.new(session[:member])
     @member.point = 0
     @member.delete_flg = false
-
     if @member.save
       redirect_to @member, notice: '会員情報を登録しました。'
     else
