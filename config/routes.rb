@@ -8,13 +8,14 @@ Hondana::Application.routes.draw do
   resources :members, format: false
   resources :notices, format: false
   resources :genres, format: false
+  get "books/list" => "books#list", format: false
   resources :books
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'members#index'
+  root 'books#list'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

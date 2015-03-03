@@ -7,6 +7,10 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def list
+    @books = Book.order(created_at: :desc).limit(10)
+  end
+
   # GET /books/1
   # GET /books/1.json
   def show

@@ -77,8 +77,7 @@ class MembersController < ApplicationController
       session[:id] = member.id
       session[:nickname] = member.nickname
       session[:point] = member.point
-      # TODO
-      redirect_to root_path
+      redirect_to books_path
     end
   end
 
@@ -87,7 +86,6 @@ class MembersController < ApplicationController
     session[:id] = nil
     session[:nickname] = nil
     session[:point] = nil
-    # TODO
     redirect_to root_path
   end
 
