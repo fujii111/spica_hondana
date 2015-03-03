@@ -1,29 +1,31 @@
-<h1>Listing notices</h1>
+<h1>お知らせ一覧</h1><% @title = "お知らせ一覧" %>
 
-<table>
+<% if @notices.blank? %>
+	<p>お知らせはありません。</p>
+<% else %>
+<table class="list">
   <thead>
     <tr>
-      <th>Content</th>
-      <th>Notice date</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>お知らせ日時</th>
+      <th>内容</th>
+      <th>表示</th>
+      <th>編集</th>
+      <th>削除</th>
     </tr>
   </thead>
 
   <tbody>
     <% @notices.each do |notice| %>
       <tr>
+        <td><%= format_datetime notice.notice_date %></td>
         <td><%= notice.content %></td>
-        <td><%= notice.notice_date %></td>
-        <td><%= link_to 'Show', notice %></td>
-        <td><%= link_to 'Edit', edit_notice_path(notice) %></td>
-        <td><%= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="center"><%= link_to '表示', notice %></td>
+        <td class="center"><%= link_to '編集', edit_notice_path(notice) %></td>
+        <td class="center"><%= link_to '削除', notice, method: :delete, data: { confirm: '削除してよろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<% end %>
 
-<br>
-
-<%= link_to 'New Notice', new_notice_path %>
+<p><%= link_to '新規追加', new_notice_path %></p>

@@ -1,14 +1,15 @@
+<h1>お知らせ内容</h1><% @title = "お知らせ内容" %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @notice.content %>
-</p>
+<div class="field">
+  <%= label_tag :notice_date, "お知らせ日時" %>
+  <p><%= format_datetime @notice.notice_date %></p>
+</div>
 
-<p>
-  <strong>Notice date:</strong>
-  <%= @notice.notice_date %>
-</p>
+<div class="field">
+  <%= label_tag :content, "内容" %>
+  <p><%= @notice.content %></p>
+</div>
 
-<%= link_to 'Edit', edit_notice_path(@notice) %> |
-<%= link_to 'Back', notices_path %>
+<p><%= link_to '編集', edit_notice_path(@notice) %> |
+<%= link_to '戻る', notices_path %></p>

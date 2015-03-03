@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 ja:
   attributes:
+    content: 内容
+    notice_date: お知らせ日時
+
     login_id: ログインID
     name: 氏名
     kana: 氏名カナ

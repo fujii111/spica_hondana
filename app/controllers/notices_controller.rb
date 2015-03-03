@@ -4,7 +4,7 @@ class NoticesController < ApplicationController
   # GET /notices
   # GET /notices.json
   def index
-    @notices = Notice.all
+    @notices = Notice.order(notice_date: :desc)
   end
 
   # GET /notices/1
@@ -28,7 +28,7 @@ class NoticesController < ApplicationController
 
     respond_to do |format|
       if @notice.save
-        format.html { redirect_to @notice, notice: 'Notice was successfully created.' }
+        format.html { redirect_to @notice, notice: 'お知らせが作成されました。' }
         format.json { render action: 'show', status: :created, location: @notice }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class NoticesController < ApplicationController
   def update
     respond_to do |format|
       if @notice.update(notice_params)
-        format.html { redirect_to @notice, notice: 'Notice was successfully updated.' }
+        format.html { redirect_to @notice, notice: 'お知らせが更新されました。' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
