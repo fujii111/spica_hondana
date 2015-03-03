@@ -1,13 +1,14 @@
 Hondana::Application.routes.draw do
   get "information/:action" => "information#:action", format: false
   get "members/login" => "members#login", format: false
-  post "members/login" => "members#authenticate", format: false
   get "members/logout" => "members#logout", format: false
-  post "members/confirm" => "members#confirm", format: false
   get "members/complete" => "members#complete", format: false
+  post "members/login" => "members#authenticate", format: false
+  post "members/confirm" => "members#confirm", format: false
   resources :members, format: false
   resources :notices, format: false
   resources :genres, format: false
+  resources :books
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

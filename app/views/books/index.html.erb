@@ -1,0 +1,51 @@
+<h1>Listing books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Name</th>
+      <th>Publisher</th>
+      <th>Author</th>
+      <th>Language</th>
+      <th>Sale date</th>
+      <th>Height</th>
+      <th>Width</th>
+      <th>Depth</th>
+      <th>Isbn</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Delete flg</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.member %></td>
+        <td><%= book.name %></td>
+        <td><%= book.publisher %></td>
+        <td><%= book.author %></td>
+        <td><%= book.language %></td>
+        <td><%= book.sale_date %></td>
+        <td><%= book.height %></td>
+        <td><%= book.width %></td>
+        <td><%= book.depth %></td>
+        <td><%= book.isbn %></td>
+        <td><%= book.description %></td>
+        <td><%= book.image %></td>
+        <td><%= book.delete_flg %></td>
+        <td><%= link_to 'Show', book %></td>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Book', new_book_path %>

@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  member_id: 
+  name: MyString
+  publisher: MyString
+  author: MyString
+  language: MyString
+  sale_date: MyString
+  height: 1.5
+  width: 1.5
+  depth: 1.5
+  isbn: MyString
+  description: MyText
+  image: 
+  delete_flg: false
+
+two:
+  member_id: 
+  name: MyString
+  publisher: MyString
+  author: MyString
+  language: MyString
+  sale_date: MyString
+  height: 1.5
+  width: 1.5
+  depth: 1.5
+  isbn: MyString
+  description: MyText
+  image: 
+  delete_flg: false
