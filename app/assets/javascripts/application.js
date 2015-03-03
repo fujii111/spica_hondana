@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $(document).on("keypress", "input:not([type=submit])", function(event) {
+    return event.which !== 13;
+  });
+});
