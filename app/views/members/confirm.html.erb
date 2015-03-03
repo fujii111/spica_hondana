@@ -47,7 +47,7 @@
   <div class="field">
     <label>誕生日</label>
     <p>
-    	<%= @member.birthday %>
+    	<%= format_datetime @member.birthday, :date %>
     </p>
   </div>
   <div class="field">
