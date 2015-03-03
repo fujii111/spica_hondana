@@ -32,12 +32,17 @@ body {
 a {
 	color: #503DEC;
 	&:hover {
-		opacity: 0.5;
+		opacity: 0.6;
 	}
 }
 
 table {
 	border-collapse: collapse;
+}
+
+time {
+	margin-right: 1em;
+	font-weight: bold;
 }
 
 .center {

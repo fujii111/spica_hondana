@@ -28,13 +28,13 @@
   <div class="field">
     <%= f.label :nickname, class: "required" %>
     <p>
-    	<%= f.text_field :nickname, size: 15 %> サイト上で表示される名前です
+    	<%= f.text_field :nickname, size: 15, maxlength: 10 %> サイト上で表示される名前です。10字以内
     </p>
   </div>
   <div class="field">
     <%= f.label :name, class: "required" %>
     <p>
-    	<%= f.text_field :name, size: 15 %> 本の送付時に必要です
+    	<%= f.text_field :name, size: 15 %> 本の送付時に必要です。
     </p>
   </div>
   <div class="field">
@@ -46,13 +46,13 @@
   <div class="field">
     <%= f.label :address, class: "required" %>
     <p>
-    	<%= f.text_field :address, size: 30 %> 本の送付時に必要です
+    	<%= f.text_field :address, size: 30 %> 本の送付時に必要です。
     </p>
   </div>
   <div class="field">
     <%= f.label :mail_address, class: "required" %>
     <p>
-    	<%= f.text_field :mail_address, size: 25 %> パスワード再発行などの連絡時に必要です
+    	<%= f.text_field :mail_address, size: 25 %> パスワード再発行などの連絡時に必要です。
     </p>
   </div>
   <div class="field">

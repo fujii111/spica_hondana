@@ -22,7 +22,9 @@
 					<%= link_to "新規会員登録", new_member_path  %> | <%= link_to "ログイン", members_login_path  %>
 				<% else %>
 					ようこそ <span class="strong"><%= session[:nickname] %></span> さん<br />
-					現在 <span class="strong"><%= session[:point] %></span> ブク | <%= link_to "ログアウト", members_logout_path  %>
+					現在 <span class="strong"><%= session[:point] %></span> ブク
+					| <%= link_to "管理者", "/information/admin"  %>
+					| <%= link_to "ログアウト", members_logout_path  %>
 				<% end %>
 			</p>
 		</div>

@@ -4,7 +4,10 @@
 	<p>お知らせはありません。</p>
 <% else %>
 	<% @notices.each do |notice| %>
-		<p></p>
+		<p>
+			<time><%= format_datetime notice.notice_date, :date %></time>
+			<span><%= notice.content %></span>
+		</p>
 	<% end %>
 <% end %>
 

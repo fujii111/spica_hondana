@@ -10,7 +10,8 @@ class Member < ActiveRecord::Base
     confirmation: true
 
   validates :nickname,
-    presence: true
+    presence: true,
+    length: { maximum: 10 }
 
   validates :name,
     presence: true
