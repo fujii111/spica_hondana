@@ -1,14 +1,15 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
+  def list
+    @books = Book.order(created_at: :desc).limit(10)
+    @notices = Notice.order(notice_date: :desc).limit(5)
+  end
+
   # GET /books
   # GET /books.json
   def index
     @books = Book.all
-  end
-
-  def list
-    @books = Book.order(created_at: :desc).limit(10)
   end
 
   # GET /books/1
