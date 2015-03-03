@@ -4,6 +4,7 @@ Hondana::Application.routes.draw do
   post "members/login" => "members#authenticate", format: false
   get "members/logout" => "members#logout", format: false
   post "members/confirm" => "members#confirm", format: false
+  get "members/complete" => "members#complete", format: false
   resources :members, format: false
   resources :notices, format: false
   resources :genres, format: false

@@ -39,11 +39,11 @@ class MembersController < ApplicationController
     @member.point = 0
     @member.delete_flg = false
     if @member.save
-      redirect_to @member, notice: '会員情報を登録しました。'
       session[:member] = nil
       session[:id] = @member.id
       session[:nickname] = @member.nickname
       session[:point] = @member.point
+      redirect_to action: "complete"
     else
       render action: 'new'
     end
