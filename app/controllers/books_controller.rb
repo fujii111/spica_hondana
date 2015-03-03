@@ -17,8 +17,12 @@ class BooksController < ApplicationController
   end
 
   def show_image
-    @book = Book.find(params[:id])
-    send_data @book.image, disposition: :inline
+    @book = Book.find_by(isbn: params[:isbn], delete_flg: false)
+    if @book.blank?
+      send_file "./app/assets/images/noimage.jpg", disposition: :inline
+    else
+      send_data @book.image, disposition: :inline
+    end
   end
 
   # GET /books/new

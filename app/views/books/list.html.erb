@@ -41,7 +41,7 @@
         <td><%= book.depth %></td>
         <td><%= book.isbn %></td>
         <td><%= book.description %></td>
-        <td><%= book.image %></td>
+        <td><%= image_tag "/books/show_image/" + book.isbn, alt: book.title %></td>
         <td><%= book.delete_flg %></td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>

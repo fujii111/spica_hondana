@@ -9,7 +9,7 @@ Hondana::Application.routes.draw do
   resources :notices, format: false
   resources :genres, format: false
   get "books/list" => "books#list", format: false
-  get "books/show_image/:id" => "books#show_image", format: false
+  get "books/show_image/:isbn" => "books#show_image", format: false
   resources :books
 
   # The priority is based upon order of creation: first created -> highest priority.
