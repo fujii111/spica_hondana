@@ -3,6 +3,9 @@
 <% if @notices.blank? %>
 	<p>お知らせはありません。</p>
 <% else %>
+	<% @notices.each do |notice| %>
+		<p></p>
+	<% end %>
 <% end %>
 
 <h1>新着の本</h1>
