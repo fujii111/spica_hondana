@@ -40,6 +40,10 @@ class MembersController < ApplicationController
     @member.delete_flg = false
     if @member.save
       redirect_to @member, notice: '会員情報を登録しました。'
+      session[:member] = nil
+      session[:id] = @member.id
+      session[:nickname] = @member.nickname
+      session[:point] = @member.point
     else
       render action: 'new'
     end
@@ -57,7 +61,7 @@ class MembersController < ApplicationController
   # DELETE /members/1
   def destroy
     @member.delete_flg = true
-    @member.save
+    @member.save!(validate: false)
     redirect_to members_url
   end
 
