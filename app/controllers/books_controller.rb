@@ -18,7 +18,7 @@ class BooksController < ApplicationController
 
   def show_image
     @book = Book.find_by(isbn: params[:isbn], delete_flg: false)
-    if @book.blank?
+    if @book.blank? || @book.image.blank?
       send_file "./app/assets/images/noimage.jpg", disposition: :inline
     else
       send_data @book.image, disposition: :inline
@@ -38,6 +38,7 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
+    @book.delete_flg = false
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
