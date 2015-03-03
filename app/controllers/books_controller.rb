@@ -16,6 +16,11 @@ class BooksController < ApplicationController
   def show
   end
 
+  def show_image
+    @book = Book.find(params[:id])
+    send_data @book.image, disposition: :inline
+  end
+
   # GET /books/new
   def new
     @book = Book.new
@@ -29,7 +34,6 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
-
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
@@ -73,6 +77,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:member_id, :title, :publisher, :author, :language, :sale_date, :height, :width, :depth, :isbn, :description, :image, :delete_flg)
+      params.require(:book).permit(:member_id, :title, :publisher, :author, :language, :sale_date, :height, :width, :depth, :isbn, :description, :data, :delete_flg)
     end
 end
