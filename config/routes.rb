@@ -3,6 +3,8 @@ Hondana::Application.routes.draw do
   get "members/login" => "members#login", format: false
   get "members/logout" => "members#logout", format: false
   get "members/complete" => "members#complete", format: false
+  get "members/edit_password" => "members#edit_password", format: false
+  get "members/exit" => "members#exit", format: false
   post "members/login" => "members#authenticate", format: false
   post "members/confirm" => "members#confirm", format: false
   resources :members, format: false

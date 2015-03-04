@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: [:update, :destroy]
   # GET /members
   def index
     @members = Member.where(delete_flg: false)
@@ -7,6 +7,7 @@ class MembersController < ApplicationController
 
   # GET /members/1
   def show
+    @member = Member.find(session[:id])
   end
 
   # GET /members/new
@@ -20,6 +21,7 @@ class MembersController < ApplicationController
 
   # GET /members/1/edit
   def edit
+    @member = Member.find(session[:id])
   end
 
   # POST /members/confirm
