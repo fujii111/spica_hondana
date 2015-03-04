@@ -1,24 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @genre.name %>
-</p>
+<div class="field">
+  <label for="name">名前</label>
+  <p><%= @genre.name %></p>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @genre.description %>
-</p>
+<div class="field">
+  <%= label_tag :content, "内容" %>
+  <p><%= @genre.description %></p>
+</div>
 
-<p>
-  <strong>Sort:</strong>
-  <%= @genre.sort %>
-</p>
+<div class="field">
+  <%= label_tag :sort, "表示順" %>
+  <p><%= @genre.sort %></p>
+</div>
 
-<p>
-  <strong>Delete flg:</strong>
-  <%= @genre.delete_flg %>
-</p>
-
-<%= link_to 'Edit', edit_genre_path(@genre) %> |
-<%= link_to 'Back', genres_path %>
+<%= link_to '編集', edit_genre_path(@genre) %> |
+<%= link_to '戻る', genres_path %>

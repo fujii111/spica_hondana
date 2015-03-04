@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 ja:
   attributes:
+    sort: 表示順
+
     content: 内容
     notice_date: お知らせ日時
 

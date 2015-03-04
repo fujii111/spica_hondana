@@ -4,7 +4,7 @@ class GenresController < ApplicationController
   # GET /genres
   # GET /genres.json
   def index
-    @genres = Genre.all
+    @genres = Genre.where(delete_flg: false).order(sort: :asc)
   end
 
   # GET /genres/1
@@ -25,10 +25,10 @@ class GenresController < ApplicationController
   # POST /genres.json
   def create
     @genre = Genre.new(genre_params)
-
+    @genre.delete_flg = false
     respond_to do |format|
       if @genre.save
-        format.html { redirect_to @genre, notice: 'Genre was successfully created.' }
+        format.html { redirect_to @genre, notice: 'ジャンルが登録されました。' }
         format.json { render action: 'show', status: :created, location: @genre }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class GenresController < ApplicationController
   def update
     respond_to do |format|
       if @genre.update(genre_params)
-        format.html { redirect_to @genre, notice: 'Genre was successfully updated.' }
+        format.html { redirect_to @genre, notice: 'ジャンルが修正されました。' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

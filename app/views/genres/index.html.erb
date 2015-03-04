@@ -1,15 +1,14 @@
-<h1>Listing genres</h1>
+<h1>ジャンル一覧</h1><% @title = "ジャンル一覧" %>
 
-<table>
+<table class="list">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Sort</th>
-      <th>Delete flg</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>名前</th>
+      <th>内容</th>
+      <th>表示順</th>
+      <th>表示</th>
+      <th>編集</th>
+      <th>削除</th>
     </tr>
   </thead>
 
@@ -19,15 +18,14 @@
         <td><%= genre.name %></td>
         <td><%= genre.description %></td>
         <td><%= genre.sort %></td>
-        <td><%= genre.delete_flg %></td>
-        <td><%= link_to 'Show', genre %></td>
-        <td><%= link_to 'Edit', edit_genre_path(genre) %></td>
-        <td><%= link_to 'Destroy', genre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="center"><%= link_to '表示', genre %></td>
+        <td class="center"><%= link_to '編集', edit_genre_path(genre) %></td>
+        <td class="center"><%= link_to '削除', genre, method: :delete, data: { confirm: '削除してよろしいですか?(書籍のジャンル情報、会員お気に入りのジャンル情報も失われます)' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Genre', new_genre_path %>
+<p>
+<%= link_to '新規登録', new_genre_path %>
+</p>
