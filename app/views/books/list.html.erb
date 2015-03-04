@@ -20,13 +20,12 @@
 			<div class="booklist_wide">
 		<% end %>
 				<div>
-					<%= image_tag "/books/show_image/" + book.isbn, alt: book.title %>
+					<%= image_tag "/books/show_image/" + book.isbn, alt: book.title %><br />
+					<%= book.title %><br />
+					<span class="small">著者: <%= book.author %></span>
 				</div>
 		<% if index % 5 == 4 || index + 1 == @books.length %>
 			</div>
 		<% end %>
 	<% end %>
 <% end %>
-
-
-<%= link_to 'New Book', new_book_path %>
