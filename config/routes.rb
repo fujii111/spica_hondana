@@ -1,13 +1,12 @@
 Hondana::Application.routes.draw do
   get "information/:action" => "information#:action", format: false
-  get "members/login" => "members#login", format: false
-  get "members/logout" => "members#logout", format: false
-  get "members/complete" => "members#complete", format: false
-  get "members/edit_password" => "members#edit_password", format: false
-  get "members/exit" => "members#exit", format: false
+  get "members/:action" => "members#:action", format: false
+  get "members" => "members#index", format: false
+  get "members/login_as/:id" => "members#login_as", format: false
   post "members/login" => "members#authenticate", format: false
   post "members/confirm" => "members#confirm", format: false
-  resources :members, format: false
+  post "members/create" => "members#create", format: false
+#  resources :members, format: false
   resources :notices, format: false
   resources :genres, format: false
   get "books/list" => "books#list", format: false

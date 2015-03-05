@@ -1,16 +1,12 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:update, :destroy]
-  # GET /members
+
+  # 会員一覧(管理者機能)
   def index
     @members = Member.where(delete_flg: false)
   end
 
-  # GET /members/1
-  def show
-    @member = Member.find(session[:id])
-  end
-
-  # GET /members/new
+  # 新規会員登録フォーム画面表示
   def new
     if session[:member].blank?
       @member = Member.new
@@ -19,12 +15,7 @@ class MembersController < ApplicationController
     end
   end
 
-  # GET /members/1/edit
-  def edit
-    @member = Member.find(session[:id])
-  end
-
-  # POST /members/confirm
+  # 新規会員登録確認
   def confirm
     @member = Member.new(member_params)
     if @member.valid?
@@ -35,7 +26,7 @@ class MembersController < ApplicationController
     end
   end
 
-  # POST /members
+  # 新規会員登録
   def create
     @member = Member.new(session[:member])
     @member.point = 0
@@ -49,6 +40,16 @@ class MembersController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  # プロフィール表示
+  def show
+    @member = Member.find(session[:id])
+  end
+
+  # プロフィール編集フォーム画面表示
+  def edit
+    @member = Member.find(session[:id])
   end
 
   # PATCH/PUT /members/1
@@ -67,7 +68,7 @@ class MembersController < ApplicationController
     redirect_to members_url
   end
 
-  # POST /members/login
+  # ログイン認証
   def authenticate
     @login_id = params[:login_id]
     password = Digest::MD5.hexdigest(params[:password])
@@ -83,7 +84,16 @@ class MembersController < ApplicationController
     end
   end
 
-  # GET /members/logout
+  # ログイン(管理者機能)
+  def login_as
+    member = Member.find(params[:id], :conditions => {:delete_flg => false})
+    session[:id] = member.id
+    session[:nickname] = member.nickname
+    session[:point] = member.point
+    redirect_to books_path
+  end
+
+  # ログアウト
   def logout
     session[:id] = nil
     session[:nickname] = nil
