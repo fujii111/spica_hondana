@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:update, :destroy]
+  before_action :set_member, only: [:destroy]
 
   # 会員一覧(管理者機能)
   def index
@@ -17,6 +17,7 @@ class MembersController < ApplicationController
 
   # 新規会員登録確認
   def confirm
+    member_params = params.require(:member).permit(:login_id, :password, :password_confirmation, :name, :kana, :nickname, :birthday, :mail_address, :address, :agreement, :favorite_author1, :favorite_author2, :favorite_author3)
     @member = Member.new(member_params)
     if @member.valid?
       session[:member] = member_params
@@ -52,11 +53,19 @@ class MembersController < ApplicationController
     @member = Member.find(session[:id])
   end
 
-  # PATCH/PUT /members/1
+  # プロフィール変更
   def update
-    if @member.update(member_params)
-      redirect_to @member, notice: 'プロフィールを変更しました。'
+    member_params = params.require(:member).permit(:name, :kana, :nickname, :birthday, :mail_address, :address, :favorite_author1, :favorite_author2, :favorite_author3)
+    @member = Member.new(member_params)
+    if @member.valid?
+      @member = Member.find(session[:id])
+      @member.update(member_params)
+      @member.save!(validate: false)
+      session[:nickname] = @member.nickname
+      flash[:notice] = "プロフィールを変更しました。"
+      redirect_to action: "show"
     else
+      @member.id = session[:id]
       render action: 'edit'
     end
   end
@@ -109,7 +118,7 @@ class MembersController < ApplicationController
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def member_params
-    params.require(:member).permit(:login_id, :password, :password_confirmation, :name, :kana, :nickname, :birthday, :mail_address, :address, :agreement, :favorite_author1, :favorite_author2, :favorite_author3, :favorite_author4, :favorite_author5)
-  end
+  # def member_params
+    # params.require(:member).permit(:login_id, :password, :password_confirmation, :name, :kana, :nickname, :birthday, :mail_address, :address, :agreement, :favorite_author1, :favorite_author2, :favorite_author3, :favorite_author4, :favorite_author5)
+  # end
 end

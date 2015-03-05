@@ -1,6 +1,73 @@
 <h1>プロフィール変更</h1><% @title = "プロフィール変更" %>
 
-<%= render 'form' %>
+<%= form_for(@member, url: "/members/update" ) do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <p>入力エラーです。以下を確認してください。</p>
+      <ul>
+      <% @member.errors.full_messages.each do |msg| %>
+        <li class="warn"><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Show', @member %> |
-<%= link_to 'Back', members_path %>
+  <div class="field">
+    <%= f.label :login_id %>
+    <p>
+    	<%= @member.login_id %> (変更できません)
+    </p>
+  </div>
+  <div class="field">
+    <%= f.label :nickname, class: "required" %>
+    <p>
+    	<%= f.text_field :nickname, size: 15, maxlength: 10 %> サイト上で表示される名前です。10字以内
+    </p>
+  </div>
+  <div class="field">
+    <%= f.label :name, class: "required" %>
+    <p>
+    	<%= f.text_field :name, size: 15 %> 本の送付時に必要です。
+    </p>
+  </div>
+  <div class="field">
+    <%= f.label :kana %><br>
+    <p>
+    	<%= f.text_field :kana, size: 20 %>
+    </p>
+  </div>
+  <div class="field">
+    <%= f.label :address, class: "required" %>
+    <p>
+    	<%= f.text_field :address, size: 30 %> 本の送付時に必要です。
+    </p>
+  </div>
+  <div class="field">
+    <%= f.label :mail_address, class: "required" %>
+    <p>
+    	<%= f.text_field :mail_address, size: 25 %> パスワード再発行などの連絡時に必要です。
+    </p>
+  </div>
+  <div class="field">
+    <%= f.label :birthday, "誕生日" %><br>
+    <p>
+    	<%= f.date_select :birthday, use_month_numbers: true, start_year: 1920, end_year: Time.now.year, default: Date.new(1980, 1, 1) %>
+    </p>
+  </div>
+  <div class="field">
+    <%= f.label :favorite_author, "好きな作家" %>
+    <p>
+	    <%= f.text_field :favorite_author1, size: 10 %>
+	    <%= f.text_field :favorite_author2, size: 10 %>
+	    <%= f.text_field :favorite_author3, size: 10 %>
+    </p>
+  </div>
+  <div class="field">
+    <%= f.label :interests, "好きなジャンル" %>
+  </div>
+  <div class="field">
+    <%= f.submit value: "更新" %>
+  </div>
+<% end %>
+
+<p><%= link_to '戻る', "/members/show" %></p>
