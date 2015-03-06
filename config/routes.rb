@@ -1,5 +1,10 @@
 Hondana::Application.routes.draw do
+  resources :notices, format: false
+
+  resources :genres, format: false
+
   get "information/:action" => "information#:action", format: false
+
   get "members/:action" => "members#:action", format: false
   get "members" => "members#index", format: false
   get "members/login_as/:id" => "members#login_as", format: false
@@ -7,17 +12,18 @@ Hondana::Application.routes.draw do
   post "members/confirm" => "members#confirm", format: false
   post "members/create" => "members#create", format: false
   patch "members/update" => "members#update", format: false
-  resources :notices, format: false
-  resources :genres, format: false
+  patch "members/update_password" => "members#update_password", format: false
+
   get "books/list" => "books#list", format: false
   get "books/show_image/:isbn" => "books#show_image", format: false
   resources :books
+
+  root 'books#list'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'books#list'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

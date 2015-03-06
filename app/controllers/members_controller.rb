@@ -1,6 +1,4 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:destroy]
-
   # 会員一覧(管理者機能)
   def index
     @members = Member.where(delete_flg: false)
@@ -76,11 +74,30 @@ class MembersController < ApplicationController
     end
   end
 
-  # DELETE /members/1
+  # パスワード変更フォーム画面表示
+  def edit_password
+    @member = Member.find(session[:id])
+  end
+
+  # パスワード変更
+  def update_password
+    member_params = params.require(:member).permit(:password, :password_confirmation)
+    @member = Member.find(session[:id])
+    @member.attributes = member_params
+    if @member.valid?
+      @member.password = Digest::MD5.hexdigest(@member.password)
+      @member.save!(validate: false)
+      redirect_to action: 'updated_password'
+    else
+      render action: 'edit_password'
+    end
+  end
+
+  # 退会
   def destroy
     @member.delete_flg = true
     @member.save!(validate: false)
-    redirect_to members_url
+    redirect_to action: "show"
   end
 
   # ログイン認証
@@ -115,16 +132,4 @@ class MembersController < ApplicationController
     session[:point] = nil
     redirect_to root_path
   end
-
-  private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_member
-    @member = Member.find(params[:id], :conditions => {:delete_flg => false})
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  # def member_params
-    # params.require(:member).permit(:login_id, :password, :password_confirmation, :name, :kana, :nickname, :birthday, :mail_address, :address, :agreement, :favorite_author1, :favorite_author2, :favorite_author3, :favorite_author4, :favorite_author5)
-  # end
 end
