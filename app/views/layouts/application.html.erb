@@ -23,7 +23,9 @@
 				<% else %>
 					ようこそ <span class="strong"><%= session[:nickname] %></span> さん<br />
 					現在 <span class="strong"><%= session[:point] %></span> ブク
+					<% if session[:login_id] == "spica" %>
 					| <%= link_to "管理者", "/information/admin"  %>
+					<% end %>
 					| <%= link_to "ログアウト", "/members/logout"  %>
 				<% end %>
 			</p>

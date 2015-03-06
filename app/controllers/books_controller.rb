@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  skip_before_action :check_logined, only: [:list, :show_image]
 
   def list
     @books = Book.order(created_at: :desc).limit(10)

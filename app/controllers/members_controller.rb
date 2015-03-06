@@ -1,4 +1,7 @@
 class MembersController < ApplicationController
+  skip_before_action :check_logined, only: [:new, :confirm, :create, :authenticate, :login, :logout]
+  before_action :check_admin, only: [:index, :login_as]
+
   # 会員一覧(管理者機能)
   def index
     @members = Member.where(delete_flg: false)
@@ -33,6 +36,7 @@ class MembersController < ApplicationController
     if @member.save
       session[:member] = nil
       session[:id] = @member.id
+      session[:login_id] = @member.login_id
       session[:nickname] = @member.nickname
       session[:point] = @member.point
       redirect_to action: "complete"
@@ -110,6 +114,7 @@ class MembersController < ApplicationController
       render action: "login"
     else
       session[:id] = member.id
+      session[:login_id] = member.login_id
       session[:nickname] = member.nickname
       session[:point] = member.point
       redirect_to books_path
@@ -120,6 +125,7 @@ class MembersController < ApplicationController
   def login_as
     member = Member.find(params[:id], :conditions => {:delete_flg => false})
     session[:id] = member.id
+    session[:login_id] = member.login_id
     session[:nickname] = member.nickname
     session[:point] = member.point
     redirect_to books_path
@@ -128,6 +134,7 @@ class MembersController < ApplicationController
   # ログアウト
   def logout
     session[:id] = nil
+    session[:login_id] = nil
     session[:nickname] = nil
     session[:point] = nil
     redirect_to root_path
