@@ -51,6 +51,9 @@ time {
 .right {
 	text-align: right;
 }
+.nowrap {
+  white-space: nowrap;
+}
 .strong {
 	font-weight: bold;
 }
@@ -146,7 +149,7 @@ time {
 		width: 928px;
 		margin: 12px 16px;
 		td, th {
-			border: 1px solid #CCCCCC;
+			border: 1px solid #333333;
 			padding: 2px;
 		}
 		th {

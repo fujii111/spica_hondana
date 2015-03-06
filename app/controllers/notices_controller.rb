@@ -1,4 +1,5 @@
 class NoticesController < ApplicationController
+  before_action :check_admin
   before_action :set_notice, only: [:show, :edit, :update, :destroy]
 
   # GET /notices

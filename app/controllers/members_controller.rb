@@ -117,6 +117,7 @@ class MembersController < ApplicationController
       session[:login_id] = member.login_id
       session[:nickname] = member.nickname
       session[:point] = member.point
+      # TODO
       redirect_to books_path
     end
   end
@@ -128,6 +129,7 @@ class MembersController < ApplicationController
     session[:login_id] = member.login_id
     session[:nickname] = member.nickname
     session[:point] = member.point
+    # TODO
     redirect_to books_path
   end
 
@@ -137,6 +139,6 @@ class MembersController < ApplicationController
     session[:login_id] = nil
     session[:nickname] = nil
     session[:point] = nil
-    redirect_to root_path
+    redirect_to "/books/list"
   end
 end
