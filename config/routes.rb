@@ -6,7 +6,6 @@ Hondana::Application.routes.draw do
   post "members/login" => "members#authenticate", format: false
   post "members/confirm" => "members#confirm", format: false
   post "members/create" => "members#create", format: false
-  post "members/update" => "members#update", format: false
   patch "members/update" => "members#update", format: false
   resources :notices, format: false
   resources :genres, format: false

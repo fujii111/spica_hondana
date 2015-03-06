@@ -2,8 +2,7 @@ class Member < ActiveRecord::Base
   validates :login_id,
     format: { with: /\A[a-zA-Z0-9]*\z/ },
     length: { minimum: 4, maximum: 20 },
-    uniqueness: { scope: :delete_flg },
-    allow_nil: true
+    uniqueness: { scope: :delete_flg }
 
   validates :password,
     format: { with: /\A[a-zA-Z0-9]*\z/ },

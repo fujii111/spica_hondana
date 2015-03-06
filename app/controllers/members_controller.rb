@@ -56,16 +56,22 @@ class MembersController < ApplicationController
   # プロフィール変更
   def update
     member_params = params.require(:member).permit(:name, :kana, :nickname, :birthday, :mail_address, :address, :favorite_author1, :favorite_author2, :favorite_author3)
-    @member = Member.new(member_params)
-    if @member.valid?
-      @member = Member.find(session[:id])
-      @member.update(member_params)
+    @member = Member.find(session[:id])
+
+    # パスワードを検証しないため、一旦退避してnilにする
+    # (検証ありにすると、暗号化済パスワードを検証するためパスワード20字以内のチェックでエラーになる)
+    password = @member.password
+    @member.password = nil
+
+    if @member.update(member_params)
+      # パスワードを検証なしで戻す
+      @member.password = password
       @member.save!(validate: false)
+
       session[:nickname] = @member.nickname
       flash[:notice] = "プロフィールを変更しました。"
       redirect_to action: "show"
     else
-      @member.id = session[:id]
       render action: 'edit'
     end
   end
