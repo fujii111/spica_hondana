@@ -1,8 +1,28 @@
 class Book < ActiveRecord::Base
   belongs_to :member
 
+  validates :title,
+    presence: true
+
+  validates :width,
+    numericality: {greater_than: 0},
+    allow_blank: true
+
+  validates :height,
+    numericality: {greater_than: 0},
+    allow_blank: true
+
+  validates :depth,
+    numericality: {greater_than: 0},
+    allow_blank: true
+
+  validates :isbn,
+    format: { with: /\A[0-9]*\z/ },
+    length: { minimum: 10, maximum: 13 },
+    uniqueness: { scope: :delete_flg },
+    allow_blank: true
+
   def data=(data)
-p data.content_type
     self.image = data.read
   end
 

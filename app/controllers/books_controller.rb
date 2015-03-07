@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
+  before_action :check_admin, except: [:list, :show, :show_image]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  skip_before_action :check_logined, only: [:list, :show_image]
+  skip_before_action :check_logined, only: [:list, :show, :show_image]
 
   def list
     @books = Book.where(delete_flg: false, member_id: nil).order(created_at: :desc).limit(10)
@@ -45,7 +46,7 @@ class BooksController < ApplicationController
     @book.delete_flg = false
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
+        format.html { redirect_to @book, notice: '書籍が登録されました。' }
         format.json { render action: 'show', status: :created, location: @book }
       else
         format.html { render action: 'new' }
@@ -59,7 +60,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        format.html { redirect_to @book, notice: '書籍が更新されました。' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -86,6 +87,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:member_id, :title, :publisher, :author, :language, :sale_date, :height, :width, :depth, :isbn, :description, :data, :delete_flg)
+      params.require(:book).permit(:member_id, :title, :publisher, :author, :language, :sale_date, :height, :width, :depth, :isbn, :description, :data)
     end
 end

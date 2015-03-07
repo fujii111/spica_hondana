@@ -1,11 +1,10 @@
 <%= form_for(@book, html: {multipart: true}) do |f| %>
   <% if @book.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
-
+      <p>入力エラーです。以下を確認してください(画像は再アップロードしてください)。</p>
       <ul>
       <% @book.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li class="warn"><%= msg %></li>
       <% end %>
       </ul>
     </div>
@@ -55,7 +54,7 @@
   <div class="field">
     <%= f.label :isbn %><br>
     <p>
-	    978- <%= f.text_field :isbn, size: 10 %> 数字10桁
+	    <%= f.text_field :isbn, size: 13, maxlength: 13, placeholder: "978" %> 数字10または13桁
     </p>
   </div>
   <div class="field">
