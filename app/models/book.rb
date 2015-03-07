@@ -28,4 +28,8 @@ class Book < ActiveRecord::Base
 
   # TODO ファイル検証
 
+  before_save do |book|
+    book.author.gsub!(/\s|　|/, "")
+  end
+
 end

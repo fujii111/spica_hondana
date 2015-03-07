@@ -31,11 +31,11 @@
 			</p>
 		</div>
 		<div id="search" class="right">
-			<p>
-				<input type="text" id="search_box" name="search_box" placeholder="本の検索・登録・交換をする場合はこちらから" />
-				<input type="submit" id="search_btn" name="search_btn" class="search_btn" value="検索" />
-				<a href="">詳細検索</a>
-			</p>
+			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
+		    	<%= text_field_tag :keyword, "", size: "15", maxlength: "20", placeholder: "本の検索・登録・交換をする場合はこちらから" %>
+			    <%= submit_tag "検索" %>
+				<%= link_to "詳細検索", "/books/search_detail"  %>
+			<% end %>
 		</div>
 	</div>
 </div>

@@ -1,20 +1,21 @@
 Hondana::Application.routes.draw do
   resources :notices, format: false
-
   resources :genres, format: false
 
   get "information/:action" => "information#:action", format: false
 
   get "members/:action" => "members#:action", format: false
   get "members" => "members#index", format: false
-  get "members/login_as/:id" => "members#login_as", format: false
   post "members/login" => "members#authenticate", format: false
+  get "members/login_as/:id" => "members#login_as", format: false
   post "members/confirm" => "members#confirm", format: false
   post "members/create" => "members#create", format: false
   patch "members/update" => "members#update", format: false
   patch "members/update_password" => "members#update_password", format: false
 
   get "books/list" => "books#list", format: false
+  get "books/search" => "books#search", format: false
+  get "books/search_detail" => "books#search_detail", format: false
   get "books/show_image/:isbn" => "books#show_image", format: false
   resources :books
 
