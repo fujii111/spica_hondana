@@ -1,6 +1,5 @@
-<h1>Editing book</h1>
+<h1>本の編集</h1><% @title = "本の編集" %>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+<p><%= link_to '表示', @book %> | <%= link_to '戻る', books_path %></p>

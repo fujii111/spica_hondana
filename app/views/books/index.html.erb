@@ -1,43 +1,4 @@
 <h1>書籍一覧</h1><% @title = "書籍一覧" %>
+<%= render 'list' %>
 
-<table class="list">
-  <thead>
-    <tr>
-      <th>書名</th>
-      <th>出版社</th>
-      <th>著者名</th>
-      <th>言語</th>
-      <th>発売日</th>
-      <th>縦</th>
-      <th>横</th>
-      <th>厚さ</th>
-      <th>ISBNコード</th>
-      <th>画像</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.publisher %></td>
-        <td><%= book.author %></td>
-        <td><%= book.language %></td>
-        <td><%= book.sale_date %></td>
-        <td><%= book.height %></td>
-        <td><%= book.width %></td>
-        <td><%= book.depth %></td>
-        <td><%= book.isbn %></td>
-        <td><%= image_tag "/books/show_image/" + book.isbn, alt: book.title %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<p><%= link_to 'New Book', new_book_path %> | <%= link_to "戻る", "/information/admin" %></p>
+<p><%= link_to '新規登録', new_book_path %> | <%= link_to "戻る", "/information/admin" %></p>

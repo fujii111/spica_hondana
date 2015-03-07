@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
   # 認証済みを要求するページで認証されていないとき、ログインページを表示
   def check_logined
     if session[:id].blank?
-      @notice = "セッションが切断されたか、または不正アクセスです。ログインし直してください。"
+      session[:url] = request.fullpath
+      @notice = "ログインが必要です。"
       render "/members/login"
     end
   end

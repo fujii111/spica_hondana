@@ -1,69 +1,61 @@
-<p id="notice"><%= notice %></p>
+<h1>本の情報</h1><% @title = "本の情報" %>
 
-<p>
-  <strong>Member:</strong>
-  <%= @book.member %>
+<div class="book_img">
+	<p><%= image_tag "/books/show_image/" + @book.isbn, alt: @book.title %></p>
+</div>
+<div class="book">
+  <div class="field">
+    <label>書名</label>
+    <p>
+    	<%= @book.title %>
+    </p>
+  </div>
+  <div class="field">
+    <label>出版社</label>
+    <p>
+    	<%= @book.publisher %>
+    </p>
+  </div>
+  <div class="field">
+    <label>著者名</label>
+    <p>
+    	<%= @book.author %>
+    </p>
+  </div>
+  <div class="field">
+    <label>言語</label>
+    <p>
+    	<%= @book.language %>
+    </p>
+  </div>
+  <div class="field">
+    <label>発売日</label>
+    <p>
+    	<%= @book.sale_date %>
+    </p>
+  </div>
+  <div class="field">
+    <label>ISBN</label>
+    <p>
+    	<%= @book.isbn %>
+    </p>
+  </div>
+  <div class="field">
+    <label>内容</label>
+    <p>
+    	<%= @book.description %>
+    </p>
+  </div>
+</div>
+<p id="btn_area">
+	<input type="button" class="big_btn" value="交換する" size="40" onclick="location.href='/trade/3/select.html'">
+	<input type="button" value="お気に入り追加" size="40" onclick="fav_dialog('3');">
+	<input type="button" class="big_btn" value="ホンダナに登録" size="40" onclick="location.href='/books/new'">
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @book.title %>
+<% if session[:login_id] == "spica" %>
+	<%= link_to '編集', edit_book_path(@book) %> |
+<% end %>
+<%= link_to '戻る', session[:url] %>
 </p>
-
-<p>
-  <strong>Publisher:</strong>
-  <%= @book.publisher %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
-
-<p>
-  <strong>Language:</strong>
-  <%= @book.language %>
-</p>
-
-<p>
-  <strong>Sale date:</strong>
-  <%= @book.sale_date %>
-</p>
-
-<p>
-  <strong>Height:</strong>
-  <%= @book.height %>
-</p>
-
-<p>
-  <strong>Width:</strong>
-  <%= @book.width %>
-</p>
-
-<p>
-  <strong>Depth:</strong>
-  <%= @book.depth %>
-</p>
-
-<p>
-  <strong>Isbn:</strong>
-  <%= @book.isbn %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @book.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag "/books/show_image/" + @book.isbn, alt: @book.title %>
-</p>
-
-<p>
-  <strong>Delete flg:</strong>
-  <%= @book.delete_flg %>
-</p>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>

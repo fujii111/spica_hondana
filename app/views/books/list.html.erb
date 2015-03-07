@@ -12,20 +12,4 @@
 <% end %>
 
 <h1>新着の本</h1>
-<% if @books.blank? %>
-	<p>ホンダナに本が登録されていません。</p>
-<% else %>
-	<% @books.each_with_index do |book, index| %>
-		<% if index % 5 == 0 %>
-			<div class="booklist_wide">
-		<% end %>
-				<div>
-					<%= image_tag "/books/show_image/" + book.isbn, alt: book.title %><br />
-					<%= book.title %><br />
-					<span class="small">著者: <%= book.author %></span>
-				</div>
-		<% if index % 5 == 4 || index + 1 == @books.length %>
-			</div>
-		<% end %>
-	<% end %>
-<% end %>
+<%= render 'list' %>

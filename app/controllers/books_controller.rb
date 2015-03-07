@@ -3,14 +3,16 @@ class BooksController < ApplicationController
   skip_before_action :check_logined, only: [:list, :show_image]
 
   def list
-    @books = Book.order(created_at: :desc).limit(10)
+    @books = Book.where(delete_flg: false, member_id: nil).order(created_at: :desc).limit(10)
     @notices = Notice.order(notice_date: :desc).limit(5)
+    session[:url] = request.fullpath
   end
 
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @books = Book.where(delete_flg: false).order(created_at: :desc).limit(10)
+    session[:url] = request.fullpath
   end
 
   # GET /books/1
