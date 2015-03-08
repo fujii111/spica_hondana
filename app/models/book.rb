@@ -16,11 +16,13 @@ class Book < ActiveRecord::Base
     numericality: {greater_than: 0},
     allow_blank: true
 
+  # TODO 10または13桁の検証
   validates :isbn,
     format: { with: /\A[0-9]*\z/ },
     length: { minimum: 10, maximum: 13 },
     uniqueness: { scope: :delete_flg },
     allow_blank: true
+
 
   def data=(data)
     self.image = data.read

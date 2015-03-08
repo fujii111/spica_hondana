@@ -1,0 +1,16 @@
+<% @title = "本の検索結果" %>
+
+<h1>ホンダナの検索結果</h1>
+<p>検索キーワード： <%= @keyword %></p>
+<% unless @notice.blank? %>
+	<p><%= @notice %></p>
+<% else %>
+	<%= render 'list' %>
+<% end %>
+
+<h1>Amazonの検索結果</h1>
+<p>検索キーワード： <%= @keyword %></p>
+<% unless @notice.blank? %>
+	<p><%= @notice %></p>
+<% else %>
+<% end %>

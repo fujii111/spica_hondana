@@ -1,4 +1,7 @@
 <h1>書籍一覧</h1><% @title = "書籍一覧" %>
+
+<p><%= link_to '新規登録', new_book_path %> | <%= link_to "戻る", "/information/admin" %></p>
+
 <%= render 'list' %>
 
 <p><%= link_to '新規登録', new_book_path %> | <%= link_to "戻る", "/information/admin" %></p>

@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
-  before_action :check_admin, except: [:list, :show, :show_image]
+  before_action :check_admin, except: [:list, :show, :show_image, :search]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  skip_before_action :check_logined, only: [:list, :show, :show_image]
+  skip_before_action :check_logined, only: [:list, :show, :show_image, :search]
 
   def list
     @books = Book.where(delete_flg: false, member_id: nil).order(created_at: :desc).limit(10)
@@ -13,6 +13,17 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.where(delete_flg: false).order(created_at: :desc).limit(10)
+    session[:url] = request.fullpath
+  end
+
+  def search
+    session[:keyword] = params[:keyword]
+    @keyword = params[:keyword].gsub(/\s|　|/, "")
+    if @keyword.size < 2
+      @notice = "検索キーワードは２文字以上にしてください。"
+      return
+    end
+    @books = Book.where("title like ? or author like ?", "%" + @keyword + "%", "%" + @keyword + "%").where(delete_flg: false)
     session[:url] = request.fullpath
   end
 
@@ -82,7 +93,7 @@ class BooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
-      @book = Book.find(params[:id])
+      @book = Book.find_by(id: params[:id], delete_flg: false)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

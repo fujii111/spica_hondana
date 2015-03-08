@@ -118,7 +118,7 @@ class MembersController < ApplicationController
       session[:nickname] = member.nickname
       session[:point] = member.point
       # TODO
-      redirect_to books_path
+      redirect_to "/books/list"
     end
   end
 
