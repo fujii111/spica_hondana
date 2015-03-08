@@ -1,0 +1,38 @@
+<h1>詳細検索</h1><% @title = "詳細検索" %>
+  <% unless @notice.blank? %>
+    <div id="error_explanation">
+      <p class="warn"><%= @notice %></p>
+    </div>
+  <% end %>
+
+<p>入力したすべての条件を満たす本が検索されます。</p>
+
+<%= form_tag({controller: :books, action: :search_detail}, method: :get) do %>
+  <div class="field">
+    <%= label_tag :title_keyword, "書名" %>
+    <p>
+    	<%= text_field_tag :title_keyword, @title_keyword %>
+    </p>
+  </div>
+  <div class="field">
+    <%= label_tag :author_keyword, "著者名" %>
+    <p>
+    	<%= text_field_tag :author_keyword, @author_keyword %>
+    </p>
+  </div>
+  <div class="field">
+    <%= label_tag :publisher_keyword, "出版社" %>
+    <p>
+    	<%= text_field_tag :publisher_keyword, @publisher_keyword %>
+    </p>
+  </div>
+  <div class="field">
+    <%= label_tag :isbn_keyword, "ISBNコード" %>
+    <p>
+    	<%= text_field_tag :isbn_keyword, @isbn_keyword, size: "8", maxlength: "13" %> 数字10桁または13桁(ハイフンなし)
+    </p>
+  </div>
+  <div class="field">
+    <%= submit_tag "検索" %>
+  </div>
+<% end %>

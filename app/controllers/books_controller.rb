@@ -19,12 +19,29 @@ class BooksController < ApplicationController
   def search
     session[:keyword] = params[:keyword]
     @keyword = params[:keyword].gsub(/\s|　|/, "")
-    if @keyword.size < 2
-      @notice = "検索キーワードは２文字以上にしてください。"
+    if @keyword.blank?
+      @notice = "検索キーワードを指定してください。"
       return
     end
     @books = Book.where("title like ? or author like ?", "%" + @keyword + "%", "%" + @keyword + "%").where(delete_flg: false)
     session[:url] = request.fullpath
+  end
+
+  def search_detail
+    @title_keyword = params[:title_keyword].gsub(/\s|　|/, "")
+    @author_keyword = params[:author_keyword].gsub(/\s|　|/, "")
+    @publisher_keyword = params[:publisher_keyword].gsub(/\s|　|/, "")
+    @isbn_keyword = params[:isbn_keyword].gsub(/\s|　|/, "")
+    if @title_keyword.blank? && @author_keyword.blank? && @publisher_keyword.blank? && @isbn_keyword.blank?
+      @notice = "検索キーワードを少なくとも一つ指定してください。"
+      render action: "search_edit"
+      return
+    end
+    @books = Book.where("title like ? and author like ? and publisher like ? and isbn like ?",
+     "%" + @title_keyword + "%", "%" + @author_keyword + "%", "%" + @publisher_keyword + "%", "%" + @isbn_keyword + "%")
+     .where(delete_flg: false)
+    session[:url] = request.fullpath
+    render action: "search"
   end
 
   # GET /books/1

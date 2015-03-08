@@ -34,7 +34,7 @@
 			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
 		    	<%= text_field_tag :keyword, session[:keyword], size: "15", maxlength: "20", placeholder: "本の検索・登録・交換をする場合はこちらから" %>
 			    <%= submit_tag "検索" %>
-				<%= link_to "詳細検索", "/books/search_detail"  %>
+				<%= link_to "詳細検索", "/books/search_edit"  %>
 			<% end %>
 		</div>
 	</div>

@@ -1,10 +1,20 @@
 <% @title = "本の検索結果" %>
 
 <h1>ホンダナの検索結果</h1>
-<p>検索キーワード： <%= @keyword %></p>
 <% unless @notice.blank? %>
 	<p><%= @notice %></p>
+<% end %>
+<% unless @keyword.blank? %>
+	<p>検索キーワード： <%= @keyword %></p>
 <% else %>
+	<p>
+		検索キーワード(書名)： <%= @title_keyword %><br>
+		検索キーワード(著者名)： <%= @author_keyword %><br>
+		検索キーワード(出版社)： <%= @publisher_keyword %><br>
+		検索キーワード(ISBN)： <%= @isbn_keyword %>
+	</p>
+<% end %>
+<% if @notice.blank? %>
 	<%= render 'list' %>
 <% end %>
 
