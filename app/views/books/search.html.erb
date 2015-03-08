@@ -18,9 +18,43 @@
 	<%= render 'list' %>
 <% end %>
 
-<h1>Amazonの検索結果</h1>
-<p>検索キーワード： <%= @keyword %></p>
+<h1>Amazon(予定)の検索結果</h1>
+<% unless @keyword.blank? %>
+	<p>検索キーワード： <%= @keyword %></p>
+<% else %>
+	<p>
+		検索キーワード(書名)： <%= @title_keyword %><br>
+		検索キーワード(著者名)： <%= @author_keyword %><br>
+		検索キーワード(出版社)： <%= @publisher_keyword %><br>
+		検索キーワード(ISBN)： <%= @isbn_keyword %>
+	</p>
+<% end %>
 <% unless @notice.blank? %>
 	<p><%= @notice %></p>
 <% else %>
+ 	<% if @jsonData['Items'] == nil %>
+	<p>本が見つかりませんでした。</p>
+	<% else %>
+	 	<% index = 0 %>
+		<% closing = false %>
+		<% @jsonData['Items'].each do |item| %>
+			<% if index % 5 == 0 %>
+				<div class="booklist_wide">
+				<% closing = false %>
+			<% end %>
+				<div>
+					<%= link_to (image_tag item['Item']['mediumImageUrl'], alt: item['Item']['title']), "/books/list" %><br>
+					<%= link_to item['Item']['title'], "/books/list" %><br>
+					<span class="small"><%= item['Item']['author'] %></span>
+				</div>
+			<% if index % 5 == 4 %>
+				</div>
+				<% closing = true %>
+			<% end %>
+			<% index = index + 1 %>
+		<% end %>
+		<% unless closing %>
+			</div>
+		<% end %>
+	<% end %>
 <% end %>

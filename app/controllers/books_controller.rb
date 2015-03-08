@@ -24,6 +24,20 @@ class BooksController < ApplicationController
       return
     end
     @books = Book.where("title like ? or author like ?", "%" + @keyword + "%", "%" + @keyword + "%").where(delete_flg: false)
+    begin
+      httpClient = HTTPClient.new
+      data = httpClient.get_content('https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522', {
+        'applicationId' => '1029724767561681573',
+        'affiliateId' => '12169043.4164998a.12169044.3519539e',
+        'format' => 'json',
+        'elements' => 'count,page,first,last,pageCount,title,author,publisherName,size,isbn,itemCaption,salesDate,itemUrl,mediumImageUrl,booksGenreName',
+        'title' => @keyword,
+        'hits' => '30'
+      })
+      @jsonData = JSON.parse data
+    rescue HTTPClient::BadResponseError => e
+    rescue HTTPClient::TimeoutError => e
+    end
     session[:url] = request.fullpath
   end
 

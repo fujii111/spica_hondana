@@ -5,7 +5,7 @@
     </div>
   <% end %>
 
-<p>入力したすべての条件を満たす本が検索されます。</p>
+<p>入力した欄のすべての条件を満たす本が検索されます。</p>
 
 <%= form_tag({controller: :books, action: :search_detail}, method: :get) do %>
   <div class="field">
@@ -29,7 +29,7 @@
   <div class="field">
     <%= label_tag :isbn_keyword, "ISBNコード" %>
     <p>
-    	<%= text_field_tag :isbn_keyword, @isbn_keyword, size: "8", maxlength: "13" %> 数字10桁または13桁(ハイフンなし)
+    	<%= text_field_tag :isbn_keyword, @isbn_keyword, size: "8", maxlength: "13" %> 数字13桁(ハイフンなし)で検索してください。検索されない場合、10桁をお試しください。
     </p>
   </div>
   <div class="field">
