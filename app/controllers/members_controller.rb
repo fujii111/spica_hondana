@@ -117,9 +117,8 @@ class MembersController < ApplicationController
       session[:login_id] = member.login_id
       session[:nickname] = member.nickname
       session[:point] = member.point
-      if session[:url].blank?
-    # TODO パス変更
-        redirect_to "/books/list"
+      if session[:url].blank? || session[:url] == "/books/list"
+        redirect_to "/collections/"
       else
         redirect_to session[:url]
       end
@@ -133,8 +132,7 @@ class MembersController < ApplicationController
     session[:login_id] = member.login_id
     session[:nickname] = member.nickname
     session[:point] = member.point
-    # TODO パス変更
-    redirect_to "/books/list"
+    redirect_to "/collections/"
   end
 
   # ログアウト
@@ -143,6 +141,7 @@ class MembersController < ApplicationController
     session[:login_id] = nil
     session[:nickname] = nil
     session[:point] = nil
+    session[:url] = nil
     redirect_to "/books/list"
   end
 end

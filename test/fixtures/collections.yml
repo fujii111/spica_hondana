@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  member_id: 1
+  request_member_id: 1
+  book_id: 1
+  height: 1.5
+  width: 1.5
+  depth: 1.5
+  weight: 1.5
+  condition: 1
+  sunburn: false
+  scratch: false
+  line: 1
+  broken: 1
+  band: false
+  cigar: false
+  pet: false
+  mold: false
+  image: 
+  note: MyText
+  state: 1
+  regist_date: 2015-03-09 13:21:31
+  request_date: 2015-03-09 13:21:31
+  accept_date: 2015-03-09 13:21:31
+  send_date: 2015-03-09 13:21:31
+  receive_date: 2015-03-09 13:21:31
+  label: 
+  state: 1
+
+two:
+  member_id: 1
+  request_member_id: 1
+  book_id: 1
+  height: 1.5
+  width: 1.5
+  depth: 1.5
+  weight: 1.5
+  condition: 1
+  sunburn: false
+  scratch: false
+  line: 1
+  broken: 1
+  band: false
+  cigar: false
+  pet: false
+  mold: false
+  image: 
+  note: MyText
+  state: 1
+  regist_date: 2015-03-09 13:21:31
+  request_date: 2015-03-09 13:21:31
+  accept_date: 2015-03-09 13:21:31
+  send_date: 2015-03-09 13:21:31
+  receive_date: 2015-03-09 13:21:31
+  label: 
+  state: 1

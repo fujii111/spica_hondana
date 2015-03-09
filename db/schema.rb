@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303052630) do
+ActiveRecord::Schema.define(version: 20150309042130) do
 
   create_table "books", force: true do |t|
     t.integer  "member_id"
@@ -32,6 +32,36 @@ ActiveRecord::Schema.define(version: 20150303052630) do
   end
 
   add_index "books", ["member_id"], name: "index_books_on_member_id"
+
+  create_table "collections", force: true do |t|
+    t.integer  "member_id"
+    t.integer  "request_member_id"
+    t.integer  "book_id"
+    t.float    "height"
+    t.float    "width"
+    t.float    "depth"
+    t.float    "weight"
+    t.integer  "condition"
+    t.boolean  "sunburn"
+    t.boolean  "scratch"
+    t.integer  "line"
+    t.integer  "broken"
+    t.boolean  "band"
+    t.boolean  "cigar"
+    t.boolean  "pet"
+    t.boolean  "mold"
+    t.binary   "image"
+    t.text     "note"
+    t.integer  "state"
+    t.datetime "regist_date"
+    t.datetime "request_date"
+    t.datetime "accept_date"
+    t.datetime "send_date"
+    t.datetime "receive_date"
+    t.binary   "label"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "genres", force: true do |t|
     t.string   "name"

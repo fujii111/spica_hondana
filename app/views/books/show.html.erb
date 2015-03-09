@@ -58,5 +58,5 @@
 <% if session[:login_id] == "spica" %>
 	<%= link_to '編集', edit_book_path(@book) %> |
 <% end %>
-<%= link_to '戻る', session[:url] %>
+<%= link_to '戻る', session[:url].blank? ? "/books/list" : session[:url] %>
 </p>

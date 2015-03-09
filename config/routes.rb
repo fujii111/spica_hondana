@@ -20,6 +20,8 @@ Hondana::Application.routes.draw do
   get "books/show_image/:isbn" => "books#show_image", format: false
   resources :books
 
+  get "collections/:action" => "collections#:action", format: false
+  get "collections" => "collections#index", format: false
   root 'books#list'
 
   # The priority is based upon order of creation: first created -> highest priority.

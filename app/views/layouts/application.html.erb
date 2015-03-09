@@ -14,7 +14,7 @@
 		<%= link_to (image_tag 'title_ico.png', alt: 'トップページへ'), root_path  %>
 	</h1>
 	<div id="navigate">
-		<p class="button"><a href=""><%= image_tag 'mypage_ico.png', alt: 'マイページへ' %></a></p>
+		<p class="button"><%= link_to (image_tag 'mypage_ico.png', alt: 'マイページへ'), "/collections/" %></a></p>
 		<p class="button"><%= link_to (image_tag 'this_is_ico.png', alt: 'このサイトについて'), "/information/aboutthis"  %></p>
 		<div id="welcome" class="right">
 			<p>
