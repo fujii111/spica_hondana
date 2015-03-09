@@ -4,7 +4,7 @@
 <% unless @notice.blank? %>
 	<p><%= @notice %></p>
 <% end %>
-<% unless @keyword.blank? %>
+<% if !@keyword.blank? || @title_keyword.nil? %>
 	<p>検索キーワード： <%= @keyword %></p>
 <% else %>
 	<p>
@@ -18,8 +18,11 @@
 	<%= render 'list' %>
 <% end %>
 
-<h1>Amazon(予定)の検索結果</h1>
-<% unless @keyword.blank? %>
+<h1>楽天ブックスでの検索結果</h1>
+<% unless @notice.blank? %>
+	<p><%= @notice %></p>
+<% end %>
+<% if !@keyword.blank? || @title_keyword.nil? %>
 	<p>検索キーワード： <%= @keyword %></p>
 <% else %>
 	<p>
@@ -29,29 +32,53 @@
 		検索キーワード(ISBN)： <%= @isbn_keyword %>
 	</p>
 <% end %>
-<% unless @notice.blank? %>
-	<p><%= @notice %></p>
-<% else %>
- 	<% if @jsonData['Items'] == nil %>
-	<p>本が見つかりませんでした。</p>
+<% if @notice.blank? %>
+ 	<% if @json_author_data.blank? && @json_title_data.blank? %>
+	<p>本が見つかりませんでした(検索キーワードは2文字以上です)。</p>
 	<% else %>
+		<p>ホンダナに登録されている本(同じISBNコードの本)は表示しません。</p>
 	 	<% index = 0 %>
-		<% closing = false %>
-		<% @jsonData['Items'].each do |item| %>
-			<% if index % 5 == 0 %>
-				<div class="booklist_wide">
-				<% closing = false %>
+		<% closing = true %>
+		<% if !@json_author_data.blank? && !@json_author_data['Items'].blank? %>
+			<% @json_author_data['Items'].each do |item| %>
+				<% if !@isbns.include? item['Item']['isbn'] %>
+					<% if index % 5 == 0 %>
+						<div class="booklist_wide">
+						<% closing = false %>
+					<% end %>
+						<div>
+							<%= link_to (image_tag item['Item']['mediumImageUrl'], alt: item['Item']['title']), "/books/list" %><br>
+							<%= link_to item['Item']['title'], "/books/list" %><br>
+							<span class="small"><%= item['Item']['author'] %></span>
+						</div>
+					<% if index % 5 == 4 %>
+						</div>
+						<% closing = true %>
+					<% end %>
+					<% index = index + 1 %>
+					<% @isbns.push item['Item']['isbn'] %>
+				<% end %>
 			<% end %>
-				<div>
-					<%= link_to (image_tag item['Item']['mediumImageUrl'], alt: item['Item']['title']), "/books/list" %><br>
-					<%= link_to item['Item']['title'], "/books/list" %><br>
-					<span class="small"><%= item['Item']['author'] %></span>
-				</div>
-			<% if index % 5 == 4 %>
-				</div>
-				<% closing = true %>
+		<% end %>
+		<% if !@json_title_data.blank? && !@json_title_data['Items'].blank? %>
+			<% @json_title_data['Items'].each do |item| %>
+				<% if !@isbns.include? item['Item']['isbn'] %>
+					<% if index % 5 == 0 %>
+						<div class="booklist_wide">
+						<% closing = false %>
+					<% end %>
+						<div>
+							<%= link_to (image_tag item['Item']['mediumImageUrl'], alt: item['Item']['title']), "/books/list" %><br>
+							<%= link_to item['Item']['title'], "/books/list" %><br>
+							<span class="small"><%= item['Item']['author'] %></span>
+						</div>
+					<% if index % 5 == 4 %>
+						</div>
+						<% closing = true %>
+					<% end %>
+					<% index = index + 1 %>
+				<% end %>
 			<% end %>
-			<% index = index + 1 %>
 		<% end %>
 		<% unless closing %>
 			</div>

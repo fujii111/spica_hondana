@@ -1,3 +1,4 @@
+<% @isbns = [] %>
 <% if @books.blank? %>
 	<p>本が見つかりませんでした。</p>
 <% else %>
@@ -10,6 +11,7 @@
 					<%= link_to book.title, book  %><br>
 					<span class="small"><%= book.author %></span>
 				</div>
+				<% @isbns.push book.isbn %>
 		<% if index % 5 == 4 || index + 1 == @books.length %>
 			</div>
 		<% end %>
