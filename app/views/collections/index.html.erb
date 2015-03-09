@@ -1,2 +1,43 @@
 <h1>マイページ</h1><% @title = "マイページ" %>
 
+<div id="mypage_left">
+	<div id="collection_summary_area">
+		<dl>
+			<dt class="larger">ホンダナに登録した本</dt>
+			<dd class="large center"><%= @collections.size %>冊</dd>
+		</dl>
+		<p class="right">発送済みの本: 2冊</p>
+	</div>
+	<div id="collection_area">
+		<dl>
+			<dt class="strong">登録した本</dt>
+			<dd>
+				ホンダナに登録されている本はありません。
+			</dd>
+		</dl>
+	</div>
+</div>
+
+<div id="mypage_right">
+	<div id="point_summary_area">
+		<dl>
+			<dt class="larger">現在のブク数</dt>
+			<dd class="large center">6ブク</dd>
+		</dl>
+		<p class="right">使用したブク数: 1ブク</p>
+	</div>
+	<div id="point_area">
+		<dl>
+			<dt class="strong">お気に入り</dt>
+			<dd>
+				お気に入りに登録がありません。
+			</dd>
+		</dl>
+		<dl>
+			<dt class="strong">受け取った本</dt>
+			<dd>
+				受け取った本はありません。
+			</dd>
+		</dl>
+	</div>
+</div>

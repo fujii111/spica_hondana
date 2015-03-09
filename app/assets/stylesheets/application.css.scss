@@ -22,8 +22,6 @@
 }
 
 body {
-	width: 960px;
-	margin: 0 auto;
 	background-color: #F7F5E8;
 	background-image: url("/images/paper.png");
 	color: #503D2E;
@@ -60,14 +58,20 @@ time {
 .small {
   font-size: smaller;
 }
+.larger {
+  font-size: x-large;
+}
+.large {
+  font-size: 200%;
+}
 .warn {
 	color: #D54B1A;
 }
 
 #head {
-	width: 960px;
+  width: 960px;
 	height: 100px;
-	margin: 10px 0;
+	margin: 10px auto;
 	h1 {
 		float: left;
 	}
@@ -103,6 +107,7 @@ time {
 	clear: both;
 	width: 960px;
 	height: 40px;
+  margin: 0 auto;
 	p {
 		float: left;
 	}
@@ -112,6 +117,7 @@ time {
 	clear: both;
 	width: 960px;
 	height: 160px;
+  margin: 0 auto;
 	background-image: url("/images/footer_bg.png");
 	div {
 		float: left;
@@ -132,9 +138,11 @@ time {
 
 #main {
 	clear: both;
+  width: 960px;
 	min-height: 390px;
 	height: auto !important;
 	height: 390px;
+  margin: 0 auto;
 	padding: 10px 2px 20px;
 	h1 {
 		border: 2px solid #CCCCCC;
@@ -213,6 +221,41 @@ time {
 			font-weight: bold;
 		}
 	}
+	#mypage_left {
+	  float: left;
+    margin: 16px 0;
+    #collection_summary_area {
+      width: 448px;
+      height: 168px;
+      margin: 0 16px;
+      border-bottom: 1px dotted #333333;
+    }
+    #collection_area {
+      width: 447px;
+      margin: 16px;
+      dd {
+        margin-left: 20px;
+      }
+    }
+	}
+  #mypage_right {
+    float: left;
+    margin: 16px 0;
+    border-left: 1px dotted #333333;
+    #point_summary_area {
+      width: 447px;
+      height: 168px;
+      margin: 0 16px;
+      border-bottom: 1px dotted #333333;
+    }
+    #point_area {
+      width: 447px;
+      margin: 16px;
+      dd {
+        margin-left: 20px;
+      }
+    }
+  }
 	#term {
 		width: 928px;
 		height: 390px;
