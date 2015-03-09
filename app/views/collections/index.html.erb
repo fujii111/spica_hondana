@@ -6,13 +6,13 @@
 			<dt class="larger">ホンダナに登録した本</dt>
 			<dd class="large center"><%= @collections.size %>冊</dd>
 		</dl>
-		<p class="right">発送済みの本: 2冊</p>
+		<p class="right">発送済みの本: <%= @completed_collections.size %>冊</p>
 	</div>
 	<div id="collection_area">
 		<dl>
 			<dt class="strong">登録した本</dt>
 			<dd>
-				ホンダナに登録されている本はありません。
+				登録されている本はありません。
 			</dd>
 		</dl>
 	</div>
@@ -22,9 +22,9 @@
 	<div id="point_summary_area">
 		<dl>
 			<dt class="larger">現在のブク数</dt>
-			<dd class="large center">6ブク</dd>
+			<dd class="large center"><%= session[:point] %>ブク</dd>
 		</dl>
-		<p class="right">使用したブク数: 1ブク</p>
+		<p class="right">使用したブク数: <%= @received_collections.size %>ブク</p>
 	</div>
 	<div id="point_area">
 		<dl>

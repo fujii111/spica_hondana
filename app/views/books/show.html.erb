@@ -2,7 +2,11 @@
 <p id="notice"><%= notice %></p>
 
 <div class="book_img">
-	<p><%= image_tag "/books/show_image/" + @book.isbn, alt: @book.title %></p>
+	<p class="center">
+		<%= image_tag "/books/show_image/" + @book.isbn, alt: @book.title %>
+		<br>
+		<input type="button" value="お気に入りに追加">
+	</p>
 </div>
 <div class="book">
   <div class="field">
@@ -48,13 +52,10 @@
     </p>
   </div>
 </div>
-<p id="btn_area">
-	<input type="button" class="big_btn" value="交換する" size="40" onclick="location.href='/trade/3/select.html'">
-	<input type="button" value="お気に入り追加" size="40" onclick="fav_dialog('3');">
-	<input type="button" class="big_btn" value="ホンダナに登録" size="40" onclick="location.href='/books/new'">
-</p>
 
 <p>
+<%= link_to '交換申請する', "/collections/member_list" %> |
+<%= link_to 'ホンダナに登録する', "/collections/new" %> |
 <% if session[:login_id] == "spica" %>
 	<%= link_to '編集', edit_book_path(@book) %> |
 <% end %>
