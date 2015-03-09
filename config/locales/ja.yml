@@ -48,6 +48,18 @@ ja:
     description: 内容
     data: 画像
 
+    condition: 本の状態
+    weight: 重さ
+    band: 帯あり
+    sunburn: 日焼け・変色
+    scratch: スレ・傷など
+    cigar: たばこ臭
+    pet: ペットの有無
+    mold: カビ
+    line: 書き込み線
+    broken: ページの折れ
+    note: 備考
+
   date:
     abbr_day_names:
     - 日

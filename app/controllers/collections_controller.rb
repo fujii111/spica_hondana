@@ -8,7 +8,16 @@ class CollectionsController < ApplicationController
   end
 
   def new
-
+    @book = nil
+    if params[:id]
+      @book = Book.find(params[:id])
+    else
+#      @book = Book.find_by(isbn: params[:isbn], delete_flg: false)
+    end
+    @collection = Collection.new
+    @collection.height = @book.height
+    @collection.width = @book.width
+    @collection.depth = @book.depth
   end
 
 end

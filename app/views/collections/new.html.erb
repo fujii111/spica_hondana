@@ -1,0 +1,155 @@
+<h1>ホンダナへ本の登録</h1><% @title = "ホンダナへ本の登録" %>
+
+<p>あなたの蔵書をホンダナへ登録します。</p>
+
+<div class="book_img">
+  <div class="field">
+	<%= image_tag "/books/show_image/" + @book.isbn, alt: @book.title %>
+  </div>
+</div>
+<div class="book">
+  <% if @collection.errors.any? %>
+    <div id="error_explanation">
+      <p>入力エラーです。以下を確認してください。</p>
+      <ul>
+      <% @collection.errors.full_messages.each do |msg| %>
+        <li class="warn"><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= label_tag :title, "書名" %>
+    <p>
+    	<%= @book.title %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :author, "著者名" %>
+    <p>
+    	<%= @book.author %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :publisher, "出版社" %>
+    <p>
+    	<%= @book.publisher %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :language, "言語" %>
+    <p>
+    	<%= @book.language %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :sale_date, "発売日" %>
+    <p>
+    	<%= @book.sale_date %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :isbn, "ISBNコード" %>
+    <p>
+    	<%= @book.isbn %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :description, "内容" %>
+    <p>
+    	<%= @book.description %>
+    </p>
+  </div>
+
+</div>
+<%= form_for(@collection, url: {action: "confirm"} ) do |f| %>
+
+  <div class="field">
+    <%= f.label "蔵書画像(上のイメージと異なる場合にアップロードできます)" %><br>
+    <p>
+	    <%= f.file_field :data %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= f.label :condition %>
+ 	<p>
+ 		<label class="normal"><%= f.radio_button :condition, "4", {:checked => true} %> ほぼ新品　</label>
+		<label class="normal"><%= f.radio_button :condition, "3" %> 非常に良い　</label>
+		<label class="normal"><%= f.radio_button :condition, "2" %> 良い　</label>
+		<label class="normal"><%= f.radio_button :condition, "1" %> 普通　</label>
+		<label class="normal"><%= f.radio_button :condition, "0" %> 汚れあり　</label>
+ 	</p>
+  </div>
+  <div class="field">
+    <%= label_tag "その他状態" %>
+ 	<p>
+ 		<label class="normal"><%= f.check_box(:band, {}, true, false) %> 帯あり　</label>
+		<label class="normal"><%= f.check_box(:sunburn, {}, true, false) %> 日焼け・変色　</label>
+		<label class="normal"><%= f.check_box(:scratch, {}, true, false) %> スレ・傷など　</label>
+ 	</p>
+ 	<p>
+ 		<label class="normal"><%= f.check_box(:cigar, {}, true, false) %> たばこ臭　</label>
+		<label class="normal"><%= f.check_box(:pet, {}, true, false) %> ペットの有無　</label>
+		<label class="normal"><%= f.check_box(:mold, {}, true, false) %> カビ臭　</label>
+ 	</p>
+  </div>
+
+  <div class="field">
+    <%= label_tag "サイズ" %>
+    <p>
+	    <%= f.label :height %>
+    	<%= f.text_field :height, size: 5 %> cm ×
+	    <%= f.label :width %>
+	    <%= f.text_field :width, size: 5 %> cm ×
+	    <%= f.label :depth %>
+    	<%= f.text_field :depth, size: 5 %> cm
+    </p>
+  </div>
+
+  <div class="field">
+    <%= f.label :weight %>
+    <p>
+    	<%= f.text_field :weight, size: 5 %> g
+    </p>
+  </div>
+
+  <div class="field">
+	<%= f.label :line %>
+	<p>
+		<label class="normal"><%= f.radio_button :line, "0" , {:checked => true} %> 5ページ未満　</label>
+		<label class="normal"><%= f.radio_button :line, "1" %> 5ページ以上10ページ未満　</label>
+		<label class="normal"><%= f.radio_button :line, "2" %> 10ページ以上　</label>
+	</p>
+  </div>
+
+  <div class="field">
+	<%= f.label :broken %>
+	<p>
+		<label class="normal"><%= f.radio_button :broken, "0" , {:checked => true} %> 5ページ未満　</label>
+		<label class="normal"><%= f.radio_button :broken, "1" %> 5ページ以上10ページ未満　</label>
+		<label class="normal"><%= f.radio_button :broken, "2" %> 10ページ以上　</label>
+	</p>
+  </div>
+
+  <div class="field">
+	<%= f.label :note %>
+ 	<p>
+		<%= f.text_area :note, :size => "50x5" %>
+	</p>
+  </div>
+
+  <div class="field">
+    <%= f.submit value: "登録確認" %>
+  </div>
+<% end %>
+
+<p>
+	<%= link_to '戻る', session[:url].blank? ? "/collections/" : session[:url] %>
+</p>
