@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   skip_before_action :check_logined, only: [:list, :show, :show_image, :search, :search_edit, :search_detail]
 
   def list
-    @books = Book.where(delete_flg: false, member_id: nil).order(created_at: :desc).limit(10)
+    @books = Book.where(delete_flg: false, member_id: nil).order(created_at: :desc).limit(20)
     @notices = Notice.order(notice_date: :desc).limit(5)
     session[:url] = request.fullpath
   end

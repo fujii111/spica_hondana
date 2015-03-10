@@ -30,21 +30,24 @@ class Book < ActiveRecord::Base
   end
 
   def self.getFromAPIByISBN(isbn)
-    begin
-      httpClient = HTTPClient.new
-      data = httpClient.get_content('https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522', {
-        'applicationId' => '1029724767561681573',
-        'affiliateId' => '12169043.4164998a.12169044.3519539e',
-        'format' => 'json',
-        'elements' => 'count,page,first,last,pageCount,title,author,publisherName,size,isbn,itemCaption,salesDate,itemUrl,largeImageUrl,booksGenreName',
-        'isbn' => isbn,
-        'hits' => '1'
-      })
-      json_data = JSON.parse data
-    rescue HTTPClient::BadResponseError => e
-    rescue HTTPClient::TimeoutError => e
-    end
-
+    # begin
+      # httpClient = HTTPClient.new
+      # data = httpClient.get_content('https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522', {
+        # 'applicationId' => '1029724767561681573',
+        # 'affiliateId' => '12169043.4164998a.12169044.3519539e',
+        # 'format' => 'json',
+        # 'elements' => 'count,page,first,last,pageCount,title,author,publisherName,size,isbn,itemCaption,salesDate,itemUrl,largeImageUrl,booksGenreName',
+        # 'isbn' => isbn,
+        # 'hits' => '1'
+      # })
+      # json_data = JSON.parse data
+    # rescue HTTPClient::BadResponseError => e
+    # rescue HTTPClient::TimeoutError => e
+    # end
+    condition = Hash.new
+    condition["isbn"] = isbn
+    condition["hits"] = 1
+    json_data = getContent(condition)
     book = Book.new
     book.title = json_data["Items"][0]["Item"]["title"]
     book.author = json_data["Items"][0]["Item"]["author"]
@@ -55,6 +58,23 @@ class Book < ActiveRecord::Base
     book.image_url = json_data["Items"][0]["Item"]["largeImageUrl"]
     book.isbn = isbn
     return book
+  end
+
+  def self.getContent(condition)
+    condition.merge!({
+        'applicationId' => '1029724767561681573',
+        'affiliateId' => '12169043.4164998a.12169044.3519539e',
+        'format' => 'json',
+        'elements' => 'count,page,first,last,pageCount,title,author,publisherName,size,isbn,itemCaption,salesDate,itemUrl,largeImageUrl,booksGenreName'
+    })
+    begin
+      httpClient = HTTPClient.new
+      data = httpClient.get_content('https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522', condition)
+      json_data = JSON.parse data
+    rescue HTTPClient::BadResponseError => e
+    rescue HTTPClient::TimeoutError => e
+    end
+    return json_data
   end
 
   # TODO ファイル検証
