@@ -20,4 +20,13 @@ class CollectionsController < ApplicationController
     @collection.depth = @book.depth
   end
 
+  def confirm
+    collection_params = params.require(:collection).permit(:book_id, :isbn, :data, :condition, :band, :sunburn, :scratch, :cigar, :pet, :mold, :height, :width, :depth, :weight, :line, :broken, :note)
+    @collection = Collection.new(collection_params)
+    @collection.member_id = session[:id]
+    @collection.state = 0
+    @collection.regist_date = DateTime.now
+    @collection.save
+  end
+
 end
