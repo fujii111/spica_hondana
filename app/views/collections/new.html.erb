@@ -1,16 +1,10 @@
-<h1>ホンダナへ本の登録</h1><% @title = "ホンダナへ本の登録" %>
+<h1>本の登録</h1><% @title = "本の登録" %>
 
 <p>蔵書をホンダナへ登録します。</p>
 
-<div class="book_img">
-  <div class="field">
-	<%= image_tag "/books/show_image/" + @book.isbn, alt: @book.title %>
-  </div>
-</div>
-<div class="book">
   <% if @collection.errors.any? %>
     <div id="error_explanation">
-      <p>入力エラーです。以下を確認してください。</p>
+      <p>入力エラーです。以下を確認してください(画像を登録する場合は再度指定してください)。</p>
       <ul>
       <% @collection.errors.full_messages.each do |msg| %>
         <li class="warn"><%= msg %></li>
@@ -18,6 +12,13 @@
       </ul>
     </div>
   <% end %>
+
+<div class="book_img">
+  <div class="field">
+	<%= image_tag "/books/show_image/" + @book.isbn, alt: @book.title %>
+  </div>
+</div>
+<div class="book">
   <div class="field">
     <%= label_tag :title, "書名" %>
     <p>
@@ -72,13 +73,6 @@
 
   <%= f.hidden_field :book_id, {value: @book.id} %>
   <%= f.hidden_field :isbn, {value: @book.isbn} %>
-
-  <div class="field">
-    <%= f.label "蔵書画像(上のイメージと異なる場合にアップロードできます)" %><br>
-    <p>
-	    <%= f.file_field :data %>
-    </p>
-  </div>
 
   <div class="field">
     <%= f.label :condition %>

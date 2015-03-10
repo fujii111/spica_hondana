@@ -1,3 +1,127 @@
-<h1>ホンダナへ本の登録</h1><% @title = "ホンダナへ本の登録" %>
+<h1>本の登録確認</h1><% @title = "本の登録確認" %>
 
-<p>蔵書を登録しました。</p>
+<p>以下の内容で登録します。よろしければ登録ボタンを押してください。</p>
+
+<div class="book_img">
+  <div class="field">
+	<%= image_tag "/books/show_image/" + @book.isbn, alt: @book.title %>
+  </div>
+</div>
+
+<div class="book">
+  <div class="field">
+    <%= label_tag :title, "書名" %>
+    <p>
+    	<%= @book.title %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :author, "著者名" %>
+    <p>
+    	<%= @book.author %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :publisher, "出版社" %>
+    <p>
+    	<%= @book.publisher %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :language, "言語" %>
+    <p>
+    	<%= @book.language %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :sale_date, "発売日" %>
+    <p>
+    	<%= @book.sale_date %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :isbn, "ISBNコード" %>
+    <p>
+    	<%= @book.isbn %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :description, "内容" %>
+    <p>
+    	<%= @book.description %>
+    </p>
+  </div>
+</div>
+
+<%= form_for(@collection, url: {action: "create"} ) do |f| %>
+
+  <div class="field">
+    <%= f.label :condition %>
+ 	<p>
+ 		<%= Array["汚れあり", "普通", "良い", "非常に良い", "ほぼ新品"][@collection.condition] %>
+ 	</p>
+  </div>
+  <div class="field">
+    <%= label_tag "その他状態" %>
+ 	<p>
+ 		<%= @collection.band ? "帯あり　" : "" %>
+ 		<%= @collection.sunburn ? "日焼け・変色　" : "" %>
+ 		<%= @collection.scratch ? "スレ・傷など　" : "" %>
+ 		<%= @collection.cigar ? "たばこ臭　" : "" %>
+ 		<%= @collection.pet ? "ペットの有無　" : "" %>
+ 		<%= @collection.mold ? "カビ臭　" : "" %>
+ 	</p>
+  </div>
+
+  <div class="field">
+    <%= label_tag "サイズ" %>
+    <p>
+	    <%= f.label :height %> <%= @collection.height %> cm ×
+	    <%= f.label :width %> <%= @collection.width %> cm ×
+	    <%= f.label :depth %> <%= @collection.depth %> cm
+    </p>
+  </div>
+
+  <div class="field">
+    <%= f.label :weight %>
+    <p>
+    	<%= @collection.weight %> g
+    </p>
+  </div>
+
+  <div class="field">
+	<%= f.label :line %>
+	<p>
+ 		<%= Array["5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.line] %>
+	</p>
+  </div>
+
+  <div class="field">
+	<%= f.label :broken %>
+	<p>
+ 		<%= Array["5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.broken] %>
+	</p>
+  </div>
+
+  <div class="field">
+	<%= f.label :note %>
+ 	<p>
+		<%= @collection.note %>
+	</p>
+  </div>
+
+  <%= f.hidden_field :book_id, {value: @book.id} %>
+  <%= f.hidden_field :isbn, {value: @book.isbn} %>
+
+  <div class="field">
+    <%= f.submit value: "登録" %>
+  </div>
+<% end %>
+
+<p><%= link_to "入力をやり直す", "/collections/new?id=" + @book.id.to_s + "&isbn=" + @book.isbn %></p>
