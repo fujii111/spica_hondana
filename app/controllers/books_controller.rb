@@ -90,6 +90,10 @@ class BooksController < ApplicationController
   def show
   end
 
+  def member_list
+
+  end
+
   def show_image
     @book = Book.find_by(isbn: params[:isbn], delete_flg: false)
     if @book.blank? || @book.image.blank?

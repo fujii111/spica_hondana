@@ -42,7 +42,7 @@
 
 <div id="menu">
 	<p><%= link_to (image_tag 'profile_ico.png', alt: 'プロフィール', class: 'button'), "/members/show"  %></p>
-	<p><a href=""><%= image_tag 'exchange_all_ico.png', alt: '交換一覧', class: 'button' %></a></p>
+	<p><%= link_to (image_tag 'exchange_all_ico.png', alt: '交換一覧', class: 'button'), "/collections/list"  %></p>
 	<p><%= link_to (image_tag session[:message] ? 'notice_ico_new.png' : 'notice_ico.png', alt: '会員向け告知', class: 'button'), "/messages/"  %></p>
 </div>
 

@@ -19,6 +19,7 @@ Hondana::Application.routes.draw do
   get "books/search" => "books#search", format: false
   get "books/search_edit" => "books#search_edit", format: false
   get "books/search_detail" => "books#search_detail", format: false
+  get "books/member_list" => "books#member_list", format: false
   get "books/show_image/:isbn" => "books#show_image", format: false
   resources :books, format: false
 
