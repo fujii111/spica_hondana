@@ -47,8 +47,8 @@
 						<% closing = false %>
 					<% end %>
 						<div>
-							<%= link_to (image_tag item['Item']['mediumImageUrl'], alt: item['Item']['title']), "/books/list" %><br>
-							<%= link_to item['Item']['title'], "/books/list" %><br>
+							<%= link_to (image_tag item['Item']['mediumImageUrl'], alt: item['Item']['title']), "/collections/new?isbn=" + item['Item']['isbn'] %><br>
+							<%= link_to item['Item']['title'], "/collections/new?isbn=" + item['Item']['isbn'] %><br>
 							<span class="small"><%= item['Item']['author'] %></span>
 						</div>
 					<% if index % 5 == 4 %>
@@ -68,8 +68,8 @@
 						<% closing = false %>
 					<% end %>
 						<div>
-							<%= link_to (image_tag item['Item']['mediumImageUrl'], alt: item['Item']['title']), "/books/list" %><br>
-							<%= link_to item['Item']['title'], "/books/list" %><br>
+							<%= link_to (image_tag item['Item']['mediumImageUrl'], alt: item['Item']['title']), "/collections/new?isbn=" + item['Item']['isbn'] %><br>
+							<%= link_to item['Item']['title'], "/collections/new?isbn=" + item['Item']['isbn'] %><br>
 							<span class="small"><%= item['Item']['author'] %></span>
 						</div>
 					<% if index % 5 == 4 %>

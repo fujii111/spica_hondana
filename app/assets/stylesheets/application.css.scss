@@ -67,6 +67,9 @@ time {
 .warn {
 	color: #D54B1A;
 }
+.info {
+  color: #335DE2;
+}
 
 #head {
 	width: 960px;
@@ -206,6 +209,9 @@ time {
 	div.book {
 		float: left;
 		width: 680px;
+	}
+	form {
+	  clear: both;
 	}
 	.required:after {
 		color: #D54B1A;

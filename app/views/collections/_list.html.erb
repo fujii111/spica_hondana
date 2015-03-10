@@ -9,10 +9,12 @@
 				<%= link_to collection.book.title, "/collections/" + collection.id.to_s  %><br>
 				登録日: <%= format_datetime collection.regist_date, :date %><br>
 				<br>
-				<% if collection.state > 0 %>
-					<span class="strong warn">交換中</span>
-				<% else %>
+				<% if collection.state == 0 %>
 					<span class="strong">出品中</span>
+				<% elsif collection.state == 8 %>
+					<span class="strong info">発送済み</span>
+				<% else %>
+					<span class="strong warn">交換中</span>
 				<% end %>
 			</p>
 		</div>

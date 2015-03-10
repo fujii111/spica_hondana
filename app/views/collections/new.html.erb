@@ -15,7 +15,11 @@
 
 <div class="book_img">
   <div class="field">
+  	<% if @book.id %>
 	<%= image_tag "/books/show_image/" + @book.isbn, alt: @book.title %>
+	<% else %>
+	<%= image_tag @book.image_url, alt: @book.title %>
+	<% end %>
   </div>
 </div>
 <div class="book">
