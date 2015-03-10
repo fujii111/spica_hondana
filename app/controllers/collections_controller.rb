@@ -1,7 +1,8 @@
 class CollectionsController < ApplicationController
 
   def index
-    @collections = Collection.where(member_id: session[:id], state: 0)
+    @collections = Collection.where("member_id = " + session[:id].to_s + " and state < 2")
+      .order(state: :desc, regist_date: :desc)
     @completed_collections = Collection.where(member_id: session[:id], state: 2)
     @received_collections = Collection.where(request_member_id: session[:id], state: 2)
     session[:url] = request.fullpath
@@ -51,7 +52,7 @@ class CollectionsController < ApplicationController
       session[:collection] = nil
       member = Member.find(session[:id])
       member.point = member.point + 1
-      member.save
+      member.save(validate: false)
       session[:point] = member.point
       redirect_to action: "complete"
     else

@@ -1,0 +1,22 @@
+<div class="booklist">
+<% @collections.each do |collection| %>
+	<div class="collection">
+		<div>
+			<%= link_to (image_tag "/books/show_image/" + collection.book.isbn, alt: collection.book.title), "/collections/" + collection.id.to_s  %>
+		</div>
+		<div>
+			<p class="center">
+				<%= link_to collection.book.title, "/collections/" + collection.id.to_s  %><br>
+				登録日: <%= format_datetime collection.regist_date, :date %><br>
+				<br>
+				<% if collection.state > 0 %>
+					<span class="strong warn">交換中</span>
+				<% else %>
+					<span class="strong">出品中</span>
+				<% end %>
+			</p>
+		</div>
+	</div>
+<% end %>
+</div>
+

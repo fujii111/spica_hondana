@@ -1,5 +1,6 @@
 class Collection < ActiveRecord::Base
   attr_accessor :isbn
+  belongs_to :book
 
   validates :width,
     numericality: {greater_than: 0},

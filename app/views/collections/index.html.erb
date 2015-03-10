@@ -10,9 +10,13 @@
 	</div>
 	<div id="collection_area">
 		<dl>
-			<dt class="strong">登録した本</dt>
+			<dt class="larger">登録した本</dt>
 			<dd>
-				登録されている本はありません。
+				<% if @collections.empty? %>
+					登録されている本はありません。
+				<% else %>
+					<%= render 'list' %>
+				<% end %>
 			</dd>
 		</dl>
 	</div>
@@ -28,13 +32,13 @@
 	</div>
 	<div id="point_area">
 		<dl>
-			<dt class="strong">お気に入り</dt>
+			<dt class="larger">お気に入り</dt>
 			<dd>
 				お気に入りに登録がありません。
 			</dd>
 		</dl>
 		<dl>
-			<dt class="strong">受け取った本</dt>
+			<dt class="larger">受け取った本</dt>
 			<dd>
 				受け取った本はありません。
 			</dd>

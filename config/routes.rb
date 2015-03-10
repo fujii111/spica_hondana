@@ -4,26 +4,28 @@ Hondana::Application.routes.draw do
 
   get "information/:action" => "information#:action", format: false
 
-  get "members/:action" => "members#:action", format: false
   get "members" => "members#index", format: false
   post "members/login" => "members#authenticate", format: false
-  get "members/login_as/:id" => "members#login_as", format: false
   post "members/confirm" => "members#confirm", format: false
   post "members/create" => "members#create", format: false
   patch "members/update" => "members#update", format: false
   patch "members/update_password" => "members#update_password", format: false
+  get "members/login_as/:id" => "members#login_as", format: false
+  get "members/:action" => "members#:action", format: false
 
   get "books/list" => "books#list", format: false
   get "books/search" => "books#search", format: false
   get "books/search_edit" => "books#search_edit", format: false
   get "books/search_detail" => "books#search_detail", format: false
   get "books/show_image/:isbn" => "books#show_image", format: false
-  resources :books
+  resources :books, format: false
 
-  get "collections/:action" => "collections#:action", format: false
   get "collections" => "collections#index", format: false
   post "collections/confirm" => "collections#confirm", format: false
   post "collections/create" => "collections#create", format: false
+  get "collections/:action" => "collections#:action", format: false
+  get "collections/:id" => "collections#show", format: false
+
   root 'books#list'
 
   # The priority is based upon order of creation: first created -> highest priority.
