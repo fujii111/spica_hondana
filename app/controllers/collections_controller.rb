@@ -32,9 +32,6 @@ class CollectionsController < ApplicationController
 #      @book = Book.find_by(isbn: params[:isbn], delete_flg: false)
     end
     @collection = Collection.new(collection_params)
-    @collection.member_id = session[:id]
-    @collection.state = 0
-    @collection.regist_date = DateTime.now
     if @collection.valid?
       session[:collection] = collection_params
       render action: 'confirm'
@@ -43,6 +40,23 @@ class CollectionsController < ApplicationController
     end
   end
 
-
+  def create
+    collection_params = params.require(:collection).permit(:book_id, :isbn, :condition, :band, :sunburn, :scratch, :cigar, :pet, :mold, :height, :width, :depth, :weight, :line, :broken, :note)
+    @collection = Collection.new(collection_params)
+    @collection.member_id = session[:id]
+    @collection.book_id = params[:collection][:book_id]
+    @collection.state = 0
+    @collection.regist_date = DateTime.now
+    if @collection.save
+      session[:collection] = nil
+      member = Member.find(session[:id])
+      member.point = member.point + 1
+      member.save
+      session[:point] = member.point
+      redirect_to action: "complete"
+    else
+      render action: 'new'
+    end
+  end
 
 end

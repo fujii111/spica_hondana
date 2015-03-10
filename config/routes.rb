@@ -23,6 +23,7 @@ Hondana::Application.routes.draw do
   get "collections/:action" => "collections#:action", format: false
   get "collections" => "collections#index", format: false
   post "collections/confirm" => "collections#confirm", format: false
+  post "collections/create" => "collections#create", format: false
   root 'books#list'
 
   # The priority is based upon order of creation: first created -> highest priority.
