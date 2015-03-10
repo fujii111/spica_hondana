@@ -3,6 +3,8 @@ Hondana::Application.routes.draw do
   resources :genres, format: false
 
   get "information/:action" => "information#:action", format: false
+  get "messages" => "messages#index", format: false
+  post "messages/read" => "messages#read"
 
   get "members" => "members#index", format: false
   post "members/login" => "members#authenticate", format: false

@@ -19,4 +19,10 @@ $(function() {
   $(document).on("keypress", "input:not([type=submit])", function(event) {
     return event.which !== 13;
   });
+
+  $(".messages a").click(function() {
+	$(this).parent().next().toggle();
+	$.post("/messages/read", {id : $(this).attr("id")});
+	return false;
+  });
 });

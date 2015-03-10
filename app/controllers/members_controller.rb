@@ -34,11 +34,18 @@ class MembersController < ApplicationController
     @member.point = 0
     @member.delete_flg = false
     if @member.save
+      # ログイン処理
       session[:member] = nil
       session[:id] = @member.id
       session[:login_id] = @member.login_id
       session[:nickname] = @member.nickname
       session[:point] = @member.point
+
+      # メッセージの作成
+      message = Message.new(member_id: session[:id], notice_date: DateTime.now, title: "ようこそホンダナへ",
+        content: "新しい書籍の形を提案するサービスを是非ご利用ください。", read_flg: false)
+      message.save
+      session[:message] = true
       redirect_to action: "complete"
     else
       render action: 'new'
@@ -117,6 +124,9 @@ class MembersController < ApplicationController
       session[:login_id] = member.login_id
       session[:nickname] = member.nickname
       session[:point] = member.point
+      if Message.where(member_id: session[:id], read_flg: false).count > 0
+        session[:message] = true
+      end
       if session[:url].blank? || session[:url] == "/books/list"
         redirect_to "/collections/"
       else
@@ -132,6 +142,9 @@ class MembersController < ApplicationController
     session[:login_id] = member.login_id
     session[:nickname] = member.nickname
     session[:point] = member.point
+    if Message.where(member_id: session[:id], read_flg: false).count > 0
+      session[:message] = true
+    end
     redirect_to "/collections/"
   end
 
@@ -142,6 +155,7 @@ class MembersController < ApplicationController
     session[:nickname] = nil
     session[:point] = nil
     session[:url] = nil
+    session[:message] = nil
     redirect_to "/books/list"
   end
 end

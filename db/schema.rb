@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309042130) do
+ActiveRecord::Schema.define(version: 20150310111542) do
 
   create_table "books", force: true do |t|
     t.integer  "member_id"
@@ -93,6 +93,18 @@ ActiveRecord::Schema.define(version: 20150309042130) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "messages", force: true do |t|
+    t.integer  "member_id"
+    t.datetime "notice_date"
+    t.string   "title"
+    t.text     "content"
+    t.boolean  "read_flg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["member_id"], name: "index_messages_on_member_id"
 
   create_table "notices", force: true do |t|
     t.text     "content"

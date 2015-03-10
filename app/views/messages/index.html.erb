@@ -1,0 +1,15 @@
+<h1>会員向け告知</h1><% @title = "会員向け告知" %>
+
+<% @messages.each do |message| %>
+<div class="field">
+	<time><%= format_datetime message.notice_date %></time>
+	<p class="messages">
+		<span<% if !message.read_flg %> class="new"<% end %>>
+			<a href="" id="<%= message.id %>"><%= message.title %></a>
+		</span>
+		<span style="display: none"">
+			<%= message.content %>
+		</span>
+	</p>
+</div>
+<% end %>

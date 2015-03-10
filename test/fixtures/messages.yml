@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  member_id: 
+  notice_date: 2015-03-10 20:15:42
+  title: MyString
+  content: MyText
+  read_flg: false
+
+two:
+  member_id: 
+  notice_date: 2015-03-10 20:15:42
+  title: MyString
+  content: MyText
+  read_flg: false

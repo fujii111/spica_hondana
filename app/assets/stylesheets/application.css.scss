@@ -217,6 +217,10 @@ time {
 		color: #D54B1A;
 		content: "【必須】";
 	}
+	.new:after {
+		color: #D54B1A;
+		content: "【NEW!】";
+	}
 	.field {
 		margin: 16px;
 		label:not(.normal) {
