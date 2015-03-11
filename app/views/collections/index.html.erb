@@ -45,7 +45,24 @@
 		<dl>
 			<dt class="larger">お気に入り</dt>
 			<dd>
-				お気に入りに登録がありません。
+				<% if @favorite_books.empty? %>
+					お気に入りに登録がありません。
+				<% else %>
+<div class="booklist">
+<% @favorite_books.each do |book| %>
+	<div class="collection">
+		<div>
+			<%= link_to (image_tag "/books/show_image/" + book.isbn, alt: book.title), "/books/" + book.id.to_s  %>
+		</div>
+		<div>
+			<p class="center">
+				<%= link_to book.title, "/books/" + book.id.to_s  %><br>
+			</p>
+		</div>
+	</div>
+<% end %>
+</div>
+				<% end %>
 			</dd>
 		</dl>
 		<dl>

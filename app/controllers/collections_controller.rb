@@ -4,6 +4,7 @@ class CollectionsController < ApplicationController
     @collections = Collection.where("member_id = " + session[:id].to_s + " and state < 8")
       .order(state: :desc, regist_date: :desc)
     @completed_collections = Collection.where(member_id: session[:id], state: 8)
+    @favorite_books = Member.find(session[:id]).books
     @received_collections = Collection.where(request_member_id: session[:id], state: 8)
     session[:url] = request.fullpath
   end

@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  before_action :check_admin, except: [:list, :show, :show_image, :search, :search_edit, :search_detail]
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin, except: [:list, :show, :show_image, :search, :search_edit, :search_detail, :favorite]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :favorite]
   skip_before_action :check_logined, only: [:list, :show, :show_image, :search, :search_edit, :search_detail]
 
   def list
@@ -88,6 +88,11 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    # お気に入りに登録されているか確認
+    @favorite = nil
+    if session[:id] != nil
+      @favorite = Favorite.find_by(book_id: @book.id, member_id: session[:id])
+    end
   end
 
   def member_list
@@ -150,6 +155,17 @@ class BooksController < ApplicationController
       format.html { redirect_to books_url }
       format.json { head :no_content }
     end
+  end
+
+  def favorite
+    favorite = Favorite.find_by(book_id: @book.id, member_id: session[:id])
+    if favorite == nil
+      favorite = Favorite.new(book_id: @book.id, member_id: session[:id], create_date: DateTime.now)
+    else
+      favorite.create_date = DateTime.now
+    end
+    favorite.save!
+    redirect_to @book
   end
 
   private

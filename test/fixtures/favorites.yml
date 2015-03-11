@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  book_id: 
+  member_id: 
+  create_date: 2015-03-12 05:35:22
+
+two:
+  book_id: 
+  member_id: 
+  create_date: 2015-03-12 05:35:22

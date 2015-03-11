@@ -1,4 +1,7 @@
 class Member < ActiveRecord::Base
+  has_many :favorites
+  has_many :books, through: :favorites
+
   validates :login_id,
     format: { with: /\A[a-zA-Z0-9]*\z/ },
     length: { minimum: 4, maximum: 20 },

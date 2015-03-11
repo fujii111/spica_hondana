@@ -21,7 +21,7 @@ $(function() {
   });
 
   $(".messages a").click(function() {
-	$(this).parent().next().toggle();
+	$(this).parent().next().next().toggle();
 	$.post("/messages/read", {id : $(this).attr("id")});
 	return false;
   });

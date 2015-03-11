@@ -1,5 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :member
+  has_many :favorites
+  has_many :members, through: :favorites
   attr_accessor :image_url
 
   validates :title,

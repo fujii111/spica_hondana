@@ -20,13 +20,17 @@ Hondana::Application.routes.draw do
   get "books/search_edit" => "books#search_edit", format: false
   get "books/search_detail" => "books#search_detail", format: false
   get "books/member_list" => "books#member_list", format: false
+  post "books/favorite" => "books#favorite", format: false
   get "books/show_image/:isbn" => "books#show_image", format: false
   resources :books, format: false
 
   get "collections" => "collections#index", format: false
+  get "collections/index" => "collections#index", format: false
+  get "collections/new" => "collections#new", format: false
+  get "collections/list" => "collections#list", format: false
   post "collections/confirm" => "collections#confirm", format: false
   post "collections/create" => "collections#create", format: false
-  get "collections/:action" => "collections#:action", format: false
+  get "collections/complete" => "collections#complete", format: false
   get "collections/:id" => "collections#show", format: false
 
   root 'books#list'

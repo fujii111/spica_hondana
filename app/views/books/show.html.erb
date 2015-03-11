@@ -1,12 +1,20 @@
 <h1>本の情報</h1><% @title = "本の情報" %>
 <p id="notice"><%= notice %></p>
 
-<div class="book_img">
-	<p class="center">
+<div class="book_img center">
+	<p>
 		<%= image_tag "/books/show_image/" + @book.isbn, alt: @book.title %>
-		<br>
-		<input type="button" value="お気に入りに追加">
 	</p>
+<% if session[:id] != nil %>
+	<% if @favorite == nil %>
+		<%= form_tag({controller: :books, action: :favorite}) do %>
+			<%= hidden_field_tag :id, @book.id %>
+			<%= submit_tag "お気に入りに追加" %>
+		<% end %>
+	<% else %>
+		<span class="strong warn">お気に入りに登録済み</span>
+	<% end %>
+<% end %>
 </div>
 <div class="book">
   <div class="field">
