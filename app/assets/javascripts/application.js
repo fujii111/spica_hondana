@@ -20,7 +20,7 @@ $(function() {
     return event.which !== 13;
   });
 
-  $(".messages a").click(function() {
+  $(document).on("click", ".messages a", function() {
 	$(this).parent().next().next().toggle();
 	$.post("/messages/read", {id : $(this).attr("id")});
 	return false;
