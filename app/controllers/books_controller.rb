@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :check_admin, except: [:list, :show, :show_image, :search, :search_edit, :search_detail, :favorite]
+  before_action :check_admin, except: [:list, :show, :show_image, :search, :search_edit, :search_detail, :favorite, :delete_favorite]
   before_action :set_book, only: [:show, :edit, :update, :destroy, :favorite]
   skip_before_action :check_logined, only: [:list, :show, :show_image, :search, :search_edit, :search_detail]
 
@@ -166,6 +166,12 @@ class BooksController < ApplicationController
     end
     favorite.save!
     redirect_to @book
+  end
+
+  def delete_favorite
+    favorite = Favorite.find_by(book_id: params[:id], member_id: session[:id])
+    favorite.destroy
+    redirect_to "/collections/"
   end
 
   private
