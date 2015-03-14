@@ -2,7 +2,7 @@
 
 <% if @collection.member.id == session[:id] %>
 <p>
-	<%= link_to "出品情報を編集する", "/collections/edit"  %> | <%= link_to "出品を取り消す", "/collections/destroy" %> | <%= link_to "戻る", "" %>
+	<%= link_to "出品情報を編集する", "/collections/edit"  %> | <%= link_to "出品を取り消す", "/collections/destroy" %> <%= link_back true %>
 </p>
 <% else %>
 <div class="field">
@@ -12,7 +12,7 @@
 	</p>
 </div>
 <p>
-	<%= link_to "交換申請する", "/collections/request" %> | <%= link_to "戻る", "" %>
+	<%= link_to "交換申請する", "/collections/request" %><%= link_back true %>
 </p>
 <% end %>
 
@@ -137,11 +137,20 @@
 
 <% if @collection.member.id == session[:id] %>
 <p>
-	<%= link_to "出品情報を編集する", "/collections/edit"  %> | <%= link_to "出品を取り消す", "/collections/destroy" %> | <%= link_to "戻る", "" %>
+	<%= link_to "出品情報を編集する", "/collections/edit"  %> | <%= link_to "出品を取り消す", "/collections/destroy" %><%= link_back true %>
 </p>
 <% else %>
 <p>
-	<%= link_to "交換申請する", "/collections/request" %> | <%= link_to "戻る", "" %>
+	<%= link_to "交換申請する", "/collections/request" %><%= link_back true %>
 </p>
 <% end %>
 
+
+<%
+	if session[:return_path].blank?
+	  session[:return_path] = Array.new(request.fullpath)
+	elsif session[:return_path].present? && session[:return_path].last.start_with?("/collections/")
+	else
+	  session[:return_path].push(request.fullpath)
+	end
+%>

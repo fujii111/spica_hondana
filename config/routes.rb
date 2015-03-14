@@ -1,8 +1,6 @@
 Hondana::Application.routes.draw do
-  resources :notices, format: false
-  resources :genres, format: false
-
   get "information/:action" => "information#:action", format: false
+
   get "messages" => "messages#index", format: false
   post "messages/read" => "messages#read"
 
@@ -15,6 +13,8 @@ Hondana::Application.routes.draw do
   get "members/login_as/:id" => "members#login_as", format: false
   get "members/:action" => "members#:action", format: false
 
+  get "back" => "application#back", format: false
+
   get "books/list" => "books#list", format: false
   get "books/search" => "books#search", format: false
   get "books/search_edit" => "books#search_edit", format: false
@@ -23,7 +23,6 @@ Hondana::Application.routes.draw do
   post "books/favorite" => "books#favorite", format: false
   get "books/delete_favorite" => "books#delete_favorite", format: false
   get "books/show_image/:isbn" => "books#show_image", format: false
-  resources :books, format: false
 
   get "collections" => "collections#index", format: false
   get "collections/index" => "collections#index", format: false
@@ -33,6 +32,10 @@ Hondana::Application.routes.draw do
   post "collections/create" => "collections#create", format: false
   get "collections/complete" => "collections#complete", format: false
   get "collections/:id" => "collections#show", format: false
+
+  resources :books, format: false
+  resources :notices, format: false
+  resources :genres, format: false
 
   root 'books#list'
 

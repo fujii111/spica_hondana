@@ -7,7 +7,6 @@ class CollectionsController < ApplicationController
     @completed_collections = Collection.where(member_id: session[:id], state: 8)
     @favorites = Favorite.where(member_id: session[:id]).order(create_date: :desc)
     @received_collections = Collection.where(request_member_id: session[:id], state: 8)
-    session[:url] = request.fullpath
   end
 
   # 蔵書の新規登録フォーム

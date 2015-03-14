@@ -63,9 +63,18 @@
 
 <p>
 <%= link_to '交換申請する', "/collections/member_list?id=" + @book.id.to_s %> |
-<%= link_to 'ホンダナに登録する', "/collections/new?id=" + @book.id.to_s %> |
+<%= link_to 'ホンダナに登録する', "/collections/new?id=" + @book.id.to_s %>
 <% if session[:login_id] == "spica" %>
-	<%= link_to '編集', edit_book_path(@book) %> |
+	| <%= link_to '編集', edit_book_path(@book) %>
 <% end %>
-<%= link_to '戻る', session[:url].blank? ? "/books/list" : session[:url] %>
+<%= link_back true %>
 </p>
+
+<%
+	if session[:return_path].blank?
+	  session[:return_path] = Array.new(request.fullpath)
+	elsif session[:return_path].present? && session[:return_path].last.start_with?("/books/")
+	else
+	  session[:return_path].push(request.fullpath)
+	end
+%>

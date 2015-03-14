@@ -22,9 +22,9 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
     if @member.valid?
       session[:member] = member_params
-      render action: 'confirm'
+      render action: "confirm"
     else
-      render action: 'new'
+      render action: "new"
     end
   end
 
@@ -48,7 +48,7 @@ class MembersController < ApplicationController
       session[:message] = true
       redirect_to action: "complete"
     else
-      render action: 'new'
+      render action: "new"
     end
   end
 
@@ -81,7 +81,7 @@ class MembersController < ApplicationController
       flash[:notice] = "プロフィールを変更しました。"
       redirect_to action: "show"
     else
-      render action: 'edit'
+      render action: "edit"
     end
   end
 
@@ -98,9 +98,9 @@ class MembersController < ApplicationController
     if @member.valid?
       @member.password = Digest::MD5.hexdigest(@member.password)
       @member.save!(validate: false)
-      redirect_to action: 'updated_password'
+      redirect_to action: "updated_password"
     else
-      render action: 'edit_password'
+      render action: "edit_password"
     end
   end
 
@@ -127,10 +127,10 @@ class MembersController < ApplicationController
       if Message.where(member_id: session[:id], read_flg: false).count > 0
         session[:message] = true
       end
-      if session[:url].blank? || session[:url] == "/books/list"
+      if session[:request_url].blank?
         redirect_to "/collections/"
       else
-        redirect_to session[:url]
+        redirect_to session[:request_url]
       end
     end
   end
@@ -154,7 +154,7 @@ class MembersController < ApplicationController
     session[:login_id] = nil
     session[:nickname] = nil
     session[:point] = nil
-    session[:url] = nil
+    session[:request_url] = nil
     session[:message] = nil
     redirect_to "/books/list"
   end

@@ -4,11 +4,23 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :check_logined
 
+  def back
+    if session[:return_path].blank? || params[:callback].blank?
+      redirect_to "/books/list"
+    else
+      while session[:return_path].last == params[:callback]
+        session[:return_path].pop
+      end
+      p session[:return_path]
+      redirect_to params[:callback]
+    end
+  end
+
   private
   # 認証済みを要求するページで認証されていないとき、ログインページを表示
   def check_logined
     if session[:id].blank?
-      session[:url] = request.fullpath
+      session[:request_url] = request.fullpath
       @notice = "ログインが必要です。"
       render "/members/login"
     end

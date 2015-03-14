@@ -1,19 +1,19 @@
 class BooksController < ApplicationController
-  before_action :check_admin, except: [:list, :show, :show_image, :search, :search_edit, :search_detail, :favorite, :delete_favorite]
+  before_action :check_admin,
+    except: [:list, :show, :show_image, :search, :search_edit, :search_detail, :favorite, :delete_favorite]
   before_action :set_book, only: [:show, :edit, :update, :destroy, :favorite]
-  skip_before_action :check_logined, only: [:list, :show, :show_image, :search, :search_edit, :search_detail]
+  skip_before_action :check_logined,
+    only: [:list, :show, :show_image, :search, :search_edit, :search_detail]
 
   # トップページの表示
   def list
     @books = Book.where(delete_flg: false, member_id: nil).order(created_at: :desc).limit(20)
     @notices = Notice.order(notice_date: :desc).limit(5)
-    session[:url] = request.fullpath
   end
 
   # 書籍一覧表示
   def index
     @books = Book.where(delete_flg: false).order(created_at: :desc).limit(20)
-    session[:url] = request.fullpath
   end
 
   # 書籍検索
@@ -48,7 +48,7 @@ class BooksController < ApplicationController
     rescue HTTPClient::BadResponseError => e
     rescue HTTPClient::TimeoutError => e
     end
-    session[:url] = request.fullpath
+    session[:return_path] = Array[request.fullpath]
   end
 
   # 書籍詳細検索
@@ -83,7 +83,7 @@ class BooksController < ApplicationController
     rescue HTTPClient::BadResponseError => e
     rescue HTTPClient::TimeoutError => e
     end
-    session[:url] = request.fullpath
+    session[:return_path] = Array[request.fullpath]
     render action: "search"
   end
 
