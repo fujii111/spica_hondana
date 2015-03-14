@@ -3,19 +3,20 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy, :favorite]
   skip_before_action :check_logined, only: [:list, :show, :show_image, :search, :search_edit, :search_detail]
 
+  # トップページの表示
   def list
     @books = Book.where(delete_flg: false, member_id: nil).order(created_at: :desc).limit(20)
     @notices = Notice.order(notice_date: :desc).limit(5)
     session[:url] = request.fullpath
   end
 
-  # GET /books
-  # GET /books.json
+  # 書籍一覧表示
   def index
-    @books = Book.where(delete_flg: false).order(created_at: :desc).limit(10)
+    @books = Book.where(delete_flg: false).order(created_at: :desc).limit(20)
     session[:url] = request.fullpath
   end
 
+  # 書籍検索
   def search
     session[:keyword] = params[:keyword]
     @keyword = params[:keyword].gsub(/\s|　|/, "")
@@ -50,6 +51,7 @@ class BooksController < ApplicationController
     session[:url] = request.fullpath
   end
 
+  # 書籍詳細検索
   def search_detail
     @title_keyword = params[:title_keyword].gsub(/\s|　|/, "")
     @author_keyword = params[:author_keyword].gsub(/\s|　|/, "")
@@ -85,8 +87,7 @@ class BooksController < ApplicationController
     render action: "search"
   end
 
-  # GET /books/1
-  # GET /books/1.json
+  # 書籍情報表示
   def show
     # お気に入りに登録されているか確認
     @favorite = nil
@@ -95,10 +96,12 @@ class BooksController < ApplicationController
     end
   end
 
+  # 蔵書の保有者一覧
   def member_list
 
   end
 
+  # 書籍の画像表示
   def show_image
     @book = Book.find_by(isbn: params[:isbn], delete_flg: false)
     if @book.blank? || @book.image.blank?
@@ -108,55 +111,42 @@ class BooksController < ApplicationController
     end
   end
 
-  # GET /books/new
+  # 書籍登録フォーム表示
   def new
     @book = Book.new
   end
 
-  # GET /books/1/edit
+  # 書籍変更フォーム表示
   def edit
   end
 
-  # POST /books
-  # POST /books.json
+  # 書籍登録
   def create
     @book = Book.new(book_params)
     @book.delete_flg = false
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: '書籍が登録されました。' }
-        format.json { render action: 'show', status: :created, location: @book }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    if @book.save
+      redirect_to @book, notice: '書籍が登録されました。'
+    else
+      render action: 'new'
     end
   end
 
-  # PATCH/PUT /books/1
-  # PATCH/PUT /books/1.json
+  # 書籍更新
   def update
-    respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to @book, notice: '書籍が更新されました。' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    if @book.update(book_params)
+      redirect_to @book, notice: '書籍が更新されました。'
+    else
+      render action: 'edit'
     end
   end
 
-  # DELETE /books/1
-  # DELETE /books/1.json
+  # 書籍削除
   def destroy
     @book.destroy
-    respond_to do |format|
-      format.html { redirect_to books_url }
-      format.json { head :no_content }
-    end
+    redirect_to books_url
   end
 
+  # お気に入りに追加
   def favorite
     favorite = Favorite.find_by(book_id: @book.id, member_id: session[:id])
     if favorite == nil
@@ -168,6 +158,7 @@ class BooksController < ApplicationController
     redirect_to @book
   end
 
+  # お気に入りから削除
   def delete_favorite
     favorite = Favorite.find_by(book_id: params[:id], member_id: session[:id])
     favorite.destroy
@@ -175,12 +166,10 @@ class BooksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.find_by(id: params[:id], delete_flg: false)
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit(:member_id, :title, :publisher, :author, :language, :sale_date, :height, :width, :depth, :isbn, :description, :data)
     end

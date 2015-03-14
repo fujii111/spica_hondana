@@ -25,4 +25,12 @@ $(function() {
 	$.post("/messages/read", {id : $(this).attr("id")});
 	return false;
   });
+
+  $(document).on("click", "#member_agreement", function() {
+	  if($(this).prop('checked')) {
+		  $("input[type=submit]").attr("disabled", false);
+	  } else {
+		  $("input[type=submit]").attr("disabled", true);
+	  }
+  });
 });
