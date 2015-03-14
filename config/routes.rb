@@ -19,7 +19,6 @@ Hondana::Application.routes.draw do
   get "books/search" => "books#search", format: false
   get "books/search_edit" => "books#search_edit", format: false
   get "books/search_detail" => "books#search_detail", format: false
-  get "books/member_list" => "books#member_list", format: false
   post "books/favorite" => "books#favorite", format: false
   get "books/delete_favorite" => "books#delete_favorite", format: false
   get "books/show_image/:isbn" => "books#show_image", format: false
@@ -31,6 +30,7 @@ Hondana::Application.routes.draw do
   post "collections/confirm" => "collections#confirm", format: false
   post "collections/create" => "collections#create", format: false
   get "collections/complete" => "collections#complete", format: false
+  get "collections/member_list" => "collections#member_list", format: false
   get "collections/:id" => "collections#show", format: false
 
   resources :books, format: false

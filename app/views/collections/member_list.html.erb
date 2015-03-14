@@ -1,2 +1,31 @@
 <h1>本を持っている人</h1><% @title = "本を持っている人" %>
-<p>準備中</p>
+
+<% if @message.present? %>
+	<p class="strong warn"><%= @message %></p>
+<% end %>
+
+<% if @collections.size >= 1 %>
+	<table class="list">
+		<tr>
+			<th>出品者</th>
+			<th>登録日</th>
+			<th>本の状態</th>
+			<th>備考</th>
+			<th>詳細</th>
+			<th>交換申請</th>
+		</tr>
+		<% @collections.each do |collection| %>
+			<tr>
+				<td><%= collection.member.nickname %> さん</td>
+				<td><%= format_datetime collection.regist_date, :date %></td>
+				<td><%= Array["汚れあり", "普通", "良い", "非常に良い", "ほぼ新品"][collection.condition] %></td>
+				<td><%= collection.note %></td>
+				<td class="center"><%= link_to "詳細", "/collections/" + collection.id.to_s %></td>
+				<td class="center"><%= @message.nil? && collection.member_id != session[:id] ? (link_to "申請画面へ進む", "/collections/confirm_request?id=" + collection.id.to_s) : "申請できません" %></td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
+
+<p><%= link_back %></p>
+

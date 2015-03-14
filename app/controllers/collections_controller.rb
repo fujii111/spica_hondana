@@ -83,4 +83,32 @@ class CollectionsController < ApplicationController
     @collection = Collection.find(params[:id])
   end
 
+  # 蔵書をもっている人のリスト
+  def member_list
+    @collections = Collection.where(book_id: params[:id], state: 0)
+    if @collections.size == 0
+      @message = "在庫がありません。"
+    else
+      @message = cannot_request
+    end
+  end
+
+  private
+  def cannot_request
+    date = Date.new(Date.today.year, Date.today.month, 1)
+    @monthly_collection = Collection.where("request_member_id = " + session[:id].to_s + " and request_date >= " + date.to_s)
+    # TODO 上限数のパラメータ化
+    if @monthly_collection.size >= 30
+      return "1ヶ月の申請数が上限の" + 30.to_s + "に達したため、今月は申請できません。"
+    end
+    if session[:point] == 0
+      return "ブクが足りないため申請できません。本を登録してください。"
+    end
+    @waiting_collection = Collection.where(request_member_id: session[:id], state: 1)
+    if session[:point] - @waiting_collection.size <= 0
+      return "申請中が" + @waiting_collection.to_s + "件あるため、ブクが足りません。"
+    end
+    return nil
+  end
+
 end

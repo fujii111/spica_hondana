@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :check_logined
 
+  # 戻るリクエスト
   def back
     if session[:return_path].blank? || params[:callback].blank?
       redirect_to "/books/list"
@@ -11,7 +12,6 @@ class ApplicationController < ActionController::Base
       while session[:return_path].last == params[:callback]
         session[:return_path].pop
       end
-      p session[:return_path]
       redirect_to params[:callback]
     end
   end
