@@ -1,5 +1,6 @@
 class CollectionsController < ApplicationController
 
+  # マイページ
   def index
     @collections = Collection.where("member_id = " + session[:id].to_s + " and state < 8")
       .order(state: :desc, regist_date: :desc)
@@ -9,6 +10,7 @@ class CollectionsController < ApplicationController
     session[:url] = request.fullpath
   end
 
+  # 蔵書の新規登録フォーム
   def new
     if params[:id].present?
       @book = Book.find(params[:id])
@@ -28,6 +30,7 @@ class CollectionsController < ApplicationController
     end
   end
 
+  # 蔵書の新規登録確認
   def confirm
     collection_params = params.require(:collection).permit(:book_id, :isbn, :condition, :band, :sunburn, :scratch, :cigar, :pet, :mold, :height, :width, :depth, :weight, :line, :broken, :note)
     if params[:collection][:book_id].present?
@@ -44,6 +47,7 @@ class CollectionsController < ApplicationController
     end
   end
 
+  # 蔵書の新規登録
   def create
     collection_params = params.require(:collection).permit(:book_id, :isbn, :condition, :band, :sunburn, :scratch, :cigar, :pet, :mold, :height, :width, :depth, :weight, :line, :broken, :note)
     id = params[:collection][:book_id]
@@ -73,6 +77,11 @@ class CollectionsController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  # 蔵書の詳細
+  def show
+    @collection = Collection.find(params[:id])
   end
 
 end

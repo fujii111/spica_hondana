@@ -28,9 +28,9 @@ $(function() {
 
   $(document).on("click", "#member_agreement", function() {
 	  if($(this).prop('checked')) {
-		  $("input[type=submit]").attr("disabled", false);
+		  $(this).parents("form").find("input[type=submit]").attr("disabled", false);
 	  } else {
-		  $("input[type=submit]").attr("disabled", true);
+		  $(this).parents("form").find("input[type=submit]").attr("disabled", true);
 	  }
   });
 });

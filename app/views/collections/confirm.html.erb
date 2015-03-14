@@ -70,6 +70,7 @@
  	<p>
  		<%= Array["汚れあり", "普通", "良い", "非常に良い", "ほぼ新品"][@collection.condition] %>
  	</p>
+ 	<%= f.hidden_field :condition, {value: @collection.condition} %>
   </div>
   <div class="field">
     <%= label_tag "その他状態" %>
@@ -81,6 +82,12 @@
  		<%= @collection.pet ? "ペットを飼っている　" : "" %>
  		<%= @collection.mold ? "カビ臭　" : "" %>
  	</p>
+ 	<%= f.hidden_field :band, {value: @collection.band} %>
+ 	<%= f.hidden_field :sunburn, {value: @collection.sunburn} %>
+ 	<%= f.hidden_field :scratch, {value: @collection.scratch} %>
+ 	<%= f.hidden_field :cigar, {value: @collection.cigar} %>
+ 	<%= f.hidden_field :pet, {value: @collection.pet} %>
+ 	<%= f.hidden_field :mold, {value: @collection.mold} %>
   </div>
 
   <div class="field">
@@ -90,6 +97,9 @@
 	    <%= f.label :width %> <%= @collection.width %> cm ×
 	    <%= f.label :depth %> <%= @collection.depth %> cm
     </p>
+ 	<%= f.hidden_field :height, {value: @collection.height} %>
+ 	<%= f.hidden_field :width, {value: @collection.width} %>
+ 	<%= f.hidden_field :depth, {value: @collection.depth} %>
   </div>
 
   <div class="field">
@@ -97,6 +107,7 @@
     <p>
     	<%= @collection.weight %> g
     </p>
+ 	<%= f.hidden_field :depth, {value: @collection.depth} %>
   </div>
 
   <div class="field">
@@ -104,6 +115,7 @@
 	<p>
  		<%= Array["5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.line] %>
 	</p>
+ 	<%= f.hidden_field :line, {value: @collection.line} %>
   </div>
 
   <div class="field">
@@ -111,6 +123,7 @@
 	<p>
  		<%= Array["5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.broken] %>
 	</p>
+ 	<%= f.hidden_field :broken, {value: @collection.broken} %>
   </div>
 
   <div class="field">
@@ -118,6 +131,7 @@
  	<p>
 		<%= @collection.note %>
 	</p>
+ 	<%= f.hidden_field :note, {value: @collection.note} %>
   </div>
 
   <%= f.hidden_field :book_id, {value: @book.id} %>
