@@ -1,0 +1,26 @@
+<h1>本の交換申請</h1><% @title = "本の交換申請" %>
+
+<% if @message.present? %>
+<p>
+	<span class="strong warn"><%= @message %></span>
+</p>
+<p>
+	<%= link_back %>
+</p>
+
+<% else %>
+<p>
+	<span class="strong"><%= @collection.member.nickname %> さんに交換申請します。クリックポストから宛名ラベルを取得し、アップロードしてください。</span>
+</p>
+<p>
+	<%= link_to "クリックポストへ", "http://www.post.japanpost.jp/service/clickpost/", {target: :blank} %>
+</p>
+<p>
+	<%= link_to "交換申請をやめる", "/collections/member_list?id=" + @collection.book_id.to_s %>
+</p>
+
+<% @book = @collection.book %>
+<%= render "/books/show" %>
+<%= render "show" %>
+
+<% end %>

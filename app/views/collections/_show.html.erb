@@ -1,0 +1,61 @@
+  <div class="field">
+    <%= label_tag :condition, "本の状態" %>
+ 	<p>
+ 		<%= Array["汚れあり", "普通", "良い", "非常に良い", "ほぼ新品"][@collection.condition] %>
+ 	</p>
+  </div>
+  <div class="field">
+    <%= label_tag "その他状態" %>
+ 	<p>
+ 		<%= @collection.band ? "帯あり　" : "" %>
+ 		<%= @collection.sunburn ? "日焼け・変色　" : "" %>
+ 		<%= @collection.scratch ? "スレ・傷など　" : "" %>
+ 		<%= @collection.cigar ? "たばこ臭　" : "" %>
+ 		<%= @collection.pet ? "ペットを飼っている　" : "" %>
+ 		<%= @collection.mold ? "カビ臭　" : "" %>
+ 	</p>
+  </div>
+
+  <div class="field">
+    <%= label_tag "サイズ" %>
+    <p>
+	    <%= label_tag :height, "縦" %> <%= @collection.height %> cm ×
+	    <%= label_tag :width, "横" %> <%= @collection.width %> cm ×
+	    <%= label_tag :depth, "厚さ" %> <%= @collection.depth %> cm
+    </p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :weight, "重さ" %>
+    <p>
+    	<%= @collection.weight %> g
+    </p>
+  </div>
+
+  <div class="field">
+	<%= label_tag :line, "書き込み線" %>
+	<p>
+ 		<%= Array["5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.line] %>
+	</p>
+  </div>
+
+  <div class="field">
+	<%= label_tag :broken, "ページの折れ" %>
+	<p>
+ 		<%= Array["5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.broken] %>
+	</p>
+  </div>
+
+  <div class="field">
+	<%= label_tag :note, "備考" %>
+ 	<p>
+		<%= @collection.note %>
+	</p>
+  </div>
+
+  <div class="field">
+	<%= label_tag :regist_date, "登録日" %>
+ 	<p>
+		<%= format_datetime @collection.regist_date, :date %>
+	</p>
+  </div>

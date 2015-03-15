@@ -89,13 +89,19 @@ class CollectionsController < ApplicationController
     if @collections.size == 0
       @message = "在庫がありません。"
     else
+      @book = @collections[0].book
       @message = cannot_request
     end
   end
 
   # 蔵書の交換申請フォーム
   def confirm_request
-
+    @collection = Collection.find_by(id: params[:id], state: 0)
+    if @collection.blank?
+      @message = "交換申請できません。他の人が申請した可能性があります。"
+    elsif @collection.member_id == session[:id]
+      @message = "自分の蔵書に交換申請できません。"
+    end
   end
 
   private
