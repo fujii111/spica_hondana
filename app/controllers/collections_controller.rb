@@ -93,6 +93,11 @@ class CollectionsController < ApplicationController
     end
   end
 
+  # 蔵書の交換申請フォーム
+  def confirm_request
+
+  end
+
   private
   def cannot_request
     date = Date.new(Date.today.year, Date.today.month, 1)

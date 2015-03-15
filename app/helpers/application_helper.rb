@@ -10,7 +10,7 @@ module ApplicationHelper
       end
       if session[:return_path].present?
         path = "<a href=\"/back?callback=" + u(session[:return_path].last) + "\">戻る</a>"
-        raw(pipe ? "| " + path : path)
+        raw(pipe ? " | " + path : path)
       else
         ""
       end

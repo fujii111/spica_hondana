@@ -31,6 +31,7 @@ Hondana::Application.routes.draw do
   post "collections/create" => "collections#create", format: false
   get "collections/complete" => "collections#complete", format: false
   get "collections/member_list" => "collections#member_list", format: false
+  get "collections/confirm_request" => "collections#confirm_request", format: false
   get "collections/:id" => "collections#show", format: false
 
   resources :books, format: false

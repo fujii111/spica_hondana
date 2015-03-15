@@ -12,66 +12,12 @@
 	</p>
 </div>
 <p>
-	<%= link_to "交換申請する", "/collections/request" %><%= link_back true %>
+	<%= link_to "交換申請する", "/collections/confirm_request?id=" + @collection.id.to_s %><%= link_back true %>
 </p>
 <% end %>
 
-<div class="book_img">
-  <div class="field">
-	<%= image_tag "/books/show_image/" + @collection.book.isbn, alt: @collection.book.title %>
-  </div>
-</div>
-
-<div class="book">
-  <div class="field">
-    <%= label_tag :title, "書名" %>
-    <p>
-    	<%= @collection.book.title %>
-    </p>
-  </div>
-
-  <div class="field">
-    <%= label_tag :author, "著者名" %>
-    <p>
-    	<%= @collection.book.author %>
-    </p>
-  </div>
-
-  <div class="field">
-    <%= label_tag :publisher, "出版社" %>
-    <p>
-    	<%= @collection.book.publisher %>
-    </p>
-  </div>
-
-  <div class="field">
-    <%= label_tag :language, "言語" %>
-    <p>
-    	<%= @collection.book.language %>
-    </p>
-  </div>
-
-  <div class="field">
-    <%= label_tag :sale_date, "発売日" %>
-    <p>
-    	<%= @collection.book.sale_date %>
-    </p>
-  </div>
-
-  <div class="field">
-    <%= label_tag :isbn, "ISBNコード" %>
-    <p>
-    	<%= @collection.book.isbn %>
-    </p>
-  </div>
-
-  <div class="field">
-    <%= label_tag :description, "内容" %>
-    <p>
-    	<%= @collection.book.description %>
-    </p>
-  </div>
-</div>
+<% @book = @collection.book %>
+<%= render "/books/show" %>
 
   <div class="field">
     <%= label_tag :condition, "本の状態" %>
@@ -141,7 +87,7 @@
 </p>
 <% else %>
 <p>
-	<%= link_to "交換申請する", "/collections/request" %><%= link_back true %>
+	<%= link_to "交換申請する", "/collections/confirm_request?id=" + @collection.id.to_s %><%= link_back true %>
 </p>
 <% end %>
 

@@ -13,66 +13,8 @@
     </div>
   <% end %>
 
-<div class="book_img">
-  <div class="field">
-  	<% if @book.id %>
-	<%= image_tag "/books/show_image/" + @book.isbn, alt: @book.title %>
-	<% else %>
-	<%= image_tag @book.image_url, alt: @book.title %>
-	<% end %>
-  </div>
-</div>
-<div class="book">
-  <div class="field">
-    <%= label_tag :title, "書名" %>
-    <p>
-    	<%= @book.title %>
-    </p>
-  </div>
+<%= render "/books/show" %>
 
-  <div class="field">
-    <%= label_tag :author, "著者名" %>
-    <p>
-    	<%= @book.author %>
-    </p>
-  </div>
-
-  <div class="field">
-    <%= label_tag :publisher, "出版社" %>
-    <p>
-    	<%= @book.publisher %>
-    </p>
-  </div>
-
-  <div class="field">
-    <%= label_tag :language, "言語" %>
-    <p>
-    	<%= @book.language %>
-    </p>
-  </div>
-
-  <div class="field">
-    <%= label_tag :sale_date, "発売日" %>
-    <p>
-    	<%= @book.sale_date %>
-    </p>
-  </div>
-
-  <div class="field">
-    <%= label_tag :isbn, "ISBNコード" %>
-    <p>
-    	<%= @book.isbn %>
-    </p>
-  </div>
-
-  <div class="field">
-    <%= label_tag :description, "内容" %>
-    <p>
-    	<%= @book.description %>
-    </p>
-  </div>
-
-</div>
 <%= form_for(@collection, url: {action: "confirm"} ) do |f| %>
 
   <%= f.hidden_field :book_id, {value: @book.id} %>
