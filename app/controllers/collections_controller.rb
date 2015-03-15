@@ -4,6 +4,7 @@ class CollectionsController < ApplicationController
   def index
     @collections = Collection.where(member_id: session[:id], state: 0)
       .order(regist_date: :desc)
+    @requested_collections = Collection.where(member_id: session[:id], state: 1)
     @completed_collections = Collection.where(member_id: session[:id], state: 8)
       .order(send_date: :desc)
     @favorites = Favorite.where(member_id: session[:id]).order(create_date: :desc)
@@ -54,9 +55,9 @@ class CollectionsController < ApplicationController
     @collection = Collection.new(collection_params)
     if @collection.valid?
       session[:collection] = collection_params
-      render action: 'confirm'
+      render action: "confirm"
     else
-      render action: 'new'
+      render action: "new"
     end
   end
 
@@ -65,16 +66,20 @@ class CollectionsController < ApplicationController
     collection_params = params.require(:collection).permit(:book_id, :isbn, :condition, :band, :sunburn, :scratch, :cigar, :pet, :mold, :height, :width, :depth, :weight, :line, :broken, :note)
     id = params[:collection][:book_id]
     if params[:collection][:book_id].blank?
+
+      # API経由の場合はまず書籍情報を新規登録
       @book = Book.getFromAPIByISBN(params[:collection][:isbn])
       @book.delete_flg = false
       httpClient = HTTPClient.new
       @book.image = httpClient.get_content(@book.image_url)
       unless @book.save
-        render action: 'new'
+        render action: "new"
         return
       end
       id = @book.id
     end
+
+    # 蔵書の新規登録
     @collection = Collection.new(collection_params)
     @collection.member_id = session[:id]
     @collection.book_id = id
@@ -88,13 +93,16 @@ class CollectionsController < ApplicationController
       session[:point] = member.point
       redirect_to action: "complete"
     else
-      render action: 'new'
+      render action: "new"
     end
   end
 
   # 蔵書の詳細
   def show
     @collection = Collection.find(params[:id])
+    if @collection.request_member_id.present?
+      @request_member = Member.find(@collection.request_member_id)
+    end
   end
 
   # 蔵書をもっている人のリスト

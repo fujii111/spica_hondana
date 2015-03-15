@@ -1,32 +1,88 @@
 <h1>本の詳細</h1><% @title = "本の詳細" %>
 
-<% if @collection.member.id == session[:id] %>
-<p>
-	<%= link_to "出品情報を編集する", "/collections/edit"  %> | <%= link_to "出品を取り消す", "/collections/destroy" %> <%= link_back true %>
-</p>
-<% else %>
-<div class="field">
-	<label>出品者</label>
+<% if @collection.state == 0 %>
+	<% if @collection.member.id == session[:id] %>
+		<p>
+			<span class="strong">この本は あなた が現在出品中です。</span>
+		</p>
+		<p>
+			<%= link_to "出品情報を編集する", "/collections/edit?id=" + @collection.id.to_s  %> |
+			<%= link_to "出品を取り消す", "/collections/destroy?id=" + @collection.id.to_s %>
+			<%= link_back true %>
+		</p>
+	<% else %>
+		<p>
+			<span class="strong">この本は <%= @collection.member.nickname %> さんが現在出品中です。</span>
+		</p>
+		<p>
+			<%= link_to "交換申請する", "/collections/confirm_request?id=" + @collection.id.to_s  %>
+			<%= link_back true %>
+		</p>
+	<% end %>
+<% elsif @collection.state == 1 %>
+	<% if @collection.member.id == session[:id] %>
+		<p>
+			<span class="strong">この本は あなた から <%= @request_member.nickname %> さんへの発送待ちです。</span>
+		</p>
+		<p>
+			<span class="strong">1. </span><%= link_to "宛名ラベルのダウンロード", "/collections/download_label?id=" + @collection.id.to_s %>
+		</p>
+		<p>
+			<span class="strong">2. 本を梱包し、宛名ラベルを貼り付けて発送します。</span>
+		</p>
+		<%= form_tag({action: :complete}) do %>
+			<%= hidden_field_tag :id, @collection.id %>
+		<p>
+		  <span class="strong">3. </span> <%= submit_tag "発送完了" %> (この処理を忘れるとブクが受け取れません)
+		</p>
+		<% end %>
+	<% elsif @collection.request_member_id == session[:id] %>
+		<p>
+			<span class="strong">この本は <%= @collection.member.nickname %> さんから あなた への発送待ちです。</span>
+		</p>
+	<% else %>
+		<p>
+			<span class="strong">この本は既に他の人が申請を行いました。</span>
+		</p>
+	<% end %>
 	<p>
-		<span  class="strong"><%= @collection.member.nickname %></span> さん
+	<%= link_back %>
 	</p>
-</div>
+<% elsif @collection.state == 8 %>
+	<% if @collection.member.id == session[:id] %>
+		<p>
+			<span class="strong">この本は あなた から <%= @request_member.nickname %> さんへ発送済みです。</span>
+		</p>
+		<p>
+			発送日: <%= format_datetime @collection.send_date, :date %>
+		</p>
+	<% elsif @collection.request_member_id == session[:id] %>
+		<p>
+			<span class="strong">この本は <%= @collection.member.nickname %> さんから あなた へ発送済みです。</span>
+		</p>
+		<p>
+			発送日: <%= format_datetime @collection.send_date, :date %>
+		</p>
+	<% else %>
+		<p>
+			<span class="strong">この本は既に他の人が申請を行いました。</span>
+		</p>
+	<% end %>
+	<p>
+	<%= link_back %>
+	</p>
+<% else %>
+	<p>
+		<span class="strong">この本は出品が取り消されています。</span>
+	</p>
+	<p>
+	<%= link_back %>
+	</p>
 <% end %>
 
 <% @book = @collection.book %>
 <%= render "/books/show" %>
 <%= render "show" %>
-
-<% if @collection.member.id == session[:id] %>
-<p>
-	<%= link_to "出品情報を編集する", "/collections/edit"  %> | <%= link_to "出品を取り消す", "/collections/destroy" %><%= link_back true %>
-</p>
-<% else %>
-<p>
-	<%= link_to "交換申請する", "/collections/confirm_request?id=" + @collection.id.to_s %><%= link_back true %>
-</p>
-<% end %>
-
 
 <%
 	if session[:return_path].blank?

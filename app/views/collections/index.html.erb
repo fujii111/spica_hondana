@@ -4,7 +4,7 @@
 	<div id="collection_summary_area">
 		<dl>
 			<dt class="larger">ホンダナに登録した本</dt>
-			<dd class="large center"><%= @collections.size + @completed_collections.size %>冊</dd>
+			<dd class="large center"><%= @collections.size + @requested_collections.size + @completed_collections.size %>冊</dd>
 		</dl>
 		<p class="right">うち発送済みの本: <%= @completed_collections.size %>冊</p>
 	</div>
@@ -24,7 +24,7 @@
 			<dd>
 				<% @collections = @completed_collections %>
 				<% if @collections.empty? %>
-					発送済みの本はありません。
+					発送した本はありません。
 				<% else %>
 					<%= render 'list' %>
 				<% end %>
