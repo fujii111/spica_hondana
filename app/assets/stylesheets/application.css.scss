@@ -283,6 +283,12 @@ time {
 		float: left;
 		width: 448px;
 		margin: 16px;
+		dl {
+			margin-bottom: 10px;
+			dd {
+				margin-left: 20px;
+			}
+		}
 	}
 	#term {
 		width: 928px;

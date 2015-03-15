@@ -33,6 +33,8 @@ Hondana::Application.routes.draw do
   get "collections/member_list" => "collections#member_list", format: false
   get "collections/confirm_request" => "collections#confirm_request", format: false
   post "collections/request_collection" => "collections#request_collection", format: false
+  get "collections/download_label" => "collections#download_label", format: false
+  post "collections/complete_sending" => "collections#complete_sending", format: false
   get "collections/:id" => "collections#show", format: false
 
   resources :books, format: false

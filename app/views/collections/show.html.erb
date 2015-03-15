@@ -30,10 +30,10 @@
 		<p>
 			<span class="strong">2. 本を梱包し、宛名ラベルを貼り付けて発送します。</span>
 		</p>
-		<%= form_tag({action: :complete}) do %>
+		<%= form_tag({action: :complete_sending}) do %>
 			<%= hidden_field_tag :id, @collection.id %>
 		<p>
-		  <span class="strong">3. </span> <%= submit_tag "発送完了" %> (この処理を忘れるとブクが受け取れません)
+			<span class="strong">3. </span> <%= submit_tag "発送完了" %> (この処理を忘れるとブクが受け取れません)
 		</p>
 		<% end %>
 	<% elsif @collection.request_member_id == session[:id] %>

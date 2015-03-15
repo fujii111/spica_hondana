@@ -1,0 +1,14 @@
+<h1>本の登録完了</h1><% @title = "本の登録完了" %>
+
+<% if @message.blank? %>
+<p>発送処理を完了し、１ブクが加算されました。</p>
+
+<p><%= link_to "マイページへ", "/collections/index" %></p>
+<% else %>
+<p>
+	<span class="warn"><%= @message %></span>
+</p>
+<p>
+	<%= link_back %>
+</p>
+<% end %>

@@ -176,6 +176,43 @@ class CollectionsController < ApplicationController
     end
   end
 
+  # 宛名ラベルのダウンロード
+  def download_label
+    @collection = Collection.find_by(id: params[:id], state: 1)
+    if @collection.label.present? &&
+      (@collection.member_id == session[:id] || @collection.request_member_id == session[:id])
+      send_data @collection.label, filename: "label_" + @collection.id.to_s + ".pdf", disposition: :attachment
+    else
+      render text: "ラベルファイルが見つかりませんでした。"
+    end
+  end
+
+  # 発送完了処理
+  def complete_sending
+    collection = Collection.find_by(id: params[:id], member_id: session[:id], state: 1)
+    if collection == nil
+      @message = "発送処理エラーです。"
+      return
+    end
+    collection.state = 8
+    collection.send_date = DateTime.now
+    if collection.save!(validate: false)
+
+      # 発送者のブクを増やす
+      member = Member.find(collection.member_id)
+      member.point = member.point + 1
+      member.save!(validate: false)
+      session[:point] = collection.member.point
+
+      # 受取者のブクを減らす
+      request_member = Member.find(collection.request_member_id)
+      request_member.point = request_member.point - 1
+      request_member.save!(validate: false)
+    else
+      @message = "発送処理エラーです。"
+    end
+  end
+
   private
   def cannot_request
     date = Date.new(Date.today.year, Date.today.month, 1)
