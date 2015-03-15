@@ -10,10 +10,10 @@
 	</div>
 	<div id="collection_area">
 		<dl>
-			<dt class="larger">登録されている本</dt>
+			<dt class="larger">ホンダナに出品中の本</dt>
 			<dd>
 				<% if @collections.empty? %>
-					登録されている本はありません。
+					出品中の本はありません。
 				<% else %>
 					<%= render 'list' %>
 				<% end %>
@@ -42,17 +42,6 @@
 		<p class="right">使用したブク数: <%= @received_collections.size %>ブク</p>
 	</div>
 	<div id="point_area">
-		<dl>
-			<dt class="larger">交換申請中の本</dt>
-			<dd>
-				<% @collections = @requesting_collections %>
-				<% if @collections.empty? %>
-					交換申請中の本はありません。
-				<% else %>
-					<%= render 'list' %>
-				<% end %>
-			</dd>
-		</dl>
 		<dl>
 			<dt class="larger">お気に入り</dt>
 			<dd>

@@ -2,10 +2,21 @@ class CollectionsController < ApplicationController
 
   # マイページ
   def index
-    @collections = Collection.where("member_id = " + session[:id].to_s + " and state < 8")
-      .order(state: :desc, regist_date: :desc)
+    @collections = Collection.where(member_id: session[:id], state: 0)
+      .order(regist_date: :desc)
     @completed_collections = Collection.where(member_id: session[:id], state: 8)
+      .order(send_date: :desc)
     @favorites = Favorite.where(member_id: session[:id]).order(create_date: :desc)
+    @received_collections = Collection.where(request_member_id: session[:id], state: 8)
+      .order(request_date: :desc)
+  end
+
+  # 交換一覧
+  def list
+    @requested_collections = Collection.where(member_id: session[:id], state: 1)
+      .order(request_date: :desc)
+    @completed_collections = Collection.where(member_id: session[:id], state: 8)
+      .order(send_date: :desc)
     @requesting_collections = Collection.where(request_member_id: session[:id], state: 1)
       .order(request_date: :desc)
     @received_collections = Collection.where(request_member_id: session[:id], state: 8)

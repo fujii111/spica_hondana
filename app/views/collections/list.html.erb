@@ -1,2 +1,56 @@
 <h1>交換一覧</h1><% @title = "交換一覧" %>
-<p>準備中</p>
+
+<div id="mypage_left">
+	<div id="collection_area">
+		<dl>
+			<dt class="larger">交換申請されている本</dt>
+			<dd>
+				<% @collections = @requested_collections %>
+				<% if @collections.empty? %>
+					交換申請依頼されている本はありません。
+				<% else %>
+					<%= render 'list' %>
+				<% end %>
+			</dd>
+		</dl>
+		<dl>
+			<dt class="larger">発送した本</dt>
+			<dd>
+				<% @collections = @completed_collections %>
+				<% if @collections.empty? %>
+					発送済みの本はありません。
+				<% else %>
+					<%= render 'list' %>
+				<% end %>
+			</dd>
+		</dl>
+	</div>
+</div>
+
+<div id="mypage_right">
+	<div id="point_area">
+		<dl>
+			<dt class="larger">交換申請している本</dt>
+			<dd>
+				<% @collections = @requesting_collections %>
+				<% if @collections.empty? %>
+					交換申請している本はありません。
+				<% else %>
+					<%= render 'list' %>
+				<% end %>
+			</dd>
+		</dl>
+		<dl>
+			<dt class="larger">受け取った本</dt>
+			<dd>
+				<% @collections = @received_collections %>
+				<% if @collections.empty? %>
+					受け取った本はありません。
+				<% else %>
+					<%= render 'list' %>
+				<% end %>
+			</dd>
+		</dl>
+	</div>
+</div>
+<% session[:return_path] = Array[request.fullpath] %>
