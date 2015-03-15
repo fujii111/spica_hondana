@@ -6,7 +6,10 @@ class CollectionsController < ApplicationController
       .order(state: :desc, regist_date: :desc)
     @completed_collections = Collection.where(member_id: session[:id], state: 8)
     @favorites = Favorite.where(member_id: session[:id]).order(create_date: :desc)
+    @requesting_collections = Collection.where(request_member_id: session[:id], state: 1)
+      .order(request_date: :desc)
     @received_collections = Collection.where(request_member_id: session[:id], state: 8)
+      .order(request_date: :desc)
   end
 
   # 蔵書の新規登録フォーム
@@ -96,11 +99,61 @@ class CollectionsController < ApplicationController
 
   # 蔵書の交換申請フォーム
   def confirm_request
+    @message = cannot_request
+    return if @message.present?
     @collection = Collection.find_by(id: params[:id], state: 0)
     if @collection.blank?
-      @message = "交換申請できません。他の人が申請した可能性があります。"
+      @message = "交換申請できません。他の人が申請したか、出品者が出品を取り消した可能性があります。"
     elsif @collection.member_id == session[:id]
       @message = "自分の蔵書に交換申請できません。"
+    end
+  end
+
+  # 蔵書の交換申請
+  def request_collection
+    @collection = Collection.find_by(id: params[:id], state: 0)
+
+    # 申請可能かチェック
+    if @collection.blank?
+      @message = "交換申請できません。他の人が申請したか、出品者が出品を取り消した可能性があります。"
+    elsif @collection.member_id == session[:id]
+      @message = "自分の蔵書に交換申請できません。"
+    end
+    @message = cannot_request
+    if @message.present?
+      render action: :confirm_request
+      return
+    end
+
+    # ラベルPDFファイルのチェック
+    file = params[:data]
+    if file.nil? || file.size == 0
+      @upload_error = "ファイルがアップロードされていません。"
+    elsif File.extname(file.original_filename).downcase != ".pdf"
+      @upload_error = "PDFファイルではありません。ファイルを確認してください。"
+    elsif file.size > 1.megabyte
+      @upload_error = "ファイルサイズが大きすぎます。ファイルを確認してください。"
+    else
+
+      # 交換申請処理
+      @collection.request_member_id = session[:id]
+      @collection.request_date = DateTime.now
+      @collection.label = file.read
+      @collection.state = 1
+      if @collection.save
+
+        # メッセージの作成
+        message = Message.new(member_id: @collection.member_id, notice_date: DateTime.now, title: "本の交換申請依頼がありました。",
+          content: "あなたへ本の交換申請依頼がありました。<a href=\"/collections/" + @collection.id.to_s + "\">こちら</a>から本の発送処理をしてください。",
+          read_flg: false)
+        message.save
+      else
+        @upload_error = "ファイルのアップロードに失敗しました。"
+      end
+    end
+
+    if @upload_error.present?
+      render action: :confirm_request
     end
   end
 

@@ -9,12 +9,29 @@
 </p>
 
 <% else %>
+	<% if @upload_error.present? %>
+	<p>
+		<span class="strong warn"><%= @upload_error %>再度アップロードしてください。</span>
+	</p>
+	<% end %>
 <p>
-	<span class="strong"><%= @collection.member.nickname %> さんに交換申請します。クリックポストから宛名ラベルを取得し、アップロードしてください。</span>
+	<span class="strong"><%= @collection.member.nickname %> さんに交換申請します。クリックポストから宛名ラベルを取得し、アップロードして申請を実行してください。</span>
 </p>
 <p>
-	<%= link_to "クリックポストへ", "http://www.post.japanpost.jp/service/clickpost/", {target: :blank} %>
+	<span class="strong">1. </span><%= link_to "クリックポストへ", "http://www.post.japanpost.jp/service/clickpost/", {target: :blank} %>
 </p>
+<%= form_tag({action: :request_collection}, multipart: true) do %>
+  <div class="field">
+    <span class="strong">2. </span><%= label_tag :data, "取得した宛名ラベルPDFをアップロード" %><br>
+    <p>
+	    <%= file_field_tag :data %>
+    </p>
+  </div>
+  <%= hidden_field_tag :id, @collection.id %>
+  <div class="field">
+    <span class="strong">3. </span> <%= submit_tag "申請を実行する" %>
+  </div>
+<% end %>
 <p>
 	<%= link_to "交換申請をやめる", "/collections/member_list?id=" + @collection.book_id.to_s %>
 </p>

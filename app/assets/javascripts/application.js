@@ -17,21 +17,12 @@
 
 $(function() {
 
-  if(window.history && window.history.pushState) {
-    history.pushState("nohb", null, "");
-    $(window).on("popstate", function(event) {
-    if(!event.originalEvent.state){
-      history.pushState("nohb", null, "");
-      return;
-    }
-  });
-
   $(document).on("keypress", "input:not([type=submit])", function(event) {
     return event.which !== 13;
   });
 
   $(document).on("click", ".messages a", function() {
-	$(this).parent().next().next().toggle();
+	$(this).parents(".messages").next().toggle();
 	$.post("/messages/read", {id : $(this).attr("id")});
 	return false;
   });

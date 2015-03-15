@@ -7,10 +7,9 @@
 		<span<% if !message.read_flg %> class="new"<% end %>>
 			<a href="" id="<%= message.id %>"><%= message.title %></a>
 		</span>
-		<br>
-		<span style="display: none">
-			<%= message.content %>
-		</span>
+	</p>
+	<p style="display: none" class="detail">
+		<%= raw(message.content) %>
 	</p>
 </div>
 <% end %>

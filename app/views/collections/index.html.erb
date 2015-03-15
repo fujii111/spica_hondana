@@ -43,6 +43,17 @@
 	</div>
 	<div id="point_area">
 		<dl>
+			<dt class="larger">交換申請中の本</dt>
+			<dd>
+				<% @collections = @requesting_collections %>
+				<% if @collections.empty? %>
+					交換申請中の本はありません。
+				<% else %>
+					<%= render 'list' %>
+				<% end %>
+			</dd>
+		</dl>
+		<dl>
 			<dt class="larger">お気に入り</dt>
 			<dd>
 				<% if @favorites.empty? %>

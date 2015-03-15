@@ -11,31 +11,31 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title, class: "required" %><br>
+    <%= f.label :title, class: "required" %>
     <p>
     	<%= f.text_field :title, size: 30 %>
     </p>
   </div>
   <div class="field">
-    <%= f.label :author %><br>
+    <%= f.label :author %>
     <p>
 	    <%= f.text_field :author, size: 30 %> 複数の場合はカンマ(,)区切り
     </p>
   </div>
   <div class="field">
-    <%= f.label :publisher %><br>
+    <%= f.label :publisher %>
     <p>
     	<%= f.text_field :publisher %>
     </p>
   </div>
   <div class="field">
-    <%= f.label :language %><br>
+    <%= f.label :language %>
     <p>
     	<%= f.text_field :language, size: 5, value: "日本語" %>
     </p>
   </div>
   <div class="field">
-    <%= f.label :sale_date %><br>
+    <%= f.label :sale_date %>
     <p>
 	    <%= f.text_field :sale_date, size: 10 %> (例: 2010/4/25)
     </p>
@@ -52,19 +52,19 @@
     </p>
   </div>
   <div class="field">
-    <%= f.label :isbn %><br>
+    <%= f.label :isbn %>
     <p>
 	    <%= f.text_field :isbn, size: 13, maxlength: 13, placeholder: "978" %> 数字10桁または13桁(ハイフンなし)
     </p>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <p>
     	<%= f.text_area :description, cols: 40, rows: 4 %>
     </p>
   </div>
   <div class="field">
-    <%= f.label :data %><br>
+    <%= f.label :data %>
     <p>
 	    <%= f.file_field :data %>
     </p>
