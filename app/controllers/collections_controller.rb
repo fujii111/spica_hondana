@@ -110,7 +110,7 @@ class CollectionsController < ApplicationController
     collection_params = params.require(:collection).permit(:id, :condition, :band, :sunburn, :scratch, :cigar, :pet, :mold, :height, :width, :depth, :weight, :line, :broken, :note)
     @collection = Collection.find(collection_params[:id])
     if @collection.update(collection_params)
-      render action: "show"
+      redirect_to action: "show", id: collection_params[:id]
     else
       render action: "edit"
     end
@@ -125,7 +125,7 @@ class CollectionsController < ApplicationController
     elsif collection.state > 0
       @message = "既に申請されているため、出品取り消しできません。"
     elsif member.point - Collection.where(request_member_id: session[:id], state: 1).count <= 0
-      @message = "申請済みのブクを含めるとブクが足りなくなるため出品取り消しできません。出品取り消しするには、別の本を登録して再度取り消しを行ってください。"
+      @message = "ブクが足りなくなるため出品取り消しできません。出品取り消しするには、別の本を登録して再度取り消しを行ってください。"
     else
       collection.state = 9
       if collection.save

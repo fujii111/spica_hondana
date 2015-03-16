@@ -13,7 +13,7 @@ class BooksController < ApplicationController
 
   # 書籍一覧表示
   def index
-    @books = Book.where(delete_flg: false).order(created_at: :desc).limit(20)
+    @books = Book.where(delete_flg: false).order(created_at: :desc).limit(100)
   end
 
   # 書籍検索
