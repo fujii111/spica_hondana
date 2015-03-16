@@ -7,7 +7,7 @@
 		</p>
 		<p>
 			<%= link_to "出品情報を編集する", "/collections/edit?id=" + @collection.id.to_s  %> |
-			<%= link_to "出品を取り消す", "/collections/destroy?id=" + @collection.id.to_s %>
+			<%= link_to "出品を取り消す", "/collections/destroy?id=" + @collection.id.to_s, data: { confirm: "出品を取り消しますか？\n注意！ 再度出品する場合は登録からやり直す必要があります。" } %>
 			<%= link_back true %>
 		</p>
 	<% else %>

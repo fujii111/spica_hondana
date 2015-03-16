@@ -116,6 +116,29 @@ class CollectionsController < ApplicationController
     end
   end
 
+  # 蔵書の出品取り消し
+  def destroy
+    collection = Collection.find(params[:id])
+    member = Member.find(session[:id])
+    if collection.member_id != session[:id]
+      @message = "他の人の出品取り消しはできません。"
+    elsif collection.state > 0
+      @message = "既に申請されているため、出品取り消しできません。"
+    elsif member.point - Collection.where(request_member_id: session[:id], state: 1).count <= 0
+      @message = "申請済みのブクを含めるとブクが足りなくなるため出品取り消しできません。出品取り消しするには、別の本を登録して再度取り消しを行ってください。"
+    else
+      collection.state = 9
+      if collection.save
+        member.point = member.point - 1
+        session[:point] = member.point
+        member.save(validate: false)
+        @message = "出品取り消ししました。"
+      else
+        @message = "処理エラーです。"
+      end
+    end
+  end
+
   # 蔵書の詳細
   def show
     @collection = Collection.find(params[:id])
