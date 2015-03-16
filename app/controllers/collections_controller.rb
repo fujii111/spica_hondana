@@ -97,6 +97,14 @@ class CollectionsController < ApplicationController
     end
   end
 
+  # 蔵書の編集フォーム
+  def edit
+    @collection = Collection.find(params[:id])
+    if @collection.member_id != session[:id] || @collection.state != 0
+      @message = "この本は編集できません。"
+    end
+  end
+
   # 蔵書の詳細
   def show
     @collection = Collection.find(params[:id])

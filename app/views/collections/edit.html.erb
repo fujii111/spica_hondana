@@ -1,7 +1,9 @@
-<h1>本の登録</h1><% @title = "本の登録" %>
+<h1>本の編集</h1><% @title = "本の編集" %>
 
-<p>本をホンダナへ登録します。</p>
-
+<% if @message.present? %>
+<p class="strong warn">この本は編集できません。</p>
+<% else %>
+<p>本の情報を編集します。</p>
   <% if @collection.errors.any? %>
     <div id="error_explanation">
       <p>入力エラーです。以下を確認してください。</p>
@@ -12,10 +14,17 @@
       </ul>
     </div>
   <% end %>
+<% end %>
 
+<% @book = @collection.book %>
 <%= render "/books/show" %>
-<% @action = "confirm" %>
-<%= render "edit" %>
+
+<% if @message.present? %>
+	<%= render "show" %>
+<% else %>
+	<% @action = "update" %>
+	<%= render "edit" %>
+<% end %>
 
 <p>
 	<%= link_back %>

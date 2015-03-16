@@ -30,6 +30,8 @@ Hondana::Application.routes.draw do
   post "collections/confirm" => "collections#confirm", format: false
   post "collections/create" => "collections#create", format: false
   get "collections/complete" => "collections#complete", format: false
+  get "collections/edit" => "collections#edit", format: false
+  patch "collections/update" => "collections#update", format: false
   get "collections/member_list" => "collections#member_list", format: false
   get "collections/confirm_request" => "collections#confirm_request", format: false
   post "collections/request_collection" => "collections#request_collection", format: false

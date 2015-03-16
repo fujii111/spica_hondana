@@ -1,0 +1,77 @@
+<%= form_for(@collection, url: {action: @action} ) do |f| %>
+
+  <%= f.hidden_field :book_id, {value: @book.id} %>
+  <%= f.hidden_field :isbn, {value: @book.isbn} %>
+
+  <div class="field">
+    <%= f.label :condition %>
+ 	<p>
+ 		<label class="normal"><%= f.radio_button :condition, "4", {:checked => true} %> ほぼ新品　</label>
+		<label class="normal"><%= f.radio_button :condition, "3" %> 非常に良い　</label>
+		<label class="normal"><%= f.radio_button :condition, "2" %> 良い　</label>
+		<label class="normal"><%= f.radio_button :condition, "1" %> 普通　</label>
+		<label class="normal"><%= f.radio_button :condition, "0" %> 汚れあり　</label>
+ 	</p>
+  </div>
+  <div class="field">
+    <%= label_tag "その他状態" %>
+ 	<p>
+ 		<%= f.check_box(:band, {}, "true", "false") %><%= f.label :band, "帯あり　", class: "normal" %>
+ 		<%= f.check_box(:sunburn, {}, "true", "false") %><%= f.label :sunburn, "日焼け・変色　", class: "normal" %>
+ 		<%= f.check_box(:scratch, {}, "true", "false") %><%= f.label :scratch, "スレ・傷など　", class: "normal" %>
+ 	</p>
+ 	<p>
+ 		<%= f.check_box(:cigar, {}, "true", "false") %><%= f.label :cigar, "たばこ臭　", class: "normal" %>
+ 		<%= f.check_box(:pet, {}, "true", "false") %><%= f.label :pet, "ペットを飼っている　", class: "normal" %>
+ 		<%= f.check_box(:mold, {}, "true", "false") %><%= f.label :mold, "カビ臭　", class: "normal" %>
+ 	</p>
+  </div>
+
+  <div class="field">
+    <%= label_tag "サイズ" %>
+    <p>
+	    <%= f.label :height %>
+    	<%= f.text_field :height, size: 5 %> cm ×
+	    <%= f.label :width %>
+	    <%= f.text_field :width, size: 5 %> cm ×
+	    <%= f.label :depth %>
+    	<%= f.text_field :depth, size: 5 %> cm
+    </p>
+  </div>
+
+  <div class="field">
+    <%= f.label :weight %>
+    <p>
+    	<%= f.text_field :weight, size: 5 %> g
+    </p>
+  </div>
+
+  <div class="field">
+	<%= f.label :line %>
+	<p>
+		<label class="normal"><%= f.radio_button :line, "0" , {:checked => true} %> 5ページ未満　</label>
+		<label class="normal"><%= f.radio_button :line, "1" %> 5ページ以上10ページ未満　</label>
+		<label class="normal"><%= f.radio_button :line, "2" %> 10ページ以上　</label>
+	</p>
+  </div>
+
+  <div class="field">
+	<%= f.label :broken %>
+	<p>
+		<label class="normal"><%= f.radio_button :broken, "0" , {:checked => true} %> 5ページ未満　</label>
+		<label class="normal"><%= f.radio_button :broken, "1" %> 5ページ以上10ページ未満　</label>
+		<label class="normal"><%= f.radio_button :broken, "2" %> 10ページ以上　</label>
+	</p>
+  </div>
+
+  <div class="field">
+	<%= f.label :note %>
+ 	<p>
+		<%= f.text_area :note, :size => "50x5" %>
+	</p>
+  </div>
+
+  <div class="field">
+    <%= f.submit value: "登録確認" %>
+  </div>
+<% end %>
