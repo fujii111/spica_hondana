@@ -105,6 +105,17 @@ class CollectionsController < ApplicationController
     end
   end
 
+  # 蔵書の編集
+  def update
+    collection_params = params.require(:collection).permit(:id, :condition, :band, :sunburn, :scratch, :cigar, :pet, :mold, :height, :width, :depth, :weight, :line, :broken, :note)
+    @collection = Collection.find(collection_params[:id])
+    if @collection.update(collection_params)
+      render action: "show"
+    else
+      render action: "edit"
+    end
+  end
+
   # 蔵書の詳細
   def show
     @collection = Collection.find(params[:id])
@@ -236,7 +247,7 @@ class CollectionsController < ApplicationController
       return "1ヶ月の申請数が上限の" + 30.to_s + "に達したため、今月は申請できません。"
     end
     if session[:point] == 0
-      return "ブクが足りないため申請できません。本を登録してください。"
+      return "ブクが足りないため申請できません。申請するには本を登録してブクを増やしてください。"
     end
     @waiting_collection = Collection.where(request_member_id: session[:id], state: 1)
     if session[:point] - @waiting_collection.size <= 0

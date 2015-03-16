@@ -54,18 +54,18 @@
 			この本は <span class="strong">あなた</span> から <span class="strong"><%= @request_member.nickname %></span> さんへ発送済みです。
 		</p>
 		<p>
-			発送日: <%= format_datetime @collection.send_date, :date %>
+			発送日: <span class="strong"><%= format_datetime @collection.send_date, :date %></span>
 		</p>
 	<% elsif @collection.request_member_id == session[:id] %>
 		<p>
 			この本は <span class="strong"><%= @collection.member.nickname %></span> さんから <span class="strong">あなた</span> へ発送済みです。
 		</p>
 		<p>
-			発送日: <%= format_datetime @collection.send_date, :date %>
+			発送日: <span class="strong"><%= format_datetime @collection.send_date, :date %></span>
 		</p>
 	<% else %>
 		<p>
-			この本は既に他の人が申請を行いました。
+			この本は既に他の人により申請が行われました。
 		</p>
 	<% end %>
 	<p>

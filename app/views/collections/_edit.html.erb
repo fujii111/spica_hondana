@@ -1,5 +1,6 @@
 <%= form_for(@collection, url: {action: @action} ) do |f| %>
 
+  <%= f.hidden_field :id, {value: @collection.id} %>
   <%= f.hidden_field :book_id, {value: @book.id} %>
   <%= f.hidden_field :isbn, {value: @book.isbn} %>
 
@@ -72,6 +73,6 @@
   </div>
 
   <div class="field">
-    <%= f.submit value: "登録確認" %>
+    <%= f.submit value: @submit %>
   </div>
 <% end %>
