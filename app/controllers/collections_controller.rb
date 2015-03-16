@@ -116,27 +116,27 @@ class CollectionsController < ApplicationController
     end
   end
 
-  # 蔵書の交換申請フォーム
+  # 蔵書の申請フォーム
   def confirm_request
     @message = cannot_request
     return if @message.present?
     @collection = Collection.find_by(id: params[:id], state: 0)
     if @collection.blank?
-      @message = "交換申請できません。他の人が申請したか、出品者が出品を取り消した可能性があります。"
+      @message = "本を申請できません。他の人が申請したか、出品者が出品を取り消した可能性があります。"
     elsif @collection.member_id == session[:id]
-      @message = "自分の蔵書に交換申請できません。"
+      @message = "自分の本に申請できません。"
     end
   end
 
-  # 蔵書の交換申請
+  # 蔵書の申請
   def request_collection
     @collection = Collection.find_by(id: params[:id], state: 0)
 
     # 申請可能かチェック
     if @collection.blank?
-      @message = "交換申請できません。他の人が申請したか、出品者が出品を取り消した可能性があります。"
+      @message = "本を申請できません。他の人が申請したか、出品者が出品を取り消した可能性があります。"
     elsif @collection.member_id == session[:id]
-      @message = "自分の蔵書に交換申請できません。"
+      @message = "自分の本に申請できません。"
     end
     @message = cannot_request
     if @message.present?
@@ -162,8 +162,8 @@ class CollectionsController < ApplicationController
       if @collection.save
 
         # メッセージの作成
-        message = Message.new(member_id: @collection.member_id, notice_date: DateTime.now, title: "本の交換申請依頼がありました。",
-          content: "あなたへ本の交換申請依頼がありました。<a href=\"/collections/" + @collection.id.to_s + "\">こちら</a>から本の発送処理をしてください。",
+        message = Message.new(member_id: @collection.member_id, notice_date: DateTime.now, title: "本の申請依頼がありました。",
+          content: "あなたへ『" + @collection.book.title + "』の申請がありました。<a href=\"/collections/" + @collection.id.to_s + "\">こちら</a>から本の発送処理をしてください。",
           read_flg: false)
         message.save
       else
@@ -178,7 +178,7 @@ class CollectionsController < ApplicationController
 
   # 宛名ラベルのダウンロード
   def download_label
-    @collection = Collection.find_by(id: params[:id], state: 1)
+    @collection = Collection.find(params[:id])
     if @collection.label.present? &&
       (@collection.member_id == session[:id] || @collection.request_member_id == session[:id])
       send_data @collection.label, filename: "label_" + @collection.id.to_s + ".pdf", disposition: :attachment

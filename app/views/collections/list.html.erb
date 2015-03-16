@@ -2,11 +2,11 @@
 
 <div class="request_list">
 	<dl>
-		<dt class="larger">交換を依頼されている本</dt>
+		<dt class="larger">申請されている本</dt>
 		<dd>
 			<% @collections = @requested_collections %>
 			<% if @collections.empty? %>
-				交換申請を依頼されている本はありません。
+				申請されている本はありません。
 			<% else %>
 				<%= render 'list' %>
 			<% end %>
@@ -27,22 +27,22 @@
 
 <div class="request_list">
 	<dl>
-		<dt class="larger">交換申請している本</dt>
+		<dt class="larger">申請している本</dt>
 		<dd>
 			<% @collections = @requesting_collections %>
 			<% if @collections.empty? %>
-				交換申請している本はありません。
+				申請している本はありません。
 			<% else %>
 				<%= render 'list' %>
 			<% end %>
 		</dd>
 	</dl>
 	<dl>
-		<dt class="larger">受け取った本</dt>
+		<dt class="larger">発送された本</dt>
 		<dd>
 			<% @collections = @received_collections %>
 			<% if @collections.empty? %>
-				受け取った本はありません。
+				発送された本はありません。
 			<% else %>
 				<%= render 'list' %>
 			<% end %>

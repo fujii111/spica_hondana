@@ -5,7 +5,7 @@
 <%= render "show" %>
 
 <p>
-<%= link_to '交換申請する', "/collections/member_list?id=" + @book.id.to_s %> |
+<%= link_to '本を申請する', "/collections/member_list?id=" + @book.id.to_s %> |
 <%= link_to 'ホンダナに登録する', "/collections/new?id=" + @book.id.to_s %>
 <% if session[:login_id] == "spica" %>
 	| <%= link_to '編集', edit_book_path(@book) %>

@@ -1,4 +1,4 @@
-<h1>本の交換申請</h1><% @title = "本の交換申請" %>
+<h1>本の申請</h1><% @title = "本の申請" %>
 
 <% if @message.present? %>
 <p>
@@ -15,14 +15,14 @@
 	</p>
 	<% end %>
 <p>
-	<span class="strong"><%= @collection.member.nickname %> さんに交換申請します。クリックポストから宛名ラベルを取得し、アップロードして申請を実行してください。</span>
+	<span class="strong"><%= @collection.member.nickname %></span> さんに本を申請します。<span class="strong">クリックポストから宛名ラベルを取得</span>し、<span class="strong">アップロードして申請を実行</span>してください。
 </p>
 <p>
 	<span class="strong">1. </span><%= link_to "クリックポストへ", "http://www.post.japanpost.jp/service/clickpost/", {target: :blank} %>
 </p>
 <%= form_tag({action: :request_collection}, multipart: true) do %>
   <div class="field">
-    <span class="strong">2. </span><%= label_tag :data, "取得した宛名ラベルPDFをアップロード" %><br>
+    <span class="strong">2. </span><span>取得した宛名ラベルPDFをアップロード</span>
     <p>
 	    <%= file_field_tag :data %>
     </p>
@@ -33,7 +33,7 @@
   </div>
 <% end %>
 <p>
-	<%= link_to "交換申請をやめる", "/collections/member_list?id=" + @collection.book_id.to_s %>
+	<%= link_to "申請をやめる", "/collections/member_list?id=" + @collection.book_id.to_s %>
 </p>
 
 <% @book = @collection.book %>
