@@ -208,6 +208,12 @@ class CollectionsController < ApplicationController
       request_member = Member.find(collection.request_member_id)
       request_member.point = request_member.point - 1
       request_member.save!(validate: false)
+
+      # メッセージの作成
+      message = Message.new(member_id: collection.request_member_id, notice_date: DateTime.now, title: "本が発送されました。",
+        content: "あなたへ『" + collection.book.title + "』が発送されました。本の詳細は<a href=\"/collections/" + collection.id.to_s + "\">こちら</a>",
+        read_flg: false)
+      message.save
     else
       @message = "発送処理エラーです。"
     end

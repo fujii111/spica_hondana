@@ -17,7 +17,7 @@
 
 $(function() {
 
-  $(document).on("keypress", "input:not([type=submit])", function(event) {
+  $(document).on("keypress", "input:not([type=submit]):not(#keyword)", function(event) {
     return event.which !== 13;
   });
 

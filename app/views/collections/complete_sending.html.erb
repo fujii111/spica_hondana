@@ -3,7 +3,7 @@
 <% if @message.blank? %>
 <p>発送処理を完了し、１ブクが加算されました。</p>
 
-<p><%= link_to "マイページへ", "/collections/index" %></p>
+<p><%= link_to "交換一覧へ", "/collections/list" %></p>
 <% else %>
 <p>
 	<span class="warn"><%= @message %></span>
