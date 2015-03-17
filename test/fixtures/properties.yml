@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  inquiry_mail: MyString
+  clickpost_url: MyString
+  request_limit: 1
+  default_point: 1
+
+two:
+  inquiry_mail: MyString
+  clickpost_url: MyString
+  request_limit: 1
+  default_point: 1

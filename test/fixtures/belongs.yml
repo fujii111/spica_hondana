@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  genre_id: 
+  book_id: 
+  sort: 1
+
+two:
+  genre_id: 
+  book_id: 
+  sort: 1

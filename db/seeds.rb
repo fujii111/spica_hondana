@@ -30,3 +30,5 @@ Genre.create(name: "ゲーム", description: "ゲーム攻略本・リプレイ�
 Genre.create(name: "エンターテイメント", description: "映画・音楽・ステージ・ダンス・テレビ・タレント本・落語・寄席・演芸・演劇・舞台・サブカルチャー", delete_flg: false, sort: 22)
 Genre.create(name: "楽譜・音楽書", description: "クラシック・J-POP・洋楽・ジャズ・ヴォーカル・ワールド・映画音楽・アニメ＆ゲーム音楽・ラブ＆ウエディング・その他・コンピュータミュージック・楽器別・作曲家別・アーティスト別・シリーズ別・音楽理論・音楽論・メソッド", delete_flg: false, sort: 23)
 Genre.create(name: "その他", description: "その他", delete_flg: false, sort: 24)
+
+Property.create(inquiry_mail: "info@spica-travel.com", clickpost_url: "http://www.post.japanpost.jp/service/clickpost/index.html", request_limit: 30, default_point: 0)

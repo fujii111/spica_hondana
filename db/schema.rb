@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311203522) do
+ActiveRecord::Schema.define(version: 20150317132807) do
+
+  create_table "belongs", force: true do |t|
+    t.integer  "genre_id"
+    t.integer  "book_id"
+    t.integer  "sort"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "belongs", ["book_id"], name: "index_belongs_on_book_id"
+  add_index "belongs", ["genre_id"], name: "index_belongs_on_genre_id"
 
   create_table "books", force: true do |t|
     t.integer  "member_id"
@@ -83,6 +94,17 @@ ActiveRecord::Schema.define(version: 20150311203522) do
     t.datetime "updated_at"
   end
 
+  create_table "interests", force: true do |t|
+    t.integer  "member_id"
+    t.integer  "genre_id"
+    t.integer  "sort"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "interests", ["genre_id"], name: "index_interests_on_genre_id"
+  add_index "interests", ["member_id"], name: "index_interests_on_member_id"
+
   create_table "members", force: true do |t|
     t.string   "login_id"
     t.string   "password"
@@ -120,6 +142,15 @@ ActiveRecord::Schema.define(version: 20150311203522) do
   create_table "notices", force: true do |t|
     t.text     "content"
     t.datetime "notice_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "properties", force: true do |t|
+    t.string   "inquiry_mail"
+    t.string   "clickpost_url"
+    t.integer  "request_limit"
+    t.integer  "default_point"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
