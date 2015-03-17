@@ -44,7 +44,7 @@ Hondana::Application.routes.draw do
   resources :notices, format: false
   resources :genres, format: false
 
-  root 'books#list'
+  root 'information#top'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

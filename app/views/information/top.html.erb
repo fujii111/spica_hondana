@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ホンダナ</title>
+	<%= stylesheet_link_tag    "top", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "top", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+</head>
+
+<body>
+<div id="head">
+	<h1>
+		<%= link_to (image_tag 'title_ico.png', alt: 'トップページへ'), "/books/list"  %>
+	</h1>
+	<div id="navigate">
+		<p class="button"><%= link_to (image_tag 'this_is_ico.png', alt: 'このサイトについて'), "/information/aboutthis"  %></p>
+		<div id="welcome" class="right">
+			<p>
+				<%= link_to "新規会員登録", "/members/new"  %> | <%= link_to "ログイン", "/members/login"  %>
+			</p>
+		</div>
+		<div id="search" class="right">
+			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
+		    	<%= text_field_tag :keyword, session[:keyword], size: "15", maxlength: "20", placeholder: "本の検索・登録・交換をする場合はこちらから" %>
+			    <%= submit_tag "検索" %>
+				<%= link_to "詳細検索", "/books/search_edit"  %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div id="main">
+	<p>トップページには現在、共通レイアウトを適用していません。このページは、app/views/information/top.html.erb です。CSSファイルは、app/assets/stylesheets/top.css.scss が適用されます。Javascriptファイルは、app/assets/javascripts/top.js が適用されます。</p>
+	<h1>お知らせ</h1>
+	<% if @notices.blank? %>
+		<p>お知らせはありません。</p>
+	<% else %>
+		<% @notices.each do |notice| %>
+			<p>
+				<time><%= format_datetime notice.notice_date, :date %></time>
+				<span><%= notice.content %></span>
+			</p>
+		<% end %>
+	<% end %>
+
+	<h1>新着の本</h1>
+	<%= render "/books/list" %>
+</div>
+
+<div id="footer">
+	<div>
+		<h1><%= image_tag 'about_this_ico.png', alt: 'ABOUT ホンダナ' %></h1>
+		<p><%= link_to "利用ガイド", "/information/guide"  %></p>
+		<p><%= link_to "料金", "/information/fee"  %></p>
+		<p><%= link_to "お問い合わせ", "/information/inquiry"  %></p>
+		<p><%= link_to "利用規約", "/information/term"  %></p>
+	</div>
+	<div>
+		<h1><%= image_tag 'about_us_ico.png', alt: 'ABOUT US' %></h1>
+		<p><%= link_to "スピカ旅行社", "http://spica-travel.com/", target: "blank" %></p>
+		<p><%= link_to "会社概要", "/information/aboutus"  %></p>
+	</div>
+	<div>
+		<h1><%= image_tag 'media_ico.png', alt: 'メディア' %></h1>
+		<p><%= link_to "ブログ", "http://spica-travel.com/blog/", target: "blank" %></p>
+		<p><%= link_to "メディア掲載情報", "/information/media"  %></p>
+	</div>
+</div>
+</body>
+</html>
