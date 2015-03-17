@@ -39,8 +39,8 @@
 		<p>ホンダナに登録されている本(同じISBNコードの本)は表示しません。</p>
 	 	<% index = 0 %>
 		<% closing = true %>
-		<% if !@json_author_data.blank? && !@json_author_data['Items'].blank? %>
-			<% @json_author_data['Items'].each do |item| %>
+		<% if !@json_title_data.blank? && !@json_title_data['Items'].blank? %>
+			<% @json_title_data['Items'].each do |item| %>
 				<% if !@isbns.include? item['Item']['isbn'] %>
 					<% if index % 5 == 0 %>
 						<div class="booklist_wide">
@@ -60,8 +60,8 @@
 				<% end %>
 			<% end %>
 		<% end %>
-		<% if !@json_title_data.blank? && !@json_title_data['Items'].blank? %>
-			<% @json_title_data['Items'].each do |item| %>
+		<% if !@json_author_data.blank? && !@json_author_data['Items'].blank? %>
+			<% @json_author_data['Items'].each do |item| %>
 				<% if !@isbns.include? item['Item']['isbn'] %>
 					<% if index % 5 == 0 %>
 						<div class="booklist_wide">

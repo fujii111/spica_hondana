@@ -25,29 +25,38 @@ class BooksController < ApplicationController
       return
     end
     @books = Book.where("title like ? or author like ?", "%" + @keyword + "%", "%" + @keyword + "%").where(delete_flg: false)
-    begin
-      httpClient = HTTPClient.new
-      author_data = httpClient.get_content('https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522', {
-        'applicationId' => '1029724767561681573',
-        'affiliateId' => '12169043.4164998a.12169044.3519539e',
-        'format' => 'json',
-        'elements' => 'count,page,first,last,pageCount,title,author,publisherName,size,isbn,itemCaption,salesDate,itemUrl,mediumImageUrl,booksGenreName',
-        'author' => @keyword,
-        'hits' => '30'
-      })
-      title_data = httpClient.get_content('https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522', {
-        'applicationId' => '1029724767561681573',
-        'affiliateId' => '12169043.4164998a.12169044.3519539e',
-        'format' => 'json',
-        'elements' => 'count,page,first,last,pageCount,title,author,publisherName,size,isbn,itemCaption,salesDate,itemUrl,mediumImageUrl,booksGenreName',
-        'title' => @keyword,
-        'hits' => '30'
-      })
-      @json_title_data = JSON.parse title_data
-      @json_author_data = JSON.parse author_data
-    rescue HTTPClient::BadResponseError => e
-    rescue HTTPClient::TimeoutError => e
-    end
+
+    # API経由
+    condition = Hash.new
+    condition["title"] = @keyword
+    condition["hits"] = 30
+    @json_title_data = Book.getContent(condition)
+    condition["author"] = @keyword
+    @json_author_data = Book.getContent(condition)
+
+    # begin
+      # httpClient = HTTPClient.new
+      # author_data = httpClient.get_content('https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522', {
+        # 'applicationId' => '1029724767561681573',
+        # 'affiliateId' => '12169043.4164998a.12169044.3519539e',
+        # 'format' => 'json',
+        # 'elements' => 'count,page,first,last,pageCount,title,author,publisherName,size,isbn,itemCaption,salesDate,itemUrl,mediumImageUrl,booksGenreName',
+        # 'author' => @keyword,
+        # 'hits' => '30'
+      # })
+      # title_data = httpClient.get_content('https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522', {
+        # 'applicationId' => '1029724767561681573',
+        # 'affiliateId' => '12169043.4164998a.12169044.3519539e',
+        # 'format' => 'json',
+        # 'elements' => 'count,page,first,last,pageCount,title,author,publisherName,size,isbn,itemCaption,salesDate,itemUrl,mediumImageUrl,booksGenreName',
+        # 'title' => @keyword,
+        # 'hits' => '30'
+      # })
+      # @json_title_data = JSON.parse title_data
+      # @json_author_data = JSON.parse author_data
+    # rescue HTTPClient::BadResponseError => e
+    # rescue HTTPClient::TimeoutError => e
+    # end
     session[:return_path] = Array[request.fullpath]
   end
 
@@ -94,11 +103,6 @@ class BooksController < ApplicationController
     if session[:id] != nil
       @favorite = Favorite.find_by(book_id: @book.id, member_id: session[:id])
     end
-  end
-
-  # 蔵書の保有者一覧
-  def member_list
-
   end
 
   # 書籍の画像表示

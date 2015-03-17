@@ -31,21 +31,8 @@ class Book < ActiveRecord::Base
     self.image = data.read
   end
 
+  # ISBNで検索する
   def self.getFromAPIByISBN(isbn)
-    # begin
-      # httpClient = HTTPClient.new
-      # data = httpClient.get_content('https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522', {
-        # 'applicationId' => '1029724767561681573',
-        # 'affiliateId' => '12169043.4164998a.12169044.3519539e',
-        # 'format' => 'json',
-        # 'elements' => 'count,page,first,last,pageCount,title,author,publisherName,size,isbn,itemCaption,salesDate,itemUrl,largeImageUrl,booksGenreName',
-        # 'isbn' => isbn,
-        # 'hits' => '1'
-      # })
-      # json_data = JSON.parse data
-    # rescue HTTPClient::BadResponseError => e
-    # rescue HTTPClient::TimeoutError => e
-    # end
     condition = Hash.new
     condition["isbn"] = isbn
     condition["hits"] = 1
@@ -62,12 +49,13 @@ class Book < ActiveRecord::Base
     return book
   end
 
+  # 検索条件を指定して検索する
   def self.getContent(condition)
     condition.merge!({
         'applicationId' => '1029724767561681573',
         'affiliateId' => '12169043.4164998a.12169044.3519539e',
         'format' => 'json',
-        'elements' => 'count,page,first,last,pageCount,title,author,publisherName,size,isbn,itemCaption,salesDate,itemUrl,largeImageUrl,booksGenreName'
+        'elements' => 'count,page,first,last,pageCount,title,author,publisherName,size,isbn,itemCaption,salesDate,itemUrl,mediumImageUrl,largeImageUrl,booksGenreName'
     })
     begin
       httpClient = HTTPClient.new
