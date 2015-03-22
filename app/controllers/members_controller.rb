@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  skip_before_action :check_logined, only: [:new, :confirm, :create, :authenticate, :login, :logout, :forget_password, :send_mail_token, :confirm_mail_token]
+  skip_before_action :check_logined, only: [:new, :confirm, :create, :authenticate, :login, :logout, :forget_password, :send_mail_token, :confirm_mail_token, :reset_password]
   before_action :check_admin, only: [:index, :login_as]
 
   # 会員一覧(管理者機能)
@@ -106,14 +106,48 @@ class MembersController < ApplicationController
 
   # パスワード忘れメール送信
   def send_mail_token
-    member = Member.find_by(mail_address: params[:mail_address], delete_flg: false)
-    if member.blank?
+    @member = Member.find_by(mail_address: params[:mail_address], delete_flg: false)
+    if @member.blank?
       @notice = "指定したメールアドレスの会員が見つかりません。メールアドレスは正しく入力してください。"
       @mail_address = params[:mail_address]
+      render action: "forget_password"
+      return
     else
-      NoticeMailer.send_password_reset_token(member, request).deliver
+      @member.reset_token = SecureRandom.uuid
+      @member.reset_limit = DateTime.now + 1
+      @member.save!(validate: false)
+      NoticeMailer.send_password_reset_token(@member, request).deliver
     end
-    render action: "forget_password"
+  end
+
+  # パスワード忘れメール確認
+  def confirm_mail_token
+    @member = Member.where(reset_token: params[:reset_token], delete_flg: false).where("reset_limit > ?", DateTime.now)[0]
+    if @member.blank?
+      @notice = "無効なURLです。"
+    else
+      session[:reset_token] = params[:reset_token]
+    end
+  end
+
+  # パスワード再設定
+  def reset_password
+    @member = Member.where(reset_token: session[:reset_token], delete_flg: false).where("reset_limit > ?", DateTime.now)[0]
+    if @member.blank?
+      @notice = "無効なリクエストです。"
+      render action: "confirm_mail_token"
+      return
+    end
+    @member.password = params[:password]
+    @member.password_confirmation = params[:password_confirmation]
+    @member.reset_limit = DateTime.now
+    if @member.valid?
+      @member.password = Digest::MD5.hexdigest(@member.password)
+      @member.save!(validate: false)
+      session[:reset_token] = nil
+    else
+      render action: "confirm_mail_token"
+    end
   end
 
   # 退会

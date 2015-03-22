@@ -10,6 +10,6 @@ class NoticeMailer < ActionMailer::Base
     @member = member
     @request = request
     # TODO base64に変更
-    mail from: Property.find(1).inquiry_mail, content_transfer_encoding: '7bit', to: member.mail_address, subject: "[ホンダナ]パスワード再発行用URLのお知らせ"
+    mail from: "postmaster@spica-travel.com", content_transfer_encoding: '7bit', to: member.mail_address, subject: "[ホンダナ]パスワード再発行用URLのお知らせ"
   end
 end
