@@ -1,2 +1,45 @@
 <h1>お問い合わせ</h1><% @title = "お問い合わせ" %>
-<p>準備中</p>
+
+<p>お問い合わせの際のご注意事項</p>
+<p>
+	・お問い合わせの前に <%= link_to "利用ガイド", "/information/guide" %> をよく参照してください。<br />
+	・すぐに回答できないことがありますのでご了承ください。<br />
+	・メールアドレスに誤りがあると回答することができませんので正しく入力してください。
+</p>
+
+  <% unless @notice.blank? %>
+    <div id="error_explanation">
+      <p class="warn"><%= @notice %></p>
+    </div>
+  <% end %>
+
+<%= form_tag({controller: :information, action: :send_mail}) do %>
+  <div class="field">
+    <%= label_tag :name, "お名前" %>
+    <p>
+    	<%= text_field_tag :name, @name, size: "15" %>
+    </p>
+  </div>
+  <div class="field">
+    <%= label_tag :mail_address, "メールアドレス" %>
+    <p>
+    	<%= text_field_tag :mail_address, @mail_address, size: "25" %>
+    </p>
+  </div>
+  <div class="field">
+    <%= label_tag :category_id, "お問い合わせ種別" %>
+    <p>
+    	<%= select_tag :category_id, options_for_select([["会員登録・退会について", 0], ["本の登録・検索について", 1], ["ポイントについて", 2], ["本の発送について", 3], ["その他", 4]]), {selected: @category} %>
+    </p>
+  </div>
+  <div class="field">
+	<%= label_tag :content, "お問い合わせ内容" %>
+ 	<p>
+		<%= text_area_tag :content, @content, size: "50x8" %>
+	</p>
+  </div>
+  <div class="field">
+    <%= submit_tag "お問い合わせ実行" %>
+  </div>
+<% end %>
+

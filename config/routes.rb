@@ -1,4 +1,5 @@
 Hondana::Application.routes.draw do
+  post "information/send_mail" => "information#send_mail", format: false
   get "information/:action" => "information#:action", format: false
 
   get "messages" => "messages#index", format: false
