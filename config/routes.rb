@@ -8,6 +8,7 @@ Hondana::Application.routes.draw do
   post "members/login" => "members#authenticate", format: false
   post "members/confirm" => "members#confirm", format: false
   post "members/create" => "members#create", format: false
+  post "members/send_mail_token" => "members#send_mail_token", format: false
   patch "members/update" => "members#update", format: false
   patch "members/update_password" => "members#update_password", format: false
   get "members/login_as/:id" => "members#login_as", format: false

@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  skip_before_action :check_logined, only: [:new, :confirm, :create, :authenticate, :login, :logout]
+  skip_before_action :check_logined, only: [:new, :confirm, :create, :authenticate, :login, :logout, :forget_password, :send_mail_token, :confirm_mail_token]
   before_action :check_admin, only: [:index, :login_as]
 
   # 会員一覧(管理者機能)
@@ -102,6 +102,18 @@ class MembersController < ApplicationController
     else
       render action: "edit_password"
     end
+  end
+
+  # パスワード忘れメール送信
+  def send_mail_token
+    member = Member.find_by(mail_address: params[:mail_address], delete_flg: false)
+    if member.blank?
+      @notice = "指定したメールアドレスの会員が見つかりません。メールアドレスは正しく入力してください。"
+      @mail_address = params[:mail_address]
+    else
+      NoticeMailer.send_password_reset_token(member, request).deliver
+    end
+    render action: "forget_password"
   end
 
   # 退会
