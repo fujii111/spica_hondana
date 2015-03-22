@@ -150,11 +150,34 @@ class MembersController < ApplicationController
     end
   end
 
+  # 退会確認
+  def exit
+    @requested_collections = Collection.where(member_id: session[:id], state: 1)
+    @requesting_collections = Collection.where(request_member_id: session[:id], state: 1)
+    if @requested_collections.present? || @requesting_collections.present?
+      @notice = "発送処理待ちの本があるため、退会できません。"
+    end
+  end
+
   # 退会
   def destroy
+    @requested_collections = Collection.where(member_id: session[:id], state: 1)
+    @requesting_collections = Collection.where(request_member_id: session[:id], state: 1)
+    if @requested_collections.present? || @requesting_collections.present?
+      @notice = "発送処理待ちの本があるため、退会できません。"
+      render action: "exit"
+      return
+    end
+    @member = Member.find(session[:id])
     @member.delete_flg = true
     @member.save!(validate: false)
-    redirect_to action: "show"
+    Collection.where(member_id: session[:id], state: 0).update_all(state: 9)
+    session[:id] = nil
+    session[:login_id] = nil
+    session[:nickname] = nil
+    session[:point] = nil
+    session[:request_url] = nil
+    session[:message] = nil
   end
 
   # ログイン認証
