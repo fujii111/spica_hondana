@@ -48,13 +48,13 @@
     <p>
     	<%= @collection.weight %> g
     </p>
- 	<%= f.hidden_field :depth, {value: @collection.depth} %>
+ 	<%= f.hidden_field :weight, {value: @collection.weight} %>
   </div>
 
   <div class="field">
 	<%= f.label :line %>
 	<p>
- 		<%= Array["5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.line] %>
+ 		<%= Array["なし", "5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.line] %>
 	</p>
  	<%= f.hidden_field :line, {value: @collection.line} %>
   </div>
@@ -62,7 +62,7 @@
   <div class="field">
 	<%= f.label :broken %>
 	<p>
- 		<%= Array["5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.broken] %>
+ 		<%= Array["なし", "5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.broken] %>
 	</p>
  	<%= f.hidden_field :broken, {value: @collection.broken} %>
   </div>

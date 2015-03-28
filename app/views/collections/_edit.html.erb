@@ -50,18 +50,20 @@
   <div class="field">
 	<%= f.label :line %>
 	<p>
-		<label class="normal"><%= f.radio_button :line, "0" , {:checked => true} %> 5ページ未満　</label>
-		<label class="normal"><%= f.radio_button :line, "1" %> 5ページ以上10ページ未満　</label>
-		<label class="normal"><%= f.radio_button :line, "2" %> 10ページ以上　</label>
+		<label class="normal"><%= f.radio_button :line, "0" , {:checked => true} %> なし　</label>
+		<label class="normal"><%= f.radio_button :line, "1" %> 5ページ未満　</label>
+		<label class="normal"><%= f.radio_button :line, "2" %> 5ページ以上10ページ未満　</label>
+		<label class="normal"><%= f.radio_button :line, "3" %> 10ページ以上　</label>
 	</p>
   </div>
 
   <div class="field">
 	<%= f.label :broken %>
 	<p>
-		<label class="normal"><%= f.radio_button :broken, "0" , {:checked => true} %> 5ページ未満　</label>
-		<label class="normal"><%= f.radio_button :broken, "1" %> 5ページ以上10ページ未満　</label>
-		<label class="normal"><%= f.radio_button :broken, "2" %> 10ページ以上　</label>
+		<label class="normal"><%= f.radio_button :broken, "0" , {:checked => true} %> なし　</label>
+		<label class="normal"><%= f.radio_button :broken, "1" %> 5ページ未満　</label>
+		<label class="normal"><%= f.radio_button :broken, "2" %> 5ページ以上10ページ未満　</label>
+		<label class="normal"><%= f.radio_button :broken, "3" %> 10ページ以上　</label>
 	</p>
   </div>
 

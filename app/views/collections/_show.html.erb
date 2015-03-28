@@ -35,14 +35,14 @@
   <div class="field">
 	<%= label_tag :line, "書き込み線" %>
 	<p>
- 		<%= Array["5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.line] %>
+ 		<%= Array["なし", "5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.line] %>
 	</p>
   </div>
 
   <div class="field">
 	<%= label_tag :broken, "ページの折れ" %>
 	<p>
- 		<%= Array["5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.broken] %>
+ 		<%= Array["なし", "5ページ未満", "5ページ以上10ページ未満", "10ページ以上"][@collection.broken] %>
 	</p>
   </div>
 
