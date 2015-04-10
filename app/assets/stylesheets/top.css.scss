@@ -9,3 +9,374 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  */
+@charset "UTF-8";
+
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+font-family: "Lucida Grande", "segoe UI", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size: 100%;
+    vertical-align:baseline;
+    background-color:transparent;
+    color:#333;
+  font-size: 12pt;
+  line-height: 1.5;
+}
+*   {
+  margin:0;
+  padding:0;
+  word-wrap:break-word;
+}
+a{/*?????N????????*/
+  color:#503D2E;
+    font-style:normal;
+    text-decoration:underline;
+}
+a:link {/*???K???????N*/
+  color:#503D2E;
+    font-style:normal;
+    text-decoration:underline;
+}
+a:visited {/*?K????????N*/
+  color:#503D2E;
+    text-decoration:underline;
+}
+a:hover {/*?}?E?X?????????*/
+    color:#D54B1A;
+    font-style:normal;
+    text-decoration:underline;
+}
+a:active {/*?N???b?N??*/
+    text-decoration:none;
+}
+
+body{
+  margin:0 auto;
+  width:960px;
+  background-color:#FEFEEB;
+  background-image: url("./images/paper.png");
+
+}
+#head{
+  width:960px;
+  height:100px;
+  text-align:center;
+  color:#503D2E;
+  background-color:#FEFEEB;
+  background-image: url("./images/paper.png");
+}
+#head_image{
+  width:260px;
+  height:100px;
+  float:left;
+}
+#head_right{
+  margin:5px 10px;
+  width:280px;
+  height:40px;
+  float:right;
+  text-align:right;
+}
+#navigate{
+  margin:0 auto;
+  text-align:center;
+  float:left;
+}
+#navigate .box{
+  margin:7px 0;
+  width:200px;
+  height:30px;
+  text-align:center;
+  float:left;
+}
+#search_bar{
+  clear:both;
+  padding:5px 5px 5px 5px;
+  width:690px;
+  height:40px;
+  text-align:center;
+}
+#search_bar p{
+  height:35px;
+}
+input#search_box{
+  width:530px;
+  height:30px;
+    color:#503D2E;
+}
+#member_nav{
+  clear:both;
+  width:960px;
+  height:40px;
+
+}
+#member_nav p{
+  font-size:150%;
+  height:40px;
+  width:320px;
+  float:left;
+  text-align:center;
+}
+#member_nav p:not(:first-child){
+  width:319px;
+}
+#member_nav a{
+  width:319px;
+  height:40px;
+  float:left;
+  text-align:center;
+  color:#FEFEEB;
+  text-decoration:none;
+}
+#main{
+  margin:105px 2px 5px 2px;
+  clear:both;
+  padding:10px;
+  min-height:390px;
+  height:auto !important;
+  height:390px;
+  color:#503D2E;
+  background-color:#FEFEEB;
+  background-image: url("./images/paper.png");
+
+}
+#main p{
+  margin:5px 2px;
+  color:#503D2E;
+}
+#added_book{
+  border-right:1px #aaa solid;
+  padding:5px;
+  width:529px;
+  float:left;
+}
+#col_lside{
+  padding:5px;
+  width:390px;
+  float:left;
+}
+
+
+
+* html body {     
+    background: url(null) fixed;     
+}  
+
+/* header
+----------------------------------------------------------- */  
+div#header  {  
+    width: 100%;  
+    padding: 10px;  
+    background: #fff;  
+    border-bottom: 1px solid #CCC;  
+    color: #FFF;  
+    position: fixed;  
+    top:0;  
+    left:0;
+        z-index: 999; 
+    
+}  
+* html div#header    {     
+    position: absolute;     
+    top: expression(eval(document.documentElement.scrollTop+0));
+ 
+}  
+div#header h1   {  
+    width: 960px;  
+    margin: 0px auto 0px;  
+} 
+div#menu {
+    margin: -30px 0 0 150px; 
+}
+
+#searchform { 
+    margin: 0 0 0px 32px;  
+    width: 280px;  
+    background: url("../assets/input.png") left top no-repeat;   
+    display: block;  
+    height: 30px; 
+    position: relative;  
+}  
+#keyword  {
+  width: 230px;
+  height: 20px; 
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  border: 1px solid #FFF;
+    font-size: 11pt;
+    color:#999
+}  
+#searchBtn {  
+    position: absolute;  
+    top: 4px;  
+    left: 245px;  
+} 
+
+#search {  
+    position: relative;
+        top: 4px;
+    left: 290px;  
+} 
+
+#menu ul{
+list-style: none; 
+padding:0;
+    margin: -32px 0 3px 400px; 
+}
+#menu li{
+padding: 0; 
+margin: 0;
+float: left;
+}
+#menu li a{
+display: block;
+width: 120px;
+text-decoration: none;
+padding: 0px 0px 0px 5px;
+margin: 0px 2px;
+text-align: left;
+font-size: 14px;
+}
+iframe.example {
+float: right;
+margin-bottom: 50px;
+}
+.clearRight { clear: right; }
+p .example  { margin-left: 2em;
+    text-align:center;
+    }
+
+h2 {color:#D45F37;
+    font-size:25px;
+    text-align:center;}
+    
+    
+#topic {
+        margin-bottom: 20px;
+}   
+    
+#news {float: right;
+} 
+.news {
+        overflow:auto;
+        width:300px;
+        height:410px;
+        padding:5px;
+        border:2px solid #D45F37;
+        border-radius: 0 0 20px 20px;
+        background-color:#fff;
+        color:#000;
+        font-size:12px;
+
+    }
+    .news_title{
+        border:2px solid #D45F37;
+        border-radius: 20px 20px 0 0;
+        padding:5px;
+        width:300px;
+        font-weight:bold;
+        font-size:14px;
+        background-color:#D45F37;
+        color:#fff;
+    }
+.new_books {
+        width:580px;
+        height:200px;
+        padding:5px;
+        border:2px solid #D45F37;
+        border-radius: 20px;
+        background-color:#fff;
+        color:#000;
+        font-size:12px;
+        float: left;
+        margin-right: 20px;
+        overflow: auto;
+}
+
+ .clearLeft { 
+clear: left; 
+}
+div.booklist {
+    width: 448px;
+    div {
+      float: left;
+      img {
+        margin: 15px;
+        width: 120px;
+      }
+      p {
+        width: 278px;
+        margin: 40px 10px;
+      }
+    }
+  }
+  div.booklist_wide {
+    width: 560px;
+    height: 200px;
+    margin: 5px 5px;
+    div {
+      float: left;
+      width: 180px;
+      height: 300px;
+      &:not(:first-child) {
+        margin-left: 7px;
+      }
+      text-align: center;
+      overflow: hidden;
+      img {
+        margin: 0px;
+        width: 100px;
+      }
+    }
+  }
+  
+.size {
+    width: 590px;
+    overflow: hidden; 
+}
+
+#footer{
+width: 100%;
+padding:20px 0;
+text-align:center;
+}
+#footer .menu {
+padding-bottom:5px;
+}
+#footer li {
+font-weight:bold;
+display:inline;
+padding-left:16px;
+padding-right:8px;
+}
+
+#footer li a {
+text-decoration: none;
+color: #000;
+}
+
+.snsb ul {text-align:center;}
+.snsb li {
+display: inline;
+  padding-right:1em;
+  list-style:none;
+  
+}
+.fb-like {
+  line-height: 1;
+}
