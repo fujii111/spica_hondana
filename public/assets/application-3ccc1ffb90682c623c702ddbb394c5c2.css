@@ -1,0 +1,1070 @@
+@charset "UTF-8";/**
+ * BxSlider v4.1.2 - Fully loaded, responsive content slider
+ * http://bxslider.com
+ *
+ * Written by: Steven Wanderski, 2014
+ * http://stevenwanderski.com
+ * (while drinking Belgian ales and listening to jazz)
+ *
+ * CEO and founder of bxCreative, LTD
+ * http://bxcreative.com
+ */
+
+
+/** RESET AND LAYOUT
+===================================*/
+
+
+.bx-wrapper {
+	position: relative;
+	margin: 0 auto 60px;
+	padding: 0;
+	*zoom: 1;
+}
+
+.bx-wrapper img {
+	max-width: 100%;
+	display: block;
+}
+
+/** THEME
+===================================*/
+
+.bx-wrapper .bx-viewport {
+	-moz-box-shadow: 0 0 5px #ccc;
+	-webkit-box-shadow: 0 0 5px #ccc;
+	box-shadow: 0 0 5px #ccc;
+	border:  5px solid #fff;
+	left: -5px;
+	background: #fff;
+	
+	/*fix other elements on the page moving (on Chrome)*/
+	-webkit-transform: translatez(0);
+	-moz-transform: translatez(0);
+    	-ms-transform: translatez(0);
+    	-o-transform: translatez(0);
+    	transform: translatez(0);
+}
+
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+	position: absolute;
+	bottom: -30px;
+	width: 100%;
+}
+
+/* LOADER */
+
+.bx-wrapper .bx-loading {
+	min-height: 50px;
+	background: url(/images/bx_loader.gif) center center no-repeat #fff;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2000;
+}
+
+/* PAGER */
+
+.bx-wrapper .bx-pager {
+	text-align: center;
+	font-size: .85em;
+	font-family: Arial;
+	font-weight: bold;
+	color: #666;
+	padding-top: 20px;
+}
+
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a {
+	background: #666;
+	text-indent: -9999px;
+	display: block;
+	width: 10px;
+	height: 10px;
+	margin: 0 5px;
+	outline: 0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+	background: #000;
+}
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+
+.bx-wrapper .bx-prev {
+	left: 10px;
+	background: url(/images/controls.png) no-repeat 0 -32px;
+}
+
+.bx-wrapper .bx-next {
+	right: 10px;
+	background: url(/images/controls.png) no-repeat -43px -32px;
+}
+
+.bx-wrapper .bx-prev:hover {
+	background-position: 0 0;
+}
+
+.bx-wrapper .bx-next:hover {
+	background-position: -43px 0;
+}
+
+.bx-wrapper .bx-controls-direction a {
+	position: absolute;
+	top: 50%;
+	margin-top: -16px;
+	outline: 0;
+	width: 32px;
+	height: 32px;
+	text-indent: -9999px;
+	z-index: 9999;
+}
+
+.bx-wrapper .bx-controls-direction a.disabled {
+	display: none;
+}
+
+/* AUTO CONTROLS (START / STOP) */
+
+.bx-wrapper .bx-controls-auto {
+	text-align: center;
+}
+
+.bx-wrapper .bx-controls-auto .bx-start {
+	display: block;
+	text-indent: -9999px;
+	width: 10px;
+	height: 11px;
+	outline: 0;
+	background: url(/images/controls.png) -86px -11px no-repeat;
+	margin: 0 3px;
+}
+
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active {
+	background-position: -86px 0;
+}
+
+.bx-wrapper .bx-controls-auto .bx-stop {
+	display: block;
+	text-indent: -9999px;
+	width: 9px;
+	height: 11px;
+	outline: 0;
+	background: url(/images/controls.png) -86px -44px no-repeat;
+	margin: 0 3px;
+}
+
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active {
+	background-position: -86px -33px;
+}
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+	text-align: left;
+	width: 80%;
+}
+
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+	right: 0;
+	width: 35px;
+}
+
+/* IMAGE CAPTIONS */
+
+.bx-wrapper .bx-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: #666\9;
+	background: rgba(80, 80, 80, 0.75);
+	width: 100%;
+}
+
+.bx-wrapper .bx-caption span {
+	color: #fff;
+	font-family: Arial;
+	display: block;
+	font-size: .85em;
+	padding: 10px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ */
+/* line 27, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  font-family: "Lucida Grande", "segoe UI", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background-color: transparent;
+  color: #333;
+  font-size: 12pt;
+  line-height: 1.5;
+}
+
+/* line 40, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+* {
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+/* line 45, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+a {
+  /*?????N????????*/
+  color: #503D2E;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+/* line 50, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+a:link {
+  /*???K???????N*/
+  color: #503D2E;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+/* line 55, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+a:visited {
+  /*?K????????N*/
+  color: #503D2E;
+  text-decoration: underline;
+}
+
+/* line 59, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+a:hover {
+  /*?}?E?X?????????*/
+  color: #D54B1A;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+/* line 64, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+a:active {
+  /*?N???b?N??*/
+  text-decoration: none;
+}
+
+/* line 68, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+body {
+  margin: 0 auto;
+  width: 960px;
+  background-color: #FEFEEB;
+  background-image: url("./images/paper.png");
+}
+
+/* line 75, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#head {
+  width: 960px;
+  height: 100px;
+  text-align: center;
+  color: #503D2E;
+  background-color: #FEFEEB;
+  background-image: url("./images/paper.png");
+}
+
+/* line 83, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#head_image {
+  width: 260px;
+  height: 100px;
+  float: left;
+}
+
+/* line 88, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#head_right {
+  margin: 5px 10px;
+  width: 280px;
+  height: 40px;
+  float: right;
+  text-align: right;
+}
+
+/* line 95, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#navigate {
+  margin: 0 auto;
+  text-align: center;
+  float: left;
+}
+
+/* line 100, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#navigate .box {
+  margin: 7px 0;
+  width: 200px;
+  height: 30px;
+  text-align: center;
+  float: left;
+}
+
+/* line 107, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#search_bar {
+  clear: both;
+  padding: 5px 5px 5px 5px;
+  width: 690px;
+  height: 40px;
+  text-align: center;
+}
+
+/* line 114, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#search_bar p {
+  height: 35px;
+}
+
+/* line 117, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+input#search_box {
+  width: 530px;
+  height: 30px;
+  color: #503D2E;
+}
+
+/* line 122, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#member_nav {
+  clear: both;
+  width: 960px;
+  height: 40px;
+}
+
+/* line 128, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#member_nav p {
+  font-size: 150%;
+  height: 40px;
+  width: 320px;
+  float: left;
+  text-align: center;
+}
+
+/* line 135, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#member_nav p:not(:first-child) {
+  width: 319px;
+}
+
+/* line 138, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#member_nav a {
+  width: 319px;
+  height: 40px;
+  float: left;
+  text-align: center;
+  color: #FEFEEB;
+  text-decoration: none;
+}
+
+/* line 146, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#main {
+  margin: 105px 2px 5px 2px;
+  clear: both;
+  padding: 10px;
+  min-height: 390px;
+  height: auto !important;
+  height: 390px;
+  color: #503D2E;
+  background-color: #FEFEEB;
+  background-image: url("./images/paper.png");
+}
+
+/* line 158, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#main p {
+  margin: 5px 2px;
+  color: #503D2E;
+}
+
+/* line 162, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#added_book {
+  border-right: 1px #aaa solid;
+  padding: 5px;
+  width: 529px;
+  float: left;
+}
+
+/* line 168, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#col_lside {
+  padding: 5px;
+  width: 390px;
+  float: left;
+}
+
+/* line 176, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+* html body {
+  background: url(null) fixed;
+}
+
+/* header
+----------------------------------------------------------- */
+/* line 182, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+div#header {
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  border-bottom: 1px solid #CCC;
+  color: #FFF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* line 194, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+* html div#header {
+  position: absolute;
+  top: expression(eval(document.documentElement.scrollTop+0));
+}
+
+/* line 199, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+div#header h1 {
+  width: 960px;
+  margin: 0px auto 0px;
+}
+
+/* line 203, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+div#menu {
+  margin: -30px 0 0 150px;
+}
+
+/* line 207, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#searchform {
+  margin: 0 0 0px 32px;
+  width: 280px;
+  background: url("../assets/input.png") left top no-repeat;
+  display: block;
+  height: 30px;
+  position: relative;
+}
+
+/* line 215, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#keyword {
+  width: 230px;
+  height: 20px;
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  border: 1px solid #FFF;
+  font-size: 11pt;
+  color: #999999;
+}
+
+/* line 225, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#searchBtn {
+  position: absolute;
+  top: 4px;
+  left: 245px;
+}
+
+/* line 231, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#search {
+  position: relative;
+  top: 4px;
+  left: 290px;
+}
+
+/* line 237, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#menu ul {
+  list-style: none;
+  padding: 0;
+  margin: -32px 0 3px 400px;
+}
+
+/* line 242, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#menu li {
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+
+/* line 247, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#menu li a {
+  display: block;
+  width: 120px;
+  text-decoration: none;
+  padding: 0px 0px 0px 5px;
+  margin: 0px 2px;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* line 256, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+iframe.example {
+  float: right;
+  margin-bottom: 50px;
+}
+
+/* line 260, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+.clearRight {
+  clear: right;
+}
+
+/* line 261, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+p .example {
+  margin-left: 2em;
+  text-align: center;
+}
+
+/* line 265, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+h2 {
+  color: #D45F37;
+  font-size: 25px;
+  text-align: center;
+}
+
+/* line 270, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#topic {
+  margin-bottom: 20px;
+}
+
+/* line 274, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#news {
+  float: right;
+}
+
+/* line 276, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+.news {
+  overflow: auto;
+  width: 300px;
+  height: 410px;
+  padding: 5px;
+  border: 2px solid #D45F37;
+  border-radius: 0 0 20px 20px;
+  background-color: #fff;
+  color: #000;
+  font-size: 12px;
+}
+
+/* line 288, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+.news_title {
+  border: 2px solid #D45F37;
+  border-radius: 20px 20px 0 0;
+  padding: 5px;
+  width: 300px;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #D45F37;
+  color: #fff;
+}
+
+/* line 298, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+.new_books {
+  width: 580px;
+  height: 200px;
+  padding: 5px;
+  border: 2px solid #D45F37;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #000;
+  font-size: 12px;
+  float: left;
+  margin-right: 20px;
+  overflow: auto;
+}
+
+/* line 312, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+.clearLeft {
+  clear: left;
+}
+
+/* line 315, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+div.booklist {
+  width: 448px;
+}
+/* line 317, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+div.booklist div {
+  float: left;
+}
+/* line 319, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+div.booklist div img {
+  margin: 15px;
+  width: 120px;
+}
+/* line 323, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+div.booklist div p {
+  width: 278px;
+  margin: 40px 10px;
+}
+
+/* line 329, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+div.booklist_wide {
+  width: 560px;
+  height: 200px;
+  margin: 5px 5px;
+}
+/* line 333, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+div.booklist_wide div {
+  float: left;
+  width: 180px;
+  height: 300px;
+  text-align: center;
+  overflow: hidden;
+}
+/* line 337, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+div.booklist_wide div:not(:first-child) {
+  margin-left: 7px;
+}
+/* line 342, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+div.booklist_wide div img {
+  margin: 0px;
+  width: 100px;
+}
+
+/* line 349, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+.size {
+  width: 590px;
+  overflow: hidden;
+}
+
+/* line 354, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#footer {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* line 359, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#footer .menu {
+  padding-bottom: 5px;
+}
+
+/* line 362, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#footer li {
+  font-weight: bold;
+  display: inline;
+  padding-left: 16px;
+  padding-right: 8px;
+}
+
+/* line 369, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+#footer li a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* line 374, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+.snsb ul {
+  text-align: center;
+}
+
+/* line 375, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+.snsb li {
+  display: inline;
+  padding-right: 1em;
+  list-style: none;
+}
+
+/* line 381, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/top.css.scss */
+.fb-like {
+  line-height: 1;
+}
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+ */
+/* line 15, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-family: "メイリオ", sans-serif;
+  word-wrap: break-word;
+}
+
+/* line 24, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+body {
+  background-color: #F7F5E8;
+  background-image: url("/images/paper.png");
+  color: #503D2E;
+}
+
+/* line 30, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+a {
+  color: #503DEC;
+}
+/* line 32, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+a:hover {
+  opacity: 0.6;
+}
+
+/* line 37, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+table {
+  border-collapse: collapse;
+}
+
+/* line 41, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+time {
+  margin-right: 1em;
+  font-weight: bold;
+}
+
+/* line 46, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+.center {
+  text-align: center;
+}
+
+/* line 49, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+.right {
+  text-align: right;
+}
+
+/* line 52, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* line 55, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+.strong {
+  font-weight: bold;
+}
+
+/* line 58, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+.small {
+  font-size: smaller;
+}
+
+/* line 61, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+.larger {
+  font-size: x-large;
+}
+
+/* line 64, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+.large {
+  font-size: 200%;
+}
+
+/* line 67, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+.warn {
+  color: #D54B1A;
+}
+
+/* line 70, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+.info {
+  color: #335DE2;
+}
+
+/* line 74, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#head {
+  width: 960px;
+  height: 100px;
+  margin: 10px auto;
+}
+/* line 78, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#head h1 {
+  float: left;
+}
+/* line 81, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#head #navigate {
+  float: left;
+}
+/* line 83, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#head #navigate .button {
+  float: left;
+  width: 200px;
+  height: 30px;
+  margin: 7px 0;
+}
+/* line 89, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#head #navigate #welcome {
+  float: right;
+  width: 280px;
+  height: 40px;
+  margin: 5px 0 5px 10px;
+}
+/* line 96, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#head #search {
+  clear: both;
+  padding: 10px 0 10px 8px;
+  width: 690px;
+  height: 40px;
+}
+/* line 101, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#head #search #keyword {
+  width: 530px;
+  height: 30px;
+  padding-left: 2px;
+}
+
+/* line 109, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#menu {
+  clear: both;
+  width: 960px;
+  height: 40px;
+  margin: 0 auto;
+}
+/* line 114, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#menu p {
+  float: left;
+}
+
+/* line 119, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#footer {
+  clear: both;
+  width: 960px;
+  height: 160px;
+  margin: 0 auto;
+  background-image: url("/images/footer_bg.png");
+}
+/* line 125, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#footer div {
+  float: left;
+  width: 319px;
+  height: 150px;
+  padding: 5px 0px;
+}
+/* line 130, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#footer div p {
+  text-indent: 1.5em;
+}
+/* line 133, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#footer div a {
+  color: #FEFEEB;
+}
+/* line 136, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#footer div:not(:first-child) {
+  border-left: 1px solid #FEFEEB;
+}
+
+/* line 142, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main {
+  clear: both;
+  width: 960px;
+  min-height: 390px;
+  height: auto !important;
+  height: 390px;
+  margin: 0 auto;
+  padding: 10px 2px 20px;
+}
+/* line 150, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main h1 {
+  border: 2px solid #CCCCCC;
+  border-left-width: 10px;
+  padding: 5px;
+  font-size: 22px;
+}
+/* line 156, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main p {
+  margin: 16px;
+}
+/* line 159, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main table.list {
+  width: 928px;
+  margin: 12px 16px;
+}
+/* line 162, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main table.list td, #main table.list th {
+  border: 1px solid #333333;
+  padding: 2px;
+}
+/* line 166, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main table.list th {
+  background-color: #EEEEEE;
+}
+/* line 170, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main div.booklist {
+  width: 448px;
+}
+/* line 172, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main div.booklist div {
+  float: left;
+}
+/* line 174, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main div.booklist div img {
+  margin: 15px;
+  width: 120px;
+}
+/* line 178, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main div.booklist div p {
+  width: 278px;
+  margin: 40px 10px;
+}
+/* line 184, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main div.booklist_wide {
+  width: 928px;
+  height: 330px;
+  margin: 12px 16px;
+}
+/* line 188, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main div.booklist_wide div {
+  float: left;
+  width: 180px;
+  height: 330px;
+  text-align: center;
+  overflow: hidden;
+}
+/* line 192, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main div.booklist_wide div:not(:first-child) {
+  margin-left: 7px;
+}
+/* line 197, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main div.booklist_wide div img {
+  margin: 15px;
+  width: 120px;
+}
+/* line 203, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main div.book_img {
+  float: left;
+}
+/* line 205, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main div.book_img img {
+  width: 240px;
+}
+/* line 209, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main div.book {
+  float: left;
+  width: 680px;
+}
+/* line 213, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main p.detail {
+  text-indent: 2em;
+}
+/* line 216, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main form {
+  clear: both;
+}
+/* line 219, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main .required:after {
+  color: #D54B1A;
+  content: "【必須】";
+}
+/* line 223, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main .new:after {
+  color: #D54B1A;
+  content: "【NEW!】";
+}
+/* line 227, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main .field {
+  margin: 16px;
+}
+/* line 229, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main .field label:not(.normal) {
+  font-weight: bold;
+}
+/* line 232, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main .field p {
+  margin: 4px;
+  margin-left: 40px;
+}
+/* line 237, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main .field .field_with_errors input, #main .field .field_with_errors select, #main .field .field_with_errors textarea {
+  background-color: #F3BEB9;
+}
+/* line 242, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main #error_explanation {
+  font-weight: bold;
+}
+/* line 244, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main #error_explanation ul {
+  list-style-type: none;
+  margin: 4px;
+  margin-left: 56px;
+  font-weight: bold;
+}
+/* line 251, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main #mypage_left {
+  float: left;
+  margin: 16px 0;
+  border-right: 1px dotted #333333;
+}
+/* line 255, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main #mypage_left #collection_summary_area {
+  width: 447px;
+  height: 168px;
+  margin: 0 16px;
+  border-bottom: 1px dotted #333333;
+}
+/* line 262, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main #mypage_right {
+  float: left;
+  margin: 16px 0;
+}
+/* line 265, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main #mypage_right #point_summary_area {
+  width: 448px;
+  height: 168px;
+  margin: 0 16px;
+  border-bottom: 1px dotted #333333;
+}
+/* line 272, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main #collection_area, #main #point_area {
+  width: 447px;
+  margin: 16px;
+}
+/* line 275, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main #collection_area dl, #main #point_area dl {
+  margin-bottom: 10px;
+}
+/* line 277, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main #collection_area dl dd, #main #point_area dl dd {
+  margin-left: 20px;
+}
+/* line 282, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main .request_list {
+  float: left;
+  width: 448px;
+  margin: 16px;
+}
+/* line 286, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main .request_list dl {
+  margin-bottom: 10px;
+}
+/* line 288, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main .request_list dl dd {
+  margin-left: 20px;
+}
+/* line 293, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main #term {
+  width: 928px;
+  height: 390px;
+  margin: 12px 16px;
+  border: 1px solid #333333;
+  overflow: auto;
+}
+/* line 300, C:/Users/fujii/git/spica_hondana/app/assets/stylesheets/application.css.scss */
+#main #term_smartly {
+  width: 600px;
+  height: 230px;
+  margin: 12px auto;
+  border: 1px solid #333333;
+  overflow: auto;
+}

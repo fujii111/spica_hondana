@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -8,6 +8,7 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require_self
  */
 @charset "UTF-8";
 
@@ -21,7 +22,7 @@ b, i,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure, 
+article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
 font-family: "Lucida Grande", "segoe UI", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
@@ -67,8 +68,7 @@ a:active {/*?N???b?N??*/
 body{
   margin:0 auto;
   width:960px;
-  background-color:#FEFEEB;
-  background-image: url("./images/paper.png");
+  background-color:#FFFFFF;
 
 }
 #head{
@@ -150,9 +150,7 @@ input#search_box{
   height:auto !important;
   height:390px;
   color:#503D2E;
-  background-color:#FEFEEB;
-  background-image: url("./images/paper.png");
-
+  background-color:#FFFFFF;
 }
 #main p{
   margin:5px 2px;
@@ -172,74 +170,74 @@ input#search_box{
 
 
 
-* html body {     
-    background: url(null) fixed;     
-}  
-
-/* header
------------------------------------------------------------ */  
-div#header  {  
-    width: 100%;  
-    padding: 10px;  
-    background: #fff;  
-    border-bottom: 1px solid #CCC;  
-    color: #FFF;  
-    position: fixed;  
-    top:0;  
-    left:0;
-        z-index: 999; 
-    
-}  
-* html div#header    {     
-    position: absolute;     
-    top: expression(eval(document.documentElement.scrollTop+0));
- 
-}  
-div#header h1   {  
-    width: 960px;  
-    margin: 0px auto 0px;  
-} 
-div#menu {
-    margin: -30px 0 0 150px; 
+* html body {
+    background: url(null) fixed;
 }
 
-#searchform { 
-    margin: 0 0 0px 32px;  
-    width: 280px;  
-    background: url("../assets/input.png") left top no-repeat;   
-    display: block;  
-    height: 30px; 
-    position: relative;  
-}  
+/* header
+----------------------------------------------------------- */
+div#header  {
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+    border-bottom: 1px solid #CCC;
+    color: #FFF;
+    position: fixed;
+    top:0;
+    left:0;
+        z-index: 999;
+
+}
+* html div#header    {
+    position: absolute;
+    top: expression(eval(document.documentElement.scrollTop+0));
+
+}
+div#header h1   {
+    width: 960px;
+    margin: 0px auto 0px;
+}
+div#menu {
+    margin: -30px 0 0 150px;
+}
+
+#searchform {
+    margin: 0 0 0px 32px;
+    width: 280px;
+    background: url("./images/input.png") left top no-repeat;
+    display: block;
+    height: 30px;
+    position: relative;
+}
 #keyword  {
   width: 230px;
-  height: 20px; 
+  height: 20px;
   position: absolute;
   top: 4px;
   left: 8px;
   border: 1px solid #FFF;
     font-size: 11pt;
     color:#999
-}  
-#searchBtn {  
-    position: absolute;  
-    top: 4px;  
-    left: 245px;  
-} 
+}
+#searchBtn {
+    position: absolute;
+    top: 4px;
+    left: 245px;
+}
 
-#search {  
+#search {
     position: relative;
         top: 4px;
-    left: 290px;  
-} 
+    left: 290px;
+}
 
 #menu ul{
-list-style: none; 
+list-style: none;
 padding:0;
-    margin: -32px 0 3px 400px; 
+    margin: -32px 0 3px 400px;
 }
 #menu li{
-padding: 0; 
+padding: 0;
 margin: 0;
 float: left;
 }
@@ -264,14 +262,14 @@ p .example  { margin-left: 2em;
 h2 {color:#D45F37;
     font-size:25px;
     text-align:center;}
-    
-    
+
+
 #topic {
         margin-bottom: 20px;
-}   
-    
+}
+
 #news {float: right;
-} 
+}
 .news {
         overflow:auto;
         width:300px;
@@ -279,7 +277,7 @@ h2 {color:#D45F37;
         padding:5px;
         border:2px solid #D45F37;
         border-radius: 0 0 20px 20px;
-        background-color:#ffffff;
+        background-color:#fff;
         color:#000;
         font-size:12px;
 
@@ -308,8 +306,8 @@ h2 {color:#D45F37;
         overflow: auto;
 }
 
- .clearLeft { 
-clear: left; 
+ .clearLeft {
+clear: left;
 }
 div.booklist {
     width: 448px;
@@ -344,10 +342,10 @@ div.booklist {
       }
     }
   }
-  
+
 .size {
     width: 590px;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 #footer{
@@ -356,7 +354,7 @@ padding:20px 0;
 text-align:center;
 }
 #footer .menu {
-padding-bottom:6px;
+padding-bottom:5px;
 }
 #footer li {
 font-weight:bold;
@@ -375,6 +373,8 @@ color: #000;
 display: inline;
   padding-right:1em;
   list-style:none;
-  
-}
 
+}
+.fb-like {
+  line-height: 1;
+}
