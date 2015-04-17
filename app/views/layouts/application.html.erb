@@ -6,28 +6,85 @@
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
+	<script>
+window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </head>
 
 <body>
+
+<div id="header"> 
+<h1><%= link_to (image_tag 'logo.gif', alt: 'ホンダナトップページへ'), "/books/list"  %>
+<div id="menu">
+<div id="searchform">
+			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
+		    	<%= text_field_tag :keyword, session[:keyword], size: "15", maxlength: "20", placeholder: "著者名・キーワードで検索" %>
+			    <%= image_submit_tag("search.png",id:'searchBtn') %>
+				<%= link_to "詳細検索", "/books/search_edit" ,id:'search' %>
+			<% end %>
+		</div>
+
+<div id="globalnavi">  
+<ul>  
+<% if session[:id].blank? %>
+					<li><%= link_to  (image_tag 'member.gif', alt: '会員登録'), "/members/new"  %></li>  
+<li><%= link_to (image_tag 'login.gif', alt: 'ログイン'), "/members/login"  %></li>
+					<% else %>
+					<li class="welcome">ようこそ <span class="strong"><%= session[:nickname] %></span> さん
+					現在 <span class="strong"><%= session[:point] %></span> ブク</li>
+					<% if session[:login_id] == "spica" %>
+					<li><%= link_to "管理者", "/information/admin"  %></li>
+					<% end %>
+					<li class="login"><%= link_to (image_tag 'logout.gif', alt: 'ログアウト'), "/members/logout"  %></li>
+				<% end %>
+				<li><%= link_to  (image_tag 'howto.gif', alt: '使いかた'), "/information/guide"  %></li>
+</ul>  
+</div>  
+</div></h1>
+
+<div class="menu">
+	<p><%= link_to (image_tag 'profile_ico.png', alt: 'プロフィール', class: 'button'), "/members/show"  %></p>
+	<p><%= link_to (image_tag 'exchange_all_ico.png', alt: '交換一覧', class: 'button'), "/collections/list"  %></p>
+	<p><%= link_to (image_tag session[:message] ? 'notice_ico_new.png' : 'notice_ico.png', alt: '会員向け告知', class: 'button'), "/messages/"  %></p>
+</div>
+<!--/ #header--></div>
+<div id="main">
+<%= yield %>
+</div>
+
+<div id="footer">
+		<ul class="menu">
+		<li  class="first"><%= link_to "使いかた", "/information/guide"  %></li>
+		<li><%= link_to "よくある質問", "/information/term"  %></li>
+		<li><%= link_to "プライバシー", "/information/term"  %></li>
+		<li><%= link_to "ご利用規約", "/information/term"  %></li>
+		<li><%= link_to "運営会社", "/information/aboutus"  %></li>
+		<li><%= link_to "お問い合わせ", "/information/inquiry"  %></li>
+　　　　　　</ul>
+<ul class="snsb">
+<li><a class="twitter-share-button" href="https://twitter.com/share" data-dnt="true">Tweet</a></li>
+<li><div class="fb-like" data-href="http://syncer.jp" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
+</ul>
+</div>
+
+<!--
 <div id="head">
 	<h1>
-		<%= link_to (image_tag 'title_ico.png', alt: 'トップページへ'), root_path  %>
+		<%= link_to (image_tag 'logo.gif', alt: 'トップページへ'), "/books/list"  %>
 	</h1>
 	<div id="navigate">
-		<p class="button"><%= link_to (image_tag 'mypage_ico.png', alt: 'マイページへ'), "/collections/" %></p>
 		<p class="button"><%= link_to (image_tag 'this_is_ico.png', alt: 'このサイトについて'), "/information/aboutthis"  %></p>
 		<div id="welcome" class="right">
 			<p>
-				<% if session[:id].blank? %>
-					<%= link_to "新規会員登録", "/members/new"  %> | <%= link_to "ログイン", "/members/login"  %>
-				<% else %>
-					ようこそ <span class="strong"><%= session[:nickname] %></span> さん<br />
-					現在 <span class="strong"><%= session[:point] %></span> ブク
-					<% if session[:login_id] == "spica" %>
-					| <%= link_to "管理者", "/information/admin"  %>
-					<% end %>
-					| <%= link_to "ログアウト", "/members/logout"  %>
-				<% end %>
+				<%= link_to "新規会員登録", "/members/new"  %> | <%= link_to "ログイン", "/members/login"  %>
 			</p>
 		</div>
 		<div id="search" class="right">
@@ -39,35 +96,6 @@
 		</div>
 	</div>
 </div>
-
-<div id="menu">
-	<p><%= link_to (image_tag 'profile_ico.png', alt: 'プロフィール', class: 'button'), "/members/show"  %></p>
-	<p><%= link_to (image_tag 'exchange_all_ico.png', alt: '交換一覧', class: 'button'), "/collections/list"  %></p>
-	<p><%= link_to (image_tag session[:message] ? 'notice_ico_new.png' : 'notice_ico.png', alt: '会員向け告知', class: 'button'), "/messages/"  %></p>
-</div>
-
-<div id="main">
-<%= yield %>
-</div>
-
-<div id="footer">
-	<div>
-		<h1><%= image_tag 'about_this_ico.png', alt: 'ABOUT ホンダナ' %></h1>
-		<p><%= link_to "利用ガイド", "/information/guide"  %></p>
-		<p><%= link_to "料金", "/information/fee"  %></p>
-		<p><%= link_to "お問い合わせ", "/information/inquiry"  %></p>
-		<p><%= link_to "利用規約", "/information/term"  %></p>
-	</div>
-	<div>
-		<h1><%= image_tag 'about_us_ico.png', alt: 'ABOUT US' %></h1>
-		<p><%= link_to "スピカ旅行社", "http://spica-travel.com/", target: "blank" %></p>
-		<p><%= link_to "会社概要", "/information/aboutus"  %></p>
-	</div>
-	<div>
-		<h1><%= image_tag 'media_ico.png', alt: 'メディア' %></h1>
-		<p><%= link_to "ブログ", "http://spica-travel.com/blog/", target: "blank" %></p>
-		<p><%= link_to "メディア掲載情報", "/information/media"  %></p>
-	</div>
-</div>
+-->
 </body>
 </html>

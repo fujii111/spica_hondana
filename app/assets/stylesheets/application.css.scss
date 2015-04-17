@@ -11,295 +11,385 @@
  */
 
 * {
-	margin: 0;
-	padding: 0;
-	font-size: 16px;
-	font-style: normal;
-	font-family: "メイリオ", sans-serif;
-	word-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-family: "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+  word-wrap: break-word;
 }
 
 body {
-	background-color: #F7F5E8;
-	background-image: url("/images/paper.png");
-	color: #503D2E;
+  background-color: #FFFFFF;
 }
 
 a {
-	color: #503DEC;
-	&:hover {
-		opacity: 0.6;
-	}
+  color: #503DEC;
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 table {
-	border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 time {
-	margin-right: 1em;
-	font-weight: bold;
+  margin-right: 1em;
+  font-weight: bold;
 }
 
 .center {
-	text-align: center;
+  text-align: center;
 }
 .right {
-	text-align: right;
+  text-align: right;
 }
 .nowrap {
-	white-space: nowrap;
+  white-space: nowrap;
 }
 .strong {
-	font-weight: bold;
+  font-weight: bold;
 }
 .small {
-	font-size: smaller;
+  font-size: smaller;
 }
 .larger {
-	font-size: x-large;
+  font-size: x-large;
 }
 .large {
-	font-size: 200%;
+  font-size: 200%;
 }
 .warn {
-	color: #D54B1A;
+  color: #D54B1A;
 }
 .info {
-	color: #335DE2;
+  color: #335DE2;
 }
 
 #head {
-	width: 960px;
-	height: 100px;
-	margin: 10px auto;
-	h1 {
-		float: left;
-	}
-	#navigate {
-		float: left;
-		.button {
-			float: left;
-			width: 200px;
-			height: 30px;
-			margin: 7px 0;
-		}
-		#welcome {
-			float: right;
-			width: 280px;
-			height: 40px;
-			margin: 5px 0 5px 10px;
-		}
-	}
-	#search {
-		clear: both;
-		padding: 10px 0 10px 8px;
-		width: 690px;
-		height: 40px;
-		#keyword {
-			width: 530px;
-			height: 30px;
-			padding-left: 2px;
-		}
-	}
+  width: 960px;
+  height: 100px;
+  margin: 10px auto;
+  h1 {
+    float: left;
+  }
+  #navigate {
+    float: left;
+    .button {
+      float: left;
+      width: 200px;
+      height: 30px;
+      margin: 7px 0;
+    }
+    #welcome {
+      float: right;
+      width: 280px;
+      height: 40px;
+      margin: 5px 0 5px 10px;
+    }
+  }
+  #search {
+    clear: both;
+    padding: 10px 0 10px 8px;
+    width: 690px;
+    height: 40px;
+    #keyword {
+      width: 530px;
+      height: 30px;
+      padding-left: 2px;
+    }
+  }
 }
 
-#menu {
-	clear: both;
-	width: 960px;
-	height: 40px;
-	margin: 0 auto;
-	p {
-		float: left;
-	}
+.menu {
+  clear: both;
+  width: 960px;
+  height: 40px;
+  margin: 0 auto;
+  p {
+    float: left;
+  }
 }
 
-#footer {
-	clear: both;
-	width: 960px;
-	height: 160px;
-	margin: 0 auto;
-	background-image: url("/images/footer_bg.png");
-	div {
-		float: left;
-		width: 319px;
-		height: 150px;
-		padding: 5px 0px;
-		p {
-			text-indent: 1.5em;
-		}
-		a {
-			color: #FEFEEB;
-		}
-		&:not(:first-child) {
-			border-left: 1px solid #FEFEEB;
-		}
-	}
-}
+
 
 #main {
-	clear: both;
-	width: 960px;
-	min-height: 390px;
-	height: auto !important;
-	height: 390px;
-	margin: 0 auto;
-	padding: 10px 2px 20px;
-	h1 {
-		border: 2px solid #CCCCCC;
-		border-left-width: 10px;
-		padding: 5px;
-		font-size: 22px;
-	}
-	p {
-		margin: 16px;
-	}
-	table.list {
-		width: 928px;
-		margin: 12px 16px;
-		td, th {
-			border: 1px solid #333333;
-			padding: 2px;
-		}
-		th {
-			background-color: #EEEEEE;
-		}
-	}
-	div.booklist {
-		width: 448px;
-		div {
-			float: left;
-			img {
-				margin: 15px;
-				width: 120px;
-			}
-			p {
-				width: 278px;
-				margin: 40px 10px;
-			}
-		}
-	}
-	div.booklist_wide {
-		width: 928px;
-		height: 330px;
-		margin: 12px 16px;
-		div {
-			float: left;
-			width: 180px;
-			height: 330px;
-			&:not(:first-child) {
-				margin-left: 7px;
-			}
-			text-align: center;
-			overflow: hidden;
-			img {
-				margin: 15px;
-				width: 120px;
-			}
-		}
-	}
-	div.book_img {
-		float: left;
-		img {
-			width: 240px;
-		}
-	}
-	div.book {
-		float: left;
-		width: 680px;
-	}
-	p.detail {
-		text-indent: 2em;
-	}
-	form {
-		clear: both;
-	}
-	.required:after {
-		color: #D54B1A;
-		content: "【必須】";
-	}
-	.new:after {
-		color: #D54B1A;
-		content: "【NEW!】";
-	}
-	.field {
-		margin: 16px;
-		label:not(.normal) {
-			font-weight: bold;
-		}
-		p {
-			margin: 4px;
-			margin-left: 40px;
-		}
-		.field_with_errors {
-			input, select, textarea {
-				background-color: #F3BEB9;
-			}
-		}
-	}
-	#error_explanation {
-		font-weight: bold;
-		ul {
-			list-style-type: none;
-			margin: 4px;
-			margin-left: 56px;
-			font-weight: bold;
-		}
-	}
-	#mypage_left {
-		float: left;
-		margin: 16px 0;
-		border-right: 1px dotted #333333;
-		#collection_summary_area {
-			width: 447px;
-			height: 168px;
-			margin: 0 16px;
-			border-bottom: 1px dotted #333333;
-		}
-	}
-	#mypage_right {
-		float: left;
-		margin: 16px 0;
-		#point_summary_area {
-			width: 448px;
-			height: 168px;
-			margin: 0 16px;
-			border-bottom: 1px dotted #333333;
-		}
-	}
-	#collection_area, #point_area {
-		width: 447px;
-		margin: 16px;
-		dl {
-			margin-bottom: 10px;
-			dd {
-				margin-left: 20px;
-			}
-		}
-	}
-	.request_list {
-		float: left;
-		width: 448px;
-		margin: 16px;
-		dl {
-			margin-bottom: 10px;
-			dd {
-				margin-left: 20px;
-			}
-		}
-	}
-	#term {
-		width: 928px;
-		height: 390px;
-		margin: 12px 16px;
-		border: 1px solid #333333;
-		overflow: auto;
-	}
-	#term_smartly {
-		width: 600px;
-		height: 230px;
-		margin: 12px auto;
-		border: 1px solid #333333;
-		overflow: auto;
-	}
+  clear: both;
+  width: 960px;
+  min-height: 390px;
+  height: auto !important;
+  height: 390px;
+  margin: 150px auto 0;
+  padding: 10px 2px 20px;
+  h1 {
+    border: 2px solid #CCCCCC;
+    border-left-width: 10px;
+    padding: 5px;
+    font-size: 22px;
+  }
+  p {
+    margin: 16px;
+  }
+  table.list {
+    width: 928px;
+    margin: 12px 16px;
+    td, th {
+      border: 1px solid #333333;
+      padding: 2px;
+    }
+    th {
+      background-color: #EEEEEE;
+    }
+  }
+  div.booklist {
+    width: 448px;
+    div {
+      float: left;
+      img {
+        margin: 15px;
+        width: 120px;
+      }
+      p {
+        width: 278px;
+        margin: 40px 10px;
+      }
+    }
+  }
+  div.booklist_wide {
+    width: 928px;
+    height: 330px;
+    margin: 12px 16px;
+    div {
+      float: left;
+      width: 180px;
+      height: 330px;
+      &:not(:first-child) {
+        margin-left: 7px;
+      }
+      text-align: center;
+      overflow: hidden;
+      img {
+        margin: 15px;
+        width: 120px;
+      }
+    }
+  }
+  div.book_img {
+    float: left;
+    img {
+      width: 240px;
+    }
+  }
+  div.book {
+    float: left;
+    width: 680px;
+  }
+  p.detail {
+    text-indent: 2em;
+  }
+  form {
+    clear: both;
+  }
+  .required:after {
+    color: #D54B1A;
+    content: "【必須】";
+  }
+  .new:after {
+    color: #D54B1A;
+    content: "【NEW!】";
+  }
+  .field {
+    margin: 16px;
+    label:not(.normal) {
+      font-weight: bold;
+    }
+    p {
+      margin: 4px;
+      margin-left: 40px;
+    }
+    .field_with_errors {
+      input, select, textarea {
+        background-color: #F3BEB9;
+      }
+    }
+  }
+  #error_explanation {
+    font-weight: bold;
+    ul {
+      list-style-type: none;
+      margin: 4px;
+      margin-left: 56px;
+      font-weight: bold;
+    }
+  }
+  #mypage_left {
+    float: left;
+    margin: 16px 0;
+    border-right: 1px dotted #333333;
+    #collection_summary_area {
+      width: 447px;
+      height: 168px;
+      margin: 0 16px;
+      border-bottom: 1px dotted #333333;
+    }
+  }
+  #mypage_right {
+    float: left;
+    margin: 16px 0;
+    #point_summary_area {
+      width: 448px;
+      height: 168px;
+      margin: 0 16px;
+      border-bottom: 1px dotted #333333;
+    }
+  }
+  #collection_area, #point_area {
+    width: 447px;
+    margin: 16px;
+    dl {
+      margin-bottom: 10px;
+      dd {
+        margin-left: 20px;
+      }
+    }
+  }
+  .request_list {
+    float: left;
+    width: 448px;
+    margin: 16px;
+    dl {
+      margin-bottom: 10px;
+      dd {
+        margin-left: 20px;
+      }
+    }
+  }
+  #term {
+    width: 928px;
+    height: 390px;
+    margin: 12px 16px;
+    border: 1px solid #333333;
+    overflow: auto;
+  }
+  #term_smartly {
+    width: 600px;
+    height: 230px;
+    margin: 12px auto;
+    border: 1px solid #333333;
+    overflow: auto;
+  }
+}
+
+
+
+
+
+/* header?v?f 
+----------------------------------------------------------- */  
+div#header  {  
+    width: 100%;  
+    padding: 10px;  
+    background: #fff;  
+    border-bottom: 1px solid #CCC;  
+    color: #000;  
+    position: fixed;  
+    top:0;  
+    left:0;
+        z-index: 999; 
+    
+}  
+* html div#header    {     
+    position: absolute;     
+    top: expression(eval(document.documentElement.scrollTop+0));
+ 
+}  
+div#header h1   {  
+    width: 960px;  
+    margin: 0px auto 0px;  
+} 
+div#menu {
+    margin: -30px 0 0 150px; 
+}
+
+#searchform { 
+    margin: 0 0 0px 32px;  
+    width: 280px;  
+    background: url(../assets/input.png) left top no-repeat;   
+    display: block;  
+    height: 30px; 
+    position: relative;  
+}  
+#keyword  {
+  width: 230px;
+  height: 20px; 
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  border: 1px solid #FFF;
+    font-size: 11pt;
+    color:#999
+}  
+#searchBtn {  
+    position: absolute;  
+    top: 4px;  
+    left: 245px;  
+} 
+
+#search {  
+    position: relative;
+        top: 4px;
+    left: 290px;  
+} 
+
+#menu ul{
+list-style: none; 
+padding:0;
+    margin: -32px 0 3px 400px; 
+}
+#menu li{
+padding: 0; 
+margin: 0;
+float: left;
+}
+#menu li a{
+display: block;
+width: 120px;
+text-decoration: none;
+padding: 0px 0px 0px 5px;
+margin: 0px 2px;
+text-align: left;
+font-size: 14px;
+}
+#menu .welcome {margin:-16px 10px 0 0;}
+#menu .login {margin:-20px 10px 0 0;}
+#footer{
+width: 100%;
+padding:20px 0;
+text-align:center;
+}
+#footer .menu {
+padding-bottom:5px;
+}
+#footer li {
+font-weight:bold;
+display:inline;
+padding-left:16px;
+padding-right:8px;
+}
+
+#footer li a {
+text-decoration: none;
+color: #000;
+}
+
+.snsb ul {text-align:center;}
+.snsb li {
+display: inline;
+  padding-right:1em;
+  list-style:none;
+
+}
+.fb-like {
+  line-height: 1;
 }
