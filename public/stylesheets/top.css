@@ -43,21 +43,22 @@ font-family: "Lucida Grande", "segoe UI", "Hiragino Maru Gothic ProN", Meiryo, A
   word-wrap:break-word;
 }
 a{/*?????N????????*/
-  color:#503D2E;
+  color:#000000;
     font-style:normal;
     text-decoration:underline;
 }
 a:link {/*???K???????N*/
-  color:#503D2E;
+  color:#D45F37;
     font-style:normal;
     text-decoration:underline;
 }
 a:visited {/*?K????????N*/
-  color:#503D2E;
+  color:#000000;
     text-decoration:underline;
 }
 a:hover {/*?}?E?X?????????*/
-    color:#D54B1A;
+    color:#D45F37;
+        opacity: 0.6;
     font-style:normal;
     text-decoration:underline;
 }
@@ -75,7 +76,7 @@ body{
   width:960px;
   height:100px;
   text-align:center;
-  color:#503D2E;
+  color:#D45F37;
   background-color:#FEFEEB;
   background-image: url("./images/paper.png");
 }
@@ -116,7 +117,7 @@ body{
 input#search_box{
   width:530px;
   height:30px;
-    color:#503D2E;
+    color:#D45F37;
 }
 #member_nav{
   clear:both;
@@ -149,12 +150,12 @@ input#search_box{
   min-height:390px;
   height:auto !important;
   height:390px;
-  color:#503D2E;
+  color:#D45F37;
   background-color:#FFFFFF;
 }
 #main p{
   margin:5px 2px;
-  color:#503D2E;
+  color:#000000;
 }
 #added_book{
   border-right:1px #aaa solid;

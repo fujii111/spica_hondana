@@ -23,11 +23,28 @@ body {
   background-color: #FFFFFF;
 }
 
-a {
-  color: #503DEC;
-  &:hover {
-    opacity: 0.6;
-  }
+a{/*?????N????????*/
+  color:#000000;
+    font-style:normal;
+    text-decoration:underline;
+}
+a:link {/*???K???????N*/
+  color:#D45F37;
+    font-style:normal;
+    text-decoration:underline;
+}
+a:visited {/*?K????????N*/
+  color:#000000;
+    text-decoration:underline;
+}
+a:hover {/*?}?E?X?????????*/
+    color:#D45F37;
+        opacity: 0.6;
+    font-style:normal;
+    text-decoration:underline;
+}
+a:active {/*?N???b?N??*/
+    text-decoration:none;
 }
 
 table {
@@ -123,8 +140,7 @@ time {
   margin: 150px auto 0;
   padding: 10px 2px 20px;
   h1 {
-    border: 2px solid #CCCCCC;
-    border-left-width: 10px;
+   border-bottom: 2px dotted #D45F37;
     padding: 5px;
     font-size: 22px;
   }
