@@ -122,10 +122,11 @@ time {
 .menu {
   clear: both;
   width: 960px;
-  height: 40px;
+  height: 30px;
   margin: 0 auto;
   p {
     float: left;
+    margin-left: 2.5px;
   }
 }
 
