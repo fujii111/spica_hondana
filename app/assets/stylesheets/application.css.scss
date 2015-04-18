@@ -410,3 +410,15 @@ display: inline;
 .fb-like {
   line-height: 1;
 }
+
+input[type="submit"] {
+   background-color: #D45F37;
+   color: white;
+  border-radius: 5px;
+  border:2px solid #D45F37;
+  padding: 5px 20px;
+
+}
+input[type="submit"]:hover {
+        opacity: 0.6;
+}
