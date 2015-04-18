@@ -1,0 +1,47 @@
+<h1>プロパティの編集</h1><% @title = "プロパティの編集" %>
+
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <p>入力エラーです。以下を確認してください。</p>
+      <ul>
+      <% @property.errors.full_messages.each do |msg| %>
+        <li class="warn"><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_for(@property, url: "/property/update" ) do |f| %>
+
+  <div class="field">
+    <%= f.label "問い合わせ先メールアドレス" %>
+    <p>
+    	<%= f.text_field :inquiry_mail, size: 40 %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= f.label "クリックポストURL" %>
+    <p>
+    	<%= f.text_field :clickpost_url, size: 60 %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= f.label "1か月間の申請上限数" %>
+    <p>
+    	<%= f.text_field :request_limit, size: 3 %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= f.label "会員登録時発行ポイント数" %>
+    <p>
+    	<%= f.text_field :default_point, size: 3 %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= f.submit value: @submit %>
+  </div>
+<% end %>

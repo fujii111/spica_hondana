@@ -1,0 +1,45 @@
+<h1>プロパティ</h1><% @title = "プロパティ" %>
+
+<div class="field">
+	<%= label_tag :title, "問い合わせ先メールアドレス" %>
+	<p>
+		<%= @property.inquiry_mail %>
+	</p>
+	<p>
+		※お問い合わせがこのメールへ送信されます
+	</p>
+</div>
+
+<div class="field">
+	<%= label_tag :title, "クリックポストURL" %>
+	<p>
+		<%= @property.clickpost_url %>
+	</p>
+	<p>
+		※申請ページにこのURLへのリンクが表示されます
+	</p>
+</div>
+
+<div class="field">
+	<%= label_tag :title, "1か月間の申請上限数" %>
+	<p>
+		<%= @property.request_limit %>
+	</p>
+	<p>
+		 ※1か月間でこの数を超えて本を申請することはできません
+	</p>
+</div>
+
+<div class="field">
+	<%= label_tag :title, "会員登録時発行ポイント数" %>
+	<p>
+		<%= @property.default_point %>
+	</p>
+	<p>
+		※キャンペーンなどで、会員登録時にポイントをサービスできます
+	</p>
+</div>
+
+<p>
+	<%= link_to '編集する', "/property/edit" %> |  <%= link_to "戻る", "/information/admin" %>
+</p>

@@ -9,7 +9,7 @@ class NoticeMailer < ActionMailer::Base
   def send_password_reset_token(member, request)
     @member = member
     @request = request
-    mail from: "postmaster@spica-travel.com", to: member.mail_address, subject: "[ホンダナ]パスワード再発行用URLのお知らせ"
+    mail from: Property.find(1).inquiry_mail, to: member.mail_address, subject: "[ホンダナ]パスワード再発行用URLのお知らせ"
   end
 
   def inquiry(name, mail_address, category, content)

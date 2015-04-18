@@ -2,6 +2,10 @@ Hondana::Application.routes.draw do
   post "information/send_mail" => "information#send_mail", format: false
   get "information/:action" => "information#:action", format: false
 
+  get "property/show" => "property#show", format: false
+  get "property/edit" => "property#edit", format: false
+  patch "property/update" => "property#update", format: false
+
   get "messages" => "messages#index", format: false
   post "messages/read" => "messages#read"
 

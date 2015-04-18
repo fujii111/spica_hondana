@@ -18,7 +18,7 @@
 	<span class="strong"><%= @collection.member.nickname %></span> さんに本を申請します。<span class="strong">クリックポストから宛名ラベルを取得</span>し、<span class="strong">アップロードして申請を実行</span>してください。
 </p>
 <p>
-	<span class="strong">1. </span><%= link_to "クリックポストへ", "http://www.post.japanpost.jp/service/clickpost/", {target: :blank} %>
+	<span class="strong">1. </span><%= link_to "クリックポストへ", Property.find(1).clickpost_url, {target: :blank} %>
 </p>
 <%= form_tag({action: :request_collection}, multipart: true) do %>
   <div class="field">
