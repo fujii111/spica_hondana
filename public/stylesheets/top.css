@@ -336,10 +336,9 @@ div.booklist_wide div {
   height: 300px;
   text-align: center;
   overflow: hidden;
+  margin-left: 20px;
 }
-div.booklist_wide div:not(:first-child) {
-  margin-left: 30px;
-}
+
 div.booklist_wide div img {
   margin: 0px;
   width: 100px;
