@@ -311,38 +311,39 @@ h2 {color:#D45F37;
 clear: left;
 }
 div.booklist {
-    width: 448px;
-    div {
-      float: left;
-      img {
-        margin: 15px;
-        width: 120px;
-      }
-      p {
-        width: 278px;
-        margin: 40px 10px;
-      }
-    }
-  }
-  div.booklist_wide {
-    width: 560px;
-    height: 200px;
-    margin: 5px 5px;
-    div {
-      float: left;
-      width: 180px;
-      height: 300px;
-      &:not(:first-child) {
-        margin-left: 7px;
-      }
-      text-align: center;
-      overflow: hidden;
-      img {
-        margin: 0px;
-        width: 100px;
-      }
-    }
-  }
+  width: 448px;
+}
+div.booklist div {
+  float: left;
+}
+div.booklist div img {
+  margin: 15px;
+  width: 120px;
+}
+div.booklist div p {
+  width: 278px;
+  margin: 40px 10px;
+}
+
+div.booklist_wide {
+  width: 560px;
+  height: 200px;
+  margin: 5px 5px;
+}
+div.booklist_wide div {
+  float: left;
+  width: 180px;
+  height: 300px;
+  text-align: center;
+  overflow: hidden;
+}
+div.booklist_wide div:not(:first-child) {
+  margin-left: 7px;
+}
+div.booklist_wide div img {
+  margin: 0px;
+  width: 100px;
+}
 
 .size {
     width: 590px;
