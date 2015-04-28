@@ -379,8 +379,9 @@ text-align: left;
 font-size: 14px;
 }
 #menu .welcome {margin:-16px 80px 0 0;}
-#menu img.kanri {vertical-align: middle;}
-#menu .kanri {margin-left:10px;}
+#menu .kanri {height:30px;
+vertical-align:middle;
+margin-left:10px;}
 #footer{
 width: 100%;
 padding:20px 0;
