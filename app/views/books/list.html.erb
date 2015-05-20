@@ -13,4 +13,5 @@
 
 <h1>新着の本</h1>
 <%= render "list" %>
+<%= will_paginate @books, previous_label: '←前へ', next_label: '次へ→' %>
 <% session[:return_path] = Array[request.fullpath] %>

@@ -54,3 +54,6 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'httpclient'
+
+gem 'will_paginate'
+

@@ -7,13 +7,18 @@ class BooksController < ApplicationController
 
   # トップページの表示
   def list
-    @books = Book.where(delete_flg: false, member_id: nil).order(created_at: :desc).limit(20)
-    @notices = Notice.order(notice_date: :desc).limit(5)
+    @books = Book.where(delete_flg: false, member_id: nil)
+      .order(created_at: :desc)
+      .paginate(page: params[:page], per_page: 50)
+    @notices = Notice.order(notice_date: :desc)
+      .limit(5)
   end
 
   # 書籍一覧表示
   def index
-    @books = Book.where(delete_flg: false).order(created_at: :desc).limit(100)
+    @books = Book.where(delete_flg: false)
+      .order(created_at: :desc)
+      .paginate(page: params[:page], per_page: 50)
   end
 
   # 書籍検索
