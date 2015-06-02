@@ -11,7 +11,7 @@
 <body>
 
 <div id="header"> 
-<h1><%= link_to (image_tag 'logo.gif', alt: 'ホンダナトップページへ'), "http://hondana-books.com/"  %>
+<h1><%= link_to (image_tag 'logo.gif', alt: 'ホンダナトップページへ'), "/books/list"  %>
 <div id="menu">
 <div id="searchform">
 			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
