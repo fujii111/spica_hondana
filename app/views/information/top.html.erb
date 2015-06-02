@@ -15,7 +15,7 @@
 
 
 <div id="header">
-<h1><%= link_to (image_tag 'logo.gif', alt: 'ホンダナトップページへ'), "/books/list"  %>
+<h1><%= link_to (image_tag 'logo.gif', alt: 'ホンダナトップページへ'), "http://hondana-books.com/"  %>
 <div id="menu">
 <div id="searchform">
 			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
@@ -24,16 +24,6 @@
 				<%= link_to "詳細検索", "/books/search_edit" ,id:'search' %>
 			<% end %>
 			<script>
-window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
-</script>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 		</div>
 
 
@@ -109,10 +99,6 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 		<li><%= link_to "運営会社", "/information/aboutus"  %></li>
 		<li><%= link_to "お問い合わせ", "/information/inquiry"  %></li>
 　　　　　　</ul>
-<ul class="snsb">
-<li><a class="twitter-share-button" href="https://twitter.com/share" data-dnt="true">Tweet</a></li>
-<li><div class="fb-like" data-href="http://syncer.jp" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
-</ul>
 </div>
 
 <!--
