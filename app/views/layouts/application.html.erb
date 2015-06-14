@@ -10,8 +10,8 @@
 
 <body>
 
-<div id="header"> 
-<h1><%= link_to (image_tag 'logo.gif', alt: 'ホンダナトップページへ'), "/books/list"  %>
+<div id="header">
+<h1><%= link_to (image_tag 'logo.gif', alt: 'ホンダナトップページへ'), "/"  %>
 <div id="menu">
 <div id="searchform">
 			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
@@ -21,25 +21,25 @@
 			<% end %>
 		</div>
 
-<div id="globalnavi">  
-<ul>  
+<div id="globalnavi">
+<ul>
 <% if session[:id].blank? %>
 <li><%= link_to  (image_tag 'howto.gif', alt: '使いかた'), "/information/guide"  %></li>
-<li><%= link_to  (image_tag 'member.gif', alt: '会員登録'), "/members/new"  %></li>  
+<li><%= link_to  (image_tag 'member.gif', alt: '会員登録'), "/members/new"  %></li>
 <li><%= link_to (image_tag 'login.gif', alt: 'ログイン'), "/members/login"  %></li>
 					<% else %>
 					<li class="welcome">ようこそ <span class="strong"><%= session[:nickname] %></span> さん
 					現在 <span class="strong"><%= session[:point] %></span> ブク</li>
-					
+
 					<li><%= link_to  (image_tag 'howto.gif', alt: '使いかた'), "/information/guide"  %></li>
 					<li><%= link_to (image_tag 'logout.gif', alt: 'ログアウト'), "/members/logout"  %></li>
 					<% if session[:login_id] == "spica" %>
 					<li class="kanri"><%= link_to "[管理者メニュー]", "/information/admin"  %></li>
 					<% end %>
 				<% end %>
-				
-</ul>  
-</div>  
+
+</ul>
+</div>
 </div></h1>
 
 <div class="menu">
