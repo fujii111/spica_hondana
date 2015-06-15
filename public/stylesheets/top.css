@@ -405,6 +405,16 @@ display: inline;
 .fb-like {
   line-height: 1;
 }
+.menu {
+  clear: both;
+  width: 960px;
+  height: 30px;
+  margin: 0 auto;}
+ .menu p {
+    float: left;
+    margin-left: 2.5px;
+  }
+
 #menu .welcome {margin:-16px 80px 0 0;}
 #menu .kanri {margin-top:0.5em;
 margin-left:10px;}
