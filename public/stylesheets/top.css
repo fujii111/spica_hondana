@@ -203,15 +203,15 @@ div#menu {
 }
 
 #searchform {
-    margin: 0 0 0px 32px;
-    width: 280px;
-    background: url(/images/input.png) left top no-repeat;
+    margin: 0 0 0px 62px;
+    width: 250px;
+    background: url(/images/input_beta.png) left top no-repeat;
     display: block;
     height: 30px;
     position: relative;
 }
 #keyword  {
-  width: 230px;
+  width: 200px;
   height: 20px;
   position: absolute;
   top: 4px;
@@ -223,13 +223,13 @@ div#menu {
 #searchBtn {
     position: absolute;
     top: 4px;
-    left: 245px;
+    left: 215px;
 }
 
 #search {
     position: relative;
         top: 4px;
-    left: 290px;
+    left: 260px;
 }
 
 #menu ul{
@@ -379,3 +379,6 @@ display: inline;
 .fb-like {
   line-height: 1;
 }
+#menu .welcome {margin:-16px 80px 0 0;}
+#menu .kanri {margin-top:0.5em;
+margin-left:10px;}
