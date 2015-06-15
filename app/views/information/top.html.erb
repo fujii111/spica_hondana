@@ -72,13 +72,6 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 	<p><%= link_to (image_tag 'exchange_all.gif', alt: '交換一覧', class: 'button'), "/collections/list"  %></p>
 	<p><%= link_to (image_tag session[:message] ? 'notice_new.gif' : 'notice.gif', alt: '会員向け告知', class: 'button'), "/messages/"  %></p>
 </div>
-<% if session[:login_id] == "spica" %>
-<div class="menu">
-	<p><%= link_to (image_tag 'mypage.gif', alt: 'マイページ', class: 'button'), "/collections"  %></p>
-	<p><%= link_to (image_tag 'profile.gif', alt: 'プロフィール', class: 'button'), "/members/show"  %></p>
-	<p><%= link_to (image_tag 'exchange_all.gif', alt: '交換一覧', class: 'button'), "/collections/list"  %></p>
-	<p><%= link_to (image_tag session[:message] ? 'notice_new.gif' : 'notice.gif', alt: '会員向け告知', class: 'button'), "/messages/"  %></p>
-</div>
 <% end %>
 <% end %>
 <!--/ #header--></div>
