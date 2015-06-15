@@ -225,6 +225,6 @@ class MembersController < ApplicationController
     session[:point] = nil
     session[:request_url] = nil
     session[:message] = nil
-    redirect_to "/books/list"
+    redirect_to "/"
   end
 end
