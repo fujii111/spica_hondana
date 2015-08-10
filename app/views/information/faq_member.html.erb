@@ -1,0 +1,50 @@
+<h1 id="index">FAQ（準備中）</h1><% @title = "FAQ 会員情報の登録・変更について" %>
+<div class="faqmenu">
+<ul>
+<li><%= link_to "よくある質問", "/information/faq"  %></li>
+<li><%= link_to "ホンダナの基本", "/information/faq_kihon"  %></li>
+<li><%= link_to "会員情報の登録・変更について", "/information/faq_member"  %></li>
+<li><%= link_to "蔵書の登録について", "/information/faq_book"  %></li>
+<li><%= link_to "本をさがす・交換申請をする", "/information/faq_search"  %></li>
+<li><%= link_to "（出品者）取引について", "/information/faq_syuppin"  %></li>
+<li><%= link_to "（購入者）取引について", "/information/faq_kounyu"  %></li>
+<li><%= link_to "取引全般について", "/information/faq_zenpan"  %></li>
+<li><%= link_to "配送・決済について", "/information/faq_haiso"  %></li>
+<li><%= link_to "ブクについて", "/information/faq_buku"  %></li>
+</div>
+
+<h2>【会員情報の登録・変更について】</h2>
+<ul id="faq">
+<p>［登録内容について］</p>
+	<li>Q1.　<a href="#1">パスワードを忘れました</a></li>
+	<li>Q2.　<a href="#2">ログインができません</a></li>
+	<li>Q3.　<a href="#3">メールアドレスの変更をしたい</a></li>
+	<li>Q4.　<a href="#4">プロフィールの編集ができません</a></li>
+</ul>
+<br><br>
+<div id="1">
+	<h2 class="faq"> Q1. パスワードを忘れました</h2>
+A.　<%= link_to "こちら", "/members/forget_password"  %>から登録しているメールアドレスを入力してください。<br>
+ログインIDとパスワード再発行用URLを記載したメールを送信します。<br><br>
+<div class="right"><div class="right"><div class="right"><a class="button" href="#index">▲ Top</a></div></div></div>
+</div>
+
+<div id="2">
+	<h2 class="faq">Q2.　ログインができません</h2>
+A.　<%= link_to "こちら", "/members/forget_password"  %>から登録しているメールアドレスを入力してください。<br> 
+ログインIDとパスワード再発行用URLを記載したメールを送信します。<br> 
+登録しているメールアドレスが無効な場合はお手数ですが再度新規登録をお願いします。<br><br>
+<div class="right"><div class="right"><a class="button" href="#index">▲ Top</a></div></div>
+</div>
+
+<div id="3">
+	<h2 class="faq">Q3.　メールアドレスの変更をしたい</h2>
+A.　<%= link_to "こちら", "/members/edit"  %>から登録したいメールアドレスを入力してください。<br> <br>
+<div class="right"><div class="right"><a class="button" href="#index">▲ Top</a></div></div>
+</div>
+
+<div id="4">
+	<h2 class="faq">Q4.　プロフィールの編集ができません</h2>
+A.　<%= link_to "こちら", "/members/edit"  %>から編集出来ない場合は<%= link_to "お問い合わせ", "/information/inquiry"  %>ください。<br><br>
+<div class="right"><div class="right"><a class="button" href="#index">▲ Top</a></div></div>
+</div>
