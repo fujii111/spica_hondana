@@ -426,6 +426,18 @@ input[type="submit"] {
 input[type="submit"]:hover {
         opacity: 0.6;
 }
+.faqmenu{margin-bottom:40px;}
+.faqmenu li {
+padding-left:6px;
+margin:0.5em 0 0 6px;
+display: -moz-inline-box;
+display: inline-block;
+*display: inline;
+*zoom: 1;
+}
+.faqmenu li + li {
+border-left:1px solid #CCC;
+}
 #faq li{
 list-style: none;
 line-height:2.0em;
