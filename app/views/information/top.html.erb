@@ -9,14 +9,6 @@
 	<script src="/javascripts/jquery.bxslider.js"></script>
 	<script src="/javascripts/top.js"></script>
 	<%= csrf_meta_tags %>
-	<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.3";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -33,7 +25,7 @@
 
 
 <div id="header">
-<h1><%= link_to (image_tag 'logo_beta.gif', alt: 'ホンダナトップページへ'), "/"  %>
+<h1><%= link_to (image_tag 'logo_beta_share.gif', alt: 'ホンダナトップページへ'), "/"  %>
 <div id="menu">
 <div id="searchform">
 			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
@@ -88,22 +80,15 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 
 <div id="main">
 <div class="example">
-<p><iframe width="560" height="315" src="https://www.youtube.com/embed/1OmIbXJ1PHk?rel=0&wmode=transparent" frameborder="0" allowfullscreen class="example">サービス紹介</iframe></p>
-
-<h2>日本中の本棚に眠る本たちに<br />
+<p><iframe width="500" height="281" src="https://www.youtube.com/embed/1OmIbXJ1PHk?rel=0&wmode=transparent" frameborder="0" allowfullscreen class="example">サービス紹介</iframe></p>
+	<h2>日本中の本棚に眠る本たちに<br />
 活躍の場を!</h2>
 
 <p align="center">ホンダナはあなたの交換しても良い蔵書を<br />
 必要とする方の元へと送り出すサービスです。</p>
-<div id="searchform2">
-			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
-		    	<%= text_field_tag :keyword, session[:keyword], size: "15", maxlength: "20", placeholder: "著者名・キーワードで検索" %>
-			    <%= image_submit_tag("search.png",id:'searchBtn2') %>
-			<% end %>
-		</div>
 
 <p align="center"><%= link_to  (image_tag 'member.png', alt: '会員登録'), "/members/new"  %></p>
-<p class="clearRight"></p>
+<p class="clearLeft"></p>
 
 </div>
 
@@ -117,25 +102,34 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 			<p>
 				<time><%= format_datetime notice.notice_date, :date %></time>
 				<span><%= notice.content %></span>
+				<hr>
 			</p>
 		<% end %>
 	<% end %>
 </div>
 </div>
-<h3>おすすめの本棚</h3>
-<div class="size">
-<ul class="bxslider">
-  <li><%= link_to  (image_tag 'tokushu.jpg', alt: '特集',id:'topic'), "/information/guide"  %></li>
-  <li><%= link_to  (image_tag 'tokushu.jpg', alt: '特集',id:'topic'), "/information/guide"  %></li>
-  <li><%= link_to  (image_tag 'tokushu.jpg', alt: '特集',id:'topic'), "/information/guide"  %></li>
-</ul>
-</div>
-	<h3>新登録された本</h3>
+<div class="magazine"><%= link_to (image_tag 'magazine_banner.png', alt: 'ホンダナマガジン'), "/magazine"  %></div>
+	<h3>新しく登録された本</h3>
 <div class="new_books">
 	<%= render "/books/list" %>
 </div>
 </div>
 <p class="clearLeft"></p>
+<div id="sns">
+
+<div class="box">
+<div class="fb-page" data-href="https://www.facebook.com/HondanaBooks" data-width="450px" data-height="400px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/HondanaBooks"><a href="https://www.facebook.com/HondanaBooks">ホンダナ</a></blockquote></div></div>
+</div>
+
+<div class="box">
+<a class="twitter-timeline" width="450px" height="215px" data-chrome="noheader"　data-border-color="#000000" data-link-color="#D45F37" href="https://twitter.com/hondana_books" data-widget-id="631309597198778368">@hondana_booksさんのツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+<p class="clearLeft"></p>
+
+</div>
+</div>
+
 
 <div id="footer">
 		<ul class="menu">
@@ -146,34 +140,5 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 		<li><%= link_to "運営会社", "/information/aboutus"  %></li>
 		<li><%= link_to "お問い合わせ", "/information/inquiry"  %></li>
 　　　　　　</ul>
-<div class="fb-like" data-href="https://www.facebook.com/HondanaBooks" data-layout="button_count"data-send='false' data-show-faces='false' data-width='90'></div>
-<a class='twitter-share-button' data-lang='locale' data-text='本の交換Webサービス ホンダナ #hondana' data-url='http://hondana-books.com/' href='https://twitter.com/share'></a>
-<script>
-  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-</script>
-</div>
-
-<!--
-<div id="head">
-	<h1>
-		<%= link_to (image_tag 'logo.gif', alt: 'トップページへ'), "/books/list"  %>
-	</h1>
-	<div id="navigate">
-		<p class="button"><%= link_to (image_tag 'this_is_ico.png', alt: 'このサイトについて'), "/information/aboutthis"  %></p>
-		<div id="welcome" class="right">
-			<p>
-				<%= link_to "新規会員登録", "/members/new"  %> | <%= link_to "ログイン", "/members/login"  %>
-			</p>
-		</div>
-		<div id="search" class="right">
-			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
-		    	<%= text_field_tag :keyword, session[:keyword], size: "15", maxlength: "20", placeholder: "本の検索・登録・交換をする場合はこちらから" %>
-			    <%= submit_tag "検索" %>
-				<%= link_to "詳細検索", "/books/search_edit"  %>
-			<% end %>
-		</div>
-	</div>
-</div>
--->
 </body>
 </html>

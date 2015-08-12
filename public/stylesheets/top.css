@@ -278,11 +278,11 @@ text-align: left;
 font-size: 14px;
 }
 iframe.example {
-float: right;
+float: left;
 margin-bottom: 50px;
 }
-.clearRight { clear: right; }
-p .example  { margin-left: 2em;
+.clearFeft { clear: left; }
+p .example  { margin-right: 2em;
     text-align:center;
     }
 
@@ -418,3 +418,21 @@ display: inline;
 #menu .welcome {margin:-16px 80px 0 0;}
 #menu .kanri {margin-top:0.5em;
 margin-left:10px;}
+
+#sns {
+max-width:960px;
+   display: block;
+	margin: 80px 5px 0;
+}
+
+div.box {
+float: left;
+width:450px;
+margin: 0 12px;
+}
+.twitter-timeline { 
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+.magazine {margin-bottom:15px;}
