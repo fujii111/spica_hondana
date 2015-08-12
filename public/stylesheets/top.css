@@ -319,7 +319,7 @@ h2 {color:#D45F37;
         background-color:#D45F37;
         color:#fff;
     }
-    hr.news_border {
+    hr .news_border {
     border: 0;
     height: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
