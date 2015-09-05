@@ -277,7 +277,7 @@ margin: 0px 2px;
 text-align: left;
 font-size: 14px;
 }
-iframe.example {
+img.example {
 float: left;
 margin-bottom: 50px;
 }
@@ -325,25 +325,27 @@ h2 {color:#D45F37;
 border: none;
 border-top: 1px #cccccc solid;
 }
-.new_books {
-        width:580px;
+
+
+.top_new_books {
+        width:940px;
         height:200px;
         padding:5px;
-        border:2px solid #D45F37;
-        border-radius: 20px;
+        border:0;
         background-color:#fff;
         color:#000;
         font-size:12px;
         float: left;
         margin-right: 20px;
         overflow: auto;
+        margin-bottom:30px;
 }
 
  .clearLeft {
 clear: left;
 }
 div.booklist {
-  width: 448px;
+  width: 930px;
 }
 div.booklist div {
   float: left;
@@ -358,7 +360,7 @@ div.booklist div p {
 }
 
 div.booklist_wide {
-  width: 560px;
+  width: 920px;
   height: 200px;
   margin: 5px 5px;
 }

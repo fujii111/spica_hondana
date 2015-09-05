@@ -1,16 +1,4 @@
-<% @title = "トップページ" %>
-<h1>お知らせ</h1>
-<% if @notices.blank? %>
-	<p>お知らせはありません。</p>
-<% else %>
-	<% @notices.each do |notice| %>
-		<p>
-			<time><%= format_datetime notice.notice_date, :date %></time>
-			<span><%= notice.content %></span>
-		</p>
-	<% end %>
-<% end %>
-
+<% @title = "新着の本" %>
 <h1>新着の本</h1>
 <%= render "list" %>
 <%= will_paginate @books, previous_label: '←前へ', next_label: '次へ→' %>

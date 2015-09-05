@@ -2,9 +2,9 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>ホンダナ</title>
-	<meta name="keywords" content="ほんだな,本棚,本の交換" >
-	<meta name="description" content="ホンダナは「日本中の本棚に眠っている本を、誰かとシェアできる」サービスです">
+	<title>ホンダナ | 本を読みたい人と本を整理したい人をつなぐシェアリングサービス</title>
+	<meta name="keywords" content="ほんだな,本棚,本の交換,本の整理" >
+	<meta name="description" content="ホンダナは本を読みたい人と本を整理したい人をつなぐシェアリングサービスです">
 	<link href="/stylesheets/top.css" media="all" rel="stylesheet" />
 	<link href="/stylesheets/jquery.bxslider.css" media="all" rel="stylesheet" />
 	<script src="/javascripts/jquery.min.js"></script>
@@ -82,12 +82,11 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 
 <div id="main">
 <div class="example">
-<p><iframe width="500" height="281" src="https://www.youtube.com/embed/1OmIbXJ1PHk?rel=0&wmode=transparent" frameborder="0" allowfullscreen class="example">サービス紹介</iframe></p>
-	<h2>日本中の本棚に眠る本たちに<br />
-活躍の場を!</h2>
 
-<p align="center">ホンダナはあなたの交換しても良い蔵書を<br />
-必要とする方の元へと送り出すサービスです。</p>
+<%= (image_tag 'hondana_img.jpg' , class: 'example')%>
+<h2>ホンダナは本を読みたい人と<br />
+本を整理したい人をつなぐ<br />
+シェアリングサービスです</h2>
 
 <p align="center"><%= link_to  (image_tag 'member.png', alt: '会員登録'), "/members/new"  %></p>
 <p class="clearLeft"></p>
@@ -95,26 +94,14 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 </div>
 
 <div id="news">
-<div class="news_title">お知らせ</div>
-	<div class="news">
-	<% if @notices.blank? %>
-		<p>お知らせはありません。</p>
-	<% else %>
-		<% @notices.each do |notice| %>
-			<p>
-				<time><%= format_datetime notice.notice_date, :date %></time>
-				<span><%= notice.content %></span>
-				<hr class="border">
-			</p>
-		<% end %>
-	<% end %>
+
 </div>
-</div>
-<div class="magazine"><%= link_to (image_tag 'magazine_banner.png', alt: 'ホンダナマガジン'), "/magazine"  %></div>
-	<h3>新しく登録された本</h3>
-<div class="new_books">
+
+	<h3>新着の本　　<%= link_to "→もっと見る", "/books/list"  %></h3>
+<div class="top_new_books">
 	<%= render "/books/list" %>
 </div>
+<div class="magazine"><%= link_to (image_tag 'magazine_banner.jpg', alt: 'ホンダナマガジン'), "/magazine"  %></div>
 </div>
 <p class="clearLeft"></p>
 <div id="sns">
