@@ -81,38 +81,27 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <!--/ #header--></div>
 
 <div id="main">
-<div class="example">
+<div id="top_img">
 
-<%= (image_tag 'hondana_img.jpg' , class: 'example')%>
-<h2>ホンダナは本を読みたい人と<br />
-本を整理したい人をつなぐ<br />
-シェアリングサービスです</h2>
+<h2 class="top">日本中の本棚に眠る本たちに<br />
+活躍の場を!</h2>
 
-<p align="center"><%= link_to  (image_tag 'member.png', alt: '会員登録'), "/members/new"  %></p>
+<%= link_to  (image_tag 'member.png', alt: '会員登録', class: 'members'), "/members/new"  %>
+</div>
 <p class="clearLeft"></p>
 
+
+<div id="outline">
+<h2 class="gaiyo">ホンダナについて</h3>
+<p class="gaiyo">ホンダナは<strong>本を読みたい人</strong>と<strong>本を整理したい人</strong>をつなぐシェアリングサービスです</p>
+<%= (image_tag 'service_img.jpg', alt: 'ホンダナイメージ',class: 'hondana')  %>
 </div>
-
-<div id="news">
-
-</div>
-
+<hr class="border">
 	<h3>新着の本　　<%= link_to "→もっと見る", "/books/list"  %></h3>
 <div class="top_new_books">
 	<%= render "/books/list" %>
 </div>
 <div class="magazine"><%= link_to (image_tag 'magazine_banner.jpg', alt: 'ホンダナマガジン'), "/magazine"  %></div>
-</div>
-<p class="clearLeft"></p>
-<div id="sns">
-
-<div class="box">
-<div class="fb-page" data-href="https://www.facebook.com/HondanaBooks" data-width="450px" data-height="400px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/HondanaBooks"><a href="https://www.facebook.com/HondanaBooks">ホンダナ</a></blockquote></div></div>
-</div>
-
-<div class="box">
-<a class="twitter-timeline" width="450px" height="215px" data-chrome="noheader"　data-border-color="#000000" data-link-color="#D45F37" href="https://twitter.com/hondana_books" data-widget-id="631309597198778368">@hondana_booksさんのツイート</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
 <p class="clearLeft"></p>
 

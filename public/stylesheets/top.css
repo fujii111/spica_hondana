@@ -37,6 +37,20 @@ font-family: "Lucida Grande", "segoe UI", "Hiragino Maru Gothic ProN", Meiryo, A
   font-size: 12pt;
   line-height: 1.5;
 }
+h2.top{color:#FFF;
+	padding-top:60px;
+	font-size: 180%;
+	 line-height: 1.8;}
+#outline{margin:10px 0 10px;
+height:250px;}
+.gaiyo {text-align:center;}
+
+img.hondana{
+position:absolute;
+left: 0;
+right: 0;
+margin: 0 auto;
+margin-bottom:20px;}
 *   {
   margin:0;
   padding:0;
@@ -257,6 +271,20 @@ div#menu {
     left: 245px;
 }
 
+
+#top_img {
+    margin: 0;
+    background: url(/images/hondana_back.jpg) left top no-repeat;
+    display: block;
+ height: 300px;
+    position: relative;
+}
+
+.members {position:absolute;
+top: 230px;
+left: 0;
+right: 0;
+margin:0 auto;}
 
 #menu ul{
 list-style: none;
