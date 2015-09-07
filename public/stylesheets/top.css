@@ -25,7 +25,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
-font-family: "Lucida Grande", "segoe UI", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+font-family: "ü‡ÉSÉVÉbÉN","YuGothic","Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro","ÇlÇr ÉSÉVÉbÉN",sans-serif;
     margin:0;
     padding:0;
     border:0;
@@ -56,27 +56,27 @@ margin-bottom:20px;}
   padding:0;
   word-wrap:break-word;
 }
-a{/*?????N????????*/
+a{
   color:#000000;
     font-style:normal;
     text-decoration:underline;
 }
-a:link {/*???K???????N*/
+a:link {
   color:#D45F37;
     font-style:normal;
     text-decoration:underline;
 }
-a:visited {/*?K????????N*/
+a:visited {
   color:#000000;
     text-decoration:underline;
 }
-a:hover {/*?}?E?X?????????*/
+a:hover {
     color:#D45F37;
         opacity: 0.6;
     font-style:normal;
     text-decoration:underline;
 }
-a:active {/*?N???b?N??*/
+a:active {
     text-decoration:none;
 }
 

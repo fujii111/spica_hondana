@@ -15,7 +15,7 @@
   padding: 0;
   font-size: 16px;
   font-style: normal;
-  font-family: "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+  font-family:  "游ゴシック","YuGothic","Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro","ＭＳ ゴシック",sans-serif;
   word-wrap: break-word;
 }
 
@@ -23,27 +23,27 @@ body {
   background-color: #FFFFFF;
 }
 
-a{/*?????N????????*/
+a{
   color:#000000;
     font-style:normal;
     text-decoration:underline;
 }
-a:link {/*???K???????N*/
+a:link {
   color:#D45F37;
     font-style:normal;
     text-decoration:underline;
 }
-a:visited {/*?K????????N*/
+a:visited {
   color:#000000;
     text-decoration:underline;
 }
-a:hover {/*?}?E?X?????????*/
+a:hover {
     color:#D45F37;
         opacity: 0.6;
     font-style:normal;
     text-decoration:underline;
 }
-a:active {/*?N???b?N??*/
+a:active {
     text-decoration:none;
 }
 
