@@ -41,7 +41,7 @@ h2.top{color:#FFF;
 	padding-top:60px;
 	font-size: 200%;
 	font-weight:normal;
-	text-shadow: 1px 1px 0 rgba(0,0,0,.2);
+	text-shadow: 2px 2px 0 rgba(0,0,0,.5);
 	 line-height: 2.0;}
 #outline{margin:10px 0 10px;
 height:250px;}
@@ -64,7 +64,7 @@ a{
     text-decoration:underline;
 }
 a:link {
-  color:#D45F37;
+  color:#000000;
     font-style:normal;
     text-decoration:underline;
 }
