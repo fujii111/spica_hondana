@@ -39,8 +39,10 @@ font-family: "ü‡ÉSÉVÉbÉN","YuGothic","Hiragino Kaku Gothic ProN","Hiragino Kaku 
 }
 h2.top{color:#FFF;
 	padding-top:60px;
-	font-size: 180%;
-	 line-height: 1.8;}
+	font-size: 200%;
+	font-weight:normal;
+	text-shadow: 1px 1px 0 rgba(0,0,0,.2);
+	 line-height: 2.0;}
 #outline{margin:10px 0 10px;
 height:250px;}
 .gaiyo {text-align:center;}
