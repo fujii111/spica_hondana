@@ -40,19 +40,20 @@ font-family: "ü‡ÉSÉVÉbÉN","YuGothic","Hiragino Kaku Gothic ProN","Hiragino Kaku 
 h2.top{color:#FFF;
 	padding-top:60px;
 	font-size: 200%;
+	letter-spacing: 0.1em;
 	font-weight:normal;
 	text-shadow: 2px 2px 0 rgba(0,0,0,.5);
-	 line-height: 2.0;}
-#outline{margin:10px 0 10px;
+	line-height: 2.0;}
+#outline{margin:50px 0 50px;
 height:250px;}
-.gaiyo {text-align:center;}
+.gaiyo {color:#000;
+text-align:center;}
 
 img.hondana{
 position:absolute;
 left: 0;
 right: 0;
-margin: 0 auto;
-margin-bottom:20px;}
+margin: 10px auto 20px;}
 *   {
   margin:0;
   padding:0;
