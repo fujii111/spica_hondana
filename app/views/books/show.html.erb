@@ -15,7 +15,7 @@
 
 <%
 	if session[:return_path].blank?
-	  session[:return_path] = Array.new(request.fullpath)
+	  session[:return_path] = Array[request.fullpath]
 	elsif session[:return_path].present? && session[:return_path].last.start_with?("/books/") && !session[:return_path].last.start_with?("/books/search")
 	else
 	  session[:return_path].push(request.fullpath)
