@@ -25,7 +25,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
-font-family: "ŸàƒSƒVƒbƒN","YuGothic","Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro","‚l‚r ƒSƒVƒbƒN",sans-serif;
+font-family: "ï¿½ï¿½ï¿½Sï¿½Vï¿½bï¿½N","YuGothic","Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro","ï¿½lï¿½r ï¿½Sï¿½Vï¿½bï¿½N",sans-serif;
     margin:0;
     padding:0;
     border:0;
@@ -45,15 +45,15 @@ h2.top{color:#FFF;
 	text-shadow: 2px 2px 0 rgba(0,0,0,.5);
 	line-height: 2.0;}
 #outline{margin:50px 0 50px;
-height:250px;}
+height:260px;}
 .gaiyo {color:#000;
 text-align:center;}
+.flow_link {color:#D45F37;
+text-align:center;
+font-size:120%;}
 
-img.hondana{
-position:absolute;
-left: 0;
-right: 0;
-margin: 10px auto 20px;}
+img.hondana{display:block;
+margin: 10px auto 0px;}
 *   {
   margin:0;
   padding:0;

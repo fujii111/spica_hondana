@@ -6,6 +6,7 @@
 	<meta name="keywords" content="<%= @keywords ? @keywords:"ほんだな,本棚,本の交換,本の整理" %>">
 	<meta name="description" content="<%= @description ? @description:"ホンダナは本を読みたい人と本を整理したい人をつなぐシェアリングサービスです" %>">
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<style><%= yield :stylesheets %></style>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 	
