@@ -1,0 +1,214 @@
+<h1>ご利用の流れ</h1><% @title = "ご利用の流れ" %>
+<% @keywords = "ほんだな,本棚,使い方,利用方法" %>
+<% @description = "ホンダナサービスの使い方です" %>
+<% content_for :stylesheets do %>
+* {
+  box-sizing: border-box;   
+}
+
+#flow {
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  width: 800px;
+  margin: 30px auto;
+  padding: 0;
+}
+
+#flow:after {
+  content:"";
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  top:0;
+  width: 4px;
+  margin-left: -2px;
+  min-height: 100%;
+  background-color: #eee;
+  
+}
+
+#flow li {
+  z-index: 2;
+  position: relative;
+  width: 380px;
+  padding: 20px;
+  float: left;
+  margin-bottom: 30px;
+  background-color: #eee;
+}
+
+#flow li.left {
+  float: left;
+  clear: left;
+  background-color:#A4A4A4;
+}
+
+#flow li.right_flow {
+  float: right;
+  clear: right;
+  background-color:#FFE7D5;
+}
+
+#flow li.highlight {
+  float: none;
+  clear: both;
+  width: auto;
+
+}
+
+/* arrow */
+
+#flow li:before {
+  content:"";
+  z-index: 1;
+  position: absolute;
+  top: 14px;
+  right: -6px;
+  left: -6px;
+  width: 12px;
+  height: 12px;
+  background-color: #eee;
+-webkit-transform:rotate(45deg);　/*Chrome , Safari , iOS , Android*/
+	-moz-transform:rotate(45deg); /*Firefox*/
+	-o-transform:rotate(45deg); /*Opera*/
+	-ms-transform:rotate(45deg); /*IE*/
+	transform:rotate(45deg);
+}
+#flow li.right_flow:before {
+  background-color: #FFE7D5;
+}
+
+#flow li.left:before {
+  left: auto;
+  background-color: #A4A4A4;
+}
+
+#flow li.right_flow + #flow li.left:before,
+#flow li.left + #flow li.right_flow:before {
+  top: 36px;
+}
+
+#flow li.highlight:before {
+  left: 50%;
+  margin-left: -6px;
+  right: auto;
+  top: -6px;
+}
+
+/* dot */
+
+#flow li:after {
+  content:"";
+  z-index: 1;
+  position: absolute;
+  top: 14px;
+  right: -27px;
+  left: -27px;
+  width: 8px;
+  height: 8px;
+  border: 3px solid #fff;
+  border-radius: 100%;
+  background-color: #ccc;
+  transition: .2s;
+}
+
+#flow li:hover:after {
+  background-color: #D45F37;
+  top: 12px;
+  right: -29px;
+  left: -29px;
+  width: 12px;
+  height: 12px;
+}
+
+#flow li.left:after {
+  left: auto;
+}
+
+#flow li.right_flow + #flow li.left:after,
+#flow li.left + #flow li.right_flow:after {
+  top: 36px;
+}
+
+#flow li.right_flow + #flow li.left:hover:after,
+#flow li.left + #flow li.right_flow:hover:after {
+  top: 34px;
+}
+
+#flow li.right_flow:after {
+  right: auto;
+}
+
+#flow li.highlight:after {
+  left: 50%;
+  margin-left: -7px;
+  right: auto;
+  top: -24px;
+}
+
+#flow li.highlight:hover:after {
+  margin-left: -9px;
+  top: -26px;
+}
+
+em {color:#D45F37;
+	font-weight:bold;}
+	
+p {line-height:1.5;}
+
+.flow_color {text-align:center;
+	font-size:120%;}
+.koukankibou {color:#A4A4A4;}
+.mochinushi {color:#FFE7D5;}
+<% end %>
+
+
+<p class="flow_color"><span class="koukankibou">■</span>交換希望者　　　　　　　　　　<span class="mochinushi">■</span>本の持ち主</p>
+<ul id="flow">
+
+<li class="highlight">
+  <h2>本を登録する</h2>
+  <p>まずは持っている本を登録しましょう。<br />
+  1冊登録するごとに1ブク（ポイント）がもらえます。<br />
+  本を登録して貯まったブクは<em>1ブクで1冊の本</em>との交換にお使いいただけます。</p>
+</li>
+
+<li class="left">
+   <h2>本をさがす</h2>
+   <p>ほしい本を検索しましょう。</p>
+ </li>
+    
+ <li class="left">
+   <h2>ブクとの交換申請をする</h2>
+   <p>本の状態等を確認後、本の持ち主に交換申請をしましょう。日本郵便の配送サービス<em>クリックポスト</em>で送料を決済後、発送してほしい住所を入力したクリックポストの<em>宛名ラベル</em>を本の持ち主に送信してください。</p>
+ </li>
+ 
+ 
+ <li class="right_flow">
+   <h2>交換申請が届く</h2>
+   <p>交換申請の通知が届きます。<em>宛名ラベル</em>をダウンロードして発送の準備をしましょう。</p>
+ </li>
+ 
+ <li class="right_flow">
+   <h2>本の発送</h2>
+   <p><em>宛名ラベル</em>を印刷し、梱包した本に貼付けてポストに投函してください。発送したら、<em>発送完了</em>のボタンをクリックしてください。</p>
+ </li>
+ 
+  <li class="left">
+   <h2>本が届く</h2>
+   <p>本はポストに配送されます。受け取ったら、<em>受取完了</em>のボタンをクリックしてください。交換希望者から本の持ち主に交換冊数分のブクがプレゼントされます。</p>
+ </li>
+ 
+ 
+ <li class="right_flow">
+   <h2>ブクがもらえる</h2>
+   <p>ブクを受け取って交換完了です。読みたい本とブクをたくさん交換しましょう。</p>
+ </li>
+ 
+ <li class="highlight">
+  <h2>完了</h2>
+</li>
+
+ 
+</ul>
