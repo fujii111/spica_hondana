@@ -39,15 +39,20 @@ time, mark, audio, video {
 }
 h2.top{color:#FFF;
 	padding-top:60px;
-	font-size: 200%;
+	font-size: 300%;
 	letter-spacing: 0.1em;
 	font-weight:normal;
 	text-shadow: 2px 2px 0 rgba(0,0,0,.5);
-	line-height: 2.0;}
+	 line-height: 0.8;}
+
+.sub{color:#FFF;
+	font-size: 60%;}
+	
 #outline{margin:50px 0 50px;
-height:260px;}
+height:320px;}
 .gaiyo {color:#000;
 text-align:center;}
+.top_gaiyo{color:#D45F37;}
 .flow_link {color:#D45F37;
 text-align:center;
 font-size:120%;}

@@ -83,8 +83,8 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <div id="main">
 <div id="top_img">
 
-<h2 class="top">日本中の本棚に眠る本たちに<br />
-活躍の場を!</h2>
+<h2 class="top">適「本」適所<br>
+<span class="sub">本のシェアリングサービス</span></h2>
 
 <%= link_to  (image_tag 'member.png', alt: '会員登録', class: 'members'), "/members/new"  %>
 </div>
@@ -93,7 +93,10 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 
 <div id="outline">
 <h2 class="gaiyo">ホンダナについて</h2>
-<p class="gaiyo">ホンダナは<strong>本を読みたい人</strong>と<strong>本を整理したい人</strong>をつなぐシェアリングサービスです</p>
+<p class="gaiyo">ホンダナは、あなたの部屋に眠っている本を<br>
+	必要としている人の元へ届ける<br>
+	<strong class="top_gaiyo">本をたくさん読みたい人</strong>と<strong class="top_gaiyo">本を整理したい人</strong>とをつなぐシェアリングサービスです</p>
+	
 <%= (image_tag 'service_img.jpg', alt: 'ホンダナイメージ',class: 'hondana')  %><br>
 <p class="flow_link"><%= link_to "→ご利用の流れ", "/information/flow"  %></p>
 </div>
