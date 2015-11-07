@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20150317132807) do
     t.datetime "updated_at"
   end
 
-  add_index "belongs", ["book_id"], name: "index_belongs_on_book_id"
-  add_index "belongs", ["genre_id"], name: "index_belongs_on_genre_id"
+  add_index "belongs", ["book_id"], name: "index_belongs_on_book_id", using: :btree
+  add_index "belongs", ["genre_id"], name: "index_belongs_on_genre_id", using: :btree
 
   create_table "books", force: true do |t|
     t.integer  "member_id"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150317132807) do
     t.datetime "updated_at"
   end
 
-  add_index "books", ["member_id"], name: "index_books_on_member_id"
+  add_index "books", ["member_id"], name: "index_books_on_member_id", using: :btree
 
   create_table "collections", force: true do |t|
     t.integer  "member_id"
@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 20150317132807) do
     t.datetime "updated_at"
   end
 
-  add_index "favorites", ["book_id"], name: "index_favorites_on_book_id"
-  add_index "favorites", ["member_id"], name: "index_favorites_on_member_id"
+  add_index "favorites", ["book_id"], name: "index_favorites_on_book_id", using: :btree
+  add_index "favorites", ["member_id"], name: "index_favorites_on_member_id", using: :btree
 
   create_table "genres", force: true do |t|
     t.string   "name"
@@ -102,8 +102,8 @@ ActiveRecord::Schema.define(version: 20150317132807) do
     t.datetime "updated_at"
   end
 
-  add_index "interests", ["genre_id"], name: "index_interests_on_genre_id"
-  add_index "interests", ["member_id"], name: "index_interests_on_member_id"
+  add_index "interests", ["genre_id"], name: "index_interests_on_genre_id", using: :btree
+  add_index "interests", ["member_id"], name: "index_interests_on_member_id", using: :btree
 
   create_table "members", force: true do |t|
     t.string   "login_id"
@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 20150317132807) do
     t.datetime "updated_at"
   end
 
-  add_index "messages", ["member_id"], name: "index_messages_on_member_id"
+  add_index "messages", ["member_id"], name: "index_messages_on_member_id", using: :btree
 
   create_table "notices", force: true do |t|
     t.text     "content"
