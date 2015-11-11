@@ -77,6 +77,7 @@ class CollectionsController < ApplicationController
         return
       end
       id = @book.id
+
     end
 
     # 蔵書の新規登録
@@ -259,6 +260,10 @@ class CollectionsController < ApplicationController
     else
       @message = "発送処理エラーです。"
     end
+
+
+
+
   end
 
   private
@@ -274,7 +279,7 @@ class CollectionsController < ApplicationController
     end
     @waiting_collection = Collection.where(request_member_id: session[:id], state: 1)
     if session[:point] - @waiting_collection.size <= 0
-      return "申請中が" + @waiting_collection.to_s + "件あるため、ブクが足りません。"
+      return "申請中が" + @waiting_collection.size.to_s + "件あるため、ブクが足りません。"
     end
     return nil
   end
