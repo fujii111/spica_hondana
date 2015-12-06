@@ -1,0 +1,12 @@
+          <%= form_for [@collection, @evaluation], url: collection_receiver_evaluations_path do |f| %>
+          <div style="margin: 8px 0">
+            <%= f.label :評価, style: { 'margin-right' => 8 } %>
+            <label><%= f.radio_button :rate, "1",{:checked => true} %> 良い</label>
+            <label><%= f.radio_button :rate, "2" %> 普通</label>
+            <label><%= f.radio_button :rate, "3" %> 悪い</label>
+          </div>
+          <div style="margin: 8px 0">
+            <%= f.text_area :comment, placeholder: 'コメント', style: 'width: 100%;' %>
+          </div>
+              <%= f.submit "送信する", data: { disable_with: '送信中'} %>
+              <% end %>
