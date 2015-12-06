@@ -56,4 +56,5 @@ end
 gem 'httpclient'
 
 gem 'will_paginate'
+gem 'pry-rails'
 

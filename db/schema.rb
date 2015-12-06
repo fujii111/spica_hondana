@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109043144) do
+ActiveRecord::Schema.define(version: 20151206074354) do
 
   create_table "belongs", force: true do |t|
     t.integer  "genre_id"
@@ -70,6 +70,15 @@ ActiveRecord::Schema.define(version: 20151109043144) do
     t.datetime "send_date"
     t.datetime "receive_date"
     t.binary   "label",             limit: 16777215
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "evaluations", force: true do |t|
+    t.integer  "collection_id"
+    t.integer  "rate"
+    t.integer  "state"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

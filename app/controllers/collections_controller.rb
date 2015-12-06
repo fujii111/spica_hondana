@@ -157,6 +157,26 @@ class CollectionsController < ApplicationController
       @book = @collections[0].book
       @message = cannot_request
     end
+
+
+# ＃発送者の評価
+    @verygood = []
+    @good = []
+    @bad = []
+    collection = Collection.where(book_id: params[:id], state: 0).first
+    member = Member.find(collection.member.id)
+    my_evaluation = member.evaluation_about_self
+    @evaluations = my_evaluation
+    my_evaluation.each do |evaluation|
+      if evaluation.rate == 2
+        @good << evaluation
+      elsif evaluation.rate == 1
+        @verygood << evaluation
+      else
+        @bad << evaluation
+      end
+  end
+
   end
 
   # 蔵書の申請フォーム
@@ -242,24 +262,25 @@ class CollectionsController < ApplicationController
     if collection.save!(validate: false)
 
       # 発送者のブクを増やす
-      member = Member.find(collection.member_id)
-      member.point = member.point + 1
-      member.save!(validate: false)
-      session[:point] = collection.member.point
+      # member = Member.find(collection.member_id)
+      # member.point = member.point + 1
+      # member.save!(validate: false)
+      # session[:point] = collection.member.point
 
-      # 受取者のブクを減らす
-      request_member = Member.find(collection.request_member_id)
-      request_member.point = request_member.point - 1
-      request_member.save!(validate: false)
+      # # 受取者のブクを減らす
+      # request_member = Member.find(collection.request_member_id)
+      # request_member.point = request_member.point - 1
+      # request_member.save!(validate: false)
 
       # メッセージの作成
       message = Message.new(member_id: collection.request_member_id, notice_date: DateTime.now, title: "本が発送されました。",
-        content: "あなたへ『" + collection.book.title + "』が発送されました。本の詳細は<a href=\"/collections/" + collection.id.to_s + "\">こちら</a>",
+        content: "あなたへ『" + collection.book.title + "』が発送されました。届きましたら必ず本を送ってくれた相手の方を<a href=\"/collections/"  + collection.id.to_s + "/receiver_evaluations/new/" + "\">評価してください。</a>本の詳細は<a href=\"/collections/" + collection.id.to_s + "\">こちら</a>",
         read_flg: false)
       message.save
     else
       @message = "発送処理エラーです。"
     end
+
 
 
 

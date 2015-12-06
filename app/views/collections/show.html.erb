@@ -58,7 +58,8 @@
 		</p>
 	<% elsif @collection.request_member_id == session[:id] %>
 		<p>
-			この本は <span class="strong"><%= @collection.member.nickname %></span> さんから <span class="strong">あなた</span> へ発送済みです。
+			この本は <span class="strong"><%= @collection.member.nickname %></span> さんから <span class="strong">あなた</span> へ発送済みです。<br>
+			到着しましたら本を送ってくれた相手の方を評価しましょう。<br>
 		</p>
 		<p>
 			発送日: <span class="strong"><%= format_datetime @collection.send_date, :date %></span>

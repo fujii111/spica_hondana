@@ -1,0 +1,12 @@
+<h1>あなたへの評価</h1><% @title = "評価" %>
+  <li class="evaluation">良い:<%= @verygood.count %></li>
+  <li class="evaluation">普通:<%= @good.count %></li>
+  <li class="evaluation">悪い:<%= @bad.count %></li>
+
+<p style="clear:left;">
+
+<% @evaluations.each do |evaluation|%>
+  <%= evaluation.created_at.strftime("%Y年 %-m月 %-d日") %>
+  <%= num2evalution(evaluation.rate) %>
+  <%= evaluation.comment %><br>
+<% end %>

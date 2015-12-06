@@ -19,6 +19,8 @@ Hondana::Application.routes.draw do
   patch "members/update_password" => "members#update_password", format: false
   get "members/login_as/:id" => "members#login_as", format: false
   get "members/:action" => "members#:action", format: false
+  get "members/evaluation" => "members#evaluation", format: false
+  get "members/evaluations/:member_id" => "members#evaluations", format: false
 
   get "back" => "application#back", format: false
 
@@ -30,22 +32,48 @@ Hondana::Application.routes.draw do
   get "books/delete_favorite" => "books#delete_favorite", format: false
   get "books/show_image/:isbn" => "books#show_image", format: false
 
-  get "collections" => "collections#index", format: false
-  get "collections/index" => "collections#index", format: false
-  get "collections/new" => "collections#new", format: false
-  get "collections/list" => "collections#list", format: false
-  post "collections/confirm" => "collections#confirm", format: false
-  post "collections/create" => "collections#create", format: false
-  get "collections/complete" => "collections#complete", format: false
-  get "collections/edit" => "collections#edit", format: false
-  patch "collections/update" => "collections#update", format: false
-  get "collections/member_list" => "collections#member_list", format: false
-  get "collections/confirm_request" => "collections#confirm_request", format: false
-  get "collections/destroy" => "collections#destroy", format: false
-  post "collections/request_collection" => "collections#request_collection", format: false
-  get "collections/download_label" => "collections#download_label", format: false
-  post "collections/complete_sending" => "collections#complete_sending", format: false
-  get "collections/:id" => "collections#show", format: false
+  # get "collections" => "collections#index", format: false
+  # get "collections/index" => "collections#index", format: false
+  # get "collections/new" => "collections#new", format: false
+  # get "collections/list" => "collections#list", format: false
+  # post "collections/confirm" => "collections#confirm", format: false
+  # post "collections/create" => "collections#create", format: false
+  # get "collections/complete" => "collections#complete", format: false
+  # get "collections/edit" => "collections#edit", format: false
+  # patch "collections/update" => "collections#update", format: false
+  # get "collections/member_list" => "collections#member_list", format: false
+  # get "collections/confirm_request" => "collections#confirm_request", format: false
+  # get "collections/destroy" => "collections#destroy", format: false
+  # post "collections/request_collection" => "collections#request_collection", format: false
+  # get "collections/download_label" => "collections#download_label", format: false
+  # post "collections/complete_sending" => "collections#complete_sending", format: false
+  # get "collections/:id" => "collections#show", format: false
+
+  resources :collections, only: [:index, :new, :show] do
+    resources :receiver_evaluations, only: [:new, :create]
+    resources :sender_evaluations, only: [:new, :create]
+    collection do
+      get 'index'
+      post 'create'
+      get 'edit'
+      patch 'update'
+      get 'destroy'
+      get 'list'
+      post 'confirm'
+      get 'complete'
+      get 'confirm_request'
+      post 'request_collection'
+      get 'download_label'
+      post 'complete_sending'
+    end
+
+    member do
+      get 'member_list'
+    end
+  end
+
+  # get "collections/:collection_id/evaluations/new" => "evaluations#new"
+  # post "collections/:collection_id/evaluations" => "evaluations#create"
 
   resources :books, format: false
   resources :notices, format: false

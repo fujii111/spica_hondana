@@ -227,4 +227,46 @@ class MembersController < ApplicationController
     session[:message] = nil
     redirect_to "/"
   end
+
+
+ # 自分の評価
+  def evaluation
+    @verygood = []
+    @good = []
+    @bad = []
+    member = Member.find(session[:id])
+    my_evaluation = member.evaluation_about_self
+    @evaluations = my_evaluation
+    my_evaluation.each do |evaluation|
+      if evaluation.rate == 2
+        @good << evaluation
+      elsif evaluation.rate == 1
+        @verygood << evaluation
+      else
+        @bad << evaluation
+      end
+    end
+  end
+
+
+  # ＃発送者の評価
+  def evaluations
+    @verygood = []
+    @good = []
+    @bad = []
+    member = Member.find_by(id: params[:member_id])
+    my_evaluation = member.evaluation_about_self
+    @evaluations = my_evaluation
+
+    my_evaluation.each do |evaluation|
+      if evaluation.rate == 2
+        @good << evaluation
+      elsif evaluation.rate == 1
+        @verygood << evaluation
+      else
+        @bad << evaluation
+      end
+    end
+  end
+
 end
