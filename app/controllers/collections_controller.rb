@@ -159,11 +159,11 @@ class CollectionsController < ApplicationController
     end
 
 
-# ＃発送者の評価
+  # 発送者の評価
     @verygood = []
     @good = []
     @bad = []
-    collection = Collection.where(book_id: params[:id], state: 0).first
+    collection = Collection.where(book_id: params[:id]).first
     member = Member.find(collection.member.id)
     my_evaluation = member.evaluation_about_self
     @evaluations = my_evaluation

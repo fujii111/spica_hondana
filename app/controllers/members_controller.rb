@@ -231,6 +231,7 @@ class MembersController < ApplicationController
 
  # 自分の評価
   def evaluation
+    @member = Member.find(session[:id])
     @verygood = []
     @good = []
     @bad = []
@@ -249,7 +250,7 @@ class MembersController < ApplicationController
   end
 
 
-  # ＃発送者の評価
+  # 本を持ってる人の評価
   def evaluations
     @verygood = []
     @good = []
