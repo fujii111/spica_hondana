@@ -58,6 +58,7 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 					<% else %>
 					<li class="welcome">ようこそ <span class="strong"><%= session[:nickname] %></span> さん
 					現在 <span class="strong"><%= session[:point] %></span> ブク</li>
+					<li><%= link_to "[評価を見る]", "/members/evaluation"  %></li>
 
 					<li><%= link_to  (image_tag 'howto.gif', alt: '使いかた'), "/information/guide"  %></li>
 					<li><%= link_to (image_tag 'logout.gif', alt: 'ログアウト'), "/members/logout"  %></li>
