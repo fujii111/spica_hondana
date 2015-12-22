@@ -347,8 +347,8 @@ div#menu {
   top: 4px;
   left: 8px;
   border: 1px solid #FFF;
-    font-size: 11pt;
-    color:#999
+  font-size: 11pt;
+  color:#999
 }
 #searchBtn {
     position: absolute;
@@ -464,3 +464,11 @@ color: #D45F37;
 .privacy_title{color: #D45F37;
 padding-top:2em;}
 .privacy{ line-height: 1.5;}
+
+#button{   background-color: #D45F37;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  border:2px solid #D45F37;
+  padding: 10px 20px;
+}

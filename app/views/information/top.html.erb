@@ -31,7 +31,7 @@
 <div id="menu">
 <div id="searchform">
 			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
-		    	<%= text_field_tag :keyword, session[:keyword], size: "15", maxlength: "20", placeholder: "著者名・キーワードで検索" %>
+		    	<%= text_field_tag :keyword,@keyword, size: "15", maxlength: "20", placeholder: "著者名・キーワードで検索" %>
 			    <%= image_submit_tag("search.png",id:'searchBtn') %>
 				<%= link_to "詳細検索", "/books/search_edit" ,id:'search' %>
 			<% end %>
