@@ -31,7 +31,7 @@
 <div id="menu">
 <div id="searchform">
 			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
-		    	<%= text_field_tag :keyword, session[:keyword], size: "15", maxlength: "20", placeholder: "著者名・キーワードで検索" %>
+		    	<%= text_field_tag :keyword,@keyword, size: "15", maxlength: "20", placeholder: "著者名・キーワードで検索" %>
 			    <%= image_submit_tag("search.png",id:'searchBtn') %>
 				<%= link_to "詳細検索", "/books/search_edit" ,id:'search' %>
 			<% end %>
@@ -87,7 +87,7 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <h2 class="top">適「本」適所<br>
 <span class="sub">みんなで作る本の交換プラットフォーム</span></h2>
 
-<%= link_to  (image_tag 'member.png', alt: '会員登録', class: 'members'), "/members/new"  %>
+<%= link_to  (image_tag 'member_free.png', alt: '会員登録', class: 'members'), "/members/new"  %>
 </div>
 <p class="clearLeft"></p>
 

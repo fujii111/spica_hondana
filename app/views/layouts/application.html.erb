@@ -6,6 +6,7 @@
 	<meta name="keywords" content="<%= @keywords ? @keywords:"ほんだな,本棚,本の交換,本の整理" %>">
 	<meta name="description" content="<%= @description ? @description:"読みたい本を探している人と その本を持ってる＆整理したい人がブク（ポイント）を介して交換できる本のシェアリングサービスです。" %>">
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 	<style><%= yield :stylesheets %></style>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
@@ -29,7 +30,7 @@
 <div id="menu">
 <div id="searchform">
 			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
-		    	<%= text_field_tag :keyword, session[:keyword], size: "15", maxlength: "20", placeholder: "著者名・キーワードで検索" %>
+		    	<%= text_field_tag :keyword,@keyword, size: "15", maxlength: "20", placeholder: "著者名・キーワードで検索" %>
 			    <%= image_submit_tag("search.png",id:'searchBtn') %>
 				<%= link_to "詳細検索", "/books/search_edit" ,id:'search' %>
 			<% end %>

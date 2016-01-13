@@ -21,11 +21,11 @@ class Member < ActiveRecord::Base
     presence: true,
     length: { maximum: 10 }
 
-  validates :name,
-    presence: true
+  # validates :name,
+  #   presence: true
 
-  validates :address,
-    presence: true
+  # validates :address,
+  #   presence: true
 
   validates :mail_address,
     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/ },

@@ -1,6 +1,7 @@
 <% @title = "本の検索結果" %>
 
-<h1>ホンダナの検索結果</h1>
+<h1>ホンダナに登録されている本</h1>
+	<p class = "explanation"><i class="fa fa-question-circle"></i>在庫があれば本の申請ができます。また、あなたも同じ本をお持ちでしたら登録ができます。</p>
 <% unless @notice.blank? %>
 	<p><%= @notice %></p>
 <% end %>
@@ -17,8 +18,9 @@
 <% if @notice.blank? %>
 	<%= render 'list' %>
 <% end %>
-
-<h1>楽天ブックスでの検索結果</h1>
+<p class = "clear">
+<h1>新しく本を登録する</h1>
+	<p class = "explanation"><i class="fa fa-question-circle"></i>あなたがお持ちの本があったら登録ができます。</p>
 <% unless @notice.blank? %>
 	<p><%= @notice %></p>
 <% end %>
@@ -36,7 +38,6 @@
  	<% if @json_author_data.blank? && @json_title_data.blank? %>
 	<p>本が見つかりませんでした(検索キーワードは2文字以上です)。</p>
 	<% else %>
-		<p>ホンダナに登録されている本(同じISBNコードの本)は表示しません。</p>
 	 	<% index = 0 %>
 		<% closing = true %>
 		<% if !@json_title_data.blank? && !@json_title_data['Items'].blank? %>

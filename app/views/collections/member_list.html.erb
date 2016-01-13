@@ -22,6 +22,7 @@
   					<li class="collection_evaluation">普通:<%= @good.count %></li>
  						<li class="collection_evaluation">悪い:<%= @bad.count %></li>
  						<li class="collection_evaluation"><%= link_to "詳細", "/members/evaluations/" + collection.member.id.to_s %></li></td>
+
 				<td><%= format_datetime collection.regist_date, :date %></td>
 				<td><%= Array["汚れあり", "普通", "良い", "非常に良い", "ほぼ新品"][collection.condition] %></td>
 				<td><%= collection.note %></td>

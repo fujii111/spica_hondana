@@ -20,7 +20,7 @@
     	<%= @member.nickname %>
     </p>
   </div>
-  <div class="field">
+<!--   <div class="field">
     <label>氏名</label>
     <p>
     	<%= @member.name %>
@@ -37,14 +37,14 @@
     <p>
     	<%= @member.address %>
     </p>
-  </div>
+  </div> -->
   <div class="field">
     <label>メールアドレス</label>
     <p>
     	<%= @member.mail_address %>
     </p>
   </div>
-  <div class="field">
+<!--   <div class="field">
     <label>誕生日</label>
     <p>
     	<%= format_datetime @member.birthday, :date %>
@@ -57,7 +57,7 @@
     	<%= @member.favorite_author2 %>
     	<%= @member.favorite_author3 %>
     </p>
-  </div>
+  </div> -->
 <%= form_tag({controller: :members, action: :create}) do %>
   <div class="field">
     <%= submit_tag "登録" %>
