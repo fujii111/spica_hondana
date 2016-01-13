@@ -16,7 +16,7 @@
 		</tr>
 		<% @collections.each do |collection| %>
 			<tr>
-				<td><%= collection.member.nickname %> さん</td>
+				<td><%= collection.member.login_id %> さん</td>
 				<td><%= format_datetime collection.regist_date, :date %></td>
 				<td><%= Array["汚れあり", "普通", "良い", "非常に良い", "ほぼ新品"][collection.condition] %></td>
 				<td><%= collection.note %></td>

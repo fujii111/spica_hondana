@@ -1,0 +1,46 @@
+<h1>使いかた</h1><% @title = "使いかた｜本とブクの交換申請の仕方" %>
+<% @keywords = "ほんだな,本棚,使い方,利用方法" %>
+<% @description = "ホンダナサービスの使い方です" %>
+<div id="content">
+<h2>本とブクの交換申請の仕方</h2>
+<p class="chapter">&#10102;ほしい本をタイトル・著者名等で検索します。</p>
+<p><%= (image_tag 'guide_01_01.jpg', alt: '本の交換申請1',class: 'guide')  %></p>
+<p class="clearLeft"></p>
+<p class="chapter">&#10103;検索結果からほしい本をクリック。</p>
+<p><%= (image_tag 'guide_02_01.jpg', alt: '本の交換申請2',class: 'guide')  %></p>
+
+<p class="chapter">&#10104;本の情報を確認して、「本を申請する」をクリック。</p>
+<p><%= (image_tag 'guide_02_03.jpg', alt: '本の交換申請3',class: 'guide')  %></p>
+
+<p class="chapter">&#10105;状態等を確認し、申請画面へ。</p>
+<p><%= (image_tag 'guide_02_02.jpg', alt: '本の交換申請4',class: 'guide')  %></p>
+
+<p class="chapter">&#10106; 「クリックポストへ」をクリック。…… <i class="fa fa-question-circle"></i>
+<%= link_to 'クリックポストとは?', 'https://www.post.japanpost.jp/service/clickpost/', :target=>["_blank"] %><br>
+<em>自分の住所宛て</em>の宛名ラベルを作成します。（詳細は<%= link_to "クリックポストで宛名ラベルを作成へ", "/information/guide_03"  %>）</p>
+<p><%= (image_tag 'guide_02_04.jpg', alt: '本の交換申請5',class: 'guide')  %></p>
+
+
+<p><%= (image_tag 'guide_02_05.jpg', alt: '本の交換申請6',class: 'hidari')  %></p>
+<p class="chapter">&#10107;宛名ラベルの見本。「受取人」の部分に自分の住所・氏名が入っていればOKです。</p>
+<p class="clearLeft"></p>
+
+
+<p class="chapter">&#10108;宛名ラベルのデータ（PDF形式）をアップロードし、「申請を実行する」をクリック。</p>
+<p><%= (image_tag 'guide_02_06.jpg', alt: '本の交換申請7',class: 'guide')  %></p>
+
+<p class="chapter">&#10109;これで申請完了です。</p>
+<p><%= (image_tag 'guide_02_07.jpg', alt: '本の交換申請8',class: 'guide')  %></p>
+
+
+</div>
+<div id="sidebar">
+<ul class="menu_guide" id="list_guide">
+<li><%= link_to "1. 本の登録の仕方", "/information/guide"  %></li>
+<li><%= link_to "2. 本とブクの交換申請の仕方", "/information/guide_02"  %></li>
+<li><%= link_to "3. クリックポストで宛名ラベルを作成する", "/information/guide_03"  %></li>
+<li><%= link_to "4. 交換申請の受け付け＆宛名ラベルを印刷する", "/information/guide_04"  %></li>
+<li><%= link_to "5. 梱包＆発送する", "/information/guide_05"  %></li>
+<li><%= link_to "6. 本を受け取る＆評価する", "/information/guide_06"  %></li>
+</ul>
+</div>
