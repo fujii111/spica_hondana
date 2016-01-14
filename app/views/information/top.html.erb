@@ -53,7 +53,7 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <ul>
 <% if session[:id].blank? %>
 <li><%= link_to  (image_tag 'howto.gif', alt: '使いかた'), "/information/guide"  %></li>
-<li><%= link_to  (image_tag 'member.gif', alt: '会員登録'), "/members/new"  %></li>
+<li><%= link_to  (image_tag 'member_free.gif', alt: '会員登録',class: 'free' ), "/members/new" %></li>
 <li><%= link_to (image_tag 'login.gif', alt: 'ログイン'), "/members/login"  %></li>
 					<% else %>
 					<li class="welcome">ようこそ <span class="strong"><%= session[:nickname] %></span> さん
@@ -82,7 +82,7 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <!--/ #header--></div>
 
 <div id="main">
-<div id="top_img">
+<!-- <div id="top_img">
 
 <h2 class="top">適「本」適所<br>
 <span class="sub">みんなで作る本の交換プラットフォーム</span></h2>
@@ -90,28 +90,66 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <%= link_to  (image_tag 'member_free.png', alt: '会員登録', class: 'members'), "/members/new"  %>
 </div>
 <p class="clearLeft"></p>
-
+ -->
 
 <div id="outline">
-<h2 class="gaiyo">ホンダナについて</h2>
-<p class="gaiyo"><strong class="top_gaiyo">読みたい本を探している人</strong>と
-	<strong class="top_gaiyo">その本を持ってる＆整理したい人</strong>が<br>
-<strong class="top_gaiyo">ブク（ポイント）</strong>を介して交換できる<br>
-みんながハッピーな本のシェアリングサービスです。</p>
-	
-<%= (image_tag 'service_img.jpg', alt: 'ホンダナイメージ',class: 'hondana')  %><br>
-<p class="flow_link"><%= link_to "→ご利用の流れ", "/information/flow"  %></p>
-</div>
-<hr class="border">
-	<h3>新着の本　　<%= link_to "→もっと見る", "/books/list"  %></h3>
-<div class="top_new_books">
-	<%= render "/books/list" %>
-</div>
-<div class="magazine"><%= link_to (image_tag 'magazine_banner.jpg', alt: 'ホンダナマガジン'), "/magazine"  %></div>
-</div>
-<p class="clearLeft"></p>
+	<h2 class="top">ホンダナって？</h2>
+	<p class="gaiyo"><strong class="top_gaiyo">「読んだ本」を「読みたい本」に交換できる本の交換プラットフォームです
+	</strong></p>
+		<div class="imagebox">
+		<p class="caption">
+		<p class="chapter">&#10102;読んだ本を登録
+		</p>
+		<p class="image">
+		<%= (image_tag 'inst01.gif', alt: 'インストラクション1')  %>
+		</p>
+		<p class="caption">
+		登録すると1冊につき1ブクがもらえる
+		</p>
+		</div>
 
+		<div class="imagebox">
+		<p class="caption">
+		<p class="chapter">&#10103;交換申請
+		</p>
+		<p class="image">
+		<%= (image_tag 'inst02.gif', alt: 'インストラクション2')  %>
+		</p>
+		<p class="caption">
+		ほしい本を見つけたら<br>持ち主にブクとの交換申請
+		</p>
+		</div>
+
+		<div class="imagebox">
+		<p class="caption">
+		<p class="chapter">&#10104;本を受け取る
+		</p>
+		<p class="image">
+		<%= (image_tag 'inst03.gif', alt: 'インストラクション3')  %>
+		</p>
+		<p class="caption">
+		2~３日で自宅のポストに本が届く
+		</p>
+		</div>
+	<p class="clearLeft"></p>
+
+	<p class="flow_link"><%= link_to "→ご利用の流れ", "/information/flow"  %></p>
 </div>
+
+	<p class="clearLeft"></p>
+
+
+	<hr class="border">
+		<h3>新着の本　　<%= link_to "→もっと見る", "/books/list"  %></h3>
+	<div class="top_new_books">
+		<%= render "/books/list" %>
+	</div>
+	<div class="magazine"><%= link_to (image_tag 'magazine_banner.jpg', alt: 'ホンダナマガジン'), "/magazine"  %></div>
+	</div>
+	<p class="clearLeft"></p>
+
+
+	</div>
 </div>
 
 

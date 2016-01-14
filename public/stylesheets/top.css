@@ -37,25 +37,45 @@ time, mark, audio, video {
   font-size: 12pt;
   line-height: 1.5;
 }
-h2.top{color:#FFF;
-	padding-top:60px;
-	font-size: 300%;
-	letter-spacing: 0.1em;
+h2.top{color:#000;
+	font-size: 30px;
 	font-weight:normal;
-	text-shadow: 2px 2px 0 rgba(0,0,0,.5);
-	 line-height: 0.8;}
+	line-height: 0.8;
+margin-top: 10px;}
 
 .sub{color:#FFF;
 	font-size: 60%;}
 	
-#outline{margin:50px 0 50px;
-height:320px;}
+#outline{margin:0px 0 50px;
+height:400px;}
+
 .gaiyo {color:#000;
 text-align:center;}
-.top_gaiyo{color:#D45F37;}
+.top_gaiyo{color:#D45F37;
+  font-size: 20px;}
 .flow_link {color:#D45F37;
 text-align:center;
 font-size:120%;}
+
+
+div.imagebox {
+width: 300px;
+float: left;
+text-align: center;
+margin: 0em 3px 1em 3px;
+}
+p.image, p.caption {
+text-align: center;
+margin: 5px;
+}
+.chapter:first-letter {
+  font-size: 30px;
+  margin-right: 5px;
+
+}
+.chapter {
+  font-size: 20px;
+}
 
 img.hondana{display:block;
 margin: 10px auto 0px;}
@@ -297,7 +317,7 @@ margin:0 auto;}
 #menu ul{
 list-style: none;
 padding:0;
-    margin: -32px 0 3px 400px;
+    margin: -32px 0 3px 390px;
 }
 #menu li{
 padding: 0;
@@ -306,12 +326,16 @@ float: left;
 }
 #menu li a{
 display: block;
-width: 120px;
+width: 135px;
 text-decoration: none;
 padding: 0px 0px 0px 5px;
-margin: 0px 2px;
+margin: 0px 0px;
 text-align: left;
 font-size: 14px;
+}
+.free{
+margin-left:-25px;
+
 }
 img.example {
 float: left;
