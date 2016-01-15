@@ -37,32 +37,37 @@ time, mark, audio, video {
   font-size: 12pt;
   line-height: 1.5;
 }
-h2.top{color:#000;
-	font-size: 30px;
-	font-weight:normal;
-	line-height: 0.8;
-margin-top: 10px;}
-
 .sub{color:#FFF;
 	font-size: 60%;}
 	
-#outline{margin:0px 0 50px;
-height:400px;}
+#outline{margin:-30px 0 0 0px;
+height:420px;
+background-color: #FEF4E8;
+margin-bottom: 50px;}
 
 .gaiyo {color:#000;
 text-align:center;}
 .top_gaiyo{color:#D45F37;
+  line-height: 0.8;
   font-size: 20px;}
 .flow_link {color:#D45F37;
 text-align:center;
+font-weight:bold;
+  line-height: 2.0;
 font-size:120%;}
+
+h2.top{color:#000;
+  font-size: 30px;
+  font-weight:normal;
+padding-top: 30px;}
+
 
 
 div.imagebox {
 width: 300px;
 float: left;
 text-align: center;
-margin: 0em 3px 1em 3px;
+margin: 0em 3px 0em 3px;
 }
 p.image, p.caption {
 text-align: center;

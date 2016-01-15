@@ -82,15 +82,7 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <!--/ #header--></div>
 
 <div id="main">
-<!-- <div id="top_img">
 
-<h2 class="top">適「本」適所<br>
-<span class="sub">みんなで作る本の交換プラットフォーム</span></h2>
-
-<%= link_to  (image_tag 'member_free.png', alt: '会員登録', class: 'members'), "/members/new"  %>
-</div>
-<p class="clearLeft"></p>
- -->
 
 <div id="outline">
 	<h2 class="top">ホンダナって？</h2>
@@ -132,14 +124,13 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 		</p>
 		</div>
 	<p class="clearLeft"></p>
-
 	<p class="flow_link"><%= link_to "→ご利用の流れ", "/information/flow"  %></p>
 </div>
 
 	<p class="clearLeft"></p>
 
 
-	<hr class="border">
+<hr class="border">
 		<h3>新着の本　　<%= link_to "→もっと見る", "/books/list"  %></h3>
 	<div class="top_new_books">
 		<%= render "/books/list" %>
