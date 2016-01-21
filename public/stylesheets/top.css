@@ -418,6 +418,10 @@ div.booklist div {
 div.booklist div img {
   margin: 15px;
   width: 120px;
+  -webkit-box-shadow: 0 10px 8px -6px #8d8c8c;
+  -moz-box-shadow: 0 10px 8px -6px #8d8c8c;
+  box-shadow: 0 10px 8px -6px #8d8c8c;
+  border:solid 1px #ccc;
 }
 div.booklist div p {
   width: 250px;
@@ -441,6 +445,10 @@ div.booklist_hondana div {
 div.booklist_hondana div img {
   margin: 0px;
   width: 100px;
+  -webkit-box-shadow: 0 10px 8px -6px #8d8c8c;
+  -moz-box-shadow: 0 10px 8px -6px #8d8c8c;
+  box-shadow: 0 10px 8px -6px #8d8c8c;
+  border:solid 1px #ccc;
 }
 
 .size {
