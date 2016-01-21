@@ -3,6 +3,7 @@
 <p><%= link_to '新規登録', new_book_path %> | <%= link_to "戻る", "/information/admin" %></p>
 
 <%= render 'list' %>
+<p class="clearLeft"></p>
 <%= will_paginate @books, previous_label: '←前へ', next_label: '次へ→' %>
 
 <p><%= link_to '新規登録', new_book_path %> | <%= link_to "戻る", "/information/admin" %></p>
