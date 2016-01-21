@@ -394,7 +394,7 @@ border-top: 1px #cccccc solid;
 
 .top_new_books {
         width:940px;
-        height:200px;
+        height:800px;
         padding:5px;
         border:0;
         background-color:#fff;
@@ -402,7 +402,7 @@ border-top: 1px #cccccc solid;
         font-size:12px;
         float: left;
         margin-right: 20px;
-        overflow: auto;
+        overflow-y:scroll;
         margin-bottom:30px;
 }
 
