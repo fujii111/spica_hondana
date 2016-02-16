@@ -84,53 +84,13 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <!--/ #header--></div>
 
 <div id="main">
-
-
-<div id="outline">
-	<h2 class="top">ホンダナって？</h2>
-	<p class="gaiyo"><strong class="top_gaiyo">「読んだ本」を「読みたい本」に交換できる本の交換プラットフォームです
-	</strong></p>
-		<div class="imagebox">
-		<p class="caption">
-		<p class="chapter">&#10102;読んだ本を登録
-		</p>
-		<p class="image">
-		<%= (image_tag 'inst01.gif', alt: 'インストラクション1')  %>
-		</p>
-		<p class="caption">
-		登録すると1冊につき1ブクがもらえる
-		</p>
-		</div>
-
-		<div class="imagebox">
-		<p class="caption">
-		<p class="chapter">&#10103;交換申請
-		</p>
-		<p class="image">
-		<%= (image_tag 'inst02.gif', alt: 'インストラクション2')  %>
-		</p>
-		<p class="caption">
-		ほしい本を見つけたら<br>持ち主にブクとの交換申請
-		</p>
-		</div>
-
-		<div class="imagebox">
-		<p class="caption">
-		<p class="chapter">&#10104;本を受け取る
-		</p>
-		<p class="image">
-		<%= (image_tag 'inst03.gif', alt: 'インストラクション3')  %>
-		</p>
-		<p class="caption">
-		2~３日で自宅のポストに本が届く
-		</p>
-		</div>
-	<p class="clearLeft"></p>
-	<p class="flow_link"><%= link_to "→ご利用の流れ", "/information/flow"  %></p>
-</div>
-
-	<p class="clearLeft"></p>
-
+<ul class="bxslider">
+<li><%= link_to  (image_tag 'top_pickup01.jpg', alt: '特集',id:'topic'), "http://hondana-books.com/books/search?utf8=%E2%9C%93&keyword=%E3%81%8F%E3%82%89%E3%82%82%E3%81%A1%E3%81%B5%E3%81%95%E3%81%93&x=0&y=0"  %></li>
+<li><%= link_to  (image_tag 'top_pickup02.jpg', alt: '特集',id:'topic'), "http://hondana-books.com/books/search?utf8=%E2%9C%93&keyword=%E5%AE%AE%E6%B2%A2%E8%B3%A2%E6%B2%BB&x=15&y=9"  %></li>
+</ul>
+<p class="clearLeft"></p>
+<p class="center">ホンダナの本と交換できるブクを手に入れよう</p>
+<%= link_to "新規会員登録(無料)", "/members/new", class: 'member_button' %>
 
 <hr class="border">
 		<h3>新着の本　　<%= link_to "→もっと見る", "/books/list"  %></h3>
