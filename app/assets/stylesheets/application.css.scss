@@ -621,3 +621,21 @@ p .hidari {
   margin-right: 5px;
 
 }
+div.imagebox {
+width: 300px;
+float: left;
+text-align: center;
+margin: 0em 3px 0em 3px;
+}
+p.image, p.caption {
+text-align: center;
+margin: 5px;
+}
+.chapter:first-letter {
+  font-size: 30px;
+  margin-right: 5px;
+
+}
+.chapter {
+  font-size: 20px;
+}

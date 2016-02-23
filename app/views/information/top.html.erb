@@ -98,12 +98,24 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 	<div class="top_new_books">
 		<%= render "/books/list" %>
 	</div>
-	<div class="magazine"><%= link_to (image_tag 'magazine_banner.jpg', alt: 'ホンダナマガジン'), "/magazine"  %></div>
-	</div>
+
+<div class="magazine_beginner">
+    <div class="magazine_beginner-1"><%= link_to (image_tag 'magazine_banner_h.jpg', alt: 'ホンダナマガジン'), "/magazine"  %>
+    人気の記事<br>
+    <%= link_to "1.本を正しく保存する5つのポイント", "http://www.hondana-books.com/magazine/2015/08/21/15/"  %></li><br>
+    <%= link_to "2.ホンダナの使い方 #1 本を登録する", "http://www.hondana-books.com/magazine/2015/08/08/8/"  %></li><br>
+    <%= link_to "3.日本中の「本」をシェアする", "http://www.hondana-books.com/magazine/2015/08/08/5/"  %></li><br>
+    </div>
+    <div class="magazine_beginner-2"><%= image_tag 'beginner_banner_h.jpg', alt: 'はじめての方へ' %>
+    <li><%= link_to "ホンダナって？", "/information/aboutthis"  %></li>
+    <li><%= link_to "ご利用の流れ", "/information/flow"  %></li>
+    <li><%= link_to "使いかた", "/information/guide"  %></li>
+    <li><%= link_to "よくある質問", "/information/faq"  %></li>
+    </div>	
+</div>
+
 	<p class="clearLeft"></p>
 
-
-	</div>
 </div>
 
 

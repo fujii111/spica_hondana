@@ -529,3 +529,18 @@ a.member_button {
     text-decoration:none;
     letter-spacing: 0.2em;
     color:#fff;}
+
+.magazine_beginner{
+    width: 940px;
+    margin: 0 auto;
+}
+.magazine_beginner-1{
+    width: 460px;
+    float: left;
+    margin-right: 10px;
+}
+.magazine_beginner-2{
+    width: 460px;
+    float: left;
+    margin-left: 10px;
+}
