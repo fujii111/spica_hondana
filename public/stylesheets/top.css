@@ -544,3 +544,6 @@ a.member_button {
     float: left;
     margin-left: 10px;
 }
+.magazine_beginner-2 li{
+   list-style: none;
+}
