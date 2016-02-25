@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   before_action :check_admin,
-    except: [:list, :show, :show_image, :search, :search_edit, :search_detail, :favorite, :delete_favorite]
-  before_action :set_book, only: [:show, :edit, :update, :destroy, :favorite]
+    except: [:new, :create, :list, :show, :show_image, :search, :search_edit, :search_detail, :favorite, :delete_favorite]
+  before_action :set_book, only: [:new, :show, :edit, :update, :destroy, :favorite]
   skip_before_action :check_logined,
     only: [:list, :show, :show_image, :search, :search_edit, :search_detail]
 
