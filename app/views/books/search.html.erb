@@ -39,6 +39,7 @@
 <% if @notice.blank? %>
  	<% if @json_author_data.blank? && @json_title_data.blank? %>
 	<p>本が見つかりませんでした(検索キーワードは2文字以上です)。</p>
+		<p class = "explanation"><i class="fa fa-question-circle"></i>検索結果に無い場合はこちらから<%= link_to '新規登録', new_book_path %>ができます。</p>
 	<% else %>
 	 	<% index = 0 %>
 		<% closing = true %>
