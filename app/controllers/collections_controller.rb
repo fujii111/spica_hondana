@@ -4,6 +4,7 @@ class CollectionsController < ApplicationController
   def index
     @collections = Collection.where(member_id: session[:id], state: 0)
       .order(regist_date: :desc)
+      .paginate(page: params[:page], per_page: 10)
     @requested_collections = Collection.where(member_id: session[:id], state: 1)
     @completed_collections = Collection.where(member_id: session[:id], state: 8)
       .order(send_date: :desc)

@@ -16,6 +16,8 @@
 					出品中の本はありません。
 				<% else %>
 					<%= render 'list' %>
+					<p class="clearLeft"></p>
+<%= will_paginate @collections, previous_label: '←前へ', next_label: '次へ→' %>
 				<% end %>
 			</dd>
 		</dl>
