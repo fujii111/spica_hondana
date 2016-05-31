@@ -84,11 +84,26 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <!--/ #header--></div>
 
 <div id="main">
+<!--スライダーここから-->
 <ul class="bxslider">
-<li><%= link_to  (image_tag 'top_pickup01.jpg', alt: '特集',id:'topic'), "http://hondana-books.com/books/search?utf8=%E2%9C%93&keyword=%E3%81%8F%E3%82%89%E3%82%82%E3%81%A1%E3%81%B5%E3%81%95%E3%81%93&x=0&y=0"  %></li>
-<li><%= link_to  (image_tag 'top_pickup02.jpg', alt: '特集',id:'topic'), "http://hondana-books.com/books/search?utf8=%E2%9C%93&keyword=%E5%AE%AE%E6%B2%A2%E8%B3%A2%E6%B2%BB&x=15&y=9"  %></li>
-<li><%= link_to  (image_tag 'top_pickup03.jpg', alt: '特集',id:'topic'), "http://hondana-books.com/books/search_detail?utf8=%E2%9C%93&title_keyword=%E3%81%AE%E3%81%BC%E3%81%86%E3%81%AE%E5%9F%8E&author_keyword=&publisher_keyword=&isbn_keyword=&commit=%E6%A4%9C%E7%B4%A2"  %></li>
+	<li>
+		<%= link_to  (image_tag 'hondana_bookclub_0602.jpg', alt: 'イベント',id:'topic'), "http://www.hondana-books.com/magazine/2016/05/31/221/"  %>
+	</li>
+
+	<li>
+		<%= link_to  (image_tag 'top_pickup01.jpg', alt: '特集',id:'topic'), "http://hondana-books.com/books/search?utf8=%E2%9C%93&keyword=%E3%81%8F%E3%82%89%E3%82%82%E3%81%A1%E3%81%B5%E3%81%95%E3%81%93&x=0&y=0"  %>
+	</li>
+
+	<li>
+		<%= link_to  (image_tag 'top_pickup02.jpg', alt: '特集',id:'topic'), "http://hondana-books.com/books/search?utf8=%E2%9C%93&keyword=%E5%AE%AE%E6%B2%A2%E8%B3%A2%E6%B2%BB&x=15&y=9"  %>
+	</li>
+
+	<li>
+		<%= link_to  (image_tag 'top_pickup03.jpg', alt: '特集',id:'topic'), "http://hondana-books.com/books/search_detail?utf8=%E2%9C%93&title_keyword=%E3%81%AE%E3%81%BC%E3%81%86%E3%81%AE%E5%9F%8E&author_keyword=&publisher_keyword=&isbn_keyword=&commit=%E6%A4%9C%E7%B4%A2"  %>
+	</li>
 </ul>
+<!--スライダーここまで-->
+
 <p class="clearLeft"></p>
 <p class="center">ホンダナの本と交換できるブクを手に入れよう</p>
 <%= link_to "新規会員登録(無料)", "/members/new", class: 'member_button' %>

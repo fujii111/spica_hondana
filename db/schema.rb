@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206074354) do
+ActiveRecord::Schema.define(version: 20160428040504) do
 
   create_table "belongs", force: true do |t|
     t.integer  "genre_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20151206074354) do
     t.float    "depth"
     t.string   "isbn"
     t.text     "description"
-    t.binary   "image"
+    t.binary   "image",       limit: 16777215
     t.boolean  "delete_flg"
     t.datetime "created_at"
     t.datetime "updated_at"
