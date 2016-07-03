@@ -547,3 +547,25 @@ a.member_button {
 .magazine_beginner-2 li{
    list-style: none;
 }
+div.newsE {width: 700px;
+           margin: 0 auto 30px;
+}
+.news_t {
+ color:#D45F37;
+}
+div.contentsbox
+      {
+         width: 700px;
+         margin: 0 auto 30px;
+         padding: 0.5em;
+         border-style: solid;
+         border-width: 1px;
+         border-color: #cccccc;
+      }
+.contentsbox ul {
+  list-style-type: none;
+}
+.date {
+  margin-right: 30px;
+}
+

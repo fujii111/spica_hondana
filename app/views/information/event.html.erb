@@ -1,9 +1,65 @@
-<h1>本の交換会</h1><% @title = "本の交換会" %>
-<% @keywords = "ほんだな,本棚,使い方,利用方法" %>
+<% @title = "第1回 ホンダナ 本の交換会" %>
+<% @keywords = "秋田市,イベント,ほんだな,本棚,本の交換会" %>
 <% @description = "本の交換会" %>
-<div>
-<h2>本の交換会</h2>
-<p>7/17（日）に行われるイベントの詳細です。</p>
+<div class="event">
+<%= image_tag '0717_mainv.gif', alt: '第1回 ホンダナ 本の交換会',class:'eventimg' %>
+<ul>
+  <li><span class="item">●開催日程</span><em class="imp">7/17（日）11:00〜17:00</em></li>
+  <li><span class="item">●会 場</span>秋田西武前アーケード下</li>
+  <li><span class="item">●参 加</span><span class="item_em">自由</span></li>
+  <li><span class="item">●参加費</span><span class="item_em">無料 (当日に交換用の本をご持参ください)</span></li>
+  <li><span class="item">●交換対象</span><span class="item_em">本、マンガ（雑誌、週刊誌は対象外とさせていただきます）</span></li>
+  <li><span class="item">……次回開催予定(9/18)</span></li>
+</ul>
+  <p class="media"><%= link_to "＊イベントを立ち上げた思いはこちらをご覧ください", "/information/vision"%></p>
 
-<%= link_to "事前申し込みフォーム", "http://goo.gl/forms/PyX8GPgn3dxA6oSA2", target: "_blank" %>
+<div id="event_f">
+     <p class="event_flow_t">当日の交換手順</p>
+<div class="box">
+     <%= image_tag '0717_nav01.gif', alt: '交換会の手順1',class:'eventflow' %>
+     <p class="caption">&#10102;交換する本を選んで<br>当日持ち寄る</p>
+</div>
+<div class="box">
+     <%= image_tag '0717_nav02.gif', alt: '交換会の手順2',class:'eventflow' %>
+     <p class="caption">&#10103;持ち寄った本1冊で<br>会場に並ぶ本1冊と交換OK!</p>
+</div>
+<div class="box">
+     <%= image_tag '0717_nav03.gif', alt: '交換会の手順3',class:'eventflow' %>
+     <p class="caption">&#10104;たくさん持ってくるほど<br>素敵な本と交換できます!</p>
+</div>
+</div>
+<p class="exp">
+<hr>
+
+<div id="event_f">
+
+  <p class="recruitment">ホンダナ司書&amp;<br>
+  ホンダナ図書委員（ボランティア）募集中!</p>
+
+<%= link_to "お申し込みフォーム", "http://goo.gl/forms/PyX8GPgn3dxA6oSA2", class: 'form_button' , target: "_blank" %>
+
+
+  <p class="event_flow_t">●ホンダナ司書って？</p>
+  <%= image_tag 'pop.gif', alt: 'pop',class:'imgright' %>
+  <p>ホンダナ司書になると、<span class="item_em">交換会当日に自分のオススメ本コーナーを作ることができます！</span><br>
+たくさんの読書好きな人達が集まるこの機会に、<br>
+  あなたの「ぜひ読んでもらいたい」本やマンガを紹介しませんか？</p>
+<div class="recruit">
+<ul>
+  <li><span class="item">1.オススメ本を選ぶ（5～10冊）</span></li>
+  <li><span class="item">2.本を紹介するポップを書いてもOK！</span></li>
+</ul>
+</div>
+
+
+  <p class="event_flow_t">●ホンダナ図書委員って？</p>
+  <%= image_tag 'tshirt.gif', alt: 'Tシャツ',class:'imgleft' %>
+<p>一緒に交換会運営をお手伝いして頂けるホンダナ図書委員（ボランティア）を募集しています。<br>
+  （会場用意、撤収、本の運搬作業など）<br>
+  <span class="item_em">オリジナルデザインTシャツをプレゼント致します！</span>
+
+  </div>
+  <p class="exp">
+  <hr>
+<p class="sponsor">主催: ホンダナ実行委員会 / 後援: 秋田市、秋田市教育委員会 / 協賛:<%= image_tag 'macolga.gif', alt: 'macolga',class:'mac' %>
 </div>
