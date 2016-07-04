@@ -765,7 +765,8 @@ margin-left:20px;
 }
 
 .large {
-   margin-top: 20px;
+   margin-top: 60px;
+   margin-bottom: 70px;
   text-align:center;
   font-weight: bold;
   font-size: 35px;
@@ -783,6 +784,13 @@ margin-left:20px;
 #vision .visions, .visiona {
   text-align: center;
   font-size: 16px;
-  line-height: 1.8em;
-  margin-bottom: 50px;
+  line-height: 2em;
+  margin-bottom: 30px;
+}
+
+#vision .visions_n {
+  text-align: center;
+  font-size: 16px;
+  line-height: 2em;
+  margin-bottom: 80px;
 }
