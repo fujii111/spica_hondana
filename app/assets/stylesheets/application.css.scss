@@ -759,14 +759,17 @@ float:right;
 margin-left:20px;
 }
 //////////////
-
+#visionbox {
+    width: 800px;
+}
 #vision {
-  text-align: center;
+  margin-right: 100px;
 }
 
 .large {
+text-align: center;
    margin-top: 60px;
-   margin-bottom: 70px;
+   margin-bottom: 140px;
   text-align:center;
   font-weight: bold;
   font-size: 35px;
@@ -775,22 +778,33 @@ margin-left:20px;
 
 
 .middle {
+  margin-left: 200px;
   margin-top: 20px;
   font-weight: bold;
   font-size: 24px;
   color:#DE8566;
 }
 
-#vision .visions, .visiona {
-  text-align: center;
+#vision .visions {
+  margin-left: 200px;
   font-size: 16px;
   line-height: 2em;
   margin-bottom: 20px;
 }
 
 #vision .visions_n {
-  text-align: center;
+  margin-left: 200px;
   font-size: 16px;
   line-height: 2em;
   margin-bottom: 80px;
 }
+
+.vision_m {
+ text-align: center;
+}
+.vision_logo{
+float:right;
+  margin-bottom: 30px;
+}
+.floatclear{
+clear: both;}

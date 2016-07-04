@@ -1,10 +1,13 @@
 <% @title = "ビジョン" %>
 <% @keywords = "秋田市,イベント,ほんだな,本棚,本の交換会" %>
 <% @description = "ビジョン" %>
-<div id="vision">
+
+
 <h2 class="large">私の好きだった1冊が、誰かの特別な1冊になる。</h2>
 
-<p class="visions">「本の交換プラットフォーム ホンダナ」は<br>
+<div id="vision">
+
+<p class="visions">「本の交換プラットフォーム ホンダナ」は
 本を会員同士で交換できるサービスです。</p>
 <p class="visions_n">ウェブサービス「ホンダナ」を主体に<br><%= link_to "時々実際のイベント「Books, go round！」も開催しております。", "/information/event", class: 'visiona' %></p>
 
@@ -28,11 +31,14 @@
 秋田から世界に向けて展開していきます。<br>
 ご期待ください！
 </p>
+<%= image_tag 'vision_logo.gif', alt: 'ホンダナ',class:'vision_logo' %>
+</div>
+<br class="floatclear">
 
 <hr>
-  <p>出版社・メディア・マスコミ関係者様へ</p>
-  <p>取材・出演依頼は、下記までご連絡お願いします。<br>
-  広報担当/Books, go round 実行委員長 : 門脇 明日美</p>
+<p class="vision_m">出版社・メディア・マスコミ関係者様へ<br>
+  取材・出演依頼は、下記までご連絡お願いします。<br>
+  広報担当/Books, go round 実行委員長 : 門脇 明日美<br>
   <%= mail_to 'asumi.kadowaki1018@gmail.com', nil,
-      :subject => '取材・出演依頼'  %>
+      :subject => '取材・出演依頼'  %></p>
 </div>
