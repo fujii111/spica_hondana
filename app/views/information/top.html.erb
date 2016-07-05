@@ -84,6 +84,19 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <!--/ #header--></div>
 
 <div id="main">
+
+<div class="newsE">
+<span class="news_t">News!</span>
+<div class="contentsbox">
+<ul>
+<li><span class="date">2016.07.04</span><%= link_to "僕らがホンダナをする理由", "/information/vision"  %></li>
+	<li><span class="date">2016.07.04</span>
+	<%= link_to "新たな本との出会い方を体験しませんか？ 7/17(日) 本の交換会", "/information/event"  %></li>
+	
+	</ul>
+</div>
+</div>
+
 <!--スライダーここから-->
 <ul class="bxslider">
 	<li>
@@ -113,21 +126,11 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <!--スライダーここまで-->
 
 <p class="clearLeft"></p>
-<p class="center">ホンダナの本と交換できるブクを手に入れよう</p>
+
+<p class="top_copy">ホンダナの本と交換できるブクを手に入れよう</p>
 <%= link_to "新規会員登録(無料)", "/members/new", class: 'member_button' %>
 
-<div class="newsE">
-<span class="news_t">News!</span>
-<div class="contentsbox">
-<ul>
-	<li><span class="date">2016.07.04</span>
-	<%= link_to "7/17（日）「第1回 ホンダナ 本の交換会」開催!", "/information/event"  %></li>
-	<li><span class="date">2016.07.04</span><%= link_to "僕らがホンダナをする理由", "/information/vision"  %></li>
-	</ul>
-</div>
-</div>
-
-<hr class="border">
+<hr class="border_n">
 		<h3>新着の本　　<%= link_to "→もっと見る", "/books/list"  %></h3>
 	<div class="top_new_books">
 		<%= render "/books/list" %>

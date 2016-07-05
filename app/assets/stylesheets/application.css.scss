@@ -760,7 +760,13 @@ margin-left:20px;
 }
 //////////////
 #visionbox {
-    width: 800px;
+    width: 820px;
+    margin: 0px auto 80px;
+    padding-top: 6em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cccccc;
+
 }
 #vision {
   margin-right: 100px;
@@ -778,7 +784,7 @@ text-align: center;
 
 
 .middle {
-  margin-left: 200px;
+  margin-left: 100px;
   margin-top: 20px;
   font-weight: bold;
   font-size: 24px;
@@ -786,14 +792,14 @@ text-align: center;
 }
 
 #vision .visions {
-  margin-left: 200px;
+  margin-left: 100px;
   font-size: 16px;
   line-height: 2em;
   margin-bottom: 20px;
 }
 
 #vision .visions_n {
-  margin-left: 200px;
+  margin-left: 100px;
   font-size: 16px;
   line-height: 2em;
   margin-bottom: 80px;

@@ -547,25 +547,41 @@ a.member_button {
 .magazine_beginner-2 li{
    list-style: none;
 }
-div.newsE {width: 700px;
+div.newsE {width: 940px;
            margin: 0 auto 30px;
 }
 .news_t {
  color:#D45F37;
+ font-size:24px;
+ font-weight:bold;
 }
 div.contentsbox
       {
-         width: 700px;
-         margin: 0 auto 30px;
-         padding: 0.5em;
+         padding: 2em;
+         padding-left: 4em;
          border-style: solid;
          border-width: 1px;
          border-color: #cccccc;
       }
 .contentsbox ul {
   list-style-type: none;
+  line-height: 2em;
+}
+.contentsbox li {
+  line-height: 2em;
+  font-size:20px;
 }
 .date {
   margin-right: 30px;
 }
 
+.border_n {
+  margin-top: 60px;
+  margin-bottom: 80px;
+  border-top: 4px solid #999;
+}
+
+.top_copy {
+   text-align: center;
+   padding-top: 30px;
+}
