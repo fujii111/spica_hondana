@@ -516,7 +516,7 @@ margin: 0 12px;
 .magazine {margin-bottom:15px;}
 
 p.center {text-align:center;}
-.member_button {  width:350px;
+.member_button {  width:550px;
   margin:5px auto 5px;
     font-size:24px;
     display:block;
@@ -527,7 +527,7 @@ p.center {text-align:center;}
 
 a.member_button {
     text-decoration:none;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     color:#fff;}
 
 .magazine_beginner{
