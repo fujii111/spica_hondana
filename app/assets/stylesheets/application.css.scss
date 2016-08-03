@@ -681,6 +681,12 @@ margin: 20px auto 0;
 .imp {
   font-size: 200%;
 }
+
+.imp_t {
+  font-size: 200%;
+  font-weight: bold;
+  color:#D45F37;
+}
 #event_f {
    width: 750px;
    display: block;
@@ -760,7 +766,7 @@ margin-left:20px;
 }
 //////////////
 #visionbox {
-    width: 810px;
+    width: 850px;
     margin: 0px auto 80px;
     padding-top: 4em;
     border-style: solid;
@@ -770,7 +776,7 @@ margin-left:20px;
 
 }
 #vision {
-  margin-right: 100px;
+  margin-right: 60px;
 }
 
 .service_copy {
@@ -785,7 +791,7 @@ text-align: center;
 
 
 .middle {
-  margin-left: 100px;
+  margin-left: 80px;
   margin-top: 20px;
   font-weight: bold;
   font-size: 24px;
@@ -793,16 +799,16 @@ text-align: center;
 }
 
 #vision .visions {
-  margin-left: 100px;
+  margin-left: 80px;
   font-size: 16px;
-  line-height: 2em;
+  line-height: 2.5em;
   margin-bottom: 20px;
 }
 
 #vision .visions_n {
-  margin-left: 100px;
+  margin-left: 80px;
   font-size: 16px;
-  line-height: 2em;
+  line-height: 2.5em;
   margin-bottom: 80px;
 }
 .vision_t {
@@ -813,11 +819,11 @@ text-align: center;
 }
 .vision_m {
  text-align: center;
-  line-height: 2em;
+line-height: 2.5em;
 }
 .vision_logo{
 float:right;
-  margin-bottom: 30px;
+margin-bottom: 30px;
 }
 .floatclear{
 clear: both;}
