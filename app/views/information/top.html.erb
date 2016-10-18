@@ -84,76 +84,10 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <!--/ #header--></div>
 
 <div id="main">
-
-<div class="newsE">
-<span class="news_t">News!</span>
-<div class="contentsbox">
-<ul>
-<li><span class="date">2016.08.04</span><%= link_to "僕らがホンダナをする理由", "/information/vision"  %></li>
-<li><span class="date">2016.08.03</span><%= link_to "2016年秋に「ホンダナ」Androidアプリ版をリリース予定！", "http://www.hondana-books.com/magazine/2016/05/27/210/"  %></li>
-<li><span class="date">2016.08.03</span><%= link_to "ホンダナ司書さんになりませんか?", "http://www.hondana-books.com/magazine/2016/08/03/244/"  %></li>
-	<li><span class="date">2016.07.18</span><%= link_to "新たな本との出会い方を体験しませんか？【9/18(日) 第２回 本の交換会】", "/information/event"  %></li>
-	
-	</ul>
-</div>
-</div>
-
-<!--スライダーここから-->
-<ul class="bxslider">
-	<li>
-		<%= link_to  (image_tag 'hondana_event_banner_0918.jpg', alt: 'ホンダナ 本の交換会',id:'topic'), "/information/event"  %>
-	</li>
-
-	<li>
-		<%= link_to  (image_tag 'hondana_bookclub_banner.jpg', alt: 'ホンダナ Book Club',id:'topic'), "http://www.hondana-books.com/magazine/category/hondana-book-club/"  %>
-	</li>
-
-	<li>
-		<%= link_to  (image_tag 'hondana_sisyo_banner.jpg', alt: '司書さんセレクト',id:'topic'), "http://www.hondana-books.com/magazine/category/librarian/"  %>
-	</li>
-
-	<li>
-		<%= link_to  (image_tag 'top_pickup01.jpg', alt: '特集',id:'topic'), "http://hondana-books.com/books/search?utf8=%E2%9C%93&keyword=%E3%81%8F%E3%82%89%E3%82%82%E3%81%A1%E3%81%B5%E3%81%95%E3%81%93&x=0&y=0"  %>
-	</li>
-
-	<li>
-		<%= link_to  (image_tag 'top_pickup02.jpg', alt: '特集',id:'topic'), "http://hondana-books.com/books/search?utf8=%E2%9C%93&keyword=%E5%AE%AE%E6%B2%A2%E8%B3%A2%E6%B2%BB&x=15&y=9"  %>
-	</li>
-
-<!-- 	<li>
-		<%= link_to  (image_tag 'top_pickup03.jpg', alt: '特集',id:'topic'), "http://hondana-books.com/books/search_detail?utf8=%E2%9C%93&title_keyword=%E3%81%AE%E3%81%BC%E3%81%86%E3%81%AE%E5%9F%8E&author_keyword=&publisher_keyword=&isbn_keyword=&commit=%E6%A4%9C%E7%B4%A2"  %>
-	</li> -->
-</ul>
-<!--スライダーここまで-->
-
-<p class="clearLeft"></p>
-
-<p class="top_copy">ホンダナの本と交換できるブクを手に入れよう</p>
-<%= link_to "会員登録はこちら（今だけ利用料無料）", "/members/new", class: 'member_button' %>
-
-<hr class="border_n">
 		<h3>新着の本　　<%= link_to "→もっと見る", "/books/list"  %></h3>
 	<div class="top_new_books">
 		<%= render "/books/list" %>
 	</div>
-
-<div class="magazine_beginner">
-    <div class="magazine_beginner-1"><%= link_to (image_tag 'magazine_banner_h.jpg', alt: 'ホンダナマガジン'), "/magazine"  %>
-    人気の記事<br>
-    <%= link_to "1.本を正しく保存する5つのポイント", "http://www.hondana-books.com/magazine/2015/08/21/15/"  %></li><br>
-    <%= link_to "2.ホンダナの使い方 #1 本を登録する", "http://www.hondana-books.com/magazine/2015/08/08/8/"  %></li><br>
-    <%= link_to "3.日本中の「本」をシェアする", "http://www.hondana-books.com/magazine/2015/08/08/5/"  %></li><br>
-    </div>
-    <div class="magazine_beginner-2"><%= image_tag 'beginner_banner_h.jpg', alt: 'はじめての方へ' %>
-    <li><%= link_to "ホンダナって？", "/information/aboutthis"  %></li>
-    <li><%= link_to "ご利用の流れ", "/information/flow"  %></li>
-    <li><%= link_to "使いかた", "/information/guide"  %></li>
-    <li><%= link_to "よくある質問", "/information/faq"  %></li>
-    </div>	
-</div>
-
-	<p class="clearLeft"></p>
-
 </div>
 
 
