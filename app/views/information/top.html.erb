@@ -84,6 +84,8 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 <!--/ #header--></div>
 
 <div id="main">
+<%= link_to  (image_tag 'hondana_top.jpg', alt: 'Google Playへ Androidアプリ「ホンダナ」はこちら',id:'top'), "https://play.google.com/store/apps/details?id=com.books.hondana"  %>
+
 		<h3>新着の本　　<%= link_to "→もっと見る", "/books/list"  %></h3>
 	<div class="top_new_books">
 		<%= render "/books/list" %>
