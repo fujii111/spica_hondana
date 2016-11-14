@@ -585,3 +585,8 @@ div.contentsbox
    text-align: center;
    padding-top: 30px;
 }
+
+.magazine {
+    width: 960px;
+    margin: 0 auto;
+}

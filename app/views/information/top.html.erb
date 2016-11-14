@@ -91,11 +91,13 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 		<%= render "/books/list" %>
 	</div>
 </div>
-
-
+<div class="magazine">
+<%= link_to (image_tag 'magazine_banner.jpg', alt: 'ホンダナマガジン'), "/magazine"  %>
+</div>
 <div id="footer">
 		<ul class="menu">
-		<li  class="first"><%= link_to "使いかた", "/information/guide"  %></li>
+		<li  class="first"><%= link_to "僕らがホンダナをする理由", "/information/vision"  %></li>
+    <li><%= link_to "使いかた", "/information/guide"  %></li>
 		<li><%= link_to "よくある質問", "/information/faq"  %></li>
 		<li><%= link_to "プライバシーポリシー", "/information/privacy"  %></li>
 		<li><%= link_to "利用規約", "/information/term"  %></li>
