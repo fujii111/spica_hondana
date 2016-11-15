@@ -85,7 +85,16 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 
 <div id="main">
 <%= link_to  (image_tag 'hondana_top.jpg', alt: 'Google Playへ Androidアプリ「ホンダナ」はこちら',id:'top'), "https://play.google.com/store/apps/details?id=com.books.hondana"  %>
-
+<div class="newsE">
+<span class="news_t">News!</span>
+<div class="contentsbox">
+<ul>
+<li><span class="date">2016.11.15</span>ホンダナはWebからアプリへ移行いたします。新規会員登録は<%= link_to "こちらから", "https://play.google.com/store/apps/details?id=com.books.hondana"  %></br>iPhoneアプリも作成中です!</li>
+<li><span class="date">2016.10.13</span><%= link_to "「ホンダナ」Androidアプリをリリース!", "https://play.google.com/store/apps/details?id=com.books.hondana"  %></li>
+  
+  </ul>
+</div>
+</div>
 		<h3>新着の本　　<%= link_to "→もっと見る", "/books/list"  %></h3>
 	<div class="top_new_books">
 		<%= render "/books/list" %>
