@@ -40,7 +40,7 @@
 <ul>
 <% if session[:id].blank? %>
 <li><%= link_to  (image_tag 'howto.gif', alt: '使いかた'), "/information/guide"  %></li>
-<li><%= link_to  (image_tag 'member_free.gif', alt: '会員登録',class: 'free' ), "/members/new"  %></li>
+<!-- <li><%= link_to  (image_tag 'member_free.gif', alt: '会員登録',class: 'free' ), "/members/new"  %></li> -->
 <li><%= link_to (image_tag 'login.gif', alt: 'ログイン'), "/members/login"  %></li>
 					<% else %>
 					<% if session[:login_id] == "spica" %>
