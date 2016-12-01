@@ -26,62 +26,9 @@
 <body>
 
 
-<div id="header">
-<h1><%= link_to (image_tag 'logo_alpha.gif', alt: 'ホンダナトップページへ'), "/"  %>
-<div id="menu">
-<div id="searchform">
-			<%= form_tag({controller: :books, action: :search}, method: :get) do %>
-		    	<%= text_field_tag :keyword,@keyword, size: "15", maxlength: "20", placeholder: "著者名・キーワードで検索" %>
-			    <%= image_submit_tag("search.png",id:'searchBtn') %>
-				<%= link_to "詳細検索", "/books/search_edit" ,id:'search' %>
-			<% end %>
-			<script>
-window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
-</script>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-		</div>
-
-
-<div id="globalnavi">
-<ul>
-<% if session[:id].blank? %>
-<li><%= link_to  (image_tag 'howto.gif', alt: '使いかた'), "/information/guide"  %></li>
-<!-- <li><%= link_to  (image_tag 'member_free.gif', alt: '会員登録',class: 'free' ), "/members/new" %></li> -->
-<li><%= link_to (image_tag 'login.gif', alt: 'ログイン'), "/members/login"  %></li>
-					<% else %>
-					<% if session[:login_id] == "spica" %>
-					<li class="kanri"><%= link_to "[管理者メニュー]", "/information/admin"  %></li>
-					<% end %>
-					
-					<li class="welcome">ようこそ <span class="strong"><%= session[:nickname] %></span> さん
-					現在 <span class="strong"><%= session[:point] %></span> ブク</li>
-
-					<li><%= link_to "[評価を見る]", "/members/evaluation"  %></li>
-					<li><%= link_to  (image_tag 'howto.gif', alt: '使いかた'), "/information/guide"  %></li>
-					<li><%= link_to (image_tag 'logout.gif', alt: 'ログアウト'), "/members/logout"  %></li>
-					
-				<% end %>
-
-</ul>
-</div>
-</div></h1>
-<% if session[:id].blank? %>
-	<% else %>
-<div class="menu">
-	<p><%= link_to (image_tag 'mypage.gif', alt: 'マイページ', class: 'button'), "/collections"  %></p>
-	<p><%= link_to (image_tag 'profile.gif', alt: 'プロフィール', class: 'button'), "/members/show"  %></p>
-	<p><%= link_to (image_tag 'exchange_all.gif', alt: '交換一覧', class: 'button'), "/collections/list"  %></p>
-	<p><%= link_to (image_tag session[:message] ? 'notice_new.gif' : 'notice.gif', alt: '会員向け告知', class: 'button'), "/messages/"  %></p>
-</div>
-<% end %>
-<!--/ #header--></div>
+<!-- <div id="header">
+<h1><%= link_to (image_tag 'hondana_logo.gif', alt: 'ホンダナトップページへ'), "/"  %></h1>
+</div> --><!--/ #header-->
 
 <div id="main">
 <%= link_to  (image_tag 'hondana_top.jpg', alt: 'Google Playへ Androidアプリ「ホンダナ」はこちら',id:'top'), "https://play.google.com/store/apps/details?id=com.books.hondana"  %>
@@ -95,23 +42,18 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
   </ul>
 </div>
 </div>
-		<h3>新着の本　　<%= link_to "→もっと見る", "/books/list"  %></h3>
-	<div class="top_new_books">
-		<%= render "/books/list" %>
-	</div>
-</div>
 <div class="magazine">
-<%= link_to (image_tag 'magazine_banner.jpg', alt: 'ホンダナマガジン'), "/magazine"  %>
+<%= link_to (image_tag 'magazine_banner940.jpg', alt: 'ホンダナマガジン'), "/magazine"  %>
+</div>
 </div>
 <div id="footer">
 		<ul class="menu">
 		<li  class="first"><%= link_to "僕らがホンダナをする理由", "/information/vision"  %></li>
-    <li><%= link_to "使いかた", "/information/guide"  %></li>
-		<li><%= link_to "よくある質問", "/information/faq"  %></li>
-		<li><%= link_to "プライバシーポリシー", "/information/privacy"  %></li>
-		<li><%= link_to "利用規約", "/information/term"  %></li>
 		<li><%= link_to "運営会社", "/information/aboutus"  %></li>
+    <li><%= link_to "ホンダナマガジン", "/magazine"  %></li>
 		<li><%= link_to "お問い合わせ", "/information/inquiry"  %></li>
-　　　　　　</ul>
+    </ul>
+</div>
+
 </body>
 </html>
